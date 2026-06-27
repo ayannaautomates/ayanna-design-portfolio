@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type MouseEvent } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 
 export type NavItem = {
@@ -15,6 +16,7 @@ type MenuHoverEffectsProps = {
   className?: string;
   activeSection?: string | null;
   pathname?: string;
+  onMenuOpenChange?: (open: boolean) => void;
 };
 
 function isItemActive(
@@ -102,17 +104,75 @@ export default function MenuHoverEffects({
   className = "",
   activeSection = null,
   pathname = "/",
+  onMenuOpenChange,
 }: MenuHoverEffectsProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const setMenuOpen = (open: boolean) => {
+    setIsMenuOpen(open);
+    onMenuOpenChange?.(open);
+  };
+
+  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => setMenuOpen(!isMenuOpen);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isMenuOpen]);
+
+  const mobileMenu =
+    mounted && isMenuOpen
+      ? createPortal(
+          <div
+            id="menu-hover-panel"
+            className="fixed inset-0 z-[50] flex items-center justify-center bg-navy/95 backdrop-blur-md md:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Main menu"
+          >
+            <ul className="flex flex-col items-center gap-6">
+              {items.map((item) => (
+                <li key={item.href} className="list-none">
+                  <NavLink
+                    item={item}
+                    isActive={isItemActive(item, pathname, activeSection)}
+                    onNavigate={closeMenu}
+                    pathname={pathname}
+                    className="text-lg"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>,
+          document.body,
+        )
+      : null;
 
   return (
     <nav className={className} aria-label="Main navigation">
       <button
         type="button"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden relative z-20 p-2 min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-1.5"
+        onClick={toggleMenu}
+        className="md:hidden relative z-[60] p-2 min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-1.5"
         aria-expanded={isMenuOpen}
         aria-controls="menu-hover-panel"
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -134,23 +194,17 @@ export default function MenuHoverEffects({
         />
       </button>
 
-      <div
-        id="menu-hover-panel"
-        className={`${
-          isMenuOpen
-            ? "fixed inset-0 z-10 flex items-center justify-center bg-navy/95 backdrop-blur-md md:static md:bg-transparent md:backdrop-blur-none md:flex md:items-center"
-            : "hidden md:block"
-        }`}
-      >
-        <ul className="flex flex-col items-center gap-6 md:flex-row md:gap-2 lg:gap-4">
+      {mobileMenu}
+
+      <div className="hidden md:block">
+        <ul className="flex flex-row items-center gap-2 lg:gap-4">
           {items.map((item) => (
             <li key={item.href} className="list-none">
               <NavLink
                 item={item}
                 isActive={isItemActive(item, pathname, activeSection)}
-                onNavigate={closeMenu}
                 pathname={pathname}
-                className="text-lg md:text-sm"
+                className="text-sm"
               />
             </li>
           ))}

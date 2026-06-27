@@ -50,6 +50,7 @@ export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>("hero");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 32);
@@ -84,8 +85,10 @@ export default function Header() {
   return (
     <header
       role="banner"
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 transition-all duration-200 ${
+        menuOpen ? "z-[60]" : "z-40"
+      } ${
+        scrolled || menuOpen
           ? "bg-navy/90 backdrop-blur-md border-b border-cyan/15"
           : "bg-transparent"
       }`}
@@ -112,6 +115,7 @@ export default function Header() {
           items={navLinks}
           pathname={pathname}
           activeSection={activeSection}
+          onMenuOpenChange={setMenuOpen}
         />
       </div>
     </header>
