@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const socialLinks = [
@@ -39,9 +40,13 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 border border-cyan/40 flex items-center justify-center text-cyan font-display text-sm shadow-neon-cyan-sm">
-                A
-              </span>
+              <Image
+                src="/logo-mark.png"
+                alt=""
+                width={40}
+                height={40}
+                className="w-10 h-10 shrink-0 object-contain drop-shadow-[0_0_8px_rgba(125,249,255,0.35)]"
+              />
               <span className="font-display text-base uppercase tracking-wider text-ghost">
                 Ayanna
               </span>
