@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
+import { assetUrl } from "@/lib/assets";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -14,19 +15,19 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["portfolio", "business"],
     icons: [
       {
-        src: "/favicon.png",
+        src: assetUrl("/favicon.png"),
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/favicon.png",
+        src: assetUrl("/favicon.png"),
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "/favicon-192.png",
+        src: assetUrl("/favicon-192.png"),
         sizes: "192x192",
         type: "image/png",
         purpose: "any",

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MenuHoverEffects, { type NavItem } from "./MenuHoverEffects";
+import { assetUrl } from "@/lib/assets";
 
 const navLinks: NavItem[] = [
   { label: "Home", href: "/#hero", section: "hero" },
@@ -100,10 +101,11 @@ export default function Header() {
           aria-label="Ayanna — Home"
         >
           <Image
-            src="/logo-mark.png"
+            src={assetUrl("/logo-mark.png")}
             alt=""
             width={32}
             height={32}
+            unoptimized
             className="w-8 h-8 shrink-0 object-contain drop-shadow-[0_0_8px_rgba(125,249,255,0.35)] group-hover:drop-shadow-[0_0_12px_rgba(125,249,255,0.5)] transition-[filter]"
           />
           <span className="font-display text-sm text-ghost tracking-wider hidden sm:block uppercase">

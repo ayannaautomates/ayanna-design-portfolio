@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { assetUrl } from "@/lib/assets";
 
 const socialLinks = [
   {
@@ -41,10 +42,11 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src="/logo-mark.png"
+                src={assetUrl("/logo-mark.png")}
                 alt=""
                 width={40}
                 height={40}
+                unoptimized
                 className="w-10 h-10 shrink-0 object-contain drop-shadow-[0_0_8px_rgba(125,249,255,0.35)]"
               />
               <span className="font-display text-base uppercase tracking-wider text-ghost">

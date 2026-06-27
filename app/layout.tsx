@@ -7,6 +7,7 @@ import ConsentBanner from "@/components/ConsentBanner";
 import Analytics from "@/components/Analytics";
 import PwaRegister from "@/components/PwaRegister";
 import { siteConfig } from "@/lib/site";
+import { assetUrl } from "@/lib/assets";
 import { getPersonJsonLd, getWebsiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
@@ -68,12 +69,12 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: assetUrl("/favicon.ico"), sizes: "48x48" },
+      { url: assetUrl("/favicon-32x32.png"), sizes: "32x32", type: "image/png" },
+      { url: assetUrl("/favicon-16x16.png"), sizes: "16x16", type: "image/png" },
     ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/favicon.ico",
+    apple: [{ url: assetUrl("/apple-icon.png"), sizes: "180x180", type: "image/png" }],
+    shortcut: assetUrl("/favicon.ico"),
   },
   appleWebApp: {
     capable: true,
@@ -93,20 +94,20 @@ export default function RootLayout({
       className={`${audiowide.variable} ${jetbrains.variable} h-full scroll-smooth`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href={assetUrl("/favicon.ico")} sizes="48x48" />
         <link
           rel="icon"
-          href="/favicon-32x32.png"
+          href={assetUrl("/favicon-32x32.png")}
           type="image/png"
           sizes="32x32"
         />
         <link
           rel="icon"
-          href="/favicon-16x16.png"
+          href={assetUrl("/favicon-16x16.png")}
           type="image/png"
           sizes="16x16"
         />
-        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+        <link rel="apple-touch-icon" href={assetUrl("/apple-icon.png")} sizes="180x180" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
