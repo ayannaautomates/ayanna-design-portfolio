@@ -6,30 +6,21 @@ type CaseStudyContentProps = {
   caseStudy: CaseStudy;
 };
 
-function SectionBlock({
-  section,
-}: {
-  section: CaseStudy["sections"][number];
-}) {
+function PhaseBlock({ phase }: { phase: CaseStudy["phases"][number] }) {
   return (
-    <section id={section.id} className="scroll-mt-24">
-      <p className="hud-label text-cyan mb-3">[ {section.label} ]</p>
-      <h2 className="font-display text-xl md:text-2xl uppercase tracking-wider text-ghost mb-5 leading-tight">
-        {section.title}
+    <section id={phase.id} className="relative scroll-mt-28 pl-10 md:pl-14">
+      <span
+        className="absolute left-0 top-1 flex h-7 w-7 items-center justify-center border border-cyan/40 bg-navy font-mono text-[10px] text-cyan"
+        aria-hidden="true"
+      >
+        {phase.step}
+      </span>
+
+      <h2 className="font-display text-lg md:text-xl uppercase tracking-wider text-ghost mb-4 leading-tight">
+        {phase.title}
       </h2>
 
-      {section.quote && (
-        <blockquote className="mb-6 neon-border border-l-4 border-l-violet bg-violet/5 px-5 py-4">
-          <p className="font-display text-lg md:text-xl text-ghost italic leading-snug">
-            &ldquo;{section.quote.text}&rdquo;
-          </p>
-          <footer className="mt-3 hud-label text-violet">
-            — {section.quote.attribution}
-          </footer>
-        </blockquote>
-      )}
-
-      {section.paragraphs?.map((paragraph) => (
+      {phase.paragraphs?.map((paragraph) => (
         <p
           key={paragraph.slice(0, 48)}
           className="text-ghost-muted text-sm font-mono leading-relaxed mb-4 last:mb-0"
@@ -38,9 +29,9 @@ function SectionBlock({
         </p>
       ))}
 
-      {section.bullets && section.bullets.length > 0 && (
+      {phase.bullets && phase.bullets.length > 0 && (
         <ul className="mt-4 space-y-3">
-          {section.bullets.map((bullet) => (
+          {phase.bullets.map((bullet) => (
             <li
               key={bullet.slice(0, 48)}
               className="flex gap-3 text-ghost-muted text-sm font-mono leading-relaxed"
@@ -62,94 +53,125 @@ export default function CaseStudyContent({
   caseStudy,
 }: CaseStudyContentProps) {
   return (
-    <>
-      <p className="hud-label text-violet mb-2">
-        {project.year} // {project.category} // {project.title}
-      </p>
-      <p className="hud-label text-cyan mb-3">CASE STUDY</p>
-
-      <h1 className="font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-wider text-ghost mb-4 leading-tight">
-        {caseStudy.headline}
-      </h1>
-
-      <p className="text-ghost-muted text-sm font-mono leading-relaxed mb-8">
-        {caseStudy.subtitle}
-      </p>
-
-      <dl className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
-        {caseStudy.meta.map((item) => (
-          <div
-            key={item.label}
-            className="neon-border bg-navy-light/30 px-3 py-3 min-w-0"
-          >
-            <dt className="hud-label text-cyan mb-1">{item.label}</dt>
-            <dd className="text-ghost text-xs font-mono leading-relaxed break-words">
-              {item.value}
-            </dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
-        {caseStudy.stats.map((stat) => (
-          <div
-            key={stat.label}
-            className="neon-border bg-navy-light/40 px-4 py-5 text-center"
-          >
-            <p className="font-display text-2xl md:text-3xl text-cyan mb-2">
-              {stat.value}
-            </p>
-            <p className="text-ghost-muted text-xs font-mono leading-relaxed">
-              {stat.label}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div className="h-px bg-gradient-to-r from-cyan/50 via-violet/30 to-transparent mb-12" />
-
-      <div className="space-y-12 md:space-y-14">
-        {caseStudy.sections.map((section) => (
-          <SectionBlock key={section.id} section={section} />
-        ))}
-      </div>
-
-      <div className="mt-12 pt-8 border-t border-cyan/15">
-        <p className="hud-label text-cyan mb-4">[ STACK ]</p>
-        <ul className="flex flex-wrap gap-3">
-          {project.tags.map((tag) => (
-            <li
-              key={tag}
-              className="hud-label text-violet border border-violet/30 px-3 py-1.5 bg-violet/5"
+    <div className="lg:grid lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-10 xl:gap-14">
+      <aside className="hidden lg:block">
+        <nav
+          aria-label="Case study sections"
+          className="sticky top-24 space-y-1 border-l border-cyan/15 pl-4"
+        >
+          <p className="hud-label text-ghost-dim mb-4 -ml-4 pl-4">SECTIONS</p>
+          {caseStudy.phases.map((phase) => (
+            <a
+              key={phase.id}
+              href={`#${phase.id}`}
+              className="group flex items-baseline gap-2 py-1.5 text-xs font-mono text-ghost-muted transition-colors hover:text-cyan"
             >
-              {tag}
-            </li>
+              <span className="text-cyan/60 group-hover:text-cyan">
+                {phase.step}
+              </span>
+              <span className="line-clamp-2 leading-snug">{phase.title}</span>
+            </a>
           ))}
-        </ul>
-      </div>
+        </nav>
+      </aside>
 
-      <div className="mt-10 flex flex-wrap gap-4">
-        {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary inline-block"
-          >
-            &gt; VIEW LIVE
-          </a>
+      <div className="min-w-0">
+        <p className="hud-label text-cyan mb-3">[ DEPLOYMENT DOSSIER ]</p>
+
+        <h1 className="font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-wider text-ghost mb-4 leading-tight">
+          {caseStudy.title}
+        </h1>
+
+        <p className="text-ghost-muted text-sm font-mono leading-relaxed mb-8">
+          {caseStudy.subtitle}
+        </p>
+
+        <dl className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+          {caseStudy.meta.map((item) => (
+            <div
+              key={item.label}
+              className="neon-border bg-navy-light/30 px-3 py-3 min-w-0"
+            >
+              <dt className="hud-label text-cyan mb-1">{item.label}</dt>
+              <dd className="text-ghost text-xs font-mono leading-relaxed break-words">
+                {item.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          {caseStudy.stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="neon-border bg-navy-light/40 px-4 py-5 text-center"
+            >
+              <p className="font-display text-2xl md:text-3xl text-cyan mb-2">
+                {stat.value}
+              </p>
+              <p className="text-ghost-muted text-xs font-mono leading-relaxed">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {caseStudy.testimonial && (
+          <blockquote className="mb-12 px-5 py-4 border-y border-violet/30 bg-gradient-to-r from-violet/10 to-transparent">
+            <p className="font-display text-base md:text-lg text-ghost leading-snug">
+              &ldquo;{caseStudy.testimonial.text}&rdquo;
+            </p>
+            <footer className="mt-2 hud-label text-violet">
+              — {caseStudy.testimonial.attribution}
+            </footer>
+          </blockquote>
         )}
-        {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-code inline-block"
-          >
-            &gt; VIEW CODE
-          </a>
-        )}
+
+        <div className="h-px bg-gradient-to-r from-cyan/50 via-violet/30 to-transparent mb-12" />
+
+        <div className="relative space-y-12 md:space-y-14 pb-4 before:absolute before:left-[13px] before:top-2 before:bottom-2 before:w-px before:bg-gradient-to-b before:from-cyan/40 before:via-violet/20 before:to-transparent">
+          {caseStudy.phases.map((phase) => (
+            <PhaseBlock key={phase.id} phase={phase} />
+          ))}
+        </div>
+
+        <div className="mt-10 pt-8 border-t border-cyan/15">
+          <p className="hud-label text-cyan mb-4">[ STACK ]</p>
+          <ul className="flex flex-wrap gap-3">
+            {project.tags.map((tag) => (
+              <li
+                key={tag}
+                className="hud-label text-violet border border-violet/30 px-3 py-1.5 bg-violet/5"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-10 flex flex-wrap gap-4">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-block"
+            >
+              &gt; VIEW LIVE
+            </a>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-code inline-block"
+            >
+              &gt; VIEW CODE
+            </a>
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }

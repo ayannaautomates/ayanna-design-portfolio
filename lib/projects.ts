@@ -14,7 +14,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "supply-sa-vendor-assistant",
-    title: "Supply SA Vendor Assistant",
+    title: "Supply SA Vendor Chatbot",
     year: 2026,
     category: "AI Chatbot",
     description:

@@ -8,27 +8,27 @@ export type CaseStudyQuote = {
   attribution: string;
 };
 
-export type CaseStudySection = {
+export type CaseStudyPhase = {
   id: string;
-  label: string;
+  step: string;
   title: string;
   paragraphs?: string[];
   bullets?: string[];
-  quote?: CaseStudyQuote;
 };
 
 export type CaseStudy = {
   slug: string;
-  headline: string;
+  title: string;
   subtitle: string;
   meta: Array<{ label: string; value: string }>;
   stats: CaseStudyStat[];
-  sections: CaseStudySection[];
+  testimonial?: CaseStudyQuote;
+  phases: CaseStudyPhase[];
 };
 
 export const supplySaCaseStudy: CaseStudy = {
   slug: "supply-sa-vendor-assistant",
-  headline: "Closing the Gap Between Owning AI and Having It Actually Work",
+  title: "Supply SA Vendor Chatbot",
   subtitle:
     "How Supply SA replaced a 30–45 minute manual certification walkthrough with a production AI chatbot — without introducing a single hallucinated answer.",
   meta: [
@@ -53,10 +53,14 @@ export const supplySaCaseStudy: CaseStudy = {
       label: "Annual staff capacity value",
     },
   ],
-  sections: [
+  testimonial: {
+    text: "This is AMAZING!",
+    attribution: "Melanie M., Executive Director, Supply SA",
+  },
+  phases: [
     {
       id: "summary",
-      label: "EXECUTIVE SUMMARY",
+      step: "01",
       title: "Executive Summary",
       paragraphs: [
         "Supply SA partnered with Soulwire Studio to eliminate a costly bottleneck in its vendor certification process: every applicant's first step was a live, one-on-one walkthrough with a staff specialist, just to learn which of 40+ possible documents applied to their situation. At 10–15 vendors a week and 30–45 minutes per walkthrough, that bottleneck was consuming roughly 34 hours of specialist time every month — confirmed by Supply SA staff — time that didn't require specialist judgment, only correctly-sequenced information.",
@@ -65,8 +69,8 @@ export const supplySaCaseStudy: CaseStudy = {
     },
     {
       id: "problem",
-      label: "THE PROBLEM",
-      title: "Real Specialist Knowledge, Locked Behind a Live Conversation",
+      step: "02",
+      title: "The Problem",
       paragraphs: [
         "Vendor certification document requirements aren't one-size-fits-all. What a vendor needs to submit depends on a web of interacting factors: new application vs. renewal, which certification(s) they're pursuing, entity structure (sole proprietor, partnership, corporation, LLC), industry, jurisdiction, ownership structure, and more. A construction LLC seeking MBE and VBE certification needs a meaningfully different document set than a sole-proprietor consultant renewing an SBE.",
         "Supply SA didn't need a chatbot that could talk. They needed one that could be trusted with a compliance-critical conversation, every single time.",
@@ -78,9 +82,27 @@ export const supplySaCaseStudy: CaseStudy = {
       ],
     },
     {
+      id: "solution",
+      step: "03",
+      title: "The Solution",
+      paragraphs: [
+        "The central architectural decision: certification requirements are never decided by the language model. A branching rules engine — plain code, not a prompt — takes a vendor's profile and computes exactly which document groups apply. The model's only job is narrating that computed result conversationally. It cannot invent, omit, or guess at a requirement.",
+        "This was not a demo bot. It was built to run continuously in a real, revenue- and compliance-relevant environment from day one.",
+      ],
+      bullets: [
+        "Claude API (Haiku 4.5) for cost-optimized, high-volume conversational responses",
+        "A deterministic JavaScript rules engine for all compliance-critical logic",
+        "A dedicated knowledge-grounding layer sourced from three real internal documents: a 93-rule, 46-document-type validation workbook, the internal Certification Navigation SOP, and the live Supply SA FAQ page",
+        "A Node.js/Express backend on Render, with a vanilla HTML/CSS/JS frontend embedded directly into the Supply SA WordPress site",
+        "A live hallucination caught and root-caused — grounding architecture rebuilt so every “why” answer pulls from real source material",
+        "A silent substring-matching bug caught in testing before it reached vendors",
+        "Certification vs. contracting distinction scoped correctly in the bot's persona",
+      ],
+    },
+    {
       id: "vision",
-      label: "THE VISION",
-      title: "Automate the Walkthrough Without Losing the Nuance",
+      step: "04",
+      title: "The Vision",
       paragraphs: [
         "The goal was specific and uncompromising: replicate the judgment of a trained Certification Navigator, on demand, at zero marginal cost per conversation — without the system ever inventing a requirement, fabricating a reason, or overstepping into a determination that belongs to certification staff.",
       ],
@@ -93,23 +115,8 @@ export const supplySaCaseStudy: CaseStudy = {
       ],
     },
     {
-      id: "solution",
-      label: "THE SOLUTION",
-      title: "A Deterministic Core With an AI Voice",
-      paragraphs: [
-        "The central architectural decision: certification requirements are never decided by the language model. A branching rules engine — plain code, not a prompt — takes a vendor's profile and computes exactly which document groups apply. The model's only job is narrating that computed result conversationally. It cannot invent, omit, or guess at a requirement.",
-        "This was not a demo bot. It was built to run continuously in a real, revenue- and compliance-relevant environment from day one.",
-      ],
-      bullets: [
-        "Claude API (Haiku 4.5) for cost-optimized, high-volume conversational responses",
-        "A deterministic JavaScript rules engine for all compliance-critical logic",
-        "A dedicated knowledge-grounding layer sourced from three real internal documents: a 93-rule, 46-document-type validation workbook, the internal Certification Navigation SOP, and the live Supply SA FAQ page",
-        "A Node.js/Express backend on Render, with a vanilla HTML/CSS/JS frontend embedded directly into the Supply SA WordPress site",
-      ],
-    },
-    {
       id: "how-it-works",
-      label: "HOW IT WORKS",
+      step: "05",
       title: "How It Works",
       paragraphs: [
         "Every vendor who opens the “Check Certification Readiness” flow is walked through profile questions — application type, certification sought, entity structure, industry, jurisdiction, ownership split — that branch automatically into only the document groups relevant to them, typically 7–11 screens instead of one per document. The flow ends in a tailored ready/missing summary. Renewals short-circuit into a separate, correct 6-item checklist instead of running the full new-applicant flow.",
@@ -117,25 +124,8 @@ export const supplySaCaseStudy: CaseStudy = {
       ],
     },
     {
-      id: "differentiators",
-      label: "WHAT MAKES IT DIFFERENT",
-      title: "What Makes This System Different",
-      quote: {
-        text: "This is AMAZING!",
-        attribution: "Melanie M., Executive Director, Supply SA",
-      },
-      paragraphs: [
-        "This wasn't “LLM plus prompt.” The build process surfaced and fixed two real production issues that a less rigorous build would have shipped with:",
-      ],
-      bullets: [
-        "A live hallucination, caught and root-caused. Asked what a bank letter was for, the model invented a plausible-sounding but false explanation involving ACH payment setup. The real reason — verifying the business bank account and initial capital contribution — existed elsewhere in the system but wasn't connected to that code path. The fix wasn't a better prompt; it was a rebuilt grounding architecture so every “why” answer pulls from real source material.",
-        "A silent matching bug. A substring-matching bug (“office” falsely matching inside “officers”) would have quietly reintroduced bad answers if left unaddressed — caught through direct testing, not user complaints.",
-        "Correct scoping of a sensitive distinction. Early responses blurred certification with contracting, implying certified vendors were “registered to bid.” The bot's core persona was rewritten to state the distinction explicitly, while still pointing vendors toward a Procurement Navigator for real contract opportunities.",
-      ],
-    },
-    {
       id: "results",
-      label: "MEASURABLE RESULTS",
+      step: "06",
       title: "Measurable Results",
       bullets: [
         "~34 hours of specialist time freed per month (10–15 vendors/week × 30–45 min/walkthrough, confirmed by Supply SA staff) — roughly $1,000/month, ~$11,500–12,000/year in staff capacity, redirected from repetitive walkthroughs to higher-value work.",
@@ -147,7 +137,7 @@ export const supplySaCaseStudy: CaseStudy = {
     },
     {
       id: "impact",
-      label: "BUSINESS IMPACT",
+      step: "07",
       title: "Business Impact",
       paragraphs: [
         "What changed wasn't just call volume off a specialist's desk — it was the shape of their job. Routine, repetitive walkthroughs that consumed roughly a third of a specialist's week now run unattended, correctly, every time. The specialist time freed up goes toward the parts of the job that actually require a trained human: eligibility judgment calls, complex edge cases, and the relationship-building work of helping vendors succeed.",
@@ -156,19 +146,11 @@ export const supplySaCaseStudy: CaseStudy = {
     },
     {
       id: "why-it-matters",
-      label: "WHY THIS MATTERS",
+      step: "08",
       title: "Why This Matters",
       paragraphs: [
         "For any organization whose value depends on correctly explaining a complex, rules-bound process — certification bodies, licensing boards, compliance-heavy services — the lesson generalizes: AI doesn't earn trust by being clever. It earns trust by being constrained. The parts of a system where being wrong has real consequences should run as auditable code with no model inference involved. The parts where natural language genuinely helps — explaining, reassuring, routing — are exactly where to point the AI, and nowhere else.",
-      ],
-    },
-    {
-      id: "takeaway",
-      label: "THE TAKEAWAY",
-      title: "The Takeaway",
-      paragraphs: [
-        "This isn't a FAQ bot, and it isn't a demo. It's a production system handling a compliance-critical conversation correctly, at scale, with a documented track record of catching and fixing its own failure modes before they reached a vendor.",
-        "Supply SA didn't just add a chatbot. They removed a staffing bottleneck — without trading away the accuracy their certification process depends on.",
+        "This isn't a FAQ bot, and it isn't a demo. It's a production system handling a compliance-critical conversation correctly, at scale, with a documented track record of catching and fixing its own failure modes before they reached a vendor. Supply SA didn't just add a chatbot. They removed a staffing bottleneck — without trading away the accuracy their certification process depends on.",
       ],
     },
   ],
