@@ -82,8 +82,23 @@ export const supplySaCaseStudy: CaseStudy = {
       ],
     },
     {
-      id: "solution",
+      id: "vision",
       step: "03",
+      title: "The Vision",
+      paragraphs: [
+        "The goal was specific and uncompromising: replicate the judgment of a trained Certification Navigator, on demand, at zero marginal cost per conversation — without the system ever inventing a requirement, fabricating a reason, or overstepping into a determination that belongs to certification staff.",
+      ],
+      bullets: [
+        "Compute exactly which documents apply to a given vendor's profile, with zero room for improvisation",
+        "Explain why each document is required, grounded in real internal guidance — not the model's general knowledge",
+        "Correctly distinguish certification (what Supply SA does) from contracting (what vendors separately register for elsewhere)",
+        "Escalate cleanly to real staff for eligibility judgment calls and anything outside its scope",
+        "Run continuously in production, not just survive a demo",
+      ],
+    },
+    {
+      id: "solution",
+      step: "04",
       title: "The Solution",
       paragraphs: [
         "The central architectural decision: certification requirements are never decided by the language model. A branching rules engine — plain code, not a prompt — takes a vendor's profile and computes exactly which document groups apply. The model's only job is narrating that computed result conversationally. It cannot invent, omit, or guess at a requirement.",
@@ -97,21 +112,6 @@ export const supplySaCaseStudy: CaseStudy = {
         "A live hallucination caught and root-caused — grounding architecture rebuilt so every “why” answer pulls from real source material",
         "A silent substring-matching bug caught in testing before it reached vendors",
         "Certification vs. contracting distinction scoped correctly in the bot's persona",
-      ],
-    },
-    {
-      id: "vision",
-      step: "04",
-      title: "The Vision",
-      paragraphs: [
-        "The goal was specific and uncompromising: replicate the judgment of a trained Certification Navigator, on demand, at zero marginal cost per conversation — without the system ever inventing a requirement, fabricating a reason, or overstepping into a determination that belongs to certification staff.",
-      ],
-      bullets: [
-        "Compute exactly which documents apply to a given vendor's profile, with zero room for improvisation",
-        "Explain why each document is required, grounded in real internal guidance — not the model's general knowledge",
-        "Correctly distinguish certification (what Supply SA does) from contracting (what vendors separately register for elsewhere)",
-        "Escalate cleanly to real staff for eligibility judgment calls and anything outside its scope",
-        "Run continuously in production, not just survive a demo",
       ],
     },
     {
