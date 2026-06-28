@@ -18,9 +18,9 @@ export const projects: Project[] = [
     year: 2026,
     category: "AI Chatbot",
     description:
-      "A production AI chatbot for a government certification agency, replacing a manual document walkthrough.",
+      "A production AI chatbot that replaced a 30–45 minute manual certification walkthrough — zero hallucinated compliance answers.",
     longDescription:
-      "Supply SA Vendor Assistant is a production AI chatbot built for a government certification agency, replacing a manual, specialist-led document walkthrough. It runs a deterministic JavaScript rules engine for certification logic — the AI never decides what documents a vendor needs, only explains the result — grounded in real internal source material to eliminate hallucination risk. The guided flow branches a 30–40 step process down to 7–11 screens per vendor, freeing an estimated 34 hours of specialist time a month (~$11,500–12,000/year in staff capacity), and runs live on supply-sa.org for fractions of a cent per conversation.",
+      "Supply SA Vendor Assistant is a production AI chatbot built for a government certification agency. A deterministic rules engine computes document requirements; the AI only explains the result, grounded in real internal source material.",
     image: "/projects/supply-sa-vendor-assistant.png",
     tags: [
       "Claude API",
