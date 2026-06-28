@@ -23,7 +23,7 @@ function PhaseBlock({ phase }: { phase: CaseStudy["phases"][number] }) {
       {phase.paragraphs?.map((paragraph) => (
         <p
           key={paragraph.slice(0, 48)}
-          className="text-ghost-muted text-sm font-mono leading-relaxed mb-4 last:mb-0"
+          className="text-ghost-muted text-sm md:text-base font-mono leading-relaxed mb-4 last:mb-0"
         >
           {paragraph}
         </p>
@@ -34,7 +34,7 @@ function PhaseBlock({ phase }: { phase: CaseStudy["phases"][number] }) {
           {phase.bullets.map((bullet) => (
             <li
               key={bullet.slice(0, 48)}
-              className="flex gap-3 text-ghost-muted text-sm font-mono leading-relaxed"
+              className="flex gap-3 text-ghost-muted text-sm md:text-base font-mono leading-relaxed"
             >
               <span className="text-cyan shrink-0 mt-0.5" aria-hidden="true">
                 &gt;
@@ -53,7 +53,7 @@ export default function CaseStudyContent({
   caseStudy,
 }: CaseStudyContentProps) {
   return (
-    <div className="lg:grid lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-10 xl:gap-14">
+    <div className="lg:grid lg:grid-cols-[12rem_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[14rem_minmax(0,1fr)] xl:gap-16">
       <aside className="hidden lg:block">
         <nav
           aria-label="Case study sections"
@@ -82,11 +82,11 @@ export default function CaseStudyContent({
           {caseStudy.title}
         </h1>
 
-        <p className="text-ghost-muted text-sm font-mono leading-relaxed mb-8">
+        <p className="text-ghost-muted text-sm md:text-base font-mono leading-relaxed mb-8">
           {caseStudy.subtitle}
         </p>
 
-        <dl className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+        <dl className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 mb-8">
           {caseStudy.meta.map((item) => (
             <div
               key={item.label}

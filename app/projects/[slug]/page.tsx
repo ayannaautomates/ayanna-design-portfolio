@@ -84,7 +84,7 @@ export default async function ProjectPage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
         </div>
 
-        <div className="mx-auto max-w-4xl px-6 md:px-12 -mt-16 relative z-10 pb-24">
+        <div className="mx-auto w-full max-w-6xl xl:max-w-7xl px-6 md:px-12 lg:px-16 -mt-16 relative z-10 pb-24">
           <Link
             href="/projects"
             className="hud-label text-cyan hover:text-violet inline-flex items-center gap-2 mb-8 transition-colors"
@@ -114,7 +114,7 @@ export default async function ProjectPage({ params }: Props) {
                   alt={`${project.title} project preview`}
                   width={1200}
                   height={750}
-                  sizes="(max-width: 768px) 100vw, 768px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 1152px, 1280px"
                   unoptimized={isSvg}
                   className="w-full h-auto object-cover"
                 />
