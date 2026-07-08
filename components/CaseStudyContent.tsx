@@ -16,21 +16,21 @@ function PhaseBlock({ phase }: { phase: CaseStudy["phases"][number] }) {
         {phase.step}
       </span>
 
-      <h2 className="font-display text-lg md:text-xl uppercase tracking-wider text-ghost mb-4 leading-tight">
+      <h2 className="font-display text-lg md:text-xl uppercase tracking-wider text-ghost mb-3 leading-tight">
         {phase.title}
       </h2>
 
       {phase.paragraphs?.map((paragraph) => (
         <p
           key={paragraph.slice(0, 48)}
-          className="text-ghost-muted text-sm md:text-base font-mono leading-relaxed mb-4 last:mb-0"
+          className="text-ghost-muted text-sm md:text-base font-mono leading-relaxed mb-3 last:mb-0"
         >
           {paragraph}
         </p>
       ))}
 
       {phase.bullets && phase.bullets.length > 0 && (
-        <ul className="mt-4 space-y-3">
+        <ul className="mt-3 space-y-2">
           {phase.bullets.map((bullet) => (
             <li
               key={bullet.slice(0, 48)}
@@ -145,7 +145,7 @@ export default function CaseStudyContent({
 
         <div className="h-px bg-gradient-to-r from-cyan/50 via-violet/30 to-transparent mb-12" />
 
-        <div className="relative space-y-12 md:space-y-14 pb-4 before:absolute before:left-[13px] before:top-2 before:bottom-2 before:w-px before:bg-gradient-to-b before:from-cyan/40 before:via-violet/20 before:to-transparent">
+        <div className="relative space-y-8 md:space-y-9 pb-4 before:absolute before:left-[13px] before:top-2 before:bottom-2 before:w-px before:bg-gradient-to-b before:from-cyan/40 before:via-violet/20 before:to-transparent">
           {caseStudy.phases.map((phase) => (
             <PhaseBlock key={phase.id} phase={phase} />
           ))}
