@@ -76,7 +76,14 @@ export default function CaseStudyContent({
       </aside>
 
       <div className="min-w-0">
-        <p className="hud-label text-cyan mb-3">[ DEPLOYMENT DOSSIER ]</p>
+        <div className="flex flex-wrap items-center gap-3 mb-3">
+          <p className="hud-label text-cyan">[ DEPLOYMENT DOSSIER ]</p>
+          {caseStudy.isConcept && (
+            <span className="hud-label text-pink border border-pink/40 bg-pink/10 px-2 py-1">
+              CONCEPT PROJECT
+            </span>
+          )}
+        </div>
 
         <h1 className="font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-wider text-ghost mb-4 leading-tight">
           {caseStudy.title}
@@ -85,6 +92,15 @@ export default function CaseStudyContent({
         <p className="text-ghost-muted text-sm md:text-base font-mono leading-relaxed mb-8">
           {caseStudy.subtitle}
         </p>
+
+        {caseStudy.isConcept && caseStudy.conceptNote && (
+          <div className="mb-8 border border-pink/30 bg-pink/5 px-5 py-4">
+            <p className="hud-label text-pink mb-2">NOT A CLIENT PROJECT</p>
+            <p className="text-ghost-muted text-xs md:text-sm font-mono leading-relaxed">
+              {caseStudy.conceptNote}
+            </p>
+          </div>
+        )}
 
         <dl className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 mb-8">
           {caseStudy.meta.map((item) => (

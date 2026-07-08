@@ -9,6 +9,7 @@ export type Project = {
   tags: string[];
   liveUrl: string;
   githubUrl: string;
+  isConcept?: boolean;
 };
 
 export const projects: Project[] = [
@@ -33,6 +34,21 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://supply-sa.org/",
     githubUrl: "https://github.com/ayannaautomates/supply-sa-bot",
+  },
+  {
+    slug: "rental-portfolio-ops-dashboard",
+    title: "Rental Portfolio Ops Dashboard",
+    year: 2026,
+    category: "Concept Build",
+    description:
+      "A concept build: an Airtable-backed operations dashboard for small rental portfolios, deployed on Bolt — reclaiming an estimated 6 hrs/week from manual tracking.",
+    longDescription:
+      "Rental Portfolio Ops Dashboard is a self-initiated concept build for small property managers and rental arbitrage operators. A single relational Airtable base (Properties, Units, Applicants, Leases, Payments, Maintenance Requests) replaces six disconnected spreadsheets, with formula fields computing lease timelines, late payments, and maintenance turnaround automatically. A Bolt-hosted dashboard reads live from Airtable as the presentation layer, surfacing occupancy, applicant funnel, revenue vs. target, and renewal risk in one view.",
+    image: "/projects/rental-portfolio-ops-dashboard.png",
+    tags: ["Airtable", "Bolt", "Relational Data Modeling", "Dashboard Design"],
+    liveUrl: "https://ai-airtable-dashboar-sx6b.bolt.host/",
+    githubUrl: "",
+    isConcept: true,
   },
 ];
 

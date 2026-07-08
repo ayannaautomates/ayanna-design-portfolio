@@ -42,6 +42,11 @@ export default function ProjectCard({
             loading="lazy"
             unoptimized={project.image.endsWith(".svg")}
           />
+          {project.isConcept && (
+            <span className="absolute top-3 right-3 hud-label text-pink border border-pink/40 bg-navy/80 px-2 py-1 backdrop-blur-sm">
+              CONCEPT
+            </span>
+          )}
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan/50 to-transparent group-hover:via-cyan transition-all" />
         </div>
 

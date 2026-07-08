@@ -24,6 +24,8 @@ export type CaseStudy = {
   stats: CaseStudyStat[];
   testimonial?: CaseStudyQuote;
   phases: CaseStudyPhase[];
+  isConcept?: boolean;
+  conceptNote?: string;
 };
 
 export const supplySaCaseStudy: CaseStudy = {
@@ -156,8 +158,111 @@ export const supplySaCaseStudy: CaseStudy = {
   ],
 };
 
+export const rentalOpsCaseStudy: CaseStudy = {
+  slug: "rental-portfolio-ops-dashboard",
+  title: "Rental Portfolio Ops Dashboard",
+  subtitle:
+    "A concept build: how a single relational Airtable base and a live Bolt dashboard could replace six disconnected spreadsheets for a small rental portfolio operator.",
+  isConcept: true,
+  conceptNote:
+    "This was built as a self-initiated demonstration of the workflow pattern for small property managers and rental arbitrage operators. It is not attached to a paying client, and the metrics below are modeled estimates rather than confirmed results — the assumptions behind each number are stated explicitly so they can be verified or adjusted.",
+  meta: [
+    { label: "Sector", value: "Concept: Property Management" },
+    { label: "Portfolio Size", value: "3–5 properties, 7–10 units (modeled)" },
+    { label: "Location", value: "Hypothetical — portable to any market" },
+    { label: "Built", value: "2026" },
+    { label: "Core Features", value: "Relational Data Layer, Live Dashboard" },
+    { label: "Status", value: "Concept Build — Live Demo" },
+  ],
+  stats: [
+    {
+      value: "~6 hrs/wk",
+      label: "reclaimed from manual tracking & reporting (modeled)",
+    },
+    {
+      value: "~310 hrs/yr",
+      label: "redirected toward higher-value work (modeled)",
+    },
+    {
+      value: "Zero",
+      label: "duplicate data entry between database and dashboard",
+    },
+  ],
+  phases: [
+    {
+      id: "summary",
+      step: "01",
+      title: "Executive Summary",
+      paragraphs: [
+        "Small rental portfolio operators — typically 3–5 properties, 5–10 units — usually run occupancy tracking, applicant screening, lease management, rent collection, and maintenance requests across a patchwork of spreadsheets, texts, and sticky notes. None of it lives in one place, so answering a basic question like \"which leases are expiring soon?\" means manually cross-referencing multiple sources.",
+        "This concept build replaces that patchwork with a single relational Airtable base and a live, read-only dashboard hosted on Bolt. At an assumed 7–10 hours a week spent on manual tracking and reporting, the modeled result is roughly 6 hours a week reclaimed — about 310 hours a year redirected toward sourcing units, tenant relationships, or owner communication instead of spreadsheet reconciliation.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "The real cost of a spreadsheet-and-sticky-notes system isn't just the time spent compiling information for an owner update — it's the risk of missing something important, like a lease renewal deadline or a payment that's gone quiet, because nothing surfaces it automatically.",
+      ],
+      bullets: [
+        "Occupancy, applicants, leases, payments, and maintenance tracked across disconnected spreadsheets, texts, and notes",
+        "Every owner update or status check requires manually cross-referencing multiple sources",
+        "No automatic surfacing of at-risk items — expiring leases, late payments — until someone goes looking",
+        "An estimated 7–10 hours a week spent on manual tracking and reporting at this portfolio scale",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "A single relational data layer instead of six disconnected spreadsheets. The foundation is an Airtable base with six linked tables — Properties, Units, Applicants, Leases, Payments, and Maintenance Requests — so a unit's status, its current lease, its payment history, and any open maintenance requests are all one click apart instead of living in separate files.",
+        "Formula fields do the calculating instead of the person. Rather than manually figuring out how many days are left on a lease or how late a payment came in, three formula fields — Days Until Lease End, Days Late, and Turnaround Days — compute those automatically from the raw dates already being entered. The person keeps entering the same dates they always would; they just stop doing the subtraction by hand.",
+        "Bolt as the presentation layer, not the source of truth. The Airtable base is the single source of truth; the Bolt-hosted dashboard reads from it live rather than duplicating data. That separation means the underlying data structure can be reused for other interfaces later — a client portal, a mobile view — without rebuilding the data model.",
+        "Applicant stage as a first-class field, not a note. Applicant status is tracked as a structured single-select field (Inquiry → Screening → Approved → Denied → Leased) rather than freeform notes, which is what makes a funnel visualization possible on the dashboard side — a small schema decision that unlocks a specific reporting capability downstream.",
+      ],
+    },
+    {
+      id: "architecture",
+      step: "04",
+      title: "Architecture",
+      bullets: [
+        "Data layer: Airtable base — 6 linked tables (Properties, Units, Applicants, Leases, Payments, Maintenance Requests)",
+        "Computed fields: Airtable formula fields (Days Until Lease End, Days Late, Turnaround Days)",
+        "Presentation layer: dashboard hosted on Bolt, reading live from Airtable",
+        "Relationships: Units → Properties, Applicants/Leases → Units, Payments → Leases, Maintenance → Units",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "Modeled Results",
+      paragraphs: [
+        "As a concept build, these are modeled estimates based on the stated assumptions above — not confirmed client results.",
+      ],
+      bullets: [
+        "~6 hrs/week reclaimed from manual tracking and reporting, based on a 3–5 property / 7–10 unit portfolio (assumes the dashboard removes the compilation and reporting layer, not raw data entry)",
+        "~26 hrs/month, ~310 hrs/year redirected toward higher-value work — sourcing new units, tenant relationships, or owner communication — rather than spreadsheet reconciliation",
+        "One live view for occupancy rate, applicant funnel, revenue vs. target rent, lease renewals at risk, maintenance turnaround, and late-payment rate — replacing five or six separate manual pulls",
+        "Zero duplicate data entry between the operational database and the reporting layer, since the dashboard reads directly from Airtable",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "For small operators, the barrier to a real operations system usually isn't willingness — it's the perceived cost of building one. This concept demonstrates that a relational data layer plus a lightweight live dashboard can be assembled quickly, without a custom backend, by making a few deliberate schema decisions upfront: link tables instead of duplicating data, compute derived fields instead of tracking them by hand, and keep a single source of truth even when there are multiple ways to view it.",
+        "The same pattern generalizes past rental portfolios to any small operation running on scattered spreadsheets: the fix usually isn't more software, it's one well-modeled data layer with a live view on top of it.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
+  [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
 };
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
