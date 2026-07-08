@@ -160,7 +160,7 @@ export default function BookCallCta() {
         className="min-h-[22rem] md:min-h-[26rem] w-full bg-navy pb-16 md:pb-20"
       >
         <a
-          href="https://clients.soulwirestudio.com/public/digital-services-consultation"
+          href="https://cal.com/soulwirestudio/30min"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative z-40 inline-block w-[min(280px,85vw)] cursor-pointer rounded-full p-px text-xs font-semibold leading-6 text-ghost no-underline shadow-2xl shadow-navy-light"
