@@ -12,7 +12,9 @@ type ProjectsProps = {
 
 export default function Projects({ headingLevel = 2 }: ProjectsProps) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const isScrollGallery = projects.length > 1;
+  // Only switch to a horizontally-scrolling gallery once there are enough
+  // projects that they wouldn't otherwise fit centered in the container.
+  const isScrollGallery = projects.length > 2;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!isScrollGallery) return;
@@ -57,14 +59,16 @@ export default function Projects({ headingLevel = 2 }: ProjectsProps) {
           aria-label={
             isScrollGallery
               ? "Projects gallery — scroll horizontally"
-              : "Featured project"
+              : projects.length > 1
+                ? "Featured projects"
+                : "Featured project"
           }
           tabIndex={isScrollGallery ? 0 : undefined}
           onKeyDown={handleKeyDown}
           className={
             isScrollGallery
               ? "projects-track flex flex-nowrap gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory px-6 md:px-12 pb-8 md:pb-12 w-full max-w-full"
-              : "flex justify-center px-6 md:px-12 pb-8 md:pb-12 w-full max-w-full"
+              : "flex flex-wrap justify-center gap-6 md:gap-8 px-6 md:px-12 pb-8 md:pb-12 w-full max-w-full"
           }
         >
           {projects.map((project, i) => (
@@ -72,7 +76,7 @@ export default function Projects({ headingLevel = 2 }: ProjectsProps) {
               key={project.slug}
               project={project}
               index={i}
-              layout={isScrollGallery ? "horizontal" : "vertical"}
+              layout="horizontal"
             />
           ))}
         </div>
