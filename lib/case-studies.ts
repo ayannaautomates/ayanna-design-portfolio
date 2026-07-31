@@ -260,9 +260,109 @@ export const rentalOpsCaseStudy: CaseStudy = {
   ],
 };
 
+export const marigoldMediumCaseStudy: CaseStudy = {
+  slug: "marigold-medium",
+  title: "Marigold Medium + Healing",
+  subtitle:
+    "How a solo practitioner moved off a rented Wix template onto a hand-coded, 10-page site she owns outright, with a 301-frame film that plays against the scroll and not a single third-party JavaScript library.",
+  meta: [
+    { label: "Client", value: "Jen-L Morris, Marigold Medium + Healing" },
+    { label: "Sector", value: "Wellness / Solo Practitioner" },
+    { label: "Team Size", value: "1" },
+    { label: "Location", value: "Littleton, CO" },
+    { label: "Core Features", value: "Scroll-Driven Film Homepage, 10-Page Static Site" },
+    { label: "Status", value: "Live at jenlmorris.com" },
+  ],
+  stats: [
+    {
+      value: "301",
+      label: "film frames scrubbed against the scroll on the homepage",
+    },
+    {
+      value: "0",
+      label: "JavaScript frameworks or third-party libraries shipped",
+    },
+    {
+      value: "10",
+      label: "pages hand-built to replace a rented template",
+    },
+  ],
+  phases: [
+    {
+      id: "summary",
+      step: "01",
+      title: "Executive Summary",
+      paragraphs: [
+        "Jen-L Morris is a certified psychic-medium and licensed massage therapist working out of Littleton, Colorado. Her practice sat on a Wix template: fine for getting online, but a site she rented rather than owned, on a platform that decided what her homepage could do.",
+        "The rebuild is a 10-page static site written by hand. The homepage opens on a continuous film that runs frame by frame against the scroll, plays once, and never replays. Everything ships as HTML, CSS, and vanilla JavaScript, with the domain, repository, and source code transferred into the client's own accounts at handoff.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "The work of a medium is hard to explain in a paragraph. What it needs is a feeling, established before anyone reads a word. A template builder cannot deliver that, because the interesting part of the page is the part the template will not let you touch.",
+      ],
+      bullets: [
+        "The site lived on a rented platform, so the practice did not own its own storefront",
+        "Template constraints ruled out the one thing the brand most needed: a genuinely cinematic opening",
+        "Platform page weight and third-party scripts sat outside the practitioner's control",
+        "Moving off later meant a domain, DNS, and hosting migration nobody had scoped",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "Build the feeling first, then hang the site on it. The concept was one unbroken shot called The Marigold Path: a dusk marigold field, a dive into a single bloom, a petal veil, a candle flame, a reading table. Footage was generated and mastered at 1080p, then exported to 301 stills so the browser could scrub it like film rather than play it like video.",
+        "Play once, then get out of the way. An early build tied the film to the scrollbar in both directions, which made the homepage feel like a toy. The shipped version plays the film one time on the first scroll, lands the visitor in the content, and returns to the still field hero if they scroll back up. It never replays.",
+        "Never freeze the frame. A draft paused the film dead on each line of text so it could be read. The client's note was that the stopping broke the spell, so the timeline was rebuilt to glide quickly between beats and crawl slowly through each one. The film always moves, and the text still holds long enough to read.",
+        "No frameworks, on purpose. Nothing on the page comes from a CDN or a package. A solo practitioner should not inherit a dependency tree she has no way to maintain, and a site with no build step is a site that still works in five years.",
+      ],
+    },
+    {
+      id: "architecture",
+      step: "04",
+      title: "Architecture",
+      bullets: [
+        "Homepage film: 301 stills drawn to a canvas element, advanced by a scroll-driven timeline in vanilla JavaScript",
+        "Progressive reveal: the page unlocks after buffering the first 24 frames and streams the remaining frames in the background, falling back to the nearest loaded frame while drawing",
+        "Pages: 10 hand-written HTML documents sharing one CSS custom-property token set for color, type, and spacing",
+        "Type: Fraunces for headings, Jost for body, Pinyon Script for the name lockup",
+        "Contact: FormSubmit posting to the practice inbox; booking hands off to her existing Vagaro scheduler",
+        "Hosting: Porkbun static hosting, auto-publishing on every push from the client's own GitHub repository",
+      ],
+    },
+    {
+      id: "shipped",
+      step: "05",
+      title: "What Shipped",
+      bullets: [
+        "A play-once film homepage with a skip control, a still hero to return to, and no replay on back-scroll",
+        "Nine content pages covering offerings, readings, coaching, energy work, ingredients, resources, about, contact, and terms",
+        "A multi-column footer and a full top navigation with a dropdown, built in CSS with no JavaScript",
+        "Verified at 375px with no horizontal overflow, on top of a mobile menu that scrolls when the link list runs long",
+        "A full migration off Wix: domain, DNS, and hosting moved, with the repository transferred to the client's GitHub account",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "The pitch for a template builder is that it is cheaper. The cost it hides is that the practice never owns the thing customers judge it by, and the most distinctive idea it has is usually the exact idea the template forbids.",
+        "This build is the counter-argument. The animation that makes the homepage worth remembering is under three hundred lines of plain JavaScript over a canvas element. There is no framework to upgrade, no plugin to renew, no platform to ask permission from. When the work was done, everything got handed over: the domain, the repository, and the code. That is the difference between a site you rent and a site you own.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
+  [marigoldMediumCaseStudy.slug]: marigoldMediumCaseStudy,
 };
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {

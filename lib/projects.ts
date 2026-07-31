@@ -36,6 +36,29 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/ayannaautomates/supply-sa-bot",
   },
   {
+    slug: "marigold-medium",
+    title: "Marigold Medium + Healing",
+    year: 2026,
+    category: "Web Design",
+    description:
+      "A rented Wix template replaced with a hand-coded site the client owns outright, fronted by a 301-frame film that plays on scroll.",
+    longDescription:
+      "Marigold Medium + Healing is a 10-page website built from scratch for Jen-L Morris, a certified psychic-medium and licensed massage therapist in Littleton, Colorado. The homepage opens on a continuous film that scrubs frame by frame against the scroll, drawn on a canvas element with no framework and no third-party JavaScript. The domain, the repository, and the source code all sit in the client's name.",
+    image: "/projects/marigold-medium.png",
+    tags: [
+      "HTML",
+      "CSS",
+      "Vanilla JS",
+      "Canvas API",
+      "Higgsfield Seedance",
+      "Porkbun Static Hosting",
+      "GitHub",
+      "FormSubmit",
+    ],
+    liveUrl: "https://jenlmorris.com/",
+    githubUrl: "",
+  },
+  {
     slug: "rental-portfolio-ops-dashboard",
     title: "Rental Portfolio Ops Dashboard",
     year: 2026,
