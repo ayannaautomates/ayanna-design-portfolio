@@ -36,6 +36,72 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/ayannaautomates/supply-sa-bot",
   },
   {
+    slug: "cold-email-personalizer",
+    title: "Cold Email Personalizer",
+    year: 2026,
+    category: "Concept Build",
+    description:
+      "Tested against a real 270-lead list: every cold email draft grounded in the lead's own site copy, with zero invented details.",
+    longDescription:
+      "A lead-to-draft outbound system built in n8n. Every lead's site is scraped before the writing model sees the row, so the model connects real facts instead of guessing. An earlier version quietly fed the model its own scrape error as if it were page content; that was fixed at the root rather than papered over with better prompt wording. The pipeline deliberately stops at an Airtable review gate instead of connecting a sender.",
+    image: "/projects/cold-email-personalizer.svg",
+    tags: [
+      "n8n",
+      "Apify",
+      "GPT-4.1-mini",
+      "Airtable",
+      "Google Sheets",
+      "Web Scraping",
+    ],
+    liveUrl: "",
+    githubUrl: "",
+    isConcept: true,
+  },
+  {
+    slug: "proposal-autopilot",
+    title: "Proposal Autopilot",
+    year: 2026,
+    category: "Concept Build",
+    description:
+      "A finished discovery call becomes a branded PDF proposal, with nobody replaying the recording. 14 of 14 nodes passed end to end.",
+    longDescription:
+      "An n8n system that turns a discovery call into a delivered proposal. It matches the call in Fireflies by the client's email, hands the transcript to Claude for four drafted sections, then builds the branded HTML in a code node rather than a second AI call. That swap removed an entire category of failure at no added cost. PDF.co renders it and Gmail sends it.",
+    image: "/projects/proposal-autopilot.svg",
+    tags: [
+      "n8n",
+      "Claude API",
+      "Airtable",
+      "Fireflies",
+      "PDF.co",
+      "Gmail API",
+    ],
+    liveUrl: "",
+    githubUrl: "",
+    isConcept: true,
+  },
+  {
+    slug: "document-knowledge-assistant",
+    title: "Document Knowledge Assistant",
+    year: 2026,
+    category: "Concept Build",
+    description:
+      "A retrieval assistant over a company's own documents: two-stage search with a reranking pass, answering only from the source material.",
+    longDescription:
+      "A concept build that turns a pile of contracts, manuals, policies, and transcripts into something a person can simply ask. Files dropped in a watched folder are chunked, embedded, and stored in Supabase with pgvector. A question pulls a wide set of candidate passages, a reranker re-scores them for precision, and the model answers strictly from what came back, saying plainly when the answer is not in the material.",
+    image: "/projects/document-knowledge-assistant.svg",
+    tags: [
+      "n8n",
+      "Supabase",
+      "pgvector",
+      "OpenAI Embeddings",
+      "Cohere Rerank",
+      "RAG",
+    ],
+    liveUrl: "",
+    githubUrl: "",
+    isConcept: true,
+  },
+  {
     slug: "marigold-medium",
     title: "Marigold Medium + Healing",
     year: 2026,

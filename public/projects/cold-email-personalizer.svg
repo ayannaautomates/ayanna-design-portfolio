@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Cold Email Personalizer pipeline: leads sourced, filtered, site-scraped, guarded against failed scrapes, drafted by a fact-fenced model, and held at an Airtable review gate">
+  <defs>
+    <pattern id="cep-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#7DF9FF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <marker id="cep-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7DF9FF" fill-opacity="0.65"/>
+    </marker>
+    <marker id="cep-arrow-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#FF6EC7" fill-opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#0A0E14"/>
+  <rect width="1600" height="1000" fill="url(#cep-grid)"/>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace">
+
+    <!-- header (inside the safe band) -->
+    <text x="100" y="336" fill="#7DF9FF" font-size="19" letter-spacing="6">[ LEAD TO DRAFT PIPELINE ]</text>
+    <text x="100" y="392" fill="#EEF2F6" font-size="40" letter-spacing="2">COLD EMAIL PERSONALIZER</text>
+    <text x="100" y="432" fill="#8B93A3" font-size="20">Scrape first. Write second. Never invent.</text>
+    <line x1="100" y1="458" x2="1500" y2="458" stroke="#7DF9FF" stroke-opacity="0.28" stroke-width="1"/>
+
+    <!-- pipeline -->
+    <g>
+      <rect x="100" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="118" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">01</text>
+      <text x="118" y="562" fill="#EEF2F6" font-size="19">SOURCE</text>
+      <text x="118" y="590" fill="#8B93A3" font-size="15">Apify scrape</text>
+      <text x="118" y="613" fill="#8B93A3" font-size="15">500 raw leads</text>
+
+      <rect x="340" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="358" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">02</text>
+      <text x="358" y="562" fill="#EEF2F6" font-size="19">FILTER</text>
+      <text x="358" y="590" fill="#8B93A3" font-size="15">8 industries,</text>
+      <text x="358" y="613" fill="#8B93A3" font-size="15">dedupe by email</text>
+
+      <rect x="580" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="598" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">03</text>
+      <text x="598" y="562" fill="#EEF2F6" font-size="19">SCRAPE SITE</text>
+      <text x="598" y="590" fill="#8B93A3" font-size="15">real page copy,</text>
+      <text x="598" y="613" fill="#8B93A3" font-size="15">per lead</text>
+
+      <rect x="820" y="496" width="200" height="140" fill="#111822" stroke="#FF6EC7" stroke-opacity="0.75"/>
+      <text x="838" y="526" fill="#FF6EC7" font-size="14" letter-spacing="3">04</text>
+      <text x="838" y="562" fill="#EEF2F6" font-size="19">GUARD</text>
+      <text x="838" y="590" fill="#FF6EC7" font-size="15">fail loud,</text>
+      <text x="838" y="613" fill="#FF6EC7" font-size="15">skip the row</text>
+
+      <rect x="1060" y="496" width="200" height="140" fill="#111822" stroke="#9D4EFF" stroke-opacity="0.6"/>
+      <text x="1078" y="526" fill="#9D4EFF" font-size="14" letter-spacing="3">05</text>
+      <text x="1078" y="562" fill="#EEF2F6" font-size="19">DRAFT</text>
+      <text x="1078" y="590" fill="#8B93A3" font-size="15">GPT-4.1-mini,</text>
+      <text x="1078" y="613" fill="#8B93A3" font-size="15">fact-fenced</text>
+
+      <rect x="1300" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="1318" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">06</text>
+      <text x="1318" y="562" fill="#EEF2F6" font-size="19">REVIEW GATE</text>
+      <text x="1318" y="590" fill="#8B93A3" font-size="15">Airtable.</text>
+      <text x="1318" y="613" fill="#8B93A3" font-size="15">A human reads it.</text>
+    </g>
+
+    <line x1="302" y1="566" x2="336" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cep-arrow)"/>
+    <line x1="542" y1="566" x2="576" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cep-arrow)"/>
+    <line x1="782" y1="566" x2="816" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cep-arrow)"/>
+    <line x1="1022" y1="566" x2="1056" y2="566" stroke="#FF6EC7" stroke-opacity="0.7" stroke-width="2" marker-end="url(#cep-arrow-pink)"/>
+    <line x1="1262" y1="566" x2="1296" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cep-arrow)"/>
+
+    <!-- footer strip -->
+    <text x="100" y="686" fill="#7DF9FF" font-size="17">500 &#8594; 270 verified leads, a real run</text>
+    <text x="620" y="686" fill="#FF6EC7" font-size="17">Zero invented details across the batch</text>
+    <text x="1300" y="686" fill="#8B93A3" font-size="17">// NOTHING SENDS</text>
+
+  </g>
+</svg>

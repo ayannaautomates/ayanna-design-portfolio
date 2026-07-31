@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Document Knowledge Assistant architecture: watched files are chunked and embedded into a Supabase pgvector store, then a question retrieves a wide candidate set, a reranker re-scores it for precision, and the model answers strictly from what came back">
+  <defs>
+    <pattern id="dka-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#7DF9FF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <marker id="dka-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7DF9FF" fill-opacity="0.65"/>
+    </marker>
+    <marker id="dka-arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9D4EFF" fill-opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#0A0E14"/>
+  <rect width="1600" height="1000" fill="url(#dka-grid)"/>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace">
+
+    <text x="100" y="336" fill="#7DF9FF" font-size="19" letter-spacing="6">[ RETRIEVAL ARCHITECTURE ]</text>
+    <text x="100" y="392" fill="#EEF2F6" font-size="40" letter-spacing="2">DOCUMENT KNOWLEDGE ASSISTANT</text>
+    <text x="100" y="432" fill="#8B93A3" font-size="20">It does not invent. It reports, and says when the answer is not there.</text>
+    <line x1="100" y1="458" x2="1500" y2="458" stroke="#7DF9FF" stroke-opacity="0.28" stroke-width="1"/>
+
+    <!-- path labels -->
+    <text x="100" y="484" fill="#7DF9FF" font-size="13" letter-spacing="4">INGEST</text>
+    <text x="820" y="484" fill="#9D4EFF" font-size="13" letter-spacing="4">QUERY</text>
+
+    <g>
+      <rect x="100" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="118" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">01</text>
+      <text x="118" y="562" fill="#EEF2F6" font-size="19">WATCHED FOLDER</text>
+      <text x="118" y="590" fill="#8B93A3" font-size="15">drop a file,</text>
+      <text x="118" y="613" fill="#8B93A3" font-size="15">no manual upkeep</text>
+
+      <rect x="340" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="358" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">02</text>
+      <text x="358" y="562" fill="#EEF2F6" font-size="19">CHUNK + EMBED</text>
+      <text x="358" y="590" fill="#8B93A3" font-size="15">overlapping chunks,</text>
+      <text x="358" y="613" fill="#8B93A3" font-size="15">OpenAI embeddings</text>
+
+      <rect x="580" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.8"/>
+      <text x="598" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">03</text>
+      <text x="598" y="562" fill="#EEF2F6" font-size="19">VECTOR STORE</text>
+      <text x="598" y="590" fill="#7DF9FF" font-size="15">Supabase pgvector,</text>
+      <text x="598" y="613" fill="#8B93A3" font-size="15">similarity match</text>
+
+      <rect x="820" y="496" width="200" height="140" fill="#111822" stroke="#9D4EFF" stroke-opacity="0.55"/>
+      <text x="838" y="526" fill="#9D4EFF" font-size="14" letter-spacing="3">04</text>
+      <text x="838" y="562" fill="#EEF2F6" font-size="19">RETRIEVE WIDE</text>
+      <text x="838" y="590" fill="#8B93A3" font-size="15">cast the net for</text>
+      <text x="838" y="613" fill="#8B93A3" font-size="15">recall first</text>
+
+      <rect x="1060" y="496" width="200" height="140" fill="#111822" stroke="#FF6EC7" stroke-opacity="0.75"/>
+      <text x="1078" y="526" fill="#FF6EC7" font-size="14" letter-spacing="3">05</text>
+      <text x="1078" y="562" fill="#EEF2F6" font-size="19">RERANK</text>
+      <text x="1078" y="590" fill="#FF6EC7" font-size="15">Cohere re-scores</text>
+      <text x="1078" y="613" fill="#FF6EC7" font-size="15">for precision</text>
+
+      <rect x="1300" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="1318" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">06</text>
+      <text x="1318" y="562" fill="#EEF2F6" font-size="19">ANSWER</text>
+      <text x="1318" y="590" fill="#8B93A3" font-size="15">grounded only in</text>
+      <text x="1318" y="613" fill="#8B93A3" font-size="15">what came back</text>
+    </g>
+
+    <line x1="302" y1="566" x2="336" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#dka-arrow)"/>
+    <line x1="542" y1="566" x2="576" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#dka-arrow)"/>
+    <line x1="782" y1="566" x2="816" y2="566" stroke="#9D4EFF" stroke-opacity="0.6" stroke-width="2" marker-end="url(#dka-arrow-violet)"/>
+    <line x1="1022" y1="566" x2="1056" y2="566" stroke="#9D4EFF" stroke-opacity="0.6" stroke-width="2" marker-end="url(#dka-arrow-violet)"/>
+    <line x1="1262" y1="566" x2="1296" y2="566" stroke="#9D4EFF" stroke-opacity="0.6" stroke-width="2" marker-end="url(#dka-arrow-violet)"/>
+
+    <text x="100" y="686" fill="#7DF9FF" font-size="17">One drop updates the whole knowledge base</text>
+    <text x="620" y="686" fill="#FF6EC7" font-size="17">Two-stage retrieval: recall, then precision</text>
+    <text x="1240" y="686" fill="#8B93A3" font-size="17">// ONE ENDPOINT, ANY FRONT END</text>
+
+  </g>
+</svg>

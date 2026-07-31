@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Proposal Autopilot pipeline: an Airtable trigger matches a Fireflies transcript by client email, Claude drafts four sections, a code node builds branded HTML, and PDF.co plus Gmail deliver the proposal">
+  <defs>
+    <pattern id="pa-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#7DF9FF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <marker id="pa-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7DF9FF" fill-opacity="0.65"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#0A0E14"/>
+  <rect width="1600" height="1000" fill="url(#pa-grid)"/>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace">
+
+    <text x="100" y="336" fill="#7DF9FF" font-size="19" letter-spacing="6">[ TRANSCRIPT TO PDF PIPELINE ]</text>
+    <text x="100" y="392" fill="#EEF2F6" font-size="40" letter-spacing="2">PROPOSAL AUTOPILOT</text>
+    <text x="100" y="432" fill="#8B93A3" font-size="20">Claude writes the words. A code node builds the document.</text>
+    <line x1="100" y1="458" x2="1500" y2="458" stroke="#7DF9FF" stroke-opacity="0.28" stroke-width="1"/>
+
+    <g>
+      <rect x="100" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="118" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">01</text>
+      <text x="118" y="562" fill="#EEF2F6" font-size="19">TRIGGER</text>
+      <text x="118" y="590" fill="#8B93A3" font-size="15">Airtable record</text>
+      <text x="118" y="613" fill="#8B93A3" font-size="15">marked ready</text>
+
+      <rect x="340" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="358" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">02</text>
+      <text x="358" y="562" fill="#EEF2F6" font-size="19">MATCH CALL</text>
+      <text x="358" y="590" fill="#8B93A3" font-size="15">Fireflies, by</text>
+      <text x="358" y="613" fill="#8B93A3" font-size="15">client email</text>
+
+      <rect x="580" y="496" width="200" height="140" fill="#111822" stroke="#9D4EFF" stroke-opacity="0.6"/>
+      <text x="598" y="526" fill="#9D4EFF" font-size="14" letter-spacing="3">03</text>
+      <text x="598" y="562" fill="#EEF2F6" font-size="19">DRAFT</text>
+      <text x="598" y="590" fill="#8B93A3" font-size="15">Claude, 4 sections</text>
+      <text x="598" y="613" fill="#9D4EFF" font-size="15">one AI call only</text>
+
+      <rect x="820" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.8"/>
+      <text x="838" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">04</text>
+      <text x="838" y="562" fill="#EEF2F6" font-size="19">BUILD HTML</text>
+      <text x="838" y="590" fill="#7DF9FF" font-size="15">code node,</text>
+      <text x="838" y="613" fill="#7DF9FF" font-size="15">not a 2nd model</text>
+
+      <rect x="1060" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="1078" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">05</text>
+      <text x="1078" y="562" fill="#EEF2F6" font-size="19">RENDER</text>
+      <text x="1078" y="590" fill="#8B93A3" font-size="15">PDF.co,</text>
+      <text x="1078" y="613" fill="#8B93A3" font-size="15">free tier</text>
+
+      <rect x="1300" y="496" width="200" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="1318" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">06</text>
+      <text x="1318" y="562" fill="#EEF2F6" font-size="19">DELIVER</text>
+      <text x="1318" y="590" fill="#8B93A3" font-size="15">Gmail OAuth2,</text>
+      <text x="1318" y="613" fill="#8B93A3" font-size="15">PDF attached</text>
+    </g>
+
+    <line x1="302" y1="566" x2="336" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#pa-arrow)"/>
+    <line x1="542" y1="566" x2="576" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#pa-arrow)"/>
+    <line x1="782" y1="566" x2="816" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#pa-arrow)"/>
+    <line x1="1022" y1="566" x2="1056" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#pa-arrow)"/>
+    <line x1="1262" y1="566" x2="1296" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#pa-arrow)"/>
+
+    <text x="100" y="686" fill="#7DF9FF" font-size="17">14 / 14 nodes passed end to end</text>
+    <text x="620" y="686" fill="#9D4EFF" font-size="17">One AI call instead of two, at no added cost</text>
+    <text x="1300" y="686" fill="#8B93A3" font-size="17">// FENCED TO THE TRANSCRIPT</text>
+
+  </g>
+</svg>
