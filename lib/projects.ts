@@ -102,30 +102,6 @@ export const projects: Project[] = [
     isConcept: true,
   },
   {
-    slug: "lets-ask-spirit",
-    title: "Let's Ask Spirit",
-    year: 2026,
-    category: "Web Design",
-    description:
-      "A Wix site rebuilt by hand for a grief-adjacent practice, audited to WCAG 2.1 AA and shipped with a strict content security policy and no trackers of any kind.",
-    longDescription:
-      "Let's Ask Spirit is a seven-page website for Michael Edsel, an evidential psychic medium in rural Virginia. The homepage opens on a doorway that swings wide as you scroll, drawn frame by frame on a canvas with no framework behind it. Under that, the parts nobody photographs: every Level A and AA accessibility barrier found and closed before launch, a homepage cut from 11.2 MB to 4.8 MB, a content security policy with no unsafe-inline, and a site that sets no tracking cookies and loads no analytics at all. People arrive here after a death. The site is built to be quiet, fast, and private for them.",
-    image: "/projects/lets-ask-spirit.png",
-    tags: [
-      "HTML",
-      "CSS",
-      "Vanilla JS",
-      "Canvas API",
-      "WCAG 2.1 AA",
-      "Content Security Policy",
-      "Netlify",
-      "FormSubmit",
-      "Schema.org",
-    ],
-    liveUrl: "https://www.letsaskspirit.com/",
-    githubUrl: "",
-  },
-  {
     slug: "marigold-medium",
     title: "Marigold Medium + Healing",
     year: 2026,
