@@ -102,6 +102,29 @@ export const projects: Project[] = [
     isConcept: true,
   },
   {
+    slug: "master-color-salon",
+    title: "Master Color Beauty Salon",
+    year: 2026,
+    category: "Web Design",
+    description:
+      "A bilingual salon site built around the one question the owner answers all day: why does lightened hair turn brassy, and why does fixing it cost $250.",
+    longDescription:
+      "Master Color Beauty Salon is a three-page site for a color-correction salon inside Rolling Oaks Mall in San Antonio, owned by a master colorist with 25 years behind the chair. Every string on the site exists in English and Spanish and switches without a page reload. The signature section is a lift scale: levels one through ten, plus the band of underlying pigment that runs red to orange to gold to yellow, laid out as real swatches to explain why brass happens and why undoing it takes four hours. It answers the highest-intent question in the niche and justifies the price before anyone asks. The site ships with no frameworks, no analytics, and no tracking of any kind, under a content security policy with no unsafe-inline.",
+    image: "/projects/master-color-salon.png",
+    tags: [
+      "HTML",
+      "CSS",
+      "Vanilla JS",
+      "Bilingual EN/ES",
+      "Content Security Policy",
+      "Schema.org LocalBusiness",
+      "Cloudflare Pages",
+      "Booksy",
+    ],
+    liveUrl: "https://mastercolorbeautysalon.co/",
+    githubUrl: "",
+  },
+  {
     slug: "lets-ask-spirit",
     title: "Let's Ask Spirit",
     year: 2026,

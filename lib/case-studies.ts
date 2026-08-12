@@ -783,11 +783,118 @@ export const letsAskSpiritCaseStudy: CaseStudy = {
   ],
 };
 
+export const masterColorCaseStudy: CaseStudy = {
+  slug: "master-color-salon",
+  title: "Master Color Beauty Salon",
+  subtitle:
+    "How a color-correction salon got a bilingual site built around the one question its owner answers all day, shipped at 102 KB with no frameworks, no analytics, and no tracking of any kind.",
+  meta: [
+    { label: "Client", value: "Master Color Beauty Salon" },
+    { label: "Sector", value: "Beauty / Local Service" },
+    { label: "Team Size", value: "1" },
+    { label: "Location", value: "San Antonio, TX" },
+    {
+      label: "Core Features",
+      value: "Bilingual EN/ES, Lift-Scale Explainer, Booksy Booking",
+    },
+    { label: "Status", value: "Live at mastercolorbeautysalon.co" },
+  ],
+  stats: [
+    {
+      value: "102 KB",
+      label: "total page weight across 14 requests",
+    },
+    {
+      value: "0",
+      label: "frameworks, analytics or tracking scripts shipped",
+    },
+    {
+      value: "2",
+      label: "languages, every string switching without a page reload",
+    },
+  ],
+  phases: [
+    {
+      id: "summary",
+      step: "01",
+      title: "Executive Summary",
+      paragraphs: [
+        "Master Color Beauty Salon sits inside Rolling Oaks Mall in San Antonio. It is owned by Cecy, a master colorist with 25 years behind the chair, and it is a color salon rather than a salon that also does color. The money is in correction work: undoing what someone else did, at $250 and about four hours.",
+        "The site is three pages, written by hand, in English and Spanish. The centerpiece is not a gallery or a services grid. It is a diagram of the hair lift scale, built to answer the question that decides whether someone books at $250 or walks.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "A color correction costs more than four haircuts and takes most of a working day. Search traffic for it is full of people who have already had a bad experience and are now suspicious of the next quote. A price with nothing behind it reads as a markup.",
+        "The salon also serves a heavily bilingual city, and a Spanish speaker landing on an English page does not stay to hunt for a toggle.",
+      ],
+      bullets: [
+        "The highest-intent search in the niche is a question about brass, not a request for a booking",
+        "A $250 price stated cold, with no explanation, loses to a cheaper quote that is worse work",
+        "Half the market reads Spanish first, and a translated page that reloads is a page people leave",
+        "Booking lives on Booksy, so the site had to hand visitors off cleanly rather than rebuild scheduling",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "Lead with the explanation, not the price. Lifting hair exposes the pigment underneath it, which runs red to orange to gold to yellow as it lightens. Brass is that pigment showing through. The site lays out levels one through ten as real swatches with the underlying-pigment band beneath them, and puts the section immediately before pricing. By the time a visitor reaches $250, they already know what the four hours buy. The section answers the highest-intent question found in research, and it doubles as the argument for the price.",
+        "Two languages, no reload, no second site. Every translatable string carries its English and Spanish inline, and the toggle swaps them in place and updates the document language for screen readers and search engines. There is no duplicate page tree to maintain and no third-party translation widget in the critical path.",
+        "Send booking where booking already works. The salon runs on Booksy and had no reason to leave it. The catch was that the vanity booking subdomain redirects through a link-attribution service and lands mobile visitors on an app-install prompt instead of a booking screen. Every booking link on the site uses the canonical Booksy URL instead, which is the difference between a visitor booking and a visitor being asked to download something.",
+        "Verify the security policy against a control, not against silence. The site ships a content security policy with no unsafe-inline, which was straightforward because there is no inline style or script anywhere in the markup. A policy that looks clean because nothing reported a violation is not the same as a policy that works. A deliberately blocked script was injected first to confirm the violation listener actually fired, and only then was the clean result on the real pages treated as meaningful.",
+      ],
+    },
+    {
+      id: "architecture",
+      step: "04",
+      title: "Architecture",
+      bullets: [
+        "Three hand-written pages: home, booth rental, privacy. No build step, no framework, no package manager",
+        "Bilingual layer: paired data attributes on every translatable node, swapped in place by vanilla JavaScript, with the document language attribute updated on toggle",
+        "Lift scale: CSS-rendered swatches for levels one through ten plus the underlying-pigment band, no images",
+        "Booking: canonical Booksy links throughout, deliberately avoiding the vanity subdomain and its redirect chain",
+        "Structured data: HairSalon schema with real hours, real prices and a real address; BreadcrumbList on the non-home pages",
+        "Machine readability: llms.txt at the root covering hours, services, prices and the brass explanation, for AI assistants answering local queries",
+        "Security: content security policy with no unsafe-inline, plus HSTS, nosniff, Referrer-Policy, X-Frame-Options and Permissions-Policy, declared at the host",
+        "Hosting: static deploy on Cloudflare Pages, clean URLs, no server and nothing to patch",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "What Shipped",
+      bullets: [
+        "102 KB total page weight across 14 requests, with largest contentful paint at 236 ms and zero cumulative layout shift",
+        "Zero frameworks, zero analytics, zero tracking cookies; the privacy policy says so in writing and the site matches it",
+        "Full English and Spanish parity across 156 translatable strings, switching without a page reload",
+        "Content security policy verified against a deliberate negative control rather than assumed from a quiet console",
+        "Source photography kept outside the deploy directory, so 68 MB of the client's original files are not sitting on a public URL",
+        "Handed off as plain HTML, CSS and JavaScript, with no dependency tree for the next person to maintain",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "Local service sites usually sell by asserting quality. Twenty-five years of experience, healthy hair, satisfaction guaranteed. Every competitor says the same thing, so none of it moves anyone. Teaching the customer one concrete thing they came to find out does move them, and it happens to be the same thing that makes the price make sense.",
+        "The rest of the work does not show up in a screenshot. Nobody will notice that the booking link skips a redirect that would have asked them to install an app, or that the Spanish toggle does not reload the page, or that nothing on the site is watching them. They will notice that it loaded instantly, answered their question, and let them book.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
   [marigoldMediumCaseStudy.slug]: marigoldMediumCaseStudy,
   [letsAskSpiritCaseStudy.slug]: letsAskSpiritCaseStudy,
+  [masterColorCaseStudy.slug]: masterColorCaseStudy,
   [coldEmailPersonalizerCaseStudy.slug]: coldEmailPersonalizerCaseStudy,
   [proposalAutopilotCaseStudy.slug]: proposalAutopilotCaseStudy,
   [knowledgeAssistantCaseStudy.slug]: knowledgeAssistantCaseStudy,
