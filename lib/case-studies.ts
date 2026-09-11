@@ -783,6 +783,112 @@ export const letsAskSpiritCaseStudy: CaseStudy = {
   ],
 };
 
+export const supplySaWebsiteCaseStudy: CaseStudy = {
+  slug: "supply-sa-website",
+  title: "Supply SA Website",
+  subtitle:
+    "How a San Antonio procurement nonprofit's eleven-page WordPress site was rebuilt and swapped live with every old link intact, a 102 MB autoplay video gone, and zero contrast failures on the new pages.",
+  meta: [
+    { label: "Client", value: "Supply SA" },
+    { label: "Sector", value: "Nonprofit / Economic Development" },
+    { label: "Location", value: "San Antonio, TX" },
+    { label: "Platform", value: "WordPress + Elementor" },
+    {
+      label: "Core Features",
+      value: "Audience-Split Homepage, Self-Updating Listings, WCAG AA Contrast",
+    },
+    { label: "Status", value: "Live at supply-sa.org" },
+  ],
+  stats: [
+    {
+      value: "102 MB",
+      label: "of autoplay video removed from behind nearly every page",
+    },
+    {
+      value: "0",
+      label: "contrast failures on the rebuilt pages",
+    },
+    {
+      value: "11",
+      label: "pages swapped live with every old link intact",
+    },
+  ],
+  phases: [
+    {
+      id: "summary",
+      step: "01",
+      title: "Executive Summary",
+      paragraphs: [
+        "Supply SA is a San Antonio nonprofit that helps small, local, and veteran-owned businesses get certified and compete for public contracts. It serves two audiences that come looking for opposite things: businesses trying to sell to government, and the agencies and companies trying to find them.",
+        "The site ran on WordPress and Elementor, and it had drifted page by page. All eleven pages were rebuilt on the same install, approved as design mockups first, and swapped into the live pages on one day in September 2026 without breaking a menu link or a bookmarked address.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "Nothing on the old site was broken in a way anyone would report. It was broken in the ways that quietly cost visitors: slow to load, hard to read, and easy to get lost in.",
+      ],
+      bullets: [
+        "A 102 MB, 4K video autoplayed behind the hero on nearly every page, so every visit started with a download most phones should never make",
+        "Brand teal used as text at contrast ratios as low as 2.59:1, and one download button measured 1:1, its text the same color as its background",
+        "The team page carried 26 H1s, one for every staff and board name, and not one headshot had alt text",
+        "Contact buttons on two pages pointed at a /contact/ page that returned a 404",
+        "Blog dates in day-month order on a Texas site, posts in no order, and twelve links that all read Read More",
+        "The contact form pre-selected its demographic answers, so its required fields never fired and untouched submissions recorded answers nobody gave",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "Design first, in Supply SA's own colors. Every page got two design directions side by side on a shared canvas. One was picked and edited directly before anything was built, so the build was never the place where decisions got made.",
+        "Build from code, not from clicking. Each approved page was generated as Elementor layout data by a script. A fix meant changing the generator once and rebuilding, rather than hunting through forty panels. The same scripts checked every text and background pair against WCAG AA and held a type floor: no label under 13px, no body copy under 16px.",
+        "Let WordPress hold the content. The site already had custom post types for staff, board members, meetings, blog posts, partner portals, and events. The old pages ignored most of them and repeated the same content by hand. The new pages loop over them, so publishing a blog post or adding a board member updates the page on its own.",
+        "Change the pages without changing the addresses. Each live page was duplicated as a dated backup draft, then the new layout was copied into the existing page, so menus, the front-page setting, and every inbound link kept pointing at the same place. Two pages moved to cleaner addresses, each with a permanent redirect from the old one.",
+      ],
+    },
+    {
+      id: "architecture",
+      step: "04",
+      title: "Architecture",
+      bullets: [
+        "WordPress with Elementor and PRO Elements, the stack the site already ran: no new theme, no new page builder",
+        "Python generators that produce each page's Elementor data, with the contrast audit and type floor built in",
+        "Loop Grids over the existing custom post types and ACF fields: team, board members, board meetings, blogs, partner portals, and events",
+        "A small WPCode snippet that sorts events into upcoming and recently held by their real dates, which Elementor cannot do on its own",
+        "Header and footer rebuilt as new ElementsKit templates, with the old ones set to draft rather than deleted",
+        "The contact form cloned from the live one with every label and field ID untouched, because Supply SA's intake app maps submissions by those labels",
+        "Supply SA's own teal, charcoal, and gray-blue, with a darker teal (#0F7A79) wherever teal has to carry text",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "What Shipped",
+      bullets: [
+        "All eleven pages live on September 10, 2026, each checked logged out against its new heading and title",
+        "The 102 MB hero video gone from every page, replaced by still images and solid bands",
+        "Zero contrast failures across the rebuilt pages, checked pair by pair rather than by eye",
+        "Blog dates in US order, newest first, with every post title as its own link",
+        "Every old address still resolves: the two moved pages carry permanent redirects, and everything else kept its URL",
+        "Every original page kept as a dated draft, so any page can be put back",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "An economic development organization is judged on whether small businesses can actually reach it. A site that makes a business owner on a phone download a 102 MB video, squint at pale teal text, and hit a 404 on the contact button is telling them the process will be hard before it starts.",
+        "Most of this work is invisible on purpose. Nobody will notice that the contact form still feeds the intake system, that a moved page redirects, or that a new blog post appears without anyone touching the layout. They will notice that the site loaded, made sense, and sent them where they meant to go.",
+      ],
+    },
+  ],
+};
+
 export const masterColorCaseStudy: CaseStudy = {
   slug: "master-color-salon",
   title: "Master Color Beauty Salon",
@@ -895,6 +1001,7 @@ const caseStudies: Record<string, CaseStudy> = {
   [marigoldMediumCaseStudy.slug]: marigoldMediumCaseStudy,
   [letsAskSpiritCaseStudy.slug]: letsAskSpiritCaseStudy,
   [masterColorCaseStudy.slug]: masterColorCaseStudy,
+  [supplySaWebsiteCaseStudy.slug]: supplySaWebsiteCaseStudy,
   [coldEmailPersonalizerCaseStudy.slug]: coldEmailPersonalizerCaseStudy,
   [proposalAutopilotCaseStudy.slug]: proposalAutopilotCaseStudy,
   [knowledgeAssistantCaseStudy.slug]: knowledgeAssistantCaseStudy,

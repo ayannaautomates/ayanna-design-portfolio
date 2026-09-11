@@ -102,6 +102,28 @@ export const projects: Project[] = [
     isConcept: true,
   },
   {
+    slug: "supply-sa-website",
+    title: "Supply SA Website",
+    year: 2026,
+    category: "Web Design",
+    description:
+      "An eleven-page WordPress rebuild for a San Antonio procurement nonprofit, swapped live with every old link intact and a 102 MB autoplay video gone from every page.",
+    longDescription:
+      "Supply SA helps small, local, and veteran-owned businesses in San Antonio get certified and compete for public contracts. Its WordPress site had drifted page by page: a 4K video autoplaying behind nearly every hero, brand teal used as text at contrast ratios as low as 2.59:1, a team page carrying 26 H1s, blog dates in day-month order on a Texas site, and contact buttons pointing at a page that returned a 404. All eleven pages were rebuilt from code-generated Elementor layouts, checked for contrast and heading structure before they shipped, and copied into the existing pages so every address, menu link, and search result kept working. Team, board, meeting, blog, partner portal, and event listings now read straight from WordPress, so staff publish once and the page updates itself.",
+    image: "/projects/supply-sa-website.png",
+    tags: [
+      "WordPress",
+      "Elementor",
+      "ACF",
+      "Custom Post Types",
+      "Python",
+      "WCAG 2.1 AA",
+      "WPCode",
+    ],
+    liveUrl: "https://supply-sa.org/",
+    githubUrl: "",
+  },
+  {
     slug: "master-color-salon",
     title: "Master Color Beauty Salon",
     year: 2026,
