@@ -237,10 +237,10 @@
 /* The set's screen glass, measured off the plate */
 .ops-glitch {
   position: absolute;
-  left: 52.2%;
-  top: 45.3%;
-  width: 7.3%;
-  height: 10.3%;
+  left: 55%;
+  top: 52.8%;
+  width: 10.1%;
+  height: 14.1%;
   overflow: hidden;
   border-radius: 7% / 9%;
   mix-blend-mode: screen;
