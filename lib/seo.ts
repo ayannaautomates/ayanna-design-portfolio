@@ -6,7 +6,7 @@ export function getPersonJsonLd() {
     "@type": "Person",
     name: siteConfig.name,
     url: siteConfig.url,
-    jobTitle: "AI Automation Specialist",
+    jobTitle: "Operations Leader",
     description: siteConfig.description,
     sameAs: [
       siteConfig.links.github,

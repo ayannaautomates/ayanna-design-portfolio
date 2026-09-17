@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "Ayanna",
-  title: "Ayanna — AI Automation Specialist",
+  name: "Ayanna McClintic",
+  title: "Ayanna McClintic | Operations Leader",
   description:
-    "AI workflow builder specializing in agent orchestration, automation pipelines, and intelligent systems for under-resourced organizations.",
-  tagline: "AI Builder · Automation Specialist · System Operator",
+    "Operations leader and USAF veteran. I bring structure to complex programs and build processes people actually follow.",
+  tagline: "Operations Leader · AI-Enabled Ops · USAF Veteran",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://www.soulwirestudio.com",

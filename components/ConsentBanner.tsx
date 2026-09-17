@@ -25,7 +25,7 @@ export default function ConsentBanner() {
       role="dialog"
       aria-labelledby="consent-heading"
       aria-describedby="consent-description"
-      className="fixed bottom-0 left-0 right-0 z-[60] border-t border-cyan/20 bg-navy-light/95 backdrop-blur-md px-6 py-4 md:px-12"
+      className="consent-banner fixed bottom-0 left-0 right-0 z-[60] border-t border-cyan/20 bg-navy-light/95 backdrop-blur-md px-6 py-4 md:px-12"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="min-w-0">
@@ -34,7 +34,7 @@ export default function ConsentBanner() {
           </p>
           <p id="consent-description" className="text-ghost-muted text-xs font-mono leading-relaxed max-w-2xl">
             We use privacy-friendly analytics to understand traffic. No ad
-            tracking. You can accept or decline — your choice is saved locally.
+            tracking. You can accept or decline. Your choice is saved locally.
           </p>
         </div>
         <div className="flex shrink-0 gap-3">
