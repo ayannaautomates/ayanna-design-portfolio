@@ -89,13 +89,13 @@ const timeline = [
 const endeavors = [
   {
     name: "Soulwire Studio",
-    meta: "Founder · 2025 to now",
+    meta: "Founder · 2025 to now · San Antonio, TX",
     body: "I map a client's process before I build anything, then turn the manual bottlenecks in lead follow-up, invoicing and reporting into a scoped automation roadmap with projected return. The builds connect CRMs, inboxes and spreadsheets so the copy-paste work disappears, and the support agents run on deterministic logic rather than improvisation, which gives a small team 24/7 response without adding headcount.",
   },
   {
     name: "Lavender Sky Homes",
-    meta: "Founder · 2022 to 2025",
-    body: "",
+    meta: "Founder · 2022 to 2025 · Tucson, AZ",
+    body: "A furnished mid-term rental run end to end: tenant communication, scheduling, maintenance and vendor work, all tracked on Excel project plans that kept the place ready and occupancy high. I rewrote the listings and the marketing around what renters actually search for, which lifted interest and lead flow, and held cleaners and contractors to turnover timelines so the experience stayed the same for every tenant. Budgeting and payment tracking ran through Baselane, so expenses stayed in line and payments went out on time.",
   },
 ];
 
