@@ -1542,9 +1542,14 @@ p.ops-descent__line {
   line-height: 0.78;
   letter-spacing: -0.06em;
   color: transparent;
-  background: linear-gradient(170deg, #eafffb 0%, var(--teal-bright) 42%, var(--teal-dim) 100%);
+  /* the numerals are a window onto the water */
+  background-image: linear-gradient(170deg, rgba(127, 216, 204, 0.42), rgba(11, 12, 12, 0.25)),
+    url("/off-clock/surface.jpg");
+  background-size: cover, 118%;
+  background-position: center, 50% 38%;
   -webkit-background-clip: text;
   background-clip: text;
+  filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.55));
 }
 
 .ops-travel__copy {
@@ -1595,6 +1600,8 @@ p.ops-descent__line {
 
 /* the board ------------------------------------------------------------- */
 .ops-board {
+  width: fit-content;
+  max-width: 100%;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: linear-gradient(180deg, #101515 0%, #0c1010 100%);
@@ -1606,7 +1613,7 @@ p.ops-descent__line {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
+  gap: clamp(1.5rem, 6vw, 5rem);
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
@@ -1631,7 +1638,7 @@ p.ops-descent__line {
 .ops-board__row {
   display: grid;
   grid-template-columns: 4ch 13ch 9ch 10ch;
-  gap: clamp(0.8rem, 2.4vw, 2.4rem);
+  gap: clamp(0.7rem, 1.6vw, 1.5rem);
   align-items: center;
   min-width: max-content;
 }

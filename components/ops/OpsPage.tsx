@@ -35,7 +35,7 @@ const stops: Stop[] = [
   { code: "SYD", destination: "SYDNEY", status: "EXPLORED", note: "AUSTRALIA" },
   { code: "DXB", destination: "DUBAI", status: "EXPLORED", note: "UAE" },
   { code: "CAI", destination: "CAIRO", status: "EXPLORED", note: "EGYPT" },
-  { code: "CUN", destination: "CANCUN", status: "DIVED", note: "MEXICO" },
+  { code: "TQO", destination: "TULUM", status: "DIVED", note: "MEXICO" },
 ];
 
 const metrics = [
@@ -477,6 +477,16 @@ export default function OpsPage() {
                 Read the full case study
               </Link>
 
+              <h3 className="ops-subhead">Also shipped at Supply SA</h3>
+              <div className="ops-grid3 ops-ragged">
+                {alsoShipped.map((a) => (
+                  <div key={a.title} className="ops-card ops-ragged__item op">
+                    <h4 className="ops-card__title">{a.title}</h4>
+                    <p className="ops-card__body">{a.body}</p>
+                  </div>
+                ))}
+              </div>
+
               <h3 className="ops-subhead">WeaverKeep</h3>
               <div className="ops-feature op">
                 <div className="ops-feature__copy">
@@ -489,8 +499,8 @@ export default function OpsPage() {
                   </p>
                   <p>
                     I ran a surgical technology program before I built it, so the workflow is the
-                    one I had to do by hand. It is live, signs in with Google or Microsoft, and its
-                    first college pilot is onboarding now.
+                    one I used to do by hand. It is live, and it signs in with Google or
+                    Microsoft.
                   </p>
                   <p className="ops-built">
                     <span className="ops-label">Built with</span> React · TypeScript · Supabase ·
@@ -505,16 +515,6 @@ export default function OpsPage() {
                     Visit weaverkeep.com
                   </a>
                 </div>
-              </div>
-
-              <h3 className="ops-subhead">Also shipped at SCTRCA</h3>
-              <div className="ops-grid3 ops-ragged">
-                {alsoShipped.map((a) => (
-                  <div key={a.title} className="ops-card ops-ragged__item op">
-                    <h4 className="ops-card__title">{a.title}</h4>
-                    <p className="ops-card__body">{a.body}</p>
-                  </div>
-                ))}
               </div>
 
               {conceptBuilds.length > 0 && (
@@ -606,12 +606,13 @@ export default function OpsPage() {
                   <div className="ops-travel__copy op">
                     <h3 className="ops-subhead">37 countries and counting</h3>
                     <p>
-                      Traveling is the other half of it. Thirty-seven countries so far, and the
-                      habit it builds is reading a room you have never been in: working with people
-                      whose training, language and assumptions are nothing like yours, and getting
-                      to the point without steamrolling anyone.
+                      Traveling across 37 countries shaped how I adapt, communicate, and solve
+                      problems. Every place taught me something different about people, systems,
+                      and perspective.
                     </p>
-                    <p>That shows up in every cross-functional room I walk into.</p>
+                    <p>
+                      From Tokyo to Dubai to Cairo, the journey became part of how I work.
+                    </p>
                   </div>
                 </div>
 
