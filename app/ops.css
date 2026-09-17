@@ -412,6 +412,154 @@ html.ops-smooth.lenis-scrolling .op {
   color: var(--teal-bright);
 }
 
+/* The channel selector: a planet built out of screens ------------------- */
+
+.ops-orbit {
+  position: relative;
+  padding: clamp(96px, 14vw, 180px) 0 clamp(40px, 8vw, 96px);
+}
+
+.ops-orbit__inner {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ops-orbit__kicker {
+  margin: 0 0 clamp(3.5rem, 8vw, 6rem);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.ops-orbit__ring {
+  position: relative;
+  width: min(72vw, 520px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.ops-orbit__sphere {
+  display: block;
+  width: 100%;
+  animation: ops-orbit-spin 90s linear infinite;
+}
+
+.ops-orbit__sphere img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* screen blending plus a circular mask, so the plate has no square edge */
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 58%, transparent 70%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 58%, transparent 70%);
+}
+
+.ops-orbit__nodes {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ops-orbit__node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* push each node out along its own angle, then straighten the label */
+  transform: rotate(var(--angle)) translate(min(44vw, 322px)) rotate(calc(var(--angle) * -1));
+}
+
+.ops-orbit__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: max-content;
+  max-width: 44vw;
+  padding: 0.5rem 0.75rem;
+  transform: translate(-50%, -50%);
+  transition: color 0.3s;
+}
+
+.ops-orbit__ch {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--teal-dim);
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.ops-orbit__label {
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  transition: color 0.3s;
+}
+
+.ops-orbit__link:hover .ops-orbit__ch,
+.ops-orbit__link:focus-visible .ops-orbit__ch {
+  color: var(--teal-bright);
+  text-shadow: 0 0 10px rgba(127, 216, 204, 0.6);
+}
+
+.ops-orbit__link:hover .ops-orbit__label,
+.ops-orbit__link:focus-visible .ops-orbit__label {
+  color: var(--text);
+}
+
+@keyframes ops-orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* On a phone the ring unwinds: sphere on top, channels listed underneath */
+@media (max-width: 860px) {
+  .ops-orbit__ring {
+    display: block;
+    width: 100%;
+    aspect-ratio: auto;
+  }
+
+  .ops-orbit__sphere {
+    display: block;
+    width: min(74vw, 420px);
+    margin: 0 auto;
+  }
+
+  .ops-orbit__nodes {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1rem;
+    margin-top: clamp(2rem, 7vw, 3rem);
+  }
+
+  .ops-orbit__node {
+    position: static;
+    transform: none;
+  }
+
+  .ops-orbit__link {
+    width: auto;
+    max-width: none;
+    padding: 0;
+    transform: none;
+  }
+
+  .ops-orbit__label {
+    font-size: 1rem;
+  }
+}
+
 /* Sections --------------------------------------------------------------- */
 
 .ops-body {

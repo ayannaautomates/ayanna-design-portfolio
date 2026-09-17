@@ -15,6 +15,15 @@ const channels = [
   { ch: "05", label: "Get in Touch", href: "#contact" },
 ];
 
+// Nodes around the sphere, placed by angle on a ring
+const orbit = [
+  { ch: "01", label: "Career Timeline", href: "#timeline", angle: -104 },
+  { ch: "02", label: "Toolkit", href: "#toolkit", angle: -40 },
+  { ch: "03", label: "Case Studies", href: "#case-studies", angle: 26 },
+  { ch: "04", label: "Off the Clock", href: "#off-clock", angle: 92 },
+  { ch: "05", label: "LinkedIn", href: siteConfig.links.linkedin, angle: 168, external: true },
+];
+
 const metrics = [
   { value: "7 to 11", label: "guided screens, down from a manual process of 30 to 40 steps" },
   { value: "$11.5K", label: "to $12K a year of specialist capacity returned to the agency" },
@@ -272,6 +281,51 @@ export default function OpsPage() {
         </section>
 
         <div className="ops-body">
+          <section className="ops-orbit" aria-label="Sections">
+            <div className="ops-orbit__inner">
+              <p className="ops-orbit__kicker">Pick a channel</p>
+
+              <div className="ops-orbit__ring">
+                <picture className="ops-orbit__sphere">
+                  <source
+                    srcSet="/orbit/sphere-sm.webp 700w, /orbit/sphere.webp 1400w"
+                    sizes="(max-width: 860px) 78vw, 560px"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/orbit/sphere.jpg"
+                    alt=""
+                    width={1400}
+                    height={1400}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+
+                <ul className="ops-orbit__nodes">
+                  {orbit.map((o) => (
+                    <li
+                      key={o.ch}
+                      className="ops-orbit__node"
+                      style={{ "--angle": `${o.angle}deg` } as React.CSSProperties}
+                    >
+                      <a
+                        href={o.href}
+                        className="ops-orbit__link"
+                        {...(o.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        <span className="ops-orbit__ch">CH {o.ch}</span>
+                        <span className="ops-orbit__label">{o.label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+
           <section id="timeline" data-ch="01" className="ops-section" data-section>
             <Scanlines />
             <div className="ops-wrap">
