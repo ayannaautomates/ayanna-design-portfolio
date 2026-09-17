@@ -118,12 +118,12 @@ function ChannelMark({ ch, delay }: { ch: string; delay?: number }) {
 
 // Screen glass positions on /hero/backplate, in % of the image (x, y, w, h)
 const screens = {
-  id: [36.5, 8, 19.5, 17],
+  id: [32.5, 5, 24.5, 19.5],
   links: [
-    [18, 33, 22, 20],
-    [54, 33, 21, 20],
-    [13, 61, 25, 22],
-    [54, 61, 24, 22],
+    [15, 28, 25.5, 20],
+    [53, 28.5, 23.5, 20],
+    [10.5, 54.5, 29, 22.5],
+    [51.5, 55, 28, 22.5],
   ],
 } as const;
 
@@ -178,15 +178,15 @@ export default function OpsPage() {
               <picture>
                 <source srcSet="/hero/backplate.avif" type="image/avif" />
                 <source
-                  srcSet="/hero/backplate-sm.webp 807w, /hero/backplate.webp 1614w"
+                  srcSet="/hero/backplate-sm.webp 900w, /hero/backplate.webp 1800w"
                   sizes="(max-width: 720px) 100vw, 1200px"
                   type="image/webp"
                 />
                 <img
                   src="/hero/backplate.jpg"
                   alt=""
-                  width={1614}
-                  height={1382}
+                  width={1800}
+                  height={1633}
                   fetchPriority="high"
                   decoding="async"
                   className="ops-stage__img"

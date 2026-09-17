@@ -215,15 +215,15 @@
 .ops-stage {
   container-type: inline-size;
   position: relative;
-  width: min(94vw, 1200px, max(1080px, calc((100svh - var(--nav-h) - 60px) * 1.168)));
+  width: min(94vw, 1200px, max(1080px, calc((100svh - var(--nav-h) - 60px) * 1.1)));
 }
 
 .ops-stage__img {
   display: block;
   width: 100%;
   height: auto;
-  -webkit-mask-image: radial-gradient(ellipse 58% 62% at 50% 44%, #000 62%, transparent 100%);
-  mask-image: radial-gradient(ellipse 58% 62% at 50% 44%, #000 62%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 64% at 50% 42%, #000 66%, transparent 100%);
+  mask-image: radial-gradient(ellipse 60% 64% at 50% 42%, #000 66%, transparent 100%);
 }
 
 .ops-screen {
@@ -240,7 +240,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.62);
   transition: background 0.3s;
 }
 
@@ -252,7 +252,7 @@
 }
 
 .ops-screen--id::after {
-  background: rgba(0, 0, 0, 0.66);
+  background: rgba(0, 0, 0, 0.68);
 }
 
 .ops-screen__text {
@@ -310,7 +310,7 @@
 }
 
 .ops-screen--link::after {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.74);
 }
 
 .ops-screen__label {
@@ -325,7 +325,7 @@
 
 .ops-screen--link:hover::after,
 .ops-screen--link:focus-visible::after {
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.42);
 }
 
 .ops-screen--link:hover .ops-screen__label,
