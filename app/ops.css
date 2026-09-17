@@ -1562,6 +1562,37 @@ p.ops-descent__line {
   margin: 0 0 0.4rem;
 }
 
+.ops-map {
+  margin: 0;
+}
+
+.ops-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+}
+
+.ops-map figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: -0.5rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ops-map__key {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: #2f6f68;
+}
+
 /* the board ------------------------------------------------------------- */
 .ops-board {
   border: 1px solid var(--border);

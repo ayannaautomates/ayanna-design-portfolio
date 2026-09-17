@@ -616,6 +616,18 @@ export default function OpsPage() {
                 </div>
 
                 <OpsBoard stops={stops} />
+
+                <figure className="ops-map op">
+                  <img
+                    src="/travel/world.svg"
+                    alt="World map with the 37 countries Ayanna has visited highlighted in teal"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>
+                    <span className="ops-map__key" aria-hidden="true" /> 37 countries visited
+                  </figcaption>
+                </figure>
               </div>
             </div>
           </section>
