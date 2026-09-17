@@ -150,15 +150,15 @@ export default function OpsPage() {
                   <picture>
                     <source srcSet="/hero/portal.avif" type="image/avif" />
                     <source
-                      srcSet="/hero/portal-sm.webp 1024w, /hero/portal.webp 2048w"
+                      srcSet="/hero/portal-sm.webp 1100w, /hero/portal.webp 2200w"
                       sizes="100vw"
                       type="image/webp"
                     />
                     <img
                       src="/hero/portal.jpg"
                       alt=""
-                      width={2048}
-                      height={1152}
+                      width={2200}
+                      height={1227}
                       fetchPriority="high"
                       className="ops-portal__img"
                     />

@@ -235,9 +235,9 @@ html.ops-smooth.lenis-scrolling .op {
 
 .ops-portal__inner {
   position: absolute;
-  left: 62%;
+  left: 70%;
   top: 50%;
-  transform: translate(-62%, -50%);
+  transform: translate(-70%, -50%);
   width: max(100%, calc(100svh * 16 / 9));
   height: max(100%, calc(100vw * 9 / 16));
 }
@@ -252,10 +252,10 @@ html.ops-smooth.lenis-scrolling .op {
 /* The set's screen glass, measured off the plate */
 .ops-glitch {
   position: absolute;
-  left: 55%;
-  top: 52.8%;
-  width: 10.1%;
-  height: 14.1%;
+  left: 60.8%;
+  top: 48.6%;
+  width: 12.6%;
+  height: 16.3%;
   overflow: hidden;
   border-radius: 7% / 9%;
   mix-blend-mode: screen;
@@ -1054,8 +1054,8 @@ body:has(.ops) .consent-banner .btn-secondary {
   }
 
   .ops-portal__inner {
-    left: 70%;
-    transform: translate(-70%, -50%);
+    left: 76%;
+    transform: translate(-76%, -50%);
     width: max(100%, calc(54svh * 16 / 9));
     height: max(100%, calc(100vw * 9 / 16));
   }
