@@ -943,7 +943,125 @@ html.ops-smooth.lenis-scrolling .op {
   background: var(--teal);
 }
 
-/* 04 Off the clock */
+/* 04 Off the clock: a pinned descent */
+.ops-descent {
+  padding-top: 0;
+}
+
+.ops-descent__stage {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.ops-descent__plates {
+  position: absolute;
+  inset: 0;
+}
+
+.ops-plate {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.ops-plate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ops-plate--mid,
+.ops-plate--deep {
+  opacity: 0;
+}
+
+.ops-descent__dark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(11, 12, 12, 0.35), rgba(11, 12, 12, 0.72));
+  opacity: 0.55;
+}
+
+/* a slow drift of particles, like silt in a light beam */
+.ops-descent__motes {
+  position: absolute;
+  inset: -20%;
+  background-image: radial-gradient(1.5px 1.5px at 20% 30%, rgba(236, 239, 238, 0.5), transparent 60%),
+    radial-gradient(1.5px 1.5px at 70% 60%, rgba(236, 239, 238, 0.4), transparent 60%),
+    radial-gradient(2px 2px at 45% 80%, rgba(127, 216, 204, 0.4), transparent 60%),
+    radial-gradient(1px 1px at 85% 25%, rgba(236, 239, 238, 0.45), transparent 60%),
+    radial-gradient(1.5px 1.5px at 35% 55%, rgba(236, 239, 238, 0.3), transparent 60%);
+  background-size: 520px 520px, 700px 700px, 900px 900px, 400px 400px, 620px 620px;
+  opacity: 0.55;
+  animation: ops-motes 26s linear infinite;
+}
+
+.ops-descent__depth {
+  position: absolute;
+  top: calc(var(--nav-h) + 28px);
+  right: clamp(16px, 4vw, 40px);
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  color: var(--teal-bright);
+}
+
+.ops-descent__copy {
+  position: relative;
+  z-index: 2;
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+.ops-descent__panels {
+  position: relative;
+  min-height: 42svh;
+}
+
+.ops-descent__line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 24ch;
+  margin: 0;
+  opacity: 0;
+  color: var(--text);
+}
+
+h2.ops-descent__line {
+  max-width: 18ch;
+  font-size: clamp(2.1rem, 4.6vw, 4rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+p.ops-descent__line {
+  max-width: 34ch;
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--text-mid);
+}
+
+.ops-descent__after {
+  padding-top: clamp(96px, 14vw, 180px);
+  padding-bottom: clamp(24px, 4vw, 48px);
+}
+
+.ops-dive__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
 .ops-dive__copy {
   display: grid;
   gap: 1.1rem;
@@ -955,46 +1073,37 @@ html.ops-smooth.lenis-scrolling .op {
   margin: 0;
 }
 
-.ops-dive__band {
-  display: grid;
-  align-items: start;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(12px, 2vw, 28px);
-  margin-top: clamp(3.5rem, 7vw, 6rem);
-  padding: 0 clamp(16px, 4vw, 40px);
-}
-
-.ops-dive__figure {
-  position: relative;
+.ops-dive__copy .ops-subhead {
   margin: 0;
-  overflow: hidden;
-  border-radius: 4px;
 }
 
-.ops-dive__figure:nth-child(2) {
-  margin-top: clamp(2rem, 5vw, 5rem);
+.ops-dive__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 
-.ops-dive__figure:nth-child(3) {
-  margin-top: clamp(1rem, 2.5vw, 2.5rem);
+.ops-dive__figureNum {
+  font-size: clamp(5rem, 13vw, 11rem);
+  font-weight: 300;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  color: var(--teal-bright);
 }
 
-.ops-dive__figure img {
-  display: block;
-  width: 100%;
-  height: clamp(220px, 34vw, 460px);
-  object-fit: cover;
-  filter: saturate(0.85) contrast(1.05);
+.ops-dive__figureLabel {
+  margin-top: 0.6rem;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
-/* the water fades into the page instead of stopping at a hard edge */
-.ops-dive__figure::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(to top, rgba(11, 12, 12, 0.92), rgba(11, 12, 12, 0) 46%),
-    linear-gradient(to right, rgba(11, 12, 12, 0.55), rgba(11, 12, 12, 0) 24%, rgba(11, 12, 12, 0) 76%, rgba(11, 12, 12, 0.55));
+@keyframes ops-motes {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-3%, -12%, 0); }
 }
 
 /* 05 Contact */
@@ -1279,13 +1388,18 @@ body:has(.ops) .consent-banner .btn-secondary {
     grid-template-columns: 1fr;
   }
 
-  .ops-dive__band {
+  .ops-dive__grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .ops-dive__figure:nth-child(2),
-  .ops-dive__figure:nth-child(3) {
-    margin-top: 0;
+  .ops-descent__panels {
+    min-height: 56svh;
+  }
+
+  .ops-dive__stat {
+    align-items: flex-start;
+    text-align: left;
   }
 
   .ops-domain__body {

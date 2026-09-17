@@ -64,6 +64,51 @@ export default function OpsMotion() {
         );
       }
 
+      // The descent: pin the stage and let scroll drive depth
+      const stage = document.querySelector<HTMLElement>(".ops-descent__stage");
+      const depthEl = document.querySelector<HTMLElement>("[data-depth]");
+      if (stage) {
+        const panels = gsap.utils.toArray<HTMLElement>(".ops-descent__line");
+        const depth = { value: 0 };
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: stage,
+            start: "top top",
+            end: "+=2600",
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+          },
+        });
+
+        // water gets deeper and darker
+        tl.to(".ops-plate--mid", { opacity: 1, duration: 1.2 }, 0.6)
+          .to(".ops-plate--deep", { opacity: 1, duration: 1.2 }, 2.2)
+          .to(".ops-descent__dark", { opacity: 0.88, duration: 3.4 }, 0)
+          .to(".ops-plate--surface", { scale: 1.12, duration: 3.4, ease: "none" }, 0)
+          .to(depth, {
+            value: 38,
+            duration: 3.4,
+            ease: "none",
+            onUpdate: () => {
+              if (depthEl) depthEl.textContent = `-${Math.round(depth.value)}`;
+            },
+          }, 0);
+
+        // one line at a time, each fading up and away
+        panels.forEach((panel, i) => {
+          tl.fromTo(
+            panel,
+            { opacity: 0, y: 28, filter: "blur(6px)" },
+            { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "sine.out" },
+            i * 1.1 + 0.15,
+          );
+          if (i < panels.length - 1) {
+            tl.to(panel, { opacity: 0, y: -24, duration: 0.4, ease: "sine.in" }, i * 1.1 + 0.95);
+          }
+        });
+      }
+
       // The dive band drifts at two speeds, like the reference site's ridge
       gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
         gsap.fromTo(

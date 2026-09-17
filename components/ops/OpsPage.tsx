@@ -367,9 +367,6 @@ export default function OpsPage() {
               <div className="ops-cols op">
                 <div>
                   <h3 className="ops-label">The problem</h3>
-                  {/* OPEN: Ayanna's one line on what the manual process cost applicants and
-                      staff. The staff-side figures below are from the published, staff-confirmed
-                      case study. */}
                   <p>
                     Every new applicant needed a live 30 to 45 minute walkthrough with a specialist
                     just to learn which of 40+ documents applied to them. At 10 to 15 vendors a
@@ -450,38 +447,61 @@ export default function OpsPage() {
             </div>
           </section>
 
-          <section id="off-clock" data-ch="04" className="ops-section ops-dive" data-section>
-            <Scanlines />
-            <div className="ops-wrap">
-              <p className="ops-eyebrow op">
-                <span className="ops-num">04</span> / Off the Clock
+          {/* The descent: pinned, and scroll drives the depth */}
+          <section id="off-clock" data-ch="04" className="ops-section ops-descent" data-section>
+            <div className="ops-descent__stage">
+              <div className="ops-descent__plates" aria-hidden="true">
+                {["surface", "mid", "deep"].map((plate) => (
+                  <picture key={plate} className={`ops-plate ops-plate--${plate}`}>
+                    <source srcSet={`/off-clock/${plate}.webp`} type="image/webp" />
+                    <img src={`/off-clock/${plate}.jpg`} alt="" loading="lazy" decoding="async" />
+                  </picture>
+                ))}
+                <span className="ops-descent__dark" />
+                <span className="ops-descent__motes" />
+              </div>
+
+              <p className="ops-descent__depth" aria-hidden="true">
+                <span data-depth>0</span> M
               </p>
-              <h2 className="ops-h2">Cenotes, Mexico.</h2>
-              <div className="ops-dive__copy op">
-                <p>
-                  I love diving cenotes in Mexico. Fresh water, no daylight, a line to follow and a
-                  plan you do not improvise on.
+
+              <div className="ops-descent__copy">
+                <p className="ops-eyebrow">
+                  <span className="ops-num">04</span> / Off the Clock
                 </p>
-                <p>
-                  It is the same discipline as the work. You plan the dive, you dive the plan, and
-                  you check your gas before you need it. Calm is a system, not a personality trait.
-                </p>
+                <div className="ops-descent__panels">
+                  <h2 className="ops-descent__line" data-panel="0">
+                    I love diving cenotes in Mexico.
+                  </h2>
+                  <p className="ops-descent__line" data-panel="1">
+                    Fresh water, no daylight, a line to follow and a plan you do not improvise on.
+                  </p>
+                  <p className="ops-descent__line" data-panel="2">
+                    Same discipline as the work. Plan the dive, dive the plan, check your gas before
+                    you need it. Calm is a system, not a personality trait.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="ops-dive__band" aria-hidden="false">
-              {[
-                { src: "divers", alt: "Divers descending into a cenote, sunlight cutting through the water" },
-                { src: "cavern", alt: "A limestone column and formations lit inside a flooded cave" },
-                { src: "column", alt: "A diver's light on the cave floor deep inside the system" },
-              ].map((img, i) => (
-                <figure key={img.src} className="ops-dive__figure" data-parallax={i % 2 === 0 ? "1" : "2"}>
-                  <picture>
-                    <source srcSet={`/off-clock/${img.src}.webp`} type="image/webp" />
-                    <img src={`/off-clock/${img.src}.jpg`} alt={img.alt} loading="lazy" decoding="async" />
-                  </picture>
-                </figure>
-              ))}
+            <div className="ops-wrap ops-descent__after">
+              <Scanlines />
+              <div className="ops-dive__grid">
+                <div className="ops-dive__copy op">
+                  <h3 className="ops-subhead">37 countries, and counting.</h3>
+                  <p>
+                    Traveling is the other half of it. Thirty-seven countries so far, and the habit
+                    it builds is reading a room you have never been in: working with people whose
+                    training, language and assumptions are nothing like yours, and getting to the
+                    point without steamrolling anyone. That shows up in every cross-functional room
+                    I walk into.
+                  </p>
+                </div>
+                <div className="ops-dive__stat op" aria-hidden="true">
+                  <span className="ops-dive__figureNum">37</span>
+                  <span className="ops-dive__figureLabel">countries</span>
+                </div>
+              </div>
             </div>
           </section>
 
