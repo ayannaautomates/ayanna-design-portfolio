@@ -32,38 +32,6 @@ export default function OpsMotion() {
     document.documentElement.classList.add("ops-smooth");
 
     const ctx = gsap.context(() => {
-      // Headings resolve word by word, driven by scroll position
-      const headings = gsap.utils.toArray<HTMLElement>(".ops-h2, .ops-subhead, .ops-anim-text");
-      for (const heading of headings) {
-        if (heading.dataset.split === "done") continue;
-        const words = (heading.textContent ?? "").split(/\s+/).filter(Boolean);
-        heading.textContent = "";
-        for (const word of words) {
-          const span = document.createElement("span");
-          span.className = "ops-word";
-          span.textContent = word;
-          heading.append(span, document.createTextNode(" "));
-        }
-        heading.dataset.split = "done";
-
-        gsap.fromTo(
-          heading.querySelectorAll(".ops-word"),
-          { opacity: 0, filter: "blur(8px)" },
-          {
-            opacity: 1,
-            filter: "blur(0px)",
-            stagger: 0.05,
-            ease: "sine",
-            scrollTrigger: {
-              trigger: heading,
-              start: "top bottom-=15%",
-              end: "bottom center+=5%",
-              scrub: true,
-            },
-          },
-        );
-      }
-
       // The descent: the stage is sticky in CSS, scroll only drives the depth.
       // No GSAP pin here, because pin spacers and smooth scroll fight each other.
       const stage = document.querySelector<HTMLElement>(".ops-descent__stage");
@@ -114,6 +82,45 @@ export default function OpsMotion() {
             );
           }
         });
+      }
+
+    });
+
+    const mm = gsap.matchMedia();
+
+    // Phones get the descent and nothing else: scrubbed reveals and pinning
+    // both misbehave under touch scrolling, which left blocks stuck hidden.
+    mm.add("(min-width: 861px)", () => {
+      // Headings resolve word by word, driven by scroll position
+      const headings = gsap.utils.toArray<HTMLElement>(".ops-h2, .ops-subhead, .ops-anim-text");
+      for (const heading of headings) {
+        if (heading.dataset.split === "done") continue;
+        const words = (heading.textContent ?? "").split(/\s+/).filter(Boolean);
+        heading.textContent = "";
+        for (const word of words) {
+          const span = document.createElement("span");
+          span.className = "ops-word";
+          span.textContent = word;
+          heading.append(span, document.createTextNode(" "));
+        }
+        heading.dataset.split = "done";
+
+        gsap.fromTo(
+          heading.querySelectorAll(".ops-word"),
+          { opacity: 0, filter: "blur(8px)" },
+          {
+            opacity: 1,
+            filter: "blur(0px)",
+            stagger: 0.05,
+            ease: "sine",
+            scrollTrigger: {
+              trigger: heading,
+              start: "top bottom-=15%",
+              end: "bottom center+=5%",
+              scrub: true,
+            },
+          },
+        );
       }
 
       // Case studies: the metrics hold while the headline falls away
@@ -170,7 +177,8 @@ export default function OpsMotion() {
         });
       }
 
-      // Every block rises into place
+      // Every block rises into place. The range runs forwards: it starts as the
+      // block enters and finishes 300px later, so nothing can sit half revealed.
       gsap.utils.toArray<HTMLElement>(".op").forEach((el) => {
         gsap.from(el, {
           y: 80,
@@ -179,9 +187,10 @@ export default function OpsMotion() {
           ease: "quint.out",
           scrollTrigger: {
             trigger: el,
-            start: "top bottom-=15%",
-            end: "top bottom",
+            start: "top bottom-=8%",
+            end: "+=300",
             scrub: true,
+            invalidateOnRefresh: true,
           },
         });
       });
@@ -212,6 +221,7 @@ export default function OpsMotion() {
     ScrollTrigger.refresh();
 
     return () => {
+      mm.revert();
       window.removeEventListener("load", refresh);
       window.clearTimeout(settle);
       document.removeEventListener("click", onAnchorClick);

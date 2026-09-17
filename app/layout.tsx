@@ -3,8 +3,6 @@ import { Audiowide, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import GridOverlay from "@/components/GridOverlay";
 import ScrollToTop from "@/components/ScrollToTop";
 import SkipLink from "@/components/SkipLink";
-import ConsentBanner from "@/components/ConsentBanner";
-import Analytics from "@/components/Analytics";
 import PwaRegister from "@/components/PwaRegister";
 import { siteConfig } from "@/lib/site";
 import { assetUrl } from "@/lib/assets";
@@ -126,8 +124,6 @@ export default function RootLayout({
         <GridOverlay />
         {children}
         <ScrollToTop />
-        <ConsentBanner />
-        <Analytics />
         <PwaRegister />
       </body>
     </html>

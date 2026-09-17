@@ -1175,7 +1175,7 @@ html.ops-has-remote .ops summary {
 .ops-timeline {
   position: relative;
   margin: 0;
-  padding: 0;
+  padding-left: 22px;
   list-style: none;
 }
 
@@ -1487,7 +1487,7 @@ html.ops-has-remote .ops summary {
   padding-top: 0;
   padding-bottom: 0;
   /* the scroll distance the descent plays over */
-  min-height: 340svh;
+  min-height: 150svh;
 }
 
 .ops-descent__stage {
@@ -1602,11 +1602,15 @@ p.ops-descent__line {
   color: var(--text-mid);
 }
 
+/* the travel block rises over the water instead of waiting for it to scroll
+   away, which is what made the exit feel two or three screens long */
 .ops-travel-sec {
   position: relative;
   z-index: 1;
-  padding-top: clamp(64px, 8vw, 110px);
+  margin-top: -42svh;
+  padding-top: clamp(90px, 14vh, 190px);
   background: var(--bg);
+  box-shadow: 0 -40px 60px 20px var(--bg);
 }
 
 .ops-travel {
@@ -2056,8 +2060,31 @@ body:has(.ops) .consent-banner .btn-secondary {
 
   .ops-nav__links {
     width: 100%;
-    justify-content: space-between;
-    gap: 0.5rem;
+    justify-content: flex-start;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(to right, #000 88%, transparent 100%);
+  }
+
+  .ops-nav__links::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* hairlines between the channels, so they stop running together */
+  .ops-nav__links .ops-nav__link {
+    padding: 0 0.6rem;
+  }
+
+  .ops-nav__links .ops-nav__link + .ops-nav__link {
+    border-left: 1px solid var(--border-hi);
+  }
+
+  .ops-nav__link::after {
+    bottom: 2px;
+    left: 0.6rem;
+    right: 0.6rem;
   }
 
   .ops-nav__link {
@@ -2099,28 +2126,37 @@ body:has(.ops) .consent-banner .btn-secondary {
     min-height: 0;
   }
 
+  /* the whole frame shows on a phone: no crop, and it starts under the nav */
   .ops-portal__frame {
     position: relative;
-    height: 54svh;
+    height: auto;
+    margin-top: var(--nav-h);
   }
 
   .ops-portal__inner {
-    left: 76%;
-    transform: translate(-76%, -50%);
-    width: max(100%, calc(54svh * 16 / 9));
-    height: max(100%, calc(100vw * 9 / 16));
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .ops-portal__img {
+    height: auto;
+    object-fit: contain;
   }
 
   .ops-beat--portal::after {
-    top: auto;
-    height: 54svh;
-    background: linear-gradient(to top, rgba(11, 12, 12, 0.98) 2%, rgba(11, 12, 12, 0) 46%);
+    top: var(--nav-h);
+    height: calc(100vw * 9 / 16);
+    background: linear-gradient(to top, rgba(11, 12, 12, 0.96) 1%, rgba(11, 12, 12, 0) 34%);
   }
 
   .ops-portal__copy {
     width: 100%;
     padding: 0 20px 6vh;
-    margin-top: -6vh;
+    margin-top: 1.5rem;
   }
 
   .ops-portal__copy > * {
@@ -2135,6 +2171,10 @@ body:has(.ops) .consent-banner .btn-secondary {
   /* Nav already lists these channels; the stack is scenery here */
   
   
+  .ops-timeline {
+    padding-left: 18px;
+  }
+
   .ops-timeline__item {
     grid-template-columns: 1fr;
     gap: 0.4rem;
@@ -2177,4 +2217,64 @@ body:has(.ops) .consent-banner .btn-secondary {
 @media (max-width: 380px) {
   .ops-nav__name { font-size: 11px; letter-spacing: 0.14em; }
   .ops-nav__link { font-size: 13px; }
+}
+
+/* Phones: the board, map and timeline, sized so nothing scrolls sideways ---- */
+
+@media (max-width: 860px) {
+  .ops-travel__lede,
+  .ops-travel__row {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .ops-board {
+    width: 100%;
+    padding: 0.9rem 0.7rem;
+    overflow-x: hidden;
+  }
+
+  .ops-board__head {
+    gap: 1rem;
+  }
+
+  .ops-board__title {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+  }
+
+  .ops-board__sub {
+    font-size: 9px;
+  }
+
+  .ops-board__cols,
+  .ops-board__row {
+    grid-template-columns: 3.2ch 10.4ch 8ch 8ch;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .ops-board__cols {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .ops-flaps {
+    gap: 1px;
+  }
+
+  .ops-flap {
+    width: 0.95ch;
+    padding: 2px 0;
+    font-size: 10.5px;
+  }
+
+  .ops-map img {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .ops-timeline {
+    padding-left: 18px;
+  }
 }
