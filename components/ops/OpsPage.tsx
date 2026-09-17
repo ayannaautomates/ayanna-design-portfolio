@@ -8,9 +8,9 @@ const RESUME_HREF = "/resume.pdf";
 const EMAIL = "ayanna.m89@gmail.com";
 
 const channels = [
-  { ch: "01", label: "Case Studies", href: "#case-studies" },
-  { ch: "02", label: "Career Timeline", href: "#timeline" },
-  { ch: "03", label: "Toolkit", href: "#toolkit" },
+  { ch: "01", label: "Career Timeline", href: "#timeline" },
+  { ch: "02", label: "Toolkit", href: "#toolkit" },
+  { ch: "03", label: "Case Studies", href: "#case-studies" },
   { ch: "04", label: "Get in Touch", href: "#contact" },
 ];
 
@@ -179,6 +179,7 @@ export default function OpsPage() {
                   I bring structure to complex programs and build processes people actually
                   follow.
                 </p>
+                <p className="ops-quip">Static is just a process nobody has tuned yet.</p>
                 <p className="ops-id__tag">AI-ENABLED OPS · USAF VETERAN</p>
                 <p className="ops-hero__open">
                   OPEN TO OPERATIONS LEADERSHIP AND AI-ENABLED OPERATIONS ROLES
@@ -193,11 +194,81 @@ export default function OpsPage() {
         </section>
 
         <div className="ops-body">
+          <section id="timeline" className="ops-section" data-section>
+            <Scanlines />
+            <div className="ops-wrap">
+              <p className="ops-eyebrow op">
+                <span className="ops-num">01</span> / Career Timeline
+              </p>
+              <h2 className="ops-h2">Four industries. One way of working.</h2>
+
+              <ol className="ops-timeline">
+                {timeline.map((t) => (
+                  <li key={t.org} className="ops-timeline__item op">
+                    <p className="ops-timeline__years">{t.years}</p>
+                    <div>
+                      <h3 className="ops-timeline__org">{t.org}</h3>
+                      <p className="ops-timeline__body">{t.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="ops-own op">
+                <h3 className="ops-label">Own endeavors</h3>
+                <div className="ops-own__cols">
+                  <div className="ops-card">
+                    <h4 className="ops-card__title">Soulwire Studio</h4>
+                    <p className="ops-card__meta">Founder · 2025 to now</p>
+                  </div>
+                  <div className="ops-card">
+                    <h4 className="ops-card__title">Lavender Sky Homes</h4>
+                    <p className="ops-card__meta">Founder · 2022 to 2025</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="toolkit" className="ops-section" data-section>
+            <Scanlines />
+            <div className="ops-wrap">
+              <p className="ops-eyebrow op">
+                <span className="ops-num">02</span> / Toolkit
+              </p>
+              <h2 className="ops-h2">Core competencies. Pick one.</h2>
+
+              <div className="ops-toolkit" data-accordion>
+                {toolkit.map((d, i) => (
+                  <details key={d.title} className="ops-domain op" open={i === 0}>
+                    <summary className="ops-domain__head">
+                      <span className="ops-domain__num">0{i + 1}</span>
+                      <span className="ops-domain__title">{d.title}</span>
+                      <span className="ops-domain__icon" aria-hidden="true" />
+                    </summary>
+                    <div className="ops-domain__body">
+                      <ul className="ops-chips" aria-label="Skills">
+                        {d.skills.map((s) => (
+                          <li key={s}>{s}</li>
+                        ))}
+                      </ul>
+                      <ul className="ops-evidence">
+                        {d.evidence.map((e) => (
+                          <li key={e}>{e}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+
           <section id="case-studies" className="ops-section" data-section>
             <Scanlines />
             <div className="ops-wrap">
               <p className="ops-eyebrow op">
-                <span className="ops-num">01</span> / Case Studies
+                <span className="ops-num">03</span> / Case Studies
               </p>
               <h2 className="ops-h2">Supply SA vendor certification assistant</h2>
 
@@ -274,76 +345,6 @@ export default function OpsPage() {
                   </ul>
                 </>
               )}
-            </div>
-          </section>
-
-          <section id="timeline" className="ops-section" data-section>
-            <Scanlines />
-            <div className="ops-wrap">
-              <p className="ops-eyebrow op">
-                <span className="ops-num">02</span> / Career Timeline
-              </p>
-              <h2 className="ops-h2">Four industries. One way of working.</h2>
-
-              <ol className="ops-timeline">
-                {timeline.map((t) => (
-                  <li key={t.org} className="ops-timeline__item op">
-                    <p className="ops-timeline__years">{t.years}</p>
-                    <div>
-                      <h3 className="ops-timeline__org">{t.org}</h3>
-                      <p className="ops-timeline__body">{t.body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-
-              <div className="ops-own op">
-                <h3 className="ops-label">Own endeavors</h3>
-                <div className="ops-own__cols">
-                  <div className="ops-card">
-                    <h4 className="ops-card__title">Soulwire Studio</h4>
-                    <p className="ops-card__meta">Founder · 2025 to now</p>
-                  </div>
-                  <div className="ops-card">
-                    <h4 className="ops-card__title">Lavender Sky Homes</h4>
-                    <p className="ops-card__meta">Founder · 2022 to 2025</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="toolkit" className="ops-section" data-section>
-            <Scanlines />
-            <div className="ops-wrap">
-              <p className="ops-eyebrow op">
-                <span className="ops-num">03</span> / Toolkit
-              </p>
-              <h2 className="ops-h2">Core competencies. Pick one.</h2>
-
-              <div className="ops-toolkit" data-accordion>
-                {toolkit.map((d, i) => (
-                  <details key={d.title} className="ops-domain op" open={i === 0}>
-                    <summary className="ops-domain__head">
-                      <span className="ops-domain__num">0{i + 1}</span>
-                      <span className="ops-domain__title">{d.title}</span>
-                      <span className="ops-domain__icon" aria-hidden="true" />
-                    </summary>
-                    <div className="ops-domain__body">
-                      <ul className="ops-chips" aria-label="Skills">
-                        {d.skills.map((s) => (
-                          <li key={s}>{s}</li>
-                        ))}
-                      </ul>
-                      <ul className="ops-evidence">
-                        {d.evidence.map((e) => (
-                          <li key={e}>{e}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </details>
-                ))}
-              </div>
             </div>
           </section>
 
