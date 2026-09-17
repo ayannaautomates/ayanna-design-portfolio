@@ -908,6 +908,45 @@ html.ops-has-remote .ops summary {
   color: var(--text-muted);
 }
 
+.ops-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+/* the product shot sits on its own plate, tilted very slightly */
+.ops-shot {
+  order: 2;
+  margin: 0;
+  border: 1px solid var(--border-hi);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--panel);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.ops-shot:hover {
+  transform: translateY(-4px);
+}
+
+.ops-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ops-shot figcaption {
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
 .ops-feature__copy {
   display: grid;
   gap: 1.1rem;
@@ -940,6 +979,45 @@ html.ops-has-remote .ops summary {
 
 .ops-beatbox__metrics {
   will-change: transform, opacity;
+}
+
+.ops-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+/* the product shot sits on its own plate, tilted very slightly */
+.ops-shot {
+  order: 2;
+  margin: 0;
+  border: 1px solid var(--border-hi);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--panel);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.ops-shot:hover {
+  transform: translateY(-4px);
+}
+
+.ops-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ops-shot figcaption {
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
 }
 
 .ops-feature__copy {
@@ -2059,8 +2137,13 @@ body:has(.ops) .consent-banner .btn-secondary {
   }
 
   .ops-own__cols,
-  .ops-grid2 {
+  .ops-grid2,
+  .ops-feature {
     grid-template-columns: 1fr;
+  }
+
+  .ops-shot {
+    order: 0;
   }
 
   .ops-dive__grid {

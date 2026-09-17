@@ -489,6 +489,25 @@ export default function OpsPage() {
 
               <h3 className="ops-subhead">WeaverKeep</h3>
               <div className="ops-feature op">
+                <figure className="ops-shot">
+                  <picture>
+                    <source
+                      srcSet="/work/weaverkeep-sm.webp 800w, /work/weaverkeep.webp 1600w"
+                      sizes="(max-width: 860px) 92vw, 640px"
+                      type="image/webp"
+                    />
+                    <img
+                      src="/work/weaverkeep.jpg"
+                      alt="The WeaverKeep Outcomes dashboard, showing retention, exam pass rate and survey returns against ARC/STSA thresholds"
+                      width={1600}
+                      height={910}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <figcaption>Outcomes view, demo data</figcaption>
+                </figure>
+
                 <div className="ops-feature__copy">
                   <p>
                     A product I built and run: the operating hub for surgical technology programs.
