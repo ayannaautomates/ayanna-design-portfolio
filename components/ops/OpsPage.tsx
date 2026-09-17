@@ -106,37 +106,6 @@ const moreWork = projects.filter(
   (p) => !p.isConcept && p.slug !== "supply-sa-vendor-assistant",
 );
 
-function ChannelMark({ ch, delay }: { ch: string; delay?: number }) {
-  return (
-    <span
-      className="ops-ch"
-      style={delay !== undefined ? { animationDelay: `${delay}s` } : undefined}
-    >
-      CH {ch}
-    </span>
-  );
-}
-
-// Screen glass positions on /hero/backplate, in % of the image (x, y, w, h)
-const screens = {
-  id: [32.5, 5, 24.5, 19.5],
-  links: [
-    [15, 28, 25.5, 20],
-    [53, 28.5, 23.5, 20],
-    [10.5, 54.5, 29, 22.5],
-    [51.5, 55, 28, 22.5],
-  ],
-} as const;
-
-function screenPos([x, y, w, h]: readonly number[]) {
-  return {
-    left: `${x}%`,
-    top: `${y}%`,
-    width: `${w}%`,
-    height: `${h}%`,
-  } as React.CSSProperties;
-}
-
 function Scanlines() {
   return <div className="ops-scan" aria-hidden="true" />;
 }
@@ -175,7 +144,6 @@ export default function OpsPage() {
       <main id="main-content">
         <section id="top" className="ops-hero" aria-label="Introduction">
           <div className="ops-hero__track">
-            {/* Beat 1: the portal. Beat 2: the channel stack. Scroll moves between them. */}
             <div className="ops-beat ops-beat--portal">
               <div className="ops-portal__frame" aria-hidden="true">
                 <div className="ops-portal__inner">
@@ -212,53 +180,15 @@ export default function OpsPage() {
                   follow.
                 </p>
                 <p className="ops-id__tag">AI-ENABLED OPS · USAF VETERAN</p>
+                <p className="ops-hero__open">
+                  OPEN TO OPERATIONS LEADERSHIP AND AI-ENABLED OPERATIONS ROLES
+                </p>
               </div>
               <p className="ops-cue" aria-hidden="true">
                 SCROLL
               </p>
             </div>
 
-            <div className="ops-beat ops-beat--stack">
-              <div className="ops-stage">
-                <picture>
-                  <source srcSet="/hero/backplate.avif" type="image/avif" />
-                  <source
-                    srcSet="/hero/backplate-sm.webp 900w, /hero/backplate.webp 1800w"
-                    sizes="(max-width: 720px) 100vw, 1100px"
-                    type="image/webp"
-                  />
-                  <img
-                    src="/hero/backplate.jpg"
-                    alt=""
-                    width={1800}
-                    height={1633}
-                    loading="lazy"
-                    decoding="async"
-                    className="ops-stage__img"
-                  />
-                </picture>
-
-                <div className="ops-screen ops-screen--open" style={screenPos(screens.id)}>
-                  <ChannelMark ch="00" />
-                </div>
-
-                {channels.map((c, i) => (
-                  <a
-                    key={c.ch}
-                    href={c.href}
-                    className="ops-screen ops-screen--link"
-                    style={screenPos(screens.links[i])}
-                    data-takeover
-                  >
-                    <ChannelMark ch={c.ch} delay={3.2 + i * 1.7} />
-                    <span className="ops-screen__label">{c.label}</span>
-                  </a>
-                ))}
-              </div>
-              <p className="ops-hero__open">
-                OPEN TO OPERATIONS LEADERSHIP AND AI-ENABLED OPERATIONS ROLES
-              </p>
-            </div>
           </div>
         </section>
 

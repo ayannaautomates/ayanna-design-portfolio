@@ -81,9 +81,23 @@ export default function OpsMotion() {
       });
     });
 
+    // Anchor clicks have to go through Lenis, or they fight the smooth scroll
+    const onAnchorClick = (event: MouseEvent) => {
+      const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!link || event.metaKey || event.ctrlKey || event.shiftKey) return;
+      const target = document.querySelector<HTMLElement>(link.hash);
+      if (!target) return;
+      event.preventDefault();
+      const nav = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 60;
+      lenis.scrollTo(target, { offset: -nav });
+      history.pushState(null, "", link.hash);
+    };
+    document.addEventListener("click", onAnchorClick);
+
     ScrollTrigger.refresh();
 
     return () => {
+      document.removeEventListener("click", onAnchorClick);
       ctx.revert();
       gsap.ticker.remove(raf);
       lenis.destroy();

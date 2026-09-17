@@ -40,7 +40,6 @@ export default function OpsInteractions() {
           const span = hero.offsetHeight - window.innerHeight;
           const beat = span > 0 ? Math.min(1, Math.max(0, window.scrollY / span)) : 0;
           hero.style.setProperty("--beat", beat.toFixed(3));
-          hero.dataset.beat = beat > 0.55 ? "stack" : "portal";
         });
       };
       onScroll();
@@ -51,48 +50,7 @@ export default function OpsInteractions() {
         window.removeEventListener("resize", onScroll);
         cancelAnimationFrame(frame);
       });
-    } else if (hero) {
-      hero.dataset.beat = "stack";
     }
-
-    // Click takeover: the monitor fills the viewport with a static burst, then
-    // resolves into the section. Plain anchor jump when motion is reduced or the
-    // pyramid is decorative (mobile).
-    const monitors = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-takeover]"));
-    const onClick = (event: MouseEvent) => {
-      const link = event.currentTarget as HTMLAnchorElement;
-      const target = document.querySelector<HTMLElement>(link.hash);
-      const desktop = window.matchMedia("(min-width: 721px) and (hover: hover)").matches;
-      if (!target || reduced || !desktop || event.metaKey || event.ctrlKey) return;
-      event.preventDefault();
-
-      const rect = link.getBoundingClientRect();
-      const layer = document.createElement("div");
-      layer.className = "ops-takeover";
-      layer.setAttribute("aria-hidden", "true");
-      Object.assign(layer.style, {
-        top: `${rect.top}px`,
-        left: `${rect.left}px`,
-        width: `${rect.width}px`,
-        height: `${rect.height}px`,
-      });
-      document.body.appendChild(layer);
-
-      layer.getBoundingClientRect(); // commit start rect so the grow transitions
-      layer.classList.add("is-full");
-      window.setTimeout(() => {
-        document.documentElement.style.scrollBehavior = "auto";
-        target.scrollIntoView();
-        document.documentElement.style.scrollBehavior = "";
-        history.pushState(null, "", link.hash);
-        layer.classList.add("is-resolved");
-        target.setAttribute("tabindex", "-1");
-        target.focus({ preventScroll: true });
-      }, 520);
-      window.setTimeout(() => layer.remove(), 1100);
-    };
-    monitors.forEach((m) => m.addEventListener("click", onClick));
-    cleanups.push(() => monitors.forEach((m) => m.removeEventListener("click", onClick)));
 
     // Toolkit: keep one domain open at a time
     const domains = Array.from(document.querySelectorAll<HTMLDetailsElement>(".ops-domain"));

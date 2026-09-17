@@ -1,5 +1,9 @@
 /* Recruiter portfolio: single-page CRT channel system */
 
+:root {
+  --nav-h: 60px;
+}
+
 .ops {
   --bg: #0b0c0c;
   --panel: #141616;
@@ -192,11 +196,10 @@ html.ops-smooth.lenis-scrolling .op {
 /* Hero ------------------------------------------------------------------- */
 
 .ops-hero {
-  --beat: 0; /* 0 = portal, 1 = channel stack */
-  --recede: 0;
+  --beat: 0;
   position: relative;
   z-index: 0;
-  height: 260svh;
+  height: 132svh;
   background: var(--bg);
   animation: ops-tune 0.9s ease-out both;
 }
@@ -218,9 +221,8 @@ html.ops-smooth.lenis-scrolling .op {
 
 /* Beat 1: the portal */
 .ops-beat--portal {
-  opacity: calc(1 - var(--beat) * 1.35);
-  transform: scale(calc(1 + var(--beat) * 0.08));
-  pointer-events: none;
+  opacity: calc(1 - var(--beat) * 0.85);
+  transform: scale(calc(1 + var(--beat) * 0.06));
 }
 
 /* The frame reproduces object-fit: cover by hand, so overlays can be pinned
@@ -377,139 +379,27 @@ html.ops-smooth.lenis-scrolling .op {
   animation: ops-cue 2.6s ease-in-out infinite;
 }
 
-/* Beat 2: the channel stack */
-.ops-beat--stack {
-  flex-direction: column;
-  gap: clamp(10px, 2vh, 22px);
-  padding: calc(var(--nav-h) + 12px) 16px 28px;
-  opacity: calc((var(--beat) - 0.35) * 2.2);
-  transform: scale(calc(0.94 + var(--beat) * 0.06));
-  pointer-events: none;
-}
 
-.ops-hero[data-beat="stack"] .ops-beat--stack {
-  pointer-events: auto;
-}
 
-.ops-stage {
-  container-type: inline-size;
-  position: relative;
-  width: min(92vw, 1100px, max(860px, calc((100svh - var(--nav-h) - 130px) * 1.1)));
-}
 
-.ops-stage__img {
-  display: block;
-  width: 100%;
-  height: auto;
-  -webkit-mask-image: radial-gradient(ellipse 60% 64% at 50% 42%, #000 66%, transparent 100%);
-  mask-image: radial-gradient(ellipse 60% 64% at 50% 42%, #000 66%, transparent 100%);
-}
 
-.ops-screen {
-  position: absolute;
-  display: flex;
-  overflow: hidden;
-  border-radius: 9% / 12%;
-  color: var(--text);
-}
 
-.ops-screen::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.62);
-  transition: background 0.3s;
-}
 
-.ops-screen__open,
-.ops-screen__label {
-  position: relative;
-  z-index: 2;
-}
 
-.ops-screen--open {
-  align-items: center;
-}
 
-.ops-screen--link {
-  align-items: flex-end;
-  cursor: pointer;
-}
 
-.ops-screen--link::after {
-  background: rgba(0, 0, 0, 0.74);
-}
 
-.ops-screen__label {
-  padding: 0 0 1.4cqi 1.6cqi;
-  font-family: var(--mono);
-  font-size: max(11px, 1.15cqi);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-mid);
-  transition: color 0.3s;
-}
 
-.ops-screen--link:hover::after,
-.ops-screen--link:focus-visible::after {
-  background: rgba(0, 0, 0, 0.42);
-}
 
-.ops-screen--link:hover .ops-screen__label,
-.ops-screen--link:focus-visible .ops-screen__label {
-  color: var(--text);
-  animation: ops-wake 0.35s steps(4) both;
-}
-
-.ops-screen--link:hover .ops-ch,
-.ops-screen--link:focus-visible .ops-ch {
-  color: var(--teal-bright);
-}
 
 .ops-hero__open {
-  max-width: 92vw;
-  margin: 0;
-  text-align: center;
+  max-width: 34ch;
+  margin: 1.6rem 0 0;
   font-family: var(--mono);
   font-size: clamp(10px, 1vw, 12px);
   line-height: 2;
   letter-spacing: 0.24em;
   color: var(--teal-bright);
-}
-
-/* Takeover layer */
-.ops-takeover {
-  position: fixed;
-  z-index: 60;
-  pointer-events: none;
-  border-radius: 12px;
-  background:
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0 1px, transparent 1px 3px),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
-    url("/hero/takeover.webp") center / cover no-repeat,
-    #0f2624;
-  background-blend-mode: overlay, soft-light, normal, normal;
-  transition:
-    top 0.5s cubic-bezier(0.7, 0, 0.3, 1),
-    left 0.5s cubic-bezier(0.7, 0, 0.3, 1),
-    width 0.5s cubic-bezier(0.7, 0, 0.3, 1),
-    height 0.5s cubic-bezier(0.7, 0, 0.3, 1),
-    border-radius 0.5s,
-    opacity 0.5s ease;
-  animation: ops-static 0.12s steps(2) infinite;
-}
-
-.ops-takeover.is-full {
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  border-radius: 0;
-}
-
-.ops-takeover.is-resolved {
-  opacity: 0;
 }
 
 /* Sections --------------------------------------------------------------- */
@@ -1053,10 +943,7 @@ body:has(.ops) .consent-banner .btn-secondary {
   .ops-glitch,
   .ops-glitch span,
   .ops-portal__copy > *,
-  .ops-screen--link:hover .ops-screen__label {
-    animation: none !important;
-  }
-
+  .ops-screen--link:hover 
   /* No scroll scrub: both beats sit still, stacked in normal flow */
   .ops-hero {
     height: auto;
@@ -1080,7 +967,6 @@ body:has(.ops) .consent-banner .btn-secondary {
     display: none;
   }
 
-  .ops-screen::after,
   .ops-btn,
   .ops-domain {
     transition: none !important;
@@ -1194,23 +1080,10 @@ body:has(.ops) .consent-banner .btn-secondary {
     display: none;
   }
 
-  .ops-beat--stack {
-    padding: 8vh 0 6vh;
-  }
-
-  .ops-stage {
-    width: 100%;
-  }
-
+  
   /* Nav already lists these channels; the stack is scenery here */
-  .ops-screen--link {
-    display: none;
-  }
-
-  .ops-screen--open {
-    display: none;
-  }
-
+  
+  
   .ops-timeline__item {
     grid-template-columns: 1fr;
     gap: 0.4rem;
