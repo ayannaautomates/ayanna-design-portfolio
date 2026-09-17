@@ -210,13 +210,71 @@
   pointer-events: none;
 }
 
-.ops-portal__img {
+/* The frame reproduces object-fit: cover by hand, so overlays can be pinned
+   to features inside the photograph and stay put at any viewport size. */
+.ops-portal__frame {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+}
+
+.ops-portal__inner {
+  position: absolute;
+  left: 62%;
+  top: 50%;
+  transform: translate(-62%, -50%);
+  width: max(100%, calc(100svh * 16 / 9));
+  height: max(100%, calc(100vw * 9 / 16));
+}
+
+.ops-portal__img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 62% center;
+}
+
+/* The set's screen glass, measured off the plate */
+.ops-glitch {
+  position: absolute;
+  left: 52.2%;
+  top: 45.3%;
+  width: 7.3%;
+  height: 10.3%;
+  overflow: hidden;
+  border-radius: 7% / 9%;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  animation: ops-glitch-flicker 5.5s steps(1) infinite;
+}
+
+.ops-glitch span {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.ops-glitch__noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  background-size: 160% 160%;
+  opacity: 0.5;
+  animation: ops-glitch-noise 0.24s steps(4) infinite;
+}
+
+.ops-glitch__roll {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(127, 216, 204, 0.26) 0 2px,
+    transparent 2px 5px
+  );
+  animation: ops-glitch-roll 3.4s linear infinite;
+}
+
+.ops-glitch__tear {
+  background: rgba(127, 216, 204, 0.45);
+  clip-path: inset(42% 0 52% 0);
+  opacity: 0;
+  animation: ops-glitch-tear 6.5s steps(1) infinite;
 }
 
 .ops-beat--portal::after {
@@ -884,6 +942,37 @@ body:has(.ops) .consent-banner .btn-secondary {
   100% { opacity: 1; }
 }
 
+@keyframes ops-glitch-noise {
+  0% { background-position: 0 0; }
+  25% { background-position: 37% 12%; }
+  50% { background-position: 12% 61%; }
+  75% { background-position: 71% 33%; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes ops-glitch-roll {
+  0% { transform: translateY(-14%); }
+  100% { transform: translateY(14%); }
+}
+
+@keyframes ops-glitch-tear {
+  0%, 62% { opacity: 0; transform: none; }
+  64% { opacity: 0.7; transform: translateX(6%); clip-path: inset(38% 0 55% 0); }
+  66% { opacity: 0; }
+  78% { opacity: 0; }
+  80% { opacity: 0.55; transform: translateX(-5%); clip-path: inset(66% 0 26% 0); }
+  82% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes ops-glitch-flicker {
+  0%, 88% { opacity: 0.85; }
+  89% { opacity: 0.35; }
+  90% { opacity: 1; }
+  91% { opacity: 0.6; }
+  92%, 100% { opacity: 0.85; }
+}
+
 @keyframes ops-cue {
   0%, 100% { opacity: 0.4; transform: translate(-50%, 0); }
   50% { opacity: 1; transform: translate(-50%, 5px); }
@@ -899,6 +988,8 @@ body:has(.ops) .consent-banner .btn-secondary {
   .ops-ch,
   .ops-ch--inline,
   .ops-cue,
+  .ops-glitch,
+  .ops-glitch span,
   .ops-portal__copy > *,
   .ops-screen--link:hover .ops-screen__label {
     animation: none !important;
@@ -1009,10 +1100,16 @@ body:has(.ops) .consent-banner .btn-secondary {
     min-height: 0;
   }
 
-  .ops-portal__img {
+  .ops-portal__frame {
     position: relative;
     height: 54svh;
-    object-position: 70% center;
+  }
+
+  .ops-portal__inner {
+    left: 70%;
+    transform: translate(-70%, -50%);
+    width: max(100%, calc(54svh * 16 / 9));
+    height: max(100%, calc(100vw * 9 / 16));
   }
 
   .ops-beat--portal::after {

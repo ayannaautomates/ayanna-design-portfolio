@@ -175,22 +175,32 @@ export default function OpsPage() {
           <div className="ops-hero__track">
             {/* Beat 1: the portal. Beat 2: the channel stack. Scroll moves between them. */}
             <div className="ops-beat ops-beat--portal">
-              <picture>
-                <source srcSet="/hero/portal.avif" type="image/avif" />
-                <source
-                  srcSet="/hero/portal-sm.webp 1024w, /hero/portal.webp 2048w"
-                  sizes="100vw"
-                  type="image/webp"
-                />
-                <img
-                  src="/hero/portal.jpg"
-                  alt=""
-                  width={2048}
-                  height={1152}
-                  fetchPriority="high"
-                  className="ops-portal__img"
-                />
-              </picture>
+              <div className="ops-portal__frame" aria-hidden="true">
+                <div className="ops-portal__inner">
+                  <picture>
+                    <source srcSet="/hero/portal.avif" type="image/avif" />
+                    <source
+                      srcSet="/hero/portal-sm.webp 1024w, /hero/portal.webp 2048w"
+                      sizes="100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      src="/hero/portal.jpg"
+                      alt=""
+                      width={2048}
+                      height={1152}
+                      fetchPriority="high"
+                      className="ops-portal__img"
+                    />
+                  </picture>
+                  {/* Sits exactly on the screen glass in the photograph */}
+                  <div className="ops-glitch">
+                    <span className="ops-glitch__noise" />
+                    <span className="ops-glitch__roll" />
+                    <span className="ops-glitch__tear" />
+                  </div>
+                </div>
+              </div>
               <div className="ops-portal__copy">
                 <p className="ops-ch ops-ch--inline">CH 00</p>
                 <h1 className="ops-id__name">AYANNA McCLINTIC</h1>
