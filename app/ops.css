@@ -66,6 +66,85 @@ html.ops-smooth.lenis-scrolling .op {
   will-change: transform, opacity, filter;
 }
 
+/* The remote ------------------------------------------------------------ */
+
+html.ops-has-remote .ops,
+html.ops-has-remote .ops a,
+html.ops-has-remote .ops button,
+html.ops-has-remote .ops summary {
+  cursor: none;
+}
+
+.ops-remote {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.ops-remote.is-visible {
+  opacity: 1;
+}
+
+.ops-remote__body {
+  position: absolute;
+  top: -6px;
+  left: -5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 20px;
+  height: 34px;
+  padding-top: 5px;
+  border-radius: 6px;
+  border: 1px solid rgba(178, 191, 189, 0.55);
+  background: linear-gradient(180deg, #23292a 0%, #14191a 100%);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55);
+  transform: rotate(-16deg);
+  transform-origin: 6px 6px;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.ops-remote__power {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3c4544;
+  transition: background 0.22s ease, box-shadow 0.22s ease;
+}
+
+.ops-remote__pad {
+  width: 9px;
+  height: 2px;
+  border-radius: 1px;
+  background: #2e3635;
+}
+
+/* over anything clickable the remote squares up and the button lights */
+.ops-remote.is-live .ops-remote__body {
+  transform: rotate(-6deg) scale(1.08);
+  border-color: rgba(127, 216, 204, 0.75);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6), 0 0 14px rgba(85, 175, 166, 0.35);
+}
+
+.ops-remote.is-live .ops-remote__power {
+  background: var(--teal-bright, #7fd8cc);
+  box-shadow: 0 0 10px rgba(127, 216, 204, 0.9);
+}
+
+.ops-remote.is-pressed .ops-remote__body {
+  transform: rotate(-6deg) scale(0.94);
+}
+
+.ops-remote.is-pressed .ops-remote__power {
+  background: #eafffb;
+  box-shadow: 0 0 16px rgba(234, 255, 251, 0.95);
+}
+
 /* Labels ---------------------------------------------------------------- */
 
 .ops-label,
@@ -416,8 +495,104 @@ html.ops-smooth.lenis-scrolling .op {
 
 .ops-orbit {
   position: relative;
-  padding: clamp(96px, 14vw, 180px) 0 clamp(40px, 8vw, 96px);
+  overflow: hidden;
+  padding: clamp(120px, 17vw, 220px) 0 clamp(80px, 12vw, 150px);
 }
+
+/* deep space behind the planet */
+.ops-orbit::before,
+.ops-orbit::after {
+  content: "";
+  position: absolute;
+  inset: -10% -5%;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.ops-orbit::before {
+  background-image: radial-gradient(1.5px 1.5px at 32.4% 15.1%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 7.2% 53.6%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 91.0% 21.5%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1.5px 1.5px at 41.8% 24.1%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1px 1px at 5.9% 56.5%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 57.7% 39.7%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 55.7% 13.3%, rgba(236,239,238,0.35), transparent 60%),
+    radial-gradient(1.5px 1.5px at 54.1% 57.1%, rgba(236,239,238,0.35), transparent 60%),
+    radial-gradient(1px 1px at 10.3% 57.1%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1.5px 1.5px at 9.7% 71.2%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1.5px 1.5px at 61.9% 49.6%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1px 1px at 77.7% 46.6%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1.5px 1.5px at 30.0% 79.4%, rgba(236,239,238,0.35), transparent 60%),
+    radial-gradient(1px 1px at 8.2% 30.0%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1px 1px at 72.9% 28.8%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 51.2% 16.5%, rgba(236,239,238,0.35), transparent 60%),
+    radial-gradient(1.5px 1.5px at 93.3% 42.2%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 76.5% 57.3%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1.5px 1.5px at 69.5% 59.4%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1px 1px at 6.9% 9.4%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1.5px 1.5px at 69.7% 6.5%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1px 1px at 64.7% 99.3%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1px 1px at 71.7% 88.7%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1.5px 1.5px at 94.1% 35.5%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 49.4% 21.8%, rgba(236,239,238,0.35), transparent 60%),
+    radial-gradient(1px 1px at 73.8% 39.8%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 16.6% 40.2%, rgba(236,239,238,0.35), transparent 60%),
+    radial-gradient(1px 1px at 81.9% 86.4%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1px 1px at 98.6% 68.3%, rgba(236,239,238,0.35), transparent 60%),
+    radial-gradient(1px 1px at 15.1% 17.6%, rgba(236,239,238,0.35), transparent 60%),
+    radial-gradient(1px 1px at 1.2% 83.1%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1.5px 1.5px at 28.2% 14.6%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1px 1px at 61.0% 31.9%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1.5px 1.5px at 45.7% 87.1%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1px 1px at 39.8% 39.4%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1px 1px at 6.2% 6.7%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1px 1px at 16.2% 34.0%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 0.0% 15.1%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1px 1px at 61.4% 7.0%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1px 1px at 14.9% 25.2%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1px 1px at 47.4% 11.5%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1px 1px at 48.0% 31.2%, rgba(236,239,238,0.5), transparent 60%),
+    radial-gradient(1px 1px at 75.0% 74.0%, rgba(236,239,238,0.35), transparent 60%),
+    radial-gradient(1.5px 1.5px at 51.6% 20.5%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1px 1px at 14.7% 54.3%, rgba(236,239,238,0.25), transparent 60%),
+    radial-gradient(1.5px 1.5px at 97.9% 86.3%, rgba(236,239,238,0.25), transparent 60%);
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  animation: ops-stars 140s linear infinite;
+}
+
+.ops-orbit::after {
+  background-image: radial-gradient(2px 2px at 51.8% 90.8%, rgba(236,239,238,0.8), transparent 60%),
+    radial-gradient(2px 2px at 53.3% 77.9%, rgba(236,239,238,0.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 22.3% 81.2%, rgba(236,239,238,0.8), transparent 60%),
+    radial-gradient(1.5px 1.5px at 81.8% 74.0%, rgba(236,239,238,0.8), transparent 60%),
+    radial-gradient(1.5px 1.5px at 51.8% 35.6%, rgba(236,239,238,0.8), transparent 60%),
+    radial-gradient(1.5px 1.5px at 79.0% 47.2%, rgba(236,239,238,0.7), transparent 60%),
+    radial-gradient(2.5px 2.5px at 60.5% 34.4%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1.5px 1.5px at 95.5% 36.5%, rgba(236,239,238,0.8), transparent 60%),
+    radial-gradient(1.5px 1.5px at 22.7% 19.7%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1.5px 1.5px at 62.4% 90.0%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(2.5px 2.5px at 90.9% 34.4%, rgba(236,239,238,0.8), transparent 60%),
+    radial-gradient(2px 2px at 83.5% 12.0%, rgba(236,239,238,0.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 75.0% 47.8%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(2.5px 2.5px at 78.9% 33.3%, rgba(236,239,238,0.6), transparent 60%),
+    radial-gradient(1.5px 1.5px at 46.3% 74.3%, rgba(236,239,238,0.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 15.9% 99.3%, rgba(236,239,238,0.8), transparent 60%),
+    radial-gradient(2.5px 2.5px at 59.1% 46.5%, rgba(236,239,238,0.8), transparent 60%),
+    radial-gradient(2px 2px at 61.2% 59.6%, rgba(236,239,238,0.7), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(78, 124, 119, 0.16), transparent 72%),
+    radial-gradient(ellipse 30% 22% at 16% 78%, rgba(85, 175, 166, 0.1), transparent 70%);
+  background-repeat: no-repeat;
+  opacity: 0.75;
+  animation: ops-stars 90s linear infinite reverse;
+}
+
+@keyframes ops-stars {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-2%, 3%, 0); }
+}
+
+
 
 .ops-orbit__inner {
   width: min(1280px, 100%);
@@ -445,20 +620,13 @@ html.ops-smooth.lenis-scrolling .op {
   place-items: center;
 }
 
+/* the plate carries its own alpha, so it sits in the starfield cleanly */
 .ops-orbit__sphere {
   display: block;
   width: 100%;
-  animation: ops-orbit-spin 90s linear infinite;
-}
-
-.ops-orbit__sphere img {
-  display: block;
-  width: 100%;
   height: auto;
-  /* screen blending plus a circular mask, so the plate has no square edge */
-  mix-blend-mode: screen;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 58%, transparent 70%);
-  mask-image: radial-gradient(circle at 50% 50%, #000 58%, transparent 70%);
+  filter: drop-shadow(0 0 60px rgba(85, 175, 166, 0.25));
+  animation: ops-orbit-spin 90s linear infinite;
 }
 
 .ops-orbit__nodes {

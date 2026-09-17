@@ -3,6 +3,7 @@ import { projects } from "@/lib/projects";
 import { siteConfig } from "@/lib/site";
 import OpsInteractions from "./OpsInteractions";
 import OpsMotion from "./OpsMotion";
+import OpsCursor from "./OpsCursor";
 
 const RESUME_HREF = "/resume.pdf";
 const EMAIL = "ayanna.m89@gmail.com";
@@ -199,6 +200,7 @@ export default function OpsPage() {
     <div className="ops">
       <OpsInteractions />
       <OpsMotion />
+      <OpsCursor />
 
       <header className="ops-nav" role="banner">
         <a href="#top" className="ops-nav__name">
@@ -286,21 +288,17 @@ export default function OpsPage() {
               <p className="ops-orbit__kicker">Pick a channel</p>
 
               <div className="ops-orbit__ring">
-                <picture className="ops-orbit__sphere">
-                  <source
-                    srcSet="/orbit/sphere-sm.webp 700w, /orbit/sphere.webp 1400w"
-                    sizes="(max-width: 860px) 78vw, 560px"
-                    type="image/webp"
-                  />
-                  <img
-                    src="/orbit/sphere.jpg"
-                    alt=""
-                    width={1400}
-                    height={1400}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
+                <img
+                  className="ops-orbit__sphere"
+                  src="/orbit/sphere.webp"
+                  srcSet="/orbit/sphere-sm.webp 700w, /orbit/sphere.webp 1400w"
+                  sizes="(max-width: 860px) 74vw, 520px"
+                  alt=""
+                  width={1400}
+                  height={1400}
+                  loading="lazy"
+                  decoding="async"
+                />
 
                 <ul className="ops-orbit__nodes">
                   {orbit.map((o) => (
