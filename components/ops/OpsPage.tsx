@@ -596,7 +596,10 @@ export default function OpsPage() {
               </div>
             </div>
 
-            <div className="ops-wrap ops-descent__after">
+          </section>
+
+          <section className="ops-section ops-travel-sec" data-section>
+            <div className="ops-wrap">
               <Scanlines />
               <div className="ops-travel">
                 <div className="ops-travel__lede">
@@ -616,22 +619,27 @@ export default function OpsPage() {
                   </div>
                 </div>
 
-                <OpsBoard stops={stops} />
+                <div className="ops-travel__row">
+                  <OpsBoard stops={stops} />
 
-                <figure className="ops-map op">
-                  <img
-                    src="/travel/world.svg"
-                    alt="World map with the 37 countries Ayanna has visited highlighted in teal"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption>
-                    <span className="ops-map__key" aria-hidden="true" /> 37 countries visited
-                  </figcaption>
-                </figure>
+                  <figure className="ops-map op">
+                    <img
+                      src="/travel/world.svg"
+                      alt="World map with the 37 countries Ayanna has visited highlighted in teal"
+                      width={1400}
+                      height={660}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <figcaption>
+                      <span className="ops-map__key" aria-hidden="true" /> 37 countries visited
+                    </figcaption>
+                  </figure>
+                </div>
               </div>
             </div>
           </section>
+
 
           <section id="contact" data-ch="05" className="ops-section ops-contact" data-section>
             <Scanlines />

@@ -1405,10 +1405,13 @@ html.ops-has-remote .ops summary {
 /* 04 Off the clock: a pinned descent */
 .ops-descent {
   padding-top: 0;
+  /* the scroll distance the descent plays over */
+  min-height: 340svh;
 }
 
 .ops-descent__stage {
-  position: relative;
+  position: sticky;
+  top: 0;
   height: 100svh;
   overflow: hidden;
   display: flex;
@@ -1518,9 +1521,10 @@ p.ops-descent__line {
   color: var(--text-mid);
 }
 
-.ops-descent__after {
-  padding-top: clamp(96px, 14vw, 180px);
-  padding-bottom: clamp(24px, 4vw, 48px);
+.ops-travel-sec {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
 }
 
 .ops-travel {
@@ -1565,6 +1569,13 @@ p.ops-descent__line {
 
 .ops-travel__copy .ops-subhead {
   margin: 0 0 0.4rem;
+}
+
+.ops-travel__row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
 }
 
 .ops-map {
@@ -1876,8 +1887,13 @@ body:has(.ops) .consent-banner .btn-secondary {
   .ops-glitch,
   .ops-glitch span,
   .ops-portal__copy > *,
-  .ops-screen--link:hover 
-  /* No scroll scrub: both beats sit still, stacked in normal flow */
+  .ops-descent__motes,
+  .ops-orbit__sphere,
+  .ops-flap {
+    animation: none !important;
+  }
+
+  /* No scroll scrub: the hero beats sit still in normal flow */
   .ops-hero {
     height: auto;
   }
@@ -1900,8 +1916,28 @@ body:has(.ops) .consent-banner .btn-secondary {
     display: none;
   }
 
+  /* The descent collapses to a single still frame */
+  .ops-descent {
+    min-height: 0;
+  }
+
+  .ops-descent__stage {
+    position: relative;
+  }
+
+  .ops-descent__line {
+    position: relative;
+    opacity: 1;
+    margin-bottom: 1.4rem;
+  }
+
+  .ops-descent__panels {
+    min-height: 0;
+  }
+
   .ops-btn,
-  .ops-domain {
+  .ops-domain,
+  .ops-screen::after {
     transition: none !important;
   }
 }

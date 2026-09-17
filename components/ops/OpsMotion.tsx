@@ -64,7 +64,8 @@ export default function OpsMotion() {
         );
       }
 
-      // The descent: pin the stage and let scroll drive depth
+      // The descent: the stage is sticky in CSS, scroll only drives the depth.
+      // No GSAP pin here, because pin spacers and smooth scroll fight each other.
       const stage = document.querySelector<HTMLElement>(".ops-descent__stage");
       const depthEl = document.querySelector<HTMLElement>("[data-depth]");
       if (stage) {
@@ -72,30 +73,31 @@ export default function OpsMotion() {
         const depth = { value: 0 };
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: stage,
+            trigger: ".ops-descent",
             start: "top top",
-            end: "+=3000",
-            pin: true,
-            pinSpacing: true,
+            end: "bottom bottom",
             scrub: 1,
+            invalidateOnRefresh: true,
           },
         });
 
-        // water gets deeper and darker
         tl.to(".ops-plate--mid", { opacity: 1, duration: 1.2 }, 0.6)
           .to(".ops-plate--deep", { opacity: 1, duration: 1.2 }, 2.2)
           .to(".ops-descent__dark", { opacity: 0.88, duration: 3.4 }, 0)
           .to(".ops-plate--surface", { scale: 1.12, duration: 3.4, ease: "none" }, 0)
-          .to(depth, {
-            value: 38,
-            duration: 3.4,
-            ease: "none",
-            onUpdate: () => {
-              if (depthEl) depthEl.textContent = `-${Math.round(depth.value)}`;
+          .to(
+            depth,
+            {
+              value: 38,
+              duration: 3.4,
+              ease: "none",
+              onUpdate: () => {
+                if (depthEl) depthEl.textContent = `-${Math.round(depth.value)}`;
+              },
             },
-          }, 0);
+            0,
+          );
 
-        // one line at a time, each fading up and away
         const step = 3.4 / (panels.length + 0.35);
         panels.forEach((panel, i) => {
           tl.fromTo(
@@ -114,19 +116,6 @@ export default function OpsMotion() {
         });
       }
 
-      // The dive band drifts at two speeds, like the reference site's ridge
-      gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
-        gsap.fromTo(
-          el,
-          { yPercent: el.dataset.parallax === "1" ? 8 : 14 },
-          {
-            yPercent: el.dataset.parallax === "1" ? -8 : -14,
-            ease: "none",
-            scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 0 },
-          },
-        );
-      });
-
       // Case studies: the metrics hold while the headline falls away
       const beat = document.querySelector<HTMLElement>(".ops-beatbox");
       if (beat) {
@@ -137,6 +126,8 @@ export default function OpsMotion() {
             end: "+=1100",
             pin: true,
             pinSpacing: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
             scrub: 1,
           },
         });
@@ -209,9 +200,20 @@ export default function OpsMotion() {
     };
     document.addEventListener("click", onAnchorClick);
 
+    // Late images and fonts change the page height, which leaves triggers
+    // measuring against a layout that no longer exists.
+    ScrollTrigger.config({
+      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize",
+    });
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refresh);
+    document.fonts?.ready.then(refresh);
+    const settle = window.setTimeout(refresh, 1200);
     ScrollTrigger.refresh();
 
     return () => {
+      window.removeEventListener("load", refresh);
+      window.clearTimeout(settle);
       document.removeEventListener("click", onAnchorClick);
       ctx.revert();
       gsap.ticker.remove(raf);
