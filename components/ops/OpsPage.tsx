@@ -193,6 +193,22 @@ const toolkit = [
   },
 ];
 
+const certifications = [
+  { name: "NetSuite Certified BI and Reporting Associate", issuer: "NetSuite", year: "2026" },
+  { name: "HubSpot Sales Hub Software Certified", issuer: "HubSpot Academy", year: "2026" },
+  { name: "Lean Six Sigma Green Belt", issuer: "Six Sigma Global Institute", year: "2026" },
+  {
+    name: "Career Essentials in Generative AI",
+    issuer: "Microsoft and LinkedIn",
+    year: "2026",
+  },
+  { name: "Google AI Essentials Specialization", issuer: "Google", year: "2026" },
+  { name: "Meta Certified Digital Marketing Associate", issuer: "Meta", year: "2025" },
+  { name: "AI Fluency: Framework and Foundations", issuer: "Anthropic", year: "2026" },
+  { name: "Claude Academy: Model Context Protocol", issuer: "Anthropic", year: "2026" },
+  { name: "Claude Academy: Claude Code 101", issuer: "Anthropic", year: "2026" },
+];
+
 const moreWork = projects.filter(
   (p) => !p.isConcept && p.slug !== "supply-sa-vendor-assistant",
 );
@@ -419,6 +435,18 @@ export default function OpsPage() {
                   </details>
                 ))}
               </div>
+
+              <h3 className="ops-subhead">Certifications</h3>
+              <ul className="ops-certs">
+                {certifications.map((c) => (
+                  <li key={c.name} className="ops-certs__row op">
+                    <span className="ops-certs__name">{c.name}</span>
+                    <span className="ops-certs__meta">
+                      {c.issuer} · {c.year}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
 

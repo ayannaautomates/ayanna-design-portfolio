@@ -2278,3 +2278,35 @@ body:has(.ops) .consent-banner .btn-secondary {
     padding-left: 18px;
   }
 }
+
+/* Certifications ---------------------------------------------------------- */
+
+.ops-certs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.ops-certs__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 1.5rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ops-certs__name {
+  font-size: 15px;
+  color: var(--text);
+}
+
+.ops-certs__meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
