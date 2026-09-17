@@ -216,6 +216,30 @@ html.ops-has-remote .ops summary {
   transition: color 0.2s;
 }
 
+.ops-nav__link {
+  position: relative;
+}
+
+/* a hairline wipes in under the label */
+.ops-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: var(--teal);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.ops-nav__link:hover::after,
+.ops-nav__link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .ops-nav__link:hover,
 .ops-nav__link.is-active {
   color: var(--text);
@@ -258,13 +282,38 @@ html.ops-has-remote .ops summary {
 }
 
 .ops-btn--line {
+  position: relative;
+  overflow: hidden;
   border: 1px solid var(--border-hi);
   color: var(--text);
+  z-index: 0;
 }
 
-.ops-btn--line:hover {
+/* the fill slides up from underneath and the label inverts */
+.ops-btn--line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--teal);
+  transform: translateY(101%);
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.ops-btn--line:hover,
+.ops-btn--line:focus-visible {
   border-color: var(--teal);
-  color: var(--teal-bright);
+  color: var(--bg);
+}
+
+.ops-btn--line:hover::before,
+.ops-btn--line:focus-visible::before {
+  transform: translateY(0);
+}
+
+.ops-btn--solid {
+  position: relative;
+  overflow: hidden;
 }
 
 .ops-nav__resume {
@@ -859,6 +908,24 @@ html.ops-has-remote .ops summary {
   color: var(--text-muted);
 }
 
+/* 01 Case studies: the metrics hold while the headline falls away */
+.ops-beatbox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 62svh;
+}
+
+.ops-beatbox__head {
+  transform-origin: left top;
+  will-change: transform, opacity;
+}
+
+.ops-beatbox__metrics {
+  will-change: transform, opacity;
+}
+
 /* 01 Case studies */
 .ops-metrics {
   display: grid;
@@ -916,6 +983,33 @@ html.ops-has-remote .ops summary {
   gap: 16px;
 }
 
+/* nothing sits on the same line: widths and offsets stagger deliberately */
+@media (min-width: 861px) {
+  .ops-grid3.ops-ragged {
+    grid-template-columns: 1.24fr 0.88fr 1.06fr;
+    gap: clamp(18px, 2.4vw, 34px);
+    align-items: start;
+  }
+
+  .ops-grid2.ops-ragged {
+    grid-template-columns: 1.18fr 0.9fr;
+    gap: clamp(18px, 2.4vw, 34px);
+    align-items: start;
+  }
+
+  .ops-ragged .ops-ragged__item:nth-child(2) {
+    margin-top: clamp(40px, 5vw, 84px);
+  }
+
+  .ops-ragged .ops-ragged__item:nth-child(3) {
+    margin-top: clamp(16px, 2vw, 32px);
+  }
+
+  .ops-ragged .ops-ragged__item:nth-child(4) {
+    margin-top: clamp(56px, 7vw, 116px);
+  }
+}
+
 .ops-more {
   margin: 0;
   padding: 0;
@@ -924,17 +1018,38 @@ html.ops-has-remote .ops summary {
 }
 
 .ops-more__link {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
   padding: 1rem 0;
   border-bottom: 1px solid var(--border);
-  transition: color 0.2s;
+  transition: color 0.3s, padding-left 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* the row steps right and a teal rule fills behind it */
+.ops-more__link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: var(--teal);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .ops-more__link:hover {
   color: var(--teal-bright);
+  padding-left: 14px;
+}
+
+.ops-more__link:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .ops-more__meta {
@@ -948,9 +1063,64 @@ html.ops-has-remote .ops summary {
 
 /* 02 Timeline */
 .ops-timeline {
+  position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* a line that draws itself down the years as you scroll */
+.ops-timeline__line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  background: linear-gradient(
+    to bottom,
+    rgba(85, 175, 166, 0.7),
+    rgba(85, 175, 166, 0.35) 70%,
+    transparent
+  );
+}
+
+@media (min-width: 861px) {
+  .ops-timeline {
+    padding-left: 34px;
+  }
+
+  .ops-timeline__line {
+    left: 4px;
+  }
+
+  .ops-timeline__item::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 2.1rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid var(--teal-dim);
+    background: var(--bg);
+    transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+  }
+
+  .ops-timeline__item.is-passed::before {
+    background: var(--teal-bright);
+    border-color: var(--teal-bright);
+    box-shadow: 0 0 12px rgba(127, 216, 204, 0.7);
+  }
+}
+
+.ops-timeline__item {
+  position: relative;
+}
+
+.ops-timeline__item.is-passed .ops-timeline__years {
+  color: var(--teal-bright);
 }
 
 .ops-timeline__item {
@@ -1035,7 +1205,8 @@ html.ops-has-remote .ops summary {
 
 .ops-card--link:hover {
   border-color: var(--border-hi);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(85, 175, 166, 0.16) inset;
 }
 
 .ops-card--link .ops-card__meta {
@@ -1296,6 +1467,15 @@ h2.ops-descent__line {
   line-height: 1;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+}
+
+p.ops-descent__line--last {
+  max-width: 20ch;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--teal-bright);
 }
 
 p.ops-descent__line {

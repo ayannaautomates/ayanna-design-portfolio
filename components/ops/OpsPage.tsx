@@ -342,6 +342,7 @@ export default function OpsPage() {
               <h2 className="ops-h2">Four industries. One way of working.</h2>
 
               <ol className="ops-timeline">
+                <span className="ops-timeline__line" aria-hidden="true" />
                 {timeline.map((t) => (
                   <li key={t.org} className="ops-timeline__item op">
                     <p className="ops-timeline__years">{t.years}</p>
@@ -414,15 +415,19 @@ export default function OpsPage() {
               <p className="ops-eyebrow op">
                 <span className="ops-num">03</span> / Case Studies
               </p>
-              <h2 className="ops-h2">Supply SA vendor certification assistant</h2>
+              <div className="ops-beatbox">
+                <h2 className="ops-h2 ops-beatbox__head">
+                  Supply SA vendor certification assistant
+                </h2>
 
-              <div className="ops-metrics">
-                {metrics.map((m) => (
-                  <div key={m.value} className="ops-card ops-metric op">
-                    <p className="ops-metric__value">{m.value}</p>
-                    <p className="ops-metric__label">{m.label}</p>
-                  </div>
-                ))}
+                <div className="ops-metrics ops-beatbox__metrics">
+                  {metrics.map((m) => (
+                    <div key={m.value} className="ops-card ops-metric">
+                      <p className="ops-metric__value">{m.value}</p>
+                      <p className="ops-metric__label">{m.label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="ops-cols op">
@@ -460,9 +465,9 @@ export default function OpsPage() {
               </Link>
 
               <h3 className="ops-subhead">Also shipped at SCTRCA</h3>
-              <div className="ops-grid3">
+              <div className="ops-grid3 ops-ragged">
                 {alsoShipped.map((a) => (
-                  <div key={a.title} className="ops-card op">
+                  <div key={a.title} className="ops-card ops-ragged__item op">
                     <h4 className="ops-card__title">{a.title}</h4>
                     <p className="ops-card__body">{a.body}</p>
                   </div>
@@ -476,9 +481,9 @@ export default function OpsPage() {
                     Self-initiated systems, built end to end to test an approach. Not client
                     projects, and labelled that way wherever they appear.
                   </p>
-                  <div className="ops-grid2">
+                  <div className="ops-grid2 ops-ragged">
                     {conceptBuilds.map((c) => (
-                      <Link key={c.slug} href={`/projects/${c.slug}`} className="ops-card ops-card--link op">
+                      <Link key={c.slug} href={`/projects/${c.slug}`} className="ops-card ops-card--link ops-ragged__item op">
                         <h4 className="ops-card__title">{c.title}</h4>
                         <p className="ops-card__body">{c.description}</p>
                         <p className="ops-card__meta">{c.tags.slice(0, 4).join(" · ")}</p>
@@ -539,7 +544,10 @@ export default function OpsPage() {
                   </p>
                   <p className="ops-descent__line" data-panel="2">
                     Same discipline as the work. Plan the dive, dive the plan, check your gas before
-                    you need it. Calm is a system, not a personality trait.
+                    you need it.
+                  </p>
+                  <p className="ops-descent__line ops-descent__line--last" data-panel="3">
+                    Calm is a system.
                   </p>
                 </div>
               </div>

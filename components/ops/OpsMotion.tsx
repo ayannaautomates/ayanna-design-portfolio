@@ -74,7 +74,7 @@ export default function OpsMotion() {
           scrollTrigger: {
             trigger: stage,
             start: "top top",
-            end: "+=2600",
+            end: "+=3000",
             pin: true,
             pinSpacing: true,
             scrub: 1,
@@ -96,15 +96,20 @@ export default function OpsMotion() {
           }, 0);
 
         // one line at a time, each fading up and away
+        const step = 3.4 / (panels.length + 0.35);
         panels.forEach((panel, i) => {
           tl.fromTo(
             panel,
             { opacity: 0, y: 28, filter: "blur(6px)" },
-            { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "sine.out" },
-            i * 1.1 + 0.15,
+            { opacity: 1, y: 0, filter: "blur(0px)", duration: step * 0.45, ease: "sine.out" },
+            i * step + 0.1,
           );
           if (i < panels.length - 1) {
-            tl.to(panel, { opacity: 0, y: -24, duration: 0.4, ease: "sine.in" }, i * 1.1 + 0.95);
+            tl.to(
+              panel,
+              { opacity: 0, y: -24, duration: step * 0.35, ease: "sine.in" },
+              i * step + step * 0.8,
+            );
           }
         });
       }
@@ -121,6 +126,58 @@ export default function OpsMotion() {
           },
         );
       });
+
+      // Case studies: the metrics hold while the headline falls away
+      const beat = document.querySelector<HTMLElement>(".ops-beatbox");
+      if (beat) {
+        const beatTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: beat,
+            start: "top top+=80",
+            end: "+=1100",
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+          },
+        });
+
+        beatTl
+          .fromTo(
+            ".ops-beatbox__metrics .ops-card",
+            { opacity: 0, y: 60, scale: 0.94 },
+            { opacity: 1, y: 0, scale: 1, stagger: 0.12, duration: 1, ease: "quint.out" },
+            0,
+          )
+          .to(
+            ".ops-beatbox__head",
+            { scale: 0.62, opacity: 0, y: -40, duration: 1.4, ease: "none" },
+            0.8,
+          );
+      }
+
+      // The timeline draws its line and lights each year as it passes
+      const line = document.querySelector<HTMLElement>(".ops-timeline__line");
+      if (line) {
+        gsap.to(line, {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".ops-timeline",
+            start: "top bottom-=20%",
+            end: "bottom bottom-=25%",
+            scrub: true,
+          },
+        });
+
+        gsap.utils.toArray<HTMLElement>(".ops-timeline__item").forEach((item) => {
+          ScrollTrigger.create({
+            trigger: item,
+            start: "top bottom-=30%",
+            end: "bottom top+=20%",
+            toggleClass: { targets: item, className: "is-passed" },
+          });
+        });
+      }
 
       // Every block rises into place
       gsap.utils.toArray<HTMLElement>(".op").forEach((el) => {
