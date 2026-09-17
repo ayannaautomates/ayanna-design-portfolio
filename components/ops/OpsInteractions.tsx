@@ -31,22 +31,28 @@ export default function OpsInteractions() {
     sections.forEach((s) => observer.observe(s));
     cleanups.push(() => observer.disconnect());
 
-    // Hero dims and recedes as the first section rises over it
+    // Hero scrub: beat 0 is the portal, beat 1 is the channel stack.
     if (hero && !reduced) {
       let frame = 0;
       const onScroll = () => {
         cancelAnimationFrame(frame);
         frame = requestAnimationFrame(() => {
-          const r = Math.min(1, Math.max(0, window.scrollY / (window.innerHeight * 0.9)));
-          hero.style.setProperty("--recede", r.toFixed(3));
+          const span = hero.offsetHeight - window.innerHeight;
+          const beat = span > 0 ? Math.min(1, Math.max(0, window.scrollY / span)) : 0;
+          hero.style.setProperty("--beat", beat.toFixed(3));
+          hero.dataset.beat = beat > 0.55 ? "stack" : "portal";
         });
       };
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
       cleanups.push(() => {
         window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("resize", onScroll);
         cancelAnimationFrame(frame);
       });
+    } else if (hero) {
+      hero.dataset.beat = "stack";
     }
 
     // Click takeover: the monitor fills the viewport with a static burst, then

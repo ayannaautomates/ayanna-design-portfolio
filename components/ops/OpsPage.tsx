@@ -172,56 +172,81 @@ export default function OpsPage() {
 
       <main id="main-content">
         <section id="top" className="ops-hero" aria-label="Introduction">
-          <div className="ops-hero__atmos" aria-hidden="true" />
-          <div className="ops-hero__inner">
-            <div className="ops-stage">
+          <div className="ops-hero__track">
+            {/* Beat 1: the portal. Beat 2: the channel stack. Scroll moves between them. */}
+            <div className="ops-beat ops-beat--portal">
               <picture>
-                <source srcSet="/hero/backplate.avif" type="image/avif" />
+                <source srcSet="/hero/portal.avif" type="image/avif" />
                 <source
-                  srcSet="/hero/backplate-sm.webp 900w, /hero/backplate.webp 1800w"
-                  sizes="(max-width: 720px) 100vw, 1200px"
+                  srcSet="/hero/portal-sm.webp 1024w, /hero/portal.webp 2048w"
+                  sizes="100vw"
                   type="image/webp"
                 />
                 <img
-                  src="/hero/backplate.jpg"
+                  src="/hero/portal.jpg"
                   alt=""
-                  width={1800}
-                  height={1633}
+                  width={2048}
+                  height={1152}
                   fetchPriority="high"
-                  decoding="async"
-                  className="ops-stage__img"
+                  className="ops-portal__img"
                 />
               </picture>
-
-              <div className="ops-screen ops-screen--id" style={screenPos(screens.id)}>
-                <ChannelMark ch="00" />
-                <div className="ops-screen__text">
-                  <h1 className="ops-id__name">AYANNA McCLINTIC</h1>
-                  <p className="ops-id__role">Operations Leader</p>
-                  <p className="ops-id__line">
-                    I bring structure to complex programs and build processes people actually
-                    follow.
-                  </p>
-                  <p className="ops-id__tag">AI-ENABLED OPS · USAF VETERAN</p>
-                </div>
+              <div className="ops-portal__copy">
+                <p className="ops-ch ops-ch--inline">CH 00</p>
+                <h1 className="ops-id__name">AYANNA McCLINTIC</h1>
+                <p className="ops-id__role">Operations Leader</p>
+                <p className="ops-id__line">
+                  I bring structure to complex programs and build processes people actually
+                  follow.
+                </p>
+                <p className="ops-id__tag">AI-ENABLED OPS · USAF VETERAN</p>
               </div>
-
-              {channels.map((c, i) => (
-                <a
-                  key={c.ch}
-                  href={c.href}
-                  className="ops-screen ops-screen--link"
-                  style={screenPos(screens.links[i])}
-                  data-takeover
-                >
-                  <ChannelMark ch={c.ch} delay={3.2 + i * 1.7} />
-                  <span className="ops-screen__label">{c.label}</span>
-                </a>
-              ))}
+              <p className="ops-cue" aria-hidden="true">
+                SCROLL
+              </p>
             </div>
-            <p className="ops-hero__open">
-              OPEN TO OPERATIONS LEADERSHIP AND AI-ENABLED OPERATIONS ROLES
-            </p>
+
+            <div className="ops-beat ops-beat--stack">
+              <div className="ops-stage">
+                <picture>
+                  <source srcSet="/hero/backplate.avif" type="image/avif" />
+                  <source
+                    srcSet="/hero/backplate-sm.webp 900w, /hero/backplate.webp 1800w"
+                    sizes="(max-width: 720px) 100vw, 1100px"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/hero/backplate.jpg"
+                    alt=""
+                    width={1800}
+                    height={1633}
+                    loading="lazy"
+                    decoding="async"
+                    className="ops-stage__img"
+                  />
+                </picture>
+
+                <div className="ops-screen ops-screen--open" style={screenPos(screens.id)}>
+                  <ChannelMark ch="00" />
+                </div>
+
+                {channels.map((c, i) => (
+                  <a
+                    key={c.ch}
+                    href={c.href}
+                    className="ops-screen ops-screen--link"
+                    style={screenPos(screens.links[i])}
+                    data-takeover
+                  >
+                    <ChannelMark ch={c.ch} delay={3.2 + i * 1.7} />
+                    <span className="ops-screen__label">{c.label}</span>
+                  </a>
+                ))}
+              </div>
+              <p className="ops-hero__open">
+                OPEN TO OPERATIONS LEADERSHIP AND AI-ENABLED OPERATIONS ROLES
+              </p>
+            </div>
           </div>
         </section>
 
