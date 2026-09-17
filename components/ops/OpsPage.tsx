@@ -459,8 +459,8 @@ export default function OpsPage() {
               <h2 className="ops-h2">Cenotes, Mexico.</h2>
               <div className="ops-dive__copy op">
                 <p>
-                  I dive. Mostly cenotes: fresh water, no daylight, a line to follow and a plan you
-                  do not improvise on.
+                  I love diving cenotes in Mexico. Fresh water, no daylight, a line to follow and a
+                  plan you do not improvise on.
                 </p>
                 <p>
                   It is the same discipline as the work. You plan the dive, you dive the plan, and
