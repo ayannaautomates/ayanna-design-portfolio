@@ -11,7 +11,8 @@ const channels = [
   { ch: "01", label: "Career Timeline", href: "#timeline" },
   { ch: "02", label: "Toolkit", href: "#toolkit" },
   { ch: "03", label: "Case Studies", href: "#case-studies" },
-  { ch: "04", label: "Get in Touch", href: "#contact" },
+  { ch: "04", label: "Off the Clock", href: "#off-clock" },
+  { ch: "05", label: "Get in Touch", href: "#contact" },
 ];
 
 const metrics = [
@@ -195,7 +196,7 @@ export default function OpsPage() {
           AYANNA McCLINTIC
         </a>
         <nav aria-label="Primary" className="ops-nav__links">
-          {channels.slice(0, 3).map((c) => (
+          {channels.slice(0, 4).map((c) => (
             <a key={c.ch} href={c.href} className="ops-nav__link" data-nav={c.href.slice(1)}>
               <span className="ops-nav__ch">CH {c.ch}</span>
               {c.label === "Career Timeline" ? "Timeline" : c.label}
@@ -449,11 +450,46 @@ export default function OpsPage() {
             </div>
           </section>
 
-          <section id="contact" data-ch="04" className="ops-section ops-contact" data-section>
+          <section id="off-clock" data-ch="04" className="ops-section ops-dive" data-section>
             <Scanlines />
             <div className="ops-wrap">
               <p className="ops-eyebrow op">
-                <span className="ops-num">04</span> / Get in Touch
+                <span className="ops-num">04</span> / Off the Clock
+              </p>
+              <h2 className="ops-h2">Cenotes, Mexico.</h2>
+              <div className="ops-dive__copy op">
+                <p>
+                  I dive. Mostly cenotes: fresh water, no daylight, a line to follow and a plan you
+                  do not improvise on.
+                </p>
+                <p>
+                  It is the same discipline as the work. You plan the dive, you dive the plan, and
+                  you check your gas before you need it. Calm is a system, not a personality trait.
+                </p>
+              </div>
+            </div>
+
+            <div className="ops-dive__band" aria-hidden="false">
+              {[
+                { src: "divers", alt: "Divers descending into a cenote, sunlight cutting through the water" },
+                { src: "cavern", alt: "A limestone column and formations lit inside a flooded cave" },
+                { src: "column", alt: "A diver's light on the cave floor deep inside the system" },
+              ].map((img, i) => (
+                <figure key={img.src} className="ops-dive__figure" data-parallax={i % 2 === 0 ? "1" : "2"}>
+                  <picture>
+                    <source srcSet={`/off-clock/${img.src}.webp`} type="image/webp" />
+                    <img src={`/off-clock/${img.src}.jpg`} alt={img.alt} loading="lazy" decoding="async" />
+                  </picture>
+                </figure>
+              ))}
+            </div>
+          </section>
+
+          <section id="contact" data-ch="05" className="ops-section ops-contact" data-section>
+            <Scanlines />
+            <div className="ops-wrap">
+              <p className="ops-eyebrow op">
+                <span className="ops-num">05</span> / Get in Touch
               </p>
               <h2 className="ops-h2">Signal locked. Let&apos;s talk.</h2>
               <p className="ops-contact__loc op">San Antonio, Texas. Open to remote.</p>
@@ -478,7 +514,7 @@ export default function OpsPage() {
 
           <footer className="ops-footer">
             <span>© {new Date().getFullYear()} Ayanna McClintic</span>
-            <span className="ops-ch ops-ch--static">CH 04</span>
+            <span className="ops-ch ops-ch--static">CH 05</span>
           </footer>
         </div>
       </main>

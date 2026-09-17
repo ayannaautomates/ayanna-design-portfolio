@@ -495,6 +495,8 @@ html.ops-smooth.lenis-scrolling .op {
 }
 
 .ops-section:nth-of-type(even)::after {
+  top: auto;
+  bottom: 8%;
   right: auto;
   left: 3vw;
 }
@@ -941,7 +943,61 @@ html.ops-smooth.lenis-scrolling .op {
   background: var(--teal);
 }
 
-/* 04 Contact */
+/* 04 Off the clock */
+.ops-dive__copy {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 62ch;
+  color: var(--text-mid);
+}
+
+.ops-dive__copy p {
+  margin: 0;
+}
+
+.ops-dive__band {
+  display: grid;
+  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 28px);
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+.ops-dive__figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.ops-dive__figure:nth-child(2) {
+  margin-top: clamp(2rem, 5vw, 5rem);
+}
+
+.ops-dive__figure:nth-child(3) {
+  margin-top: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+.ops-dive__figure img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 34vw, 460px);
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.05);
+}
+
+/* the water fades into the page instead of stopping at a hard edge */
+.ops-dive__figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(11, 12, 12, 0.92), rgba(11, 12, 12, 0) 46%),
+    linear-gradient(to right, rgba(11, 12, 12, 0.55), rgba(11, 12, 12, 0) 24%, rgba(11, 12, 12, 0) 76%, rgba(11, 12, 12, 0.55));
+}
+
+/* 05 Contact */
 .ops-contact__loc {
   margin: -1.5rem 0 2rem;
   font-size: 1.15rem;
@@ -1221,6 +1277,15 @@ body:has(.ops) .consent-banner .btn-secondary {
   .ops-own__cols,
   .ops-grid2 {
     grid-template-columns: 1fr;
+  }
+
+  .ops-dive__band {
+    grid-template-columns: 1fr;
+  }
+
+  .ops-dive__figure:nth-child(2),
+  .ops-dive__figure:nth-child(3) {
+    margin-top: 0;
   }
 
   .ops-domain__body {

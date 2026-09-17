@@ -64,6 +64,19 @@ export default function OpsMotion() {
         );
       }
 
+      // The dive band drifts at two speeds, like the reference site's ridge
+      gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { yPercent: el.dataset.parallax === "1" ? 8 : 14 },
+          {
+            yPercent: el.dataset.parallax === "1" ? -8 : -14,
+            ease: "none",
+            scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 0 },
+          },
+        );
+      });
+
       // Every block rises into place
       gsap.utils.toArray<HTMLElement>(".op").forEach((el) => {
         gsap.from(el, {
