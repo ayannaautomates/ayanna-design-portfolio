@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 // Markup is server-rendered in OpsPage. This only layers behavior on top:
-// active nav channel, hero recede on scroll, and the click takeover.
+// active nav channel and the hero recede on scroll.
 export default function OpsInteractions() {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
