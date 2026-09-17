@@ -500,99 +500,33 @@ html.ops-has-remote .ops summary {
 }
 
 /* deep space behind the planet */
-.ops-orbit::before,
+.ops-orbit__space {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+  overflow: hidden;
+}
+
+.ops-orbit__space img {
+  width: 100%;
+  height: 100%;
+  /* contain keeps Earth small and far off, and the letterbox is page black */
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.9;
+}
+
+/* the plate dissolves into the page top and bottom */
 .ops-orbit::after {
   content: "";
   position: absolute;
-  inset: -10% -5%;
+  inset: 0;
+  z-index: -1;
   pointer-events: none;
-  z-index: -2;
+  background: linear-gradient(to bottom, var(--bg) 0%, rgba(11, 12, 12, 0) 26%, rgba(11, 12, 12, 0) 72%, var(--bg) 100%),
+    radial-gradient(ellipse 46% 44% at 50% 50%, rgba(78, 124, 119, 0.18), transparent 72%);
 }
-
-.ops-orbit::before {
-  background-image: radial-gradient(1.5px 1.5px at 32.4% 15.1%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 7.2% 53.6%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 91.0% 21.5%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1.5px 1.5px at 41.8% 24.1%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1px 1px at 5.9% 56.5%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 57.7% 39.7%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 55.7% 13.3%, rgba(236,239,238,0.35), transparent 60%),
-    radial-gradient(1.5px 1.5px at 54.1% 57.1%, rgba(236,239,238,0.35), transparent 60%),
-    radial-gradient(1px 1px at 10.3% 57.1%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1.5px 1.5px at 9.7% 71.2%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1.5px 1.5px at 61.9% 49.6%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1px 1px at 77.7% 46.6%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1.5px 1.5px at 30.0% 79.4%, rgba(236,239,238,0.35), transparent 60%),
-    radial-gradient(1px 1px at 8.2% 30.0%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1px 1px at 72.9% 28.8%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 51.2% 16.5%, rgba(236,239,238,0.35), transparent 60%),
-    radial-gradient(1.5px 1.5px at 93.3% 42.2%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 76.5% 57.3%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1.5px 1.5px at 69.5% 59.4%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1px 1px at 6.9% 9.4%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1.5px 1.5px at 69.7% 6.5%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1px 1px at 64.7% 99.3%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1px 1px at 71.7% 88.7%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1.5px 1.5px at 94.1% 35.5%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 49.4% 21.8%, rgba(236,239,238,0.35), transparent 60%),
-    radial-gradient(1px 1px at 73.8% 39.8%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 16.6% 40.2%, rgba(236,239,238,0.35), transparent 60%),
-    radial-gradient(1px 1px at 81.9% 86.4%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1px 1px at 98.6% 68.3%, rgba(236,239,238,0.35), transparent 60%),
-    radial-gradient(1px 1px at 15.1% 17.6%, rgba(236,239,238,0.35), transparent 60%),
-    radial-gradient(1px 1px at 1.2% 83.1%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1.5px 1.5px at 28.2% 14.6%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1px 1px at 61.0% 31.9%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1.5px 1.5px at 45.7% 87.1%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1px 1px at 39.8% 39.4%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1px 1px at 6.2% 6.7%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1px 1px at 16.2% 34.0%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 0.0% 15.1%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1px 1px at 61.4% 7.0%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1px 1px at 14.9% 25.2%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1px 1px at 47.4% 11.5%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1px 1px at 48.0% 31.2%, rgba(236,239,238,0.5), transparent 60%),
-    radial-gradient(1px 1px at 75.0% 74.0%, rgba(236,239,238,0.35), transparent 60%),
-    radial-gradient(1.5px 1.5px at 51.6% 20.5%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1px 1px at 14.7% 54.3%, rgba(236,239,238,0.25), transparent 60%),
-    radial-gradient(1.5px 1.5px at 97.9% 86.3%, rgba(236,239,238,0.25), transparent 60%);
-  background-repeat: no-repeat;
-  opacity: 0.5;
-  animation: ops-stars 140s linear infinite;
-}
-
-.ops-orbit::after {
-  background-image: radial-gradient(2px 2px at 51.8% 90.8%, rgba(236,239,238,0.8), transparent 60%),
-    radial-gradient(2px 2px at 53.3% 77.9%, rgba(236,239,238,0.7), transparent 60%),
-    radial-gradient(1.5px 1.5px at 22.3% 81.2%, rgba(236,239,238,0.8), transparent 60%),
-    radial-gradient(1.5px 1.5px at 81.8% 74.0%, rgba(236,239,238,0.8), transparent 60%),
-    radial-gradient(1.5px 1.5px at 51.8% 35.6%, rgba(236,239,238,0.8), transparent 60%),
-    radial-gradient(1.5px 1.5px at 79.0% 47.2%, rgba(236,239,238,0.7), transparent 60%),
-    radial-gradient(2.5px 2.5px at 60.5% 34.4%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1.5px 1.5px at 95.5% 36.5%, rgba(236,239,238,0.8), transparent 60%),
-    radial-gradient(1.5px 1.5px at 22.7% 19.7%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1.5px 1.5px at 62.4% 90.0%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(2.5px 2.5px at 90.9% 34.4%, rgba(236,239,238,0.8), transparent 60%),
-    radial-gradient(2px 2px at 83.5% 12.0%, rgba(236,239,238,0.7), transparent 60%),
-    radial-gradient(1.5px 1.5px at 75.0% 47.8%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(2.5px 2.5px at 78.9% 33.3%, rgba(236,239,238,0.6), transparent 60%),
-    radial-gradient(1.5px 1.5px at 46.3% 74.3%, rgba(236,239,238,0.7), transparent 60%),
-    radial-gradient(1.5px 1.5px at 15.9% 99.3%, rgba(236,239,238,0.8), transparent 60%),
-    radial-gradient(2.5px 2.5px at 59.1% 46.5%, rgba(236,239,238,0.8), transparent 60%),
-    radial-gradient(2px 2px at 61.2% 59.6%, rgba(236,239,238,0.7), transparent 60%),
-    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(78, 124, 119, 0.16), transparent 72%),
-    radial-gradient(ellipse 30% 22% at 16% 78%, rgba(85, 175, 166, 0.1), transparent 70%);
-  background-repeat: no-repeat;
-  opacity: 0.75;
-  animation: ops-stars 90s linear infinite reverse;
-}
-
-@keyframes ops-stars {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-2%, 3%, 0); }
-}
-
-
 
 .ops-orbit__inner {
   width: min(1280px, 100%);
@@ -691,6 +625,12 @@ html.ops-has-remote .ops summary {
 
 /* On a phone the ring unwinds: sphere on top, channels listed underneath */
 @media (max-width: 860px) {
+  /* contain would letterbox on a tall screen, so fill and keep Earth in view */
+  .ops-orbit__space img {
+    object-fit: cover;
+    object-position: 24% 34%;
+  }
+
   .ops-orbit__ring {
     display: block;
     width: 100%;

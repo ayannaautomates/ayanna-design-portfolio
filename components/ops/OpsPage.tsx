@@ -22,7 +22,7 @@ const orbit = [
   { ch: "02", label: "Toolkit", href: "#toolkit", angle: -40 },
   { ch: "03", label: "Case Studies", href: "#case-studies", angle: 26 },
   { ch: "04", label: "Off the Clock", href: "#off-clock", angle: 92 },
-  { ch: "05", label: "LinkedIn", href: siteConfig.links.linkedin, angle: 168, external: true },
+  { ch: "05", label: "LinkedIn", href: siteConfig.links.linkedin, angle: -166, external: true },
 ];
 
 const metrics = [
@@ -284,6 +284,15 @@ export default function OpsPage() {
 
         <div className="ops-body">
           <section className="ops-orbit" aria-label="Sections">
+            <picture className="ops-orbit__space" aria-hidden="true">
+              <source
+                srcSet="/orbit/earth-sm.webp 1000w, /orbit/earth.webp 2000w"
+                sizes="100vw"
+                type="image/webp"
+              />
+              <img src="/orbit/earth.jpg" alt="" loading="lazy" decoding="async" />
+            </picture>
+
             <div className="ops-orbit__inner">
               <p className="ops-orbit__kicker">Pick a channel</p>
 
