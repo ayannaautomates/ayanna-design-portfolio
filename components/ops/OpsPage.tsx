@@ -39,32 +39,80 @@ const timeline = [
   {
     years: "2009 to 2019",
     org: "U.S. Air Force",
+    role: "Logistics Operations Manager · Honolulu, HI",
     body: "26-member team, Operation Inherent Resolve. 5,600 cargo tons, 16,500 passengers, 3,500 missions, 100% on-time departure reliability.",
+    detail: [
+      "Directed operations across five terminal sections supporting Pacific air mobility, contributing to the movement of 164,000+ passengers and 36,000+ tons of cargo.",
+      "Stood up a new Passenger Transit Center in under 12 hours, coordinating people, resources and infrastructure with zero mission degradation.",
+      "Coordinated logistics for executive government travel, humanitarian relief, medical evacuations and multinational exercises.",
+    ],
   },
   {
     years: "2018 to 2025",
     org: "Surgical Technology",
-    body: "Tallahassee Memorial, then traveling. Cut surgical waste 25% through resource allocation and inventory tracking.",
+    role: "Tallahassee Memorial, then traveling · 15+ hospitals",
+    body: "Cut surgical waste 25% through resource allocation and inventory tracking.",
+    detail: [
+      "Integrated into a new team, new system and new protocol set at every assignment, across more than 15 hospitals.",
+      "Ran room set-up and breakdown around each case, cutting turnover time between surgeries and holding the sterile field.",
+      "Owned instrument and supply counts, which kept shortages and intra-operative delays off the schedule.",
+    ],
   },
   {
     years: "2025 to 2026",
     org: "Rasmussen University",
-    body: "Program Director. Two direct reports, 40+ students per quarter, Excel KPI dashboards, quarterly advisory board.",
+    role: "Program Director & Instructor · Odessa, FL",
+    body: "Two direct reports, 40+ students per quarter, Excel KPI dashboards, quarterly advisory board.",
+    detail: [
+      "Owned curriculum and program leadership for health sciences, keeping delivery aligned to institutional goals and accreditation standards.",
+      "Tracked enrollment, student outcomes and graduate placement on dashboards leadership used to adjust recruitment.",
+      "Worked with academic deans and national coordinators on retention strategy, and ran monthly faculty coordination alongside the quarterly board.",
+      "Coordinated externship placements and negotiated affiliation agreements with industry partners.",
+    ],
   },
   {
     years: "2026 to now",
     org: "SCTRCA",
-    body: "Business Operations Lead. Onboarding and TA time down about 30%, admin and content processing down more than 50%, 20+ workshops reaching 500+ stakeholders.",
+    role: "Business Operations Lead · San Antonio, TX",
+    body: "Onboarding and TA time down about 30%, admin and content processing down more than 50%, 20+ workshops reaching 500+ stakeholders.",
+    detail: [
+      "Own a monthly KPI dashboard covering certification volume, officer turnaround and demographic outcomes, with an automated refresh and QA checks before it reaches leadership.",
+      "Architected and shipped the production AI assistant that compressed a 30 to 40 step process into 7 to 11 guided screens.",
+      "Standardized vendor support intake through a ticket portal with assignment, 30-day follow-up and closure, which ended dropped requests.",
+      "Ran an 11-agency procurement analysis and a 28-respondent ecosystem survey, each delivered as prioritized recommendations.",
+      "Own team scheduling and event staffing, and act as the organization's lead in the executive director's absence.",
+    ],
+  },
+];
+
+const endeavors = [
+  {
+    name: "Soulwire Studio",
+    meta: "Founder · 2025 to now",
+    body: "I map a client's process before I build anything, then turn the manual bottlenecks in lead follow-up, invoicing and reporting into a scoped automation roadmap with projected return. The builds connect CRMs, inboxes and spreadsheets so the copy-paste work disappears, and the support agents run on deterministic logic rather than improvisation, which gives a small team 24/7 response without adding headcount.",
+  },
+  {
+    name: "Lavender Sky Homes",
+    meta: "Founder · 2022 to 2025",
+    body: "",
   },
 ];
 
 const toolkit = [
   {
     title: "Operations & Program Management",
-    skills: ["Operations Management", "Program Management", "Event & Staffing Coordination"],
+    skills: [
+      "Operations Management",
+      "Program Management",
+      "Event & Staffing Coordination",
+      "Logistics",
+    ],
     evidence: [
       "Led a 26-member Air Force team through 3,500 missions, 16,500 passengers, and 5,600 cargo tons.",
+      "Directed five terminal sections in Pacific air mobility: 164,000+ passengers and 36,000+ tons moved.",
+      "Stood up a Passenger Transit Center in under 12 hours with zero mission degradation.",
       "Directed a program serving 40+ students per quarter with two direct reports.",
+      "Own team scheduling and event staffing by capacity and priority, and act as agency lead when the executive director is out.",
       "Ran 20+ workshops reaching 500+ stakeholders at SCTRCA.",
     ],
   },
@@ -75,28 +123,47 @@ const toolkit = [
       "Workflow Design",
       "SOP & Playbook Development",
       "AI-Enabled Workflow Improvement",
+      "Lean Six Sigma Green Belt",
     ],
     evidence: [
       "Compressed a 30 to 40 step certification process into 7 to 11 guided screens.",
       "Cut onboarding and TA time about 30% and admin and content processing more than 50%.",
+      "Replaced phone and scheduled-call intake with a ticket portal carrying assignment, 30-day follow-up and closure, which ended dropped requests.",
       "Reduced surgical waste 25% through resource allocation and inventory tracking.",
+      "Cut operating room turnover between cases through disciplined set-up and breakdown.",
+      "Lean Six Sigma Green Belt, 2026.",
     ],
   },
   {
     title: "Leadership & Cross-Functional Coordination",
-    skills: ["Team Leadership", "Cross-Functional Coordination", "Stakeholder Management"],
+    skills: [
+      "Team Leadership",
+      "Cross-Functional Coordination",
+      "Stakeholder Management",
+      "Partnership Development",
+    ],
     evidence: [
       "Held 100% on-time departure reliability with a 26-member team during Operation Inherent Resolve.",
-      "Ran a quarterly advisory board as Program Director at Rasmussen University.",
-      "Coordinated an analysis across 11 public agencies into one tiered action plan.",
+      "Ran a quarterly advisory board and monthly faculty coordination as Program Director.",
+      "Worked with academic deans and national coordinators to rebuild retention strategy around real outcome data.",
+      "Coordinated an analysis across 11 public agencies into one tiered action plan and five training modules.",
+      "Built partnerships with public agencies, chambers and economic development organizations that grew small-business participation in the regional procurement pipeline.",
+      "Negotiated affiliation agreements and externship placements with industry partners.",
     ],
   },
   {
     title: "Systems, Data & Reporting",
-    skills: ["CRM & Systems Management", "KPI Tracking", "Dashboard Design"],
+    skills: [
+      "CRM & Systems Management",
+      "KPI Tracking",
+      "Dashboard Design",
+      "Survey Design & Analysis",
+    ],
     evidence: [
       "Built a monthly KPI dashboard with automated refresh and QA checks before distribution.",
       "Optimized the agency's Monday.com CRM for tracking and reporting accuracy.",
+      "Ran Excel dashboards on enrollment, student outcomes and graduate placement that leadership used to adjust recruitment.",
+      "Designed and fielded a 28-respondent ecosystem survey and turned the results into five prioritized recommendations.",
       "Returned $11.5K to $12K a year of specialist capacity with a production AI assistant.",
     ],
   },
@@ -106,8 +173,15 @@ const moreWork = projects.filter(
   (p) => !p.isConcept && p.slug !== "supply-sa-vendor-assistant",
 );
 
+const conceptBuilds = projects.filter((p) => p.isConcept);
+
 function Scanlines() {
-  return <div className="ops-scan" aria-hidden="true" />;
+  return (
+    <>
+      <div className="ops-scan" aria-hidden="true" />
+      <div className="ops-glow" aria-hidden="true" />
+    </>
+  );
 }
 
 export default function OpsPage() {
@@ -179,7 +253,10 @@ export default function OpsPage() {
                   I bring structure to complex programs and build processes people actually
                   follow.
                 </p>
-                <p className="ops-quip">Static is just a process nobody has tuned yet.</p>
+                <p className="ops-quip">
+                  Static is just a process nobody has tuned yet. I find the signal, then I build
+                  the system that holds it.
+                </p>
                 <p className="ops-id__tag">AI-ENABLED OPS · USAF VETERAN</p>
                 <p className="ops-hero__open">
                   OPEN TO OPERATIONS LEADERSHIP AND AI-ENABLED OPERATIONS ROLES
@@ -194,7 +271,7 @@ export default function OpsPage() {
         </section>
 
         <div className="ops-body">
-          <section id="timeline" className="ops-section" data-section>
+          <section id="timeline" data-ch="01" className="ops-section" data-section>
             <Scanlines />
             <div className="ops-wrap">
               <p className="ops-eyebrow op">
@@ -208,7 +285,13 @@ export default function OpsPage() {
                     <p className="ops-timeline__years">{t.years}</p>
                     <div>
                       <h3 className="ops-timeline__org">{t.org}</h3>
+                      <p className="ops-timeline__role">{t.role}</p>
                       <p className="ops-timeline__body">{t.body}</p>
+                      <ul className="ops-detail">
+                        {t.detail.map((d) => (
+                          <li key={d}>{d}</li>
+                        ))}
+                      </ul>
                     </div>
                   </li>
                 ))}
@@ -217,20 +300,19 @@ export default function OpsPage() {
               <div className="ops-own op">
                 <h3 className="ops-label">Own endeavors</h3>
                 <div className="ops-own__cols">
-                  <div className="ops-card">
-                    <h4 className="ops-card__title">Soulwire Studio</h4>
-                    <p className="ops-card__meta">Founder · 2025 to now</p>
-                  </div>
-                  <div className="ops-card">
-                    <h4 className="ops-card__title">Lavender Sky Homes</h4>
-                    <p className="ops-card__meta">Founder · 2022 to 2025</p>
-                  </div>
+                  {endeavors.map((e) => (
+                    <div key={e.name} className="ops-card">
+                      <h4 className="ops-card__title">{e.name}</h4>
+                      <p className="ops-card__meta">{e.meta}</p>
+                      {e.body && <p className="ops-card__body">{e.body}</p>}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </section>
 
-          <section id="toolkit" className="ops-section" data-section>
+          <section id="toolkit" data-ch="02" className="ops-section" data-section>
             <Scanlines />
             <div className="ops-wrap">
               <p className="ops-eyebrow op">
@@ -264,7 +346,7 @@ export default function OpsPage() {
             </div>
           </section>
 
-          <section id="case-studies" className="ops-section" data-section>
+          <section id="case-studies" data-ch="03" className="ops-section" data-section>
             <Scanlines />
             <div className="ops-wrap">
               <p className="ops-eyebrow op">
@@ -328,6 +410,25 @@ export default function OpsPage() {
                 ))}
               </div>
 
+              {conceptBuilds.length > 0 && (
+                <>
+                  <h3 className="ops-subhead">Concept builds</h3>
+                  <p className="ops-note op">
+                    Self-initiated systems, built end to end to test an approach. Not client
+                    projects, and labelled that way wherever they appear.
+                  </p>
+                  <div className="ops-grid2">
+                    {conceptBuilds.map((c) => (
+                      <Link key={c.slug} href={`/projects/${c.slug}`} className="ops-card ops-card--link op">
+                        <h4 className="ops-card__title">{c.title}</h4>
+                        <p className="ops-card__body">{c.description}</p>
+                        <p className="ops-card__meta">{c.tags.slice(0, 4).join(" · ")}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              )}
+
               {moreWork.length > 0 && (
                 <>
                   <h3 className="ops-subhead">More case studies</h3>
@@ -348,7 +449,7 @@ export default function OpsPage() {
             </div>
           </section>
 
-          <section id="contact" className="ops-section ops-contact" data-section>
+          <section id="contact" data-ch="04" className="ops-section ops-contact" data-section>
             <Scanlines />
             <div className="ops-wrap">
               <p className="ops-eyebrow op">

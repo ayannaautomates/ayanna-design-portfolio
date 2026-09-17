@@ -477,6 +477,51 @@ html.ops-smooth.lenis-scrolling .op {
   background: url("/hero/scanline.webp") center / 256px repeat;
 }
 
+/* Each section carries its own light and a ghosted channel number, so the
+   page reads as a set of rooms rather than one long column. */
+.ops-section::after {
+  content: attr(data-ch);
+  position: absolute;
+  top: 6%;
+  right: 3vw;
+  z-index: -1;
+  font-family: var(--mono);
+  font-size: clamp(9rem, 22vw, 20rem);
+  font-weight: 300;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: rgba(236, 239, 238, 0.028);
+  pointer-events: none;
+}
+
+.ops-section:nth-of-type(even)::after {
+  right: auto;
+  left: 3vw;
+}
+
+.ops-section .ops-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ops-section:nth-of-type(odd) .ops-glow {
+  background: radial-gradient(
+    ellipse 46% 42% at 82% 28%,
+    rgba(85, 175, 166, 0.13),
+    transparent 70%
+  );
+}
+
+.ops-section:nth-of-type(even) .ops-glow {
+  background: radial-gradient(
+    ellipse 50% 46% at 14% 62%,
+    rgba(78, 124, 119, 0.15),
+    transparent 70%
+  );
+}
+
 .ops-wrap {
   position: relative;
   width: min(1280px, 100%);
@@ -678,6 +723,76 @@ html.ops-smooth.lenis-scrolling .op {
   font-weight: 600;
 }
 
+.ops-timeline__role {
+  margin: 0 0 0.8rem;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ops-detail {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 68ch;
+}
+
+.ops-detail li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.ops-detail li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 6px;
+  height: 1px;
+  background: var(--teal-dim);
+}
+
+.ops-note {
+  max-width: 60ch;
+  margin: -1rem 0 1.75rem;
+  color: var(--text-muted);
+}
+
+.ops-grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.ops-card--link {
+  display: block;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.ops-card--link:hover {
+  border-color: var(--border-hi);
+  transform: translateY(-2px);
+}
+
+.ops-card--link .ops-card__meta {
+  margin-top: 1rem;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: none;
+  color: var(--text-faint);
+}
+
+.ops-card__body + .ops-card__meta {
+  border-top: 1px solid var(--border);
+  padding-top: 0.9rem;
+}
+
 .ops-timeline__body {
   margin: 0;
   max-width: 62ch;
@@ -696,6 +811,10 @@ html.ops-smooth.lenis-scrolling .op {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+}
+
+.ops-own .ops-card__meta {
+  margin-bottom: 0.9rem;
 }
 
 /* 03 Toolkit */
@@ -1099,7 +1218,8 @@ body:has(.ops) .consent-banner .btn-secondary {
     gap: 0.4rem;
   }
 
-  .ops-own__cols {
+  .ops-own__cols,
+  .ops-grid2 {
     grid-template-columns: 1fr;
   }
 
