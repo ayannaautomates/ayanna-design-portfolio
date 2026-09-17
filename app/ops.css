@@ -1482,7 +1482,10 @@ html.ops-has-remote .ops summary {
 
 /* 04 Off the clock: a pinned descent */
 .ops-descent {
+  /* the water runs to the edge of the section, so the next block follows it
+     straight away instead of after a slab of black */
   padding-top: 0;
+  padding-bottom: 0;
   /* the scroll distance the descent plays over */
   min-height: 340svh;
 }
@@ -1602,6 +1605,7 @@ p.ops-descent__line {
 .ops-travel-sec {
   position: relative;
   z-index: 1;
+  padding-top: clamp(64px, 8vw, 110px);
   background: var(--bg);
 }
 
