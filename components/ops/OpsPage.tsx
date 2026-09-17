@@ -2,6 +2,7 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { siteConfig } from "@/lib/site";
 import OpsInteractions from "./OpsInteractions";
+import OpsMotion from "./OpsMotion";
 
 const RESUME_HREF = "/resume.pdf";
 const EMAIL = "ayanna.m89@gmail.com";
@@ -144,6 +145,7 @@ export default function OpsPage() {
   return (
     <div className="ops">
       <OpsInteractions />
+      <OpsMotion />
 
       <header className="ops-nav" role="banner">
         <a href="#top" className="ops-nav__name">
@@ -264,21 +266,21 @@ export default function OpsPage() {
           <section id="case-studies" className="ops-section" data-section>
             <Scanlines />
             <div className="ops-wrap">
-              <p className="ops-eyebrow">
+              <p className="ops-eyebrow op">
                 <span className="ops-num">01</span> / Case Studies
               </p>
               <h2 className="ops-h2">Supply SA vendor certification assistant</h2>
 
               <div className="ops-metrics">
                 {metrics.map((m) => (
-                  <div key={m.value} className="ops-card ops-metric">
+                  <div key={m.value} className="ops-card ops-metric op">
                     <p className="ops-metric__value">{m.value}</p>
                     <p className="ops-metric__label">{m.label}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="ops-cols">
+              <div className="ops-cols op">
                 <div>
                   <h3 className="ops-label">The problem</h3>
                   {/* OPEN: Ayanna's one line on what the manual process cost applicants and
@@ -307,18 +309,18 @@ export default function OpsPage() {
                 </div>
               </div>
 
-              <p className="ops-built">
+              <p className="ops-built op">
                 <span className="ops-label">Built with</span> Claude API · Node.js · Express ·
                 deterministic rules engine
               </p>
-              <Link href="/projects/supply-sa-vendor-assistant" className="ops-btn ops-btn--line">
+              <Link href="/projects/supply-sa-vendor-assistant" className="ops-btn ops-btn--line op">
                 Read the full case study
               </Link>
 
               <h3 className="ops-subhead">Also shipped at SCTRCA</h3>
               <div className="ops-grid3">
                 {alsoShipped.map((a) => (
-                  <div key={a.title} className="ops-card">
+                  <div key={a.title} className="ops-card op">
                     <h4 className="ops-card__title">{a.title}</h4>
                     <p className="ops-card__body">{a.body}</p>
                   </div>
@@ -330,7 +332,7 @@ export default function OpsPage() {
                   <h3 className="ops-subhead">More case studies</h3>
                   <ul className="ops-more">
                     {moreWork.map((p) => (
-                      <li key={p.slug}>
+                      <li key={p.slug} className="op">
                         <Link href={`/projects/${p.slug}`} className="ops-more__link">
                           <span>{p.title}</span>
                           <span className="ops-more__meta">
@@ -348,14 +350,14 @@ export default function OpsPage() {
           <section id="timeline" className="ops-section" data-section>
             <Scanlines />
             <div className="ops-wrap">
-              <p className="ops-eyebrow">
+              <p className="ops-eyebrow op">
                 <span className="ops-num">02</span> / Career Timeline
               </p>
               <h2 className="ops-h2">Four industries. One way of working.</h2>
 
               <ol className="ops-timeline">
                 {timeline.map((t) => (
-                  <li key={t.org} className="ops-timeline__item">
+                  <li key={t.org} className="ops-timeline__item op">
                     <p className="ops-timeline__years">{t.years}</p>
                     <div>
                       <h3 className="ops-timeline__org">{t.org}</h3>
@@ -365,7 +367,7 @@ export default function OpsPage() {
                 ))}
               </ol>
 
-              <div className="ops-own">
+              <div className="ops-own op">
                 <h3 className="ops-label">Own endeavors</h3>
                 <div className="ops-own__cols">
                   <div className="ops-card">
@@ -384,14 +386,14 @@ export default function OpsPage() {
           <section id="toolkit" className="ops-section" data-section>
             <Scanlines />
             <div className="ops-wrap">
-              <p className="ops-eyebrow">
+              <p className="ops-eyebrow op">
                 <span className="ops-num">03</span> / Toolkit
               </p>
               <h2 className="ops-h2">Core competencies. Pick one.</h2>
 
               <div className="ops-toolkit" data-accordion>
                 {toolkit.map((d, i) => (
-                  <details key={d.title} className="ops-domain" open={i === 0}>
+                  <details key={d.title} className="ops-domain op" open={i === 0}>
                     <summary className="ops-domain__head">
                       <span className="ops-domain__num">0{i + 1}</span>
                       <span className="ops-domain__title">{d.title}</span>
@@ -418,12 +420,12 @@ export default function OpsPage() {
           <section id="contact" className="ops-section ops-contact" data-section>
             <Scanlines />
             <div className="ops-wrap">
-              <p className="ops-eyebrow">
+              <p className="ops-eyebrow op">
                 <span className="ops-num">04</span> / Get in Touch
               </p>
               <h2 className="ops-h2">Signal locked. Let&apos;s talk.</h2>
-              <p className="ops-contact__loc">San Antonio, Texas. Open to remote.</p>
-              <div className="ops-contact__actions">
+              <p className="ops-contact__loc op">San Antonio, Texas. Open to remote.</p>
+              <div className="ops-contact__actions op">
                 <a href={`mailto:${EMAIL}`} className="ops-btn ops-btn--line">
                   Email
                 </a>

@@ -23,10 +23,13 @@
   z-index: 3;
   width: 100%;
   background: var(--bg);
+  isolation: isolate;
   color: var(--text);
   font-family: var(--display);
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 300;
   line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
 .ops *,
@@ -47,6 +50,16 @@
 
 .ops section[id] {
   scroll-margin-top: var(--nav-h);
+}
+
+html.ops-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Only pay for compositing while the page is actually moving */
+html.ops-smooth.lenis-scrolling .ops-word,
+html.ops-smooth.lenis-scrolling .op {
+  will-change: transform, opacity, filter;
 }
 
 /* Labels ---------------------------------------------------------------- */
@@ -508,12 +521,52 @@
   box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.7);
 }
 
+/* One fixed glow sits under the whole page, so sections share a ground */
+.ops-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  background: radial-gradient(
+    ellipse 70% 55% at 50% 42%,
+    rgba(78, 124, 119, 0.22),
+    rgba(11, 12, 12, 0) 72%
+  );
+}
+
 .ops-section {
   position: relative;
-  padding: clamp(72px, 11vw, 128px) 0;
-  border-top: 1px solid var(--border);
-  background: var(--bg);
+  padding: 200px 0;
+  background: transparent;
   outline: none;
+}
+
+/* Sections dissolve into the page instead of butting against a border */
+.ops-section + .ops-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1280px, 92vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(236, 239, 238, 0.14) 22%,
+    rgba(236, 239, 238, 0.14) 78%,
+    transparent
+  );
+}
+
+@media (max-width: 992px) {
+  .ops-section { padding: 160px 0; }
+}
+
+@media (max-width: 767px) {
+  .ops-section { padding: 100px 0; }
 }
 
 .ops-scan {
@@ -526,7 +579,7 @@
 
 .ops-wrap {
   position: relative;
-  width: min(1120px, 100%);
+  width: min(1280px, 100%);
   margin: 0 auto;
   padding: 0 clamp(16px, 4vw, 40px);
 }
@@ -542,13 +595,19 @@
 }
 
 .ops-h2 {
-  margin: 0 0 clamp(2rem, 4vw, 3rem);
-  max-width: 22ch;
-  font-size: clamp(2rem, 4.6vw, 3.4rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  max-width: 20ch;
+  font-size: clamp(2.1rem, 4.6vw, 4rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
   color: var(--text);
+}
+
+.ops-word {
+  display: inline-block;
+  will-change: opacity, filter;
 }
 
 .ops-label {
@@ -559,9 +618,12 @@
 }
 
 .ops-subhead {
-  margin: clamp(3.5rem, 7vw, 5rem) 0 1.25rem;
-  font-size: clamp(1.2rem, 2vw, 1.45rem);
-  font-weight: 600;
+  margin: clamp(5rem, 9vw, 8rem) 0 2rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
   color: var(--text);
 }
 
