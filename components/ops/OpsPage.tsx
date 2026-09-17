@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site";
 import OpsInteractions from "./OpsInteractions";
 import OpsMotion from "./OpsMotion";
 import OpsCursor from "./OpsCursor";
+import OpsBoard, { type Stop } from "./OpsBoard";
 
 const RESUME_HREF = "/resume.pdf";
 const EMAIL = "ayanna.m89@gmail.com";
@@ -23,6 +24,18 @@ const orbit = [
   { ch: "03", label: "Case Studies", href: "#case-studies", angle: 26 },
   { ch: "04", label: "Off the Clock", href: "#off-clock", angle: 92 },
   { ch: "05", label: "LinkedIn", href: siteConfig.links.linkedin, angle: -166, external: true },
+];
+
+const stops: Stop[] = [
+  { code: "NRT", destination: "TOKYO", status: "EXPLORED", note: "JAPAN" },
+  { code: "MAN", destination: "MANCHESTER", status: "LIVED", note: "ENGLAND" },
+  { code: "PNH", destination: "PHNOM PENH", status: "EXPLORED", note: "CAMBODIA" },
+  { code: "WDH", destination: "WINDHOEK", status: "EXPLORED", note: "NAMIBIA" },
+  { code: "BKK", destination: "BANGKOK", status: "EXPLORED", note: "THAILAND" },
+  { code: "SYD", destination: "SYDNEY", status: "EXPLORED", note: "AUSTRALIA" },
+  { code: "DXB", destination: "DUBAI", status: "EXPLORED", note: "UAE" },
+  { code: "CAI", destination: "CAIRO", status: "EXPLORED", note: "EGYPT" },
+  { code: "CUN", destination: "CANCUN", status: "DIVED", note: "MEXICO" },
 ];
 
 const metrics = [
@@ -464,6 +477,36 @@ export default function OpsPage() {
                 Read the full case study
               </Link>
 
+              <h3 className="ops-subhead">WeaverKeep</h3>
+              <div className="ops-feature op">
+                <div className="ops-feature__copy">
+                  <p>
+                    A product I built and run: the operating hub for surgical technology programs.
+                    It keeps outcomes reporting current per cohort, indexes the ARC/STSA
+                    accreditation material a director actually needs, tracks clinical capacity and
+                    site asks, runs graduate and employer surveys end to end with signatures, and
+                    turns inventory into a phone count sheet a work-study student can fill in.
+                  </p>
+                  <p>
+                    I ran a surgical technology program before I built it, so the workflow is the
+                    one I had to do by hand. It is live, signs in with Google or Microsoft, and its
+                    first college pilot is onboarding now.
+                  </p>
+                  <p className="ops-built">
+                    <span className="ops-label">Built with</span> React · TypeScript · Supabase ·
+                    Cloudflare
+                  </p>
+                  <a
+                    href="https://weaverkeep.com"
+                    className="ops-btn ops-btn--line"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit weaverkeep.com
+                  </a>
+                </div>
+              </div>
+
               <h3 className="ops-subhead">Also shipped at SCTRCA</h3>
               <div className="ops-grid3 ops-ragged">
                 {alsoShipped.map((a) => (
@@ -555,21 +598,24 @@ export default function OpsPage() {
 
             <div className="ops-wrap ops-descent__after">
               <Scanlines />
-              <div className="ops-dive__grid">
-                <div className="ops-dive__copy op">
-                  <h3 className="ops-subhead">37 countries, and counting.</h3>
-                  <p>
-                    Traveling is the other half of it. Thirty-seven countries so far, and the habit
-                    it builds is reading a room you have never been in: working with people whose
-                    training, language and assumptions are nothing like yours, and getting to the
-                    point without steamrolling anyone. That shows up in every cross-functional room
-                    I walk into.
+              <div className="ops-travel">
+                <div className="ops-travel__lede">
+                  <p className="ops-travel__count" aria-hidden="true">
+                    37
                   </p>
+                  <div className="ops-travel__copy op">
+                    <h3 className="ops-subhead">37 countries and counting</h3>
+                    <p>
+                      Traveling is the other half of it. Thirty-seven countries so far, and the
+                      habit it builds is reading a room you have never been in: working with people
+                      whose training, language and assumptions are nothing like yours, and getting
+                      to the point without steamrolling anyone.
+                    </p>
+                    <p>That shows up in every cross-functional room I walk into.</p>
+                  </div>
                 </div>
-                <div className="ops-dive__stat op" aria-hidden="true">
-                  <span className="ops-dive__figureNum">37</span>
-                  <span className="ops-dive__figureLabel">countries</span>
-                </div>
+
+                <OpsBoard stops={stops} />
               </div>
             </div>
           </section>

@@ -908,6 +908,22 @@ html.ops-has-remote .ops summary {
   color: var(--text-muted);
 }
 
+.ops-feature__copy {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+  max-width: 68ch;
+  color: var(--text-mid);
+}
+
+.ops-feature__copy p {
+  margin: 0;
+}
+
+.ops-feature__copy .ops-built {
+  margin-top: 0.4rem;
+}
+
 /* 01 Case studies: the metrics hold while the headline falls away */
 .ops-beatbox {
   position: relative;
@@ -924,6 +940,22 @@ html.ops-has-remote .ops summary {
 
 .ops-beatbox__metrics {
   will-change: transform, opacity;
+}
+
+.ops-feature__copy {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+  max-width: 68ch;
+  color: var(--text-mid);
+}
+
+.ops-feature__copy p {
+  margin: 0;
+}
+
+.ops-feature__copy .ops-built {
+  margin-top: 0.4rem;
 }
 
 /* 01 Case studies */
@@ -1491,50 +1523,183 @@ p.ops-descent__line {
   padding-bottom: clamp(24px, 4vw, 48px);
 }
 
-.ops-dive__grid {
+.ops-travel {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: start;
+  gap: clamp(2.5rem, 6vw, 4.5rem);
 }
 
-.ops-dive__copy {
+.ops-travel__lede {
   display: grid;
-  gap: 1.1rem;
-  max-width: 62ch;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.5fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.ops-travel__count {
+  margin: 0;
+  font-size: clamp(7rem, 17vw, 15rem);
+  font-weight: 300;
+  line-height: 0.78;
+  letter-spacing: -0.06em;
+  color: transparent;
+  background: linear-gradient(170deg, #eafffb 0%, var(--teal-bright) 42%, var(--teal-dim) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.ops-travel__copy {
+  display: grid;
+  gap: 1rem;
+  max-width: 58ch;
   color: var(--text-mid);
 }
 
-.ops-dive__copy p {
+.ops-travel__copy p {
   margin: 0;
 }
 
-.ops-dive__copy .ops-subhead {
-  margin: 0;
+.ops-travel__copy .ops-subhead {
+  margin: 0 0 0.4rem;
 }
 
-.ops-dive__stat {
+/* the board ------------------------------------------------------------- */
+.ops-board {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: linear-gradient(180deg, #101515 0%, #0c1010 100%);
+  padding: clamp(1rem, 2.4vw, 1.6rem);
+  overflow-x: auto;
+}
+
+.ops-board__head {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.ops-dive__figureNum {
-  font-size: clamp(5rem, 13vw, 11rem);
-  font-weight: 300;
-  line-height: 0.82;
-  letter-spacing: -0.05em;
+.ops-board__title {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.ops-board__sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.ops-board__cols,
+.ops-board__row {
+  display: grid;
+  grid-template-columns: 4ch 13ch 9ch 10ch;
+  gap: clamp(0.8rem, 2.4vw, 2.4rem);
+  align-items: center;
+  min-width: max-content;
+}
+
+.ops-board__cols {
+  padding: 0.9rem 0 0.6rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.ops-board__rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ops-board__row {
+  padding: 0.55rem 0;
+  border-top: 1px solid rgba(31, 35, 35, 0.9);
+}
+
+.ops-flaps {
+  display: inline-flex;
+  gap: 2px;
+}
+
+/* one flap per character, hinged across the middle like the old boards */
+.ops-flap {
+  position: relative;
+  display: inline-block;
+  width: 1.05ch;
+  padding: 3px 0;
+  border-radius: 2px;
+  background: #171d1e;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  font-family: var(--mono);
+  font-size: clamp(12px, 1.2vw, 15px);
+  line-height: 1.15;
+  text-align: center;
+  color: var(--text);
+  backface-visibility: hidden;
+}
+
+.ops-flap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(11, 12, 12, 0.85);
+}
+
+.ops-flap.is-flipping {
+  animation: ops-flap 90ms ease-out;
+}
+
+.ops-flaps[data-kind="destination"] .ops-flap {
+  color: var(--text);
+}
+
+.ops-flaps[data-kind="status"] .ops-flap {
   color: var(--teal-bright);
 }
 
-.ops-dive__figureLabel {
-  margin-top: 0.6rem;
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+/* one place she lived rather than passed through */
+.ops-flaps[data-kind="status"][data-value="LIVED"] .ops-flap {
+  color: #d4af37;
+}
+
+.ops-flaps[data-kind="note"] .ops-flap,
+.ops-flaps[data-kind="code"] .ops-flap {
   color: var(--text-muted);
+}
+
+/* blank flaps stay on the drum but sit back */
+.ops-flap[data-final=" "] {
+  background: rgba(23, 29, 30, 0.45);
+  box-shadow: none;
+}
+
+@keyframes ops-flap {
+  0% { transform: rotateX(-82deg); filter: brightness(1.5); }
+  100% { transform: rotateX(0deg); filter: brightness(1); }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @keyframes ops-motes {
