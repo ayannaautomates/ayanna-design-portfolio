@@ -2310,3 +2310,33 @@ body:has(.ops) .consent-banner .btn-secondary {
   text-transform: uppercase;
   color: var(--text-muted);
 }
+
+@media (max-width: 860px) {
+  /* the line and its markers stay on phones, with room for the text */
+  .ops-timeline {
+    padding-left: 26px;
+  }
+
+  .ops-timeline__line {
+    left: 3px;
+  }
+
+  .ops-timeline__item::before {
+    content: "";
+    position: absolute;
+    left: -26px;
+    top: 1.65rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1px solid var(--teal-dim);
+    background: var(--bg);
+    transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+  }
+
+  .ops-timeline__item.is-passed::before {
+    background: var(--teal-bright);
+    border-color: var(--teal-bright);
+    box-shadow: 0 0 10px rgba(127, 216, 204, 0.7);
+  }
+}

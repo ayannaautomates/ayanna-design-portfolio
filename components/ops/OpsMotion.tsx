@@ -84,6 +84,32 @@ export default function OpsMotion() {
         });
       }
 
+
+      // The timeline draws its line and lights each year as it passes
+      const line = document.querySelector<HTMLElement>(".ops-timeline__line");
+      if (line) {
+        gsap.to(line, {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".ops-timeline",
+            start: "top bottom-=20%",
+            end: "bottom bottom-=25%",
+            scrub: true,
+          },
+        });
+
+        gsap.utils.toArray<HTMLElement>(".ops-timeline__item").forEach((item) => {
+          ScrollTrigger.create({
+            trigger: item,
+            start: "top bottom-=30%",
+            end: "bottom top+=20%",
+            toggleClass: { targets: item, className: "is-passed" },
+          });
+        });
+      }
+
+
     });
 
     const mm = gsap.matchMedia();
@@ -151,30 +177,6 @@ export default function OpsMotion() {
             { scale: 0.62, opacity: 0, y: -40, duration: 1.4, ease: "none" },
             0.8,
           );
-      }
-
-      // The timeline draws its line and lights each year as it passes
-      const line = document.querySelector<HTMLElement>(".ops-timeline__line");
-      if (line) {
-        gsap.to(line, {
-          scaleY: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".ops-timeline",
-            start: "top bottom-=20%",
-            end: "bottom bottom-=25%",
-            scrub: true,
-          },
-        });
-
-        gsap.utils.toArray<HTMLElement>(".ops-timeline__item").forEach((item) => {
-          ScrollTrigger.create({
-            trigger: item,
-            start: "top bottom-=30%",
-            end: "bottom top+=20%",
-            toggleClass: { targets: item, className: "is-passed" },
-          });
-        });
       }
 
       // Every block rises into place. The range runs forwards: it starts as the
