@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Audiowide, JetBrains_Mono } from "next/font/google";
+import { Audiowide, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import GridOverlay from "@/components/GridOverlay";
 import ScrollToTop from "@/components/ScrollToTop";
 import SkipLink from "@/components/SkipLink";
-import ConsentBanner from "@/components/ConsentBanner";
-import Analytics from "@/components/Analytics";
 import PwaRegister from "@/components/PwaRegister";
 import { siteConfig } from "@/lib/site";
 import { assetUrl } from "@/lib/assets";
@@ -15,6 +13,13 @@ const audiowide = Audiowide({
   variable: "--font-audiowide",
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -29,16 +34,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
-    template: `%s — ${siteConfig.name}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    "AI automation",
-    "workflow builder",
-    "agent orchestration",
-    "Next.js",
-    "chatbot developer",
-    "portfolio",
+    "operations leader",
+    "business operations",
+    "program management",
+    "process improvement",
+    "AI-enabled operations",
+    "USAF veteran",
+    "San Antonio",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -91,7 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${audiowide.variable} ${jetbrains.variable} h-full scroll-smooth`}
+      className={`${audiowide.variable} ${spaceGrotesk.variable} ${jetbrains.variable} h-full scroll-smooth`}
     >
       <head>
         <link rel="icon" href={assetUrl("/favicon.ico")} sizes="48x48" />
@@ -118,8 +124,6 @@ export default function RootLayout({
         <GridOverlay />
         {children}
         <ScrollToTop />
-        <ConsentBanner />
-        <Analytics />
         <PwaRegister />
       </body>
     </html>
