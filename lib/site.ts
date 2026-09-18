@@ -6,7 +6,7 @@ export const siteConfig = {
   tagline: "Operations Leader · AI-Enabled Ops · USAF Veteran",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://www.soulwirestudio.com",
+    "https://ayanna-portfolio.vercel.app",
   ogImage: "/projects/supply-sa-vendor-assistant.png",
   locale: "en_US",
   links: {
