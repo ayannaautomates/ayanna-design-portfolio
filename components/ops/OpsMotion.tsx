@@ -66,19 +66,21 @@ export default function OpsMotion() {
             0,
           );
 
+        // Each line fades in quickly, then holds for most of its slot, so the
+        // copy is readable at a normal scroll speed instead of flicking past.
         const step = 3.4 / (panels.length + 0.35);
         panels.forEach((panel, i) => {
           tl.fromTo(
             panel,
             { opacity: 0, y: 28, filter: "blur(6px)" },
-            { opacity: 1, y: 0, filter: "blur(0px)", duration: step * 0.45, ease: "sine.out" },
+            { opacity: 1, y: 0, filter: "blur(0px)", duration: step * 0.22, ease: "sine.out" },
             i * step + 0.1,
           );
           if (i < panels.length - 1) {
             tl.to(
               panel,
-              { opacity: 0, y: -24, duration: step * 0.35, ease: "sine.in" },
-              i * step + step * 0.8,
+              { opacity: 0, y: -24, duration: step * 0.18, ease: "sine.in" },
+              i * step + step * 0.9,
             );
           }
         });

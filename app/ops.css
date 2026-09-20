@@ -1487,7 +1487,7 @@ html.ops-has-remote .ops summary {
   padding-top: 0;
   padding-bottom: 0;
   /* the scroll distance the descent plays over */
-  min-height: 230svh;
+  min-height: 340svh;
 }
 
 .ops-descent__stage {
@@ -1607,7 +1607,7 @@ p.ops-descent__line {
 .ops-travel-sec {
   position: relative;
   z-index: 1;
-  margin-top: -58svh;
+  margin-top: -62svh;
   padding-top: clamp(90px, 14vh, 190px);
   background: var(--bg);
   box-shadow: 0 -40px 60px 20px var(--bg);
