@@ -380,9 +380,9 @@ html.ops-has-remote .ops summary {
 /* The set's screen glass, measured off the plate */
 .ops-glitch {
   position: absolute;
-  left: 61.2%;
-  top: 48.9%;
-  width: 11.7%;
+  left: 61.9%;
+  top: 48.3%;
+  width: 11.1%;
   height: 15.7%;
   overflow: hidden;
   border-radius: 13% / 15%;
