@@ -162,10 +162,17 @@
   @media (max-width:960px) {
     nav ul { display:none; }
     .hero-grid, .about-grid, .skills-grid, .sub, .email-grid, .connect-grid { grid-template-columns:minmax(0,1fr); gap:var(--s5); }
-    .hero-copy { padding-bottom:0; order:1; }
-    .hero .stage { order:0; max-width:380px; justify-self:center; }
-    .hero { padding-top:var(--s5); }
-    .hero-grid { gap:var(--s4); }
+    /* Copy first, then the portrait standing on the section's bottom edge.
+       Sections that end in a picture lose their bottom padding so the picture
+       sits on the divider instead of floating above it. */
+    .hero-copy { padding-bottom:var(--s5); order:0; }
+    .hero .stage { order:1; max-width:380px; justify-self:center; }
+    .hero { padding-top:var(--s5); padding-bottom:0; }
+    .hero-grid { gap:var(--s2); }
+    .hero .stage .star { right:0; top:-4%; width:34%; }
+    .about, .skills { padding-bottom:0; }
+    .about-grid { gap:var(--s5); }
+    .skills-art { margin-bottom:0; }
     .stage--about { max-width:320px; }
     .hero .ghost { display:none; }
     .skills-art { max-width:560px; margin-inline:auto; }

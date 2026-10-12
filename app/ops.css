@@ -2059,14 +2059,15 @@ body:has(.ops) .consent-banner .btn-secondary {
     padding-bottom: 8px;
   }
 
+  /* all five links share the row: they spread to the full width and the type
+     scales with the screen, so nothing is cut off or hidden behind a fade */
   .ops-nav__links {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 0;
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    mask-image: linear-gradient(to right, #000 88%, transparent 100%);
   }
 
   .ops-nav__links::-webkit-scrollbar {
@@ -2075,7 +2076,16 @@ body:has(.ops) .consent-banner .btn-secondary {
 
   /* hairlines between the channels, so they stop running together */
   .ops-nav__links .ops-nav__link {
-    padding: 0 0.6rem;
+    padding: 0 clamp(0.15rem, 1.4vw, 0.6rem);
+    flex: 0 1 auto;
+  }
+
+  .ops-nav__links .ops-nav__link:first-child {
+    padding-left: 0;
+  }
+
+  .ops-nav__links .ops-nav__link:last-child {
+    padding-right: 0;
   }
 
   .ops-nav__links .ops-nav__link + .ops-nav__link {
@@ -2084,12 +2094,12 @@ body:has(.ops) .consent-banner .btn-secondary {
 
   .ops-nav__link::after {
     bottom: 2px;
-    left: 0.6rem;
-    right: 0.6rem;
+    left: clamp(0.15rem, 1.4vw, 0.6rem);
+    right: clamp(0.15rem, 1.4vw, 0.6rem);
   }
 
   .ops-nav__link {
-    font-size: 14px;
+    font-size: clamp(10px, 3.05vw, 14px);
     min-height: 40px;
     align-items: center;
   }
@@ -2217,7 +2227,6 @@ body:has(.ops) .consent-banner .btn-secondary {
 
 @media (max-width: 380px) {
   .ops-nav__name { font-size: 11px; letter-spacing: 0.14em; }
-  .ops-nav__link { font-size: 13px; }
 }
 
 /* Phones: the board, map and timeline, sized so nothing scrolls sideways ---- */
