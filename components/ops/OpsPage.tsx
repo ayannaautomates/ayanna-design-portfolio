@@ -599,7 +599,7 @@ export default function OpsPage() {
                     ))}
                     <li className="op">
                       <a href={siteConfig.links.creativePortfolio} className="ops-more__link">
-                        <span>Creative portfolio</span>
+                        <span>Creative Portfolio</span>
                         <span className="ops-more__meta">
                           Social media · Blog · Email · Web design
                         </span>

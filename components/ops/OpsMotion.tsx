@@ -44,7 +44,7 @@ export default function OpsMotion() {
             trigger: ".ops-descent",
             start: "top top",
             end: "bottom bottom",
-            scrub: 1,
+            scrub: 0.6,
             invalidateOnRefresh: true,
           },
         });
@@ -66,21 +66,23 @@ export default function OpsMotion() {
             0,
           );
 
-        // Each line fades in quickly, then holds for most of its slot, so the
-        // copy is readable at a normal scroll speed instead of flicking past.
-        const step = 3.4 / (panels.length + 0.35);
+        // Each line gets its own slot: fade in, hold for most of the slot, fade
+        // out, and only then does the next line start. Slots never overlap, so
+        // two lines are never on screen together, even when scroll catches up.
+        const step = 3.4 / panels.length;
         panels.forEach((panel, i) => {
+          const t0 = i * step;
           tl.fromTo(
             panel,
             { opacity: 0, y: 28, filter: "blur(6px)" },
-            { opacity: 1, y: 0, filter: "blur(0px)", duration: step * 0.22, ease: "sine.out" },
-            i * step + 0.1,
+            { opacity: 1, y: 0, filter: "blur(0px)", duration: step * 0.14, ease: "sine.out" },
+            t0 + step * 0.02,
           );
           if (i < panels.length - 1) {
             tl.to(
               panel,
-              { opacity: 0, y: -24, duration: step * 0.18, ease: "sine.in" },
-              i * step + step * 0.9,
+              { opacity: 0, y: -24, duration: step * 0.1, ease: "sine.in" },
+              t0 + step * 0.84,
             );
           }
         });
@@ -162,6 +164,9 @@ export default function OpsMotion() {
             pin: true,
             pinSpacing: true,
             anticipatePin: 1,
+            // Refresh first, so every trigger below it (the descent included)
+            // measures its start after this pin's spacing is in the layout.
+            refreshPriority: 1,
             invalidateOnRefresh: true,
             scrub: 1,
           },
