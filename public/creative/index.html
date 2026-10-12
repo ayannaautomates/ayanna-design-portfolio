@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayanna McClintic | Social Media Content &amp; Web Design Portfolio</title>
+<meta name="description" content="Portfolio of Ayanna McClintic: social media content, blog writing, email marketing, video editing and web design for small business audiences.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ayanna McClintic | Creative Portfolio">
+<meta property="og:description" content="Social media content, blog writing, email marketing and web design for small business audiences.">
+<meta property="og:image" content="https://ayanna-portfolio.vercel.app/creative/og.jpg">
+<link rel="canonical" href="https://ayanna-portfolio.vercel.app/creative">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Ayanna McClintic","email":"hello@soulwirestudio.com","url":"https://www.soulwirestudio.com","jobTitle":"Content Marketer and Web Designer","knowsAbout":["Social media content","Blog writing","Email marketing","Video editing","Website design"]}
+</script>
+<style>
+  :root { --teal:#559790; --teal-dark:#3f7a74; --slate:#4a615f; --cream:#f5f1ea; --orange:#d9400a; --ink:#17302e; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--teal); color:var(--cream); font:400 17px/1.6 Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3 { font-family:"Inter Tight",Inter,sans-serif; font-weight:300; text-transform:uppercase; line-height:.95; letter-spacing:-.02em; margin:0; }
+  a { color:inherit; }
+  img { display:block; max-width:100%; height:auto; }
+  .wrap { max-width:1240px; margin:0 auto; padding:0 24px; }
+  section { position:relative; padding:96px 0; overflow:hidden; }
+  .eyebrow { font:500 13px/1 Inter,sans-serif; letter-spacing:.14em; text-transform:uppercase; opacity:.85; }
+  .btn { display:inline-block; font:500 13px/1 Inter,sans-serif; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; padding:14px 22px; border:1.5px solid var(--cream); border-radius:999px; transition:.2s; }
+  .btn:hover,.btn:focus-visible { background:var(--cream); color:var(--ink); }
+  .arrow::after { content:" \2192"; }
+  :focus-visible { outline:3px solid var(--cream); outline-offset:3px; }
+  .blob { position:absolute; pointer-events:none; opacity:.95; z-index:0; }
+  .wrap > * { position:relative; z-index:1; }
+
+  nav { position:sticky; top:0; z-index:20; background:rgba(85,151,144,.92); backdrop-filter:blur(8px); }
+  nav .wrap { display:flex; justify-content:space-between; align-items:center; height:60px; gap:16px; }
+  nav .name { font:500 14px/1 Inter,sans-serif; letter-spacing:.14em; text-transform:uppercase; text-decoration:none; }
+  nav ul { display:flex; gap:22px; list-style:none; margin:0; padding:0; font:500 12px/1 Inter,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+  nav ul a { text-decoration:none; opacity:.9; }
+  nav ul a:hover { opacity:1; text-decoration:underline; text-underline-offset:6px; }
+
+  .hero { padding:56px 0 0; background:var(--teal); }
+  .hero .bigword { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; font:300 clamp(120px,22vw,300px)/.82 "Inter Tight",sans-serif; text-transform:uppercase; color:#98a493; letter-spacing:-.04em; white-space:nowrap; overflow:hidden; user-select:none; }
+  .hero .bigword span:nth-child(even){ margin-left:-6vw; }
+  .hero-grid { display:grid; grid-template-columns:1fr minmax(0,520px) 1fr; align-items:end; min-height:640px; gap:16px; }
+  .hero-grid .side { padding-bottom:40px; font:400 15px/1.35 Inter,sans-serif; letter-spacing:.06em; text-transform:uppercase; }
+  .hero-grid .side.right { text-align:right; }
+  .hero-grid .side strong { display:block; font-weight:500; font-size:16px; margin-bottom:10px; }
+  .hero-cut { align-self:end; }
+  .hero h1 { position:absolute; left:0; right:0; bottom:40px; text-align:center; font-size:clamp(52px,9vw,128px); z-index:3; pointer-events:none; }
+
+  .about { background:linear-gradient(180deg,var(--teal),var(--teal-dark)); }
+  .about .grid { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
+  .about h2 { font-size:clamp(64px,12vw,170px); }
+  .about h2 small { display:block; font-size:.5em; margin-top:.15em; }
+  .about p { max-width:520px; font-size:19px; }
+  .about .cut { justify-self:end; max-width:440px; }
+
+  h2.section { font-size:clamp(44px,7vw,92px); margin-bottom:40px; }
+  .skills { background:var(--teal-dark); }
+  .skills .grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .skills ul { list-style:none; margin:0; padding:0; columns:1; font:500 15px/1 Inter,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+  .skills li { padding:15px 0; border-top:1px solid rgba(245,241,234,.35); }
+  .skills li:last-child { border-bottom:1px solid rgba(245,241,234,.35); }
+  .skills img { border-radius:6px; box-shadow:0 20px 50px rgba(0,0,0,.25); }
+
+  .blog { background:var(--teal); }
+  .role { margin:0 0 32px; max-width:720px; }
+  .articles a.row { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:28px 0; border-top:1px solid rgba(245,241,234,.4); text-decoration:none; font:300 clamp(24px,3.4vw,44px)/1.05 "Inter Tight",sans-serif; text-transform:uppercase; }
+  .articles a.row:last-of-type { border-bottom:1px solid rgba(245,241,234,.4); }
+  .articles a.row span.go { font:500 12px/1 Inter,sans-serif; letter-spacing:.12em; white-space:nowrap; }
+  .articles a.row:hover { padding-left:12px; background:rgba(255,255,255,.06); }
+  .articles .all { margin-top:32px; }
+
+  .web { background:var(--teal-dark); }
+  .sites { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:36px 28px; }
+  .site h3 { font:500 14px/1.2 Inter,sans-serif; letter-spacing:.1em; margin-bottom:12px; }
+  .site .shot { display:block; border-radius:6px; overflow:hidden; box-shadow:0 14px 34px rgba(0,0,0,.28); transition:transform .25s; }
+  .site a.shot:hover { transform:translateY(-4px); }
+  .site .visit { display:inline-block; margin-top:14px; font:500 12px/1 Inter,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+
+  .social { background:var(--teal); }
+  .social .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:32px; align-items:start; }
+  .card { background:var(--cream); color:var(--ink); border-radius:8px; overflow:hidden; display:flex; flex-direction:column; }
+  .card img { width:100%; }
+  .card .body { padding:22px; display:flex; flex-direction:column; gap:14px; margin-top:auto; }
+  .card h3 { font:600 14px/1.3 Inter,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+  .card p { margin:0; font-size:15px; opacity:.85; }
+  .card .btn { align-self:flex-start; border-color:var(--ink); }
+  .card .btn:hover { background:var(--ink); color:var(--cream); }
+  .posts { margin-top:56px; }
+  .posts h3 { font-size:clamp(28px,4vw,48px); margin-bottom:28px; }
+  .post-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; align-items:start; }
+  .post-row img { border-radius:4px; box-shadow:0 12px 30px rgba(0,0,0,.25); width:100%; }
+
+  .email { background:var(--teal-dark); }
+  .email .grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:start; }
+  .email .nl img { border-radius:4px; box-shadow:0 20px 50px rgba(0,0,0,.3); }
+  .report { padding:26px 0; border-top:1px solid rgba(245,241,234,.4); }
+  .report:last-child { border-bottom:1px solid rgba(245,241,234,.4); }
+  .report h3 { font-size:30px; margin-bottom:10px; }
+  .stats { display:flex; flex-wrap:wrap; gap:8px 28px; font:500 16px/1.2 Inter,sans-serif; margin:0 0 6px; }
+  .stats b { font:300 28px/1 "Inter Tight",sans-serif; }
+  .report small { display:block; opacity:.8; margin-bottom:12px; }
+  .report a { font:500 12px/1 Inter,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+
+  .connect { background:var(--orange); min-height:720px; }
+  .connect .grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:32px; align-items:end; min-height:560px; }
+  .connect h2 { font-size:clamp(64px,10vw,150px); }
+  .connect .who { margin-bottom:12px; font:500 15px/1 Inter,sans-serif; letter-spacing:.14em; text-transform:uppercase; }
+  .contact { display:flex; flex-direction:column; gap:12px; margin:36px 0 0; font-size:20px; }
+  .contact a { text-underline-offset:5px; }
+  .connect .cut { justify-self:end; max-width:560px; }
+  footer { background:var(--ink); color:rgba(245,241,234,.7); text-align:center; padding:28px 24px; font-size:13px; }
+
+  @media (max-width:860px) {
+    nav ul { display:none; }
+    section { padding:64px 0; }
+    .hero-grid { grid-template-columns:1fr; min-height:0; text-align:center; }
+    .hero-grid .side, .hero-grid .side.right { text-align:center; padding:0; }
+    .hero-cut { order:-1; max-width:360px; margin:0 auto; }
+    .hero h1 { position:static; margin:12px 0 20px; }
+    .hero .bigword { font-size:34vw; opacity:.8; }
+    .hero { padding-bottom:0; }
+    .hero-grid .side.right { order:3; padding-bottom:32px; }
+    .about .grid, .skills .grid, .email .grid, .connect .grid { grid-template-columns:1fr; }
+    .about .cut { justify-self:center; max-width:320px; }
+    .connect .cut { justify-self:center; max-width:340px; }
+    .articles a.row span.go { display:none; }
+  }
+  @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto;} * { transition:none !important; } }
+</style>
+</head>
+<body>
+<nav aria-label="Primary">
+  <div class="wrap">
+    <a class="name" href="/">&larr; Ayanna McClintic</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#web">Websites</a></li>
+      <li><a href="#social">Social</a></li>
+      <li><a href="#email">Email</a></li>
+      <li><a href="#connect">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+<header class="hero">
+  <div class="bigword" aria-hidden="true"><span>Creative</span><span>Portfolio</span><span>Creative</span></div>
+  <div class="wrap" style="position:relative">
+    <div class="hero-grid">
+      <div class="side"><strong>Ayanna McClintic</strong>Content marketer</div>
+      <img class="hero-cut" src="/creative/img/hero-cut.webp" width="1000" height="847" alt="Ayanna McClintic smiling at the camera">
+      <div class="side right"><strong>Social media</strong>Content &amp; web design</div>
+    </div>
+    <h1>Creative<br>Portfolio</h1>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <img class="blob" src="/creative/img/blob-b.webp" alt="" style="left:-10%;top:-12%;width:60%;opacity:.55">
+  <div class="wrap grid">
+    <div>
+      <p class="eyebrow">Introduction</p>
+      <h2>Hi!<small>I&rsquo;m Ayanna</small></h2>
+      <p style="margin-top:28px">I plan and publish content for small business audiences. My work includes video editing, voice-over, newsletters, blog articles, social media content, and website design.</p>
+      <p><a class="btn arrow" href="#connect">Work with me</a></p>
+    </div>
+    <img class="cut" src="/creative/img/about-cut.webp" width="900" height="1000" alt="Ayanna seated, taking notes" loading="lazy">
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="wrap grid">
+    <div>
+      <h2 class="section">Skills</h2>
+      <ul>
+        <li>Content planning</li>
+        <li>Video editing and voice-over</li>
+        <li>Social media captions and posting</li>
+        <li>Newsletter design</li>
+        <li>Blog research and writing</li>
+        <li>Canva graphics</li>
+        <li>Website design</li>
+      </ul>
+    </div>
+    <img src="/creative/img/skills.webp" width="1100" height="931" alt="Ayanna meeting with a client at a table" loading="lazy">
+  </div>
+</section>
+
+<section class="blog" id="blog">
+  <div class="wrap">
+    <h2 class="section">Blog writing</h2>
+    <p class="role"><strong>Supply SA</strong><br>My role: research and writing; graphics and publishing</p>
+    <div class="articles">
+      <a class="row" href="https://supply-sa.org/blogs/follow-the-money-how-small-businesses-can-use-fy27-budgets-to-find-contracting-opportunities/" target="_blank" rel="noopener"><span>Follow the money: FY27 budgets</span><span class="go">READ ARTICLE &rarr;</span></a>
+      <a class="row" href="https://supply-sa.org/blogs/why-didnt-i-win-understanding-how-government-agencies-evaluate-your-bid/" target="_blank" rel="noopener"><span>Why didn&rsquo;t I win? Bid evaluation</span><span class="go">READ ARTICLE &rarr;</span></a>
+      <a class="row" href="https://supply-sa.org/blogs/dot-finalizes-dbe-certification-changes-what-business-owners-should-do-now/" target="_blank" rel="noopener"><span>DOT finalizes DBE certification changes</span><span class="go">READ ARTICLE &rarr;</span></a>
+    </div>
+    <p class="all"><a class="btn arrow" href="https://drive.google.com/drive/folders/19Z8PwQ6RM1ZSERDX2e3K4JI0tjmUdzMZ" target="_blank" rel="noopener">View all 9 articles</a></p>
+  </div>
+</section>
+
+<section class="web" id="web">
+  <div class="wrap">
+    <h2 class="section">Website design</h2>
+    <div class="sites">
+      <article class="site"><h3>SHANNON HANSEN THERAPY</h3><a class="shot" href="https://www.shannonhansentherapy.com" target="_blank" rel="noopener"><img src="/creative/img/site-shannon.webp" width="900" height="618" alt="Shannon Hansen Therapy website homepage" loading="lazy"></a><a class="visit arrow" href="https://www.shannonhansentherapy.com" target="_blank" rel="noopener">Visit website</a></article>
+      <article class="site"><h3>JEN L. MORRIS</h3><div class="shot"><img src="/creative/img/site-jen.webp" width="900" height="618" alt="Jen L. Morris website homepage" loading="lazy"></div></article>
+      <article class="site"><h3>LET&rsquo;S ASK SPIRIT</h3><a class="shot" href="https://www.letsaskspirit.com" target="_blank" rel="noopener"><img src="/creative/img/site-spirit.webp" width="900" height="618" alt="Let&rsquo;s Ask Spirit website homepage" loading="lazy"></a><a class="visit arrow" href="https://www.letsaskspirit.com" target="_blank" rel="noopener">Visit website</a></article>
+      <article class="site"><h3>SUPPLY SA</h3><a class="shot" href="https://www.supply-sa.org" target="_blank" rel="noopener"><img src="/creative/img/site-supplysa.webp" width="900" height="618" alt="Supply SA website homepage" loading="lazy"></a><a class="visit arrow" href="https://www.supply-sa.org" target="_blank" rel="noopener">Visit website</a></article>
+      <article class="site"><h3>SOULWIRE STUDIO (MINE)</h3><a class="shot" href="https://www.soulwirestudio.com" target="_blank" rel="noopener"><img src="/creative/img/site-soulwire.webp" width="900" height="618" alt="Soulwire Studio website homepage" loading="lazy"></a><a class="visit arrow" href="https://www.soulwirestudio.com" target="_blank" rel="noopener">Visit website</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="social" id="social">
+  <div class="wrap">
+    <h2 class="section">Social media</h2>
+    <div class="cards">
+      <article class="card">
+        <img src="/creative/img/social-knife.webp" width="1000" height="522" alt="Instagram post for Gray Bearded Green Beret featuring a Mora wood carving knife" loading="lazy">
+        <div class="body"><h3>Gray Bearded Green Beret</h3><p>Editing and voice-over, captions and posting, content planning.</p><a class="btn arrow" href="https://drive.google.com/drive/folders/1NUIXGc0RofY9ZL6Ozk7CBoIlwQoZDnKb" target="_blank" rel="noopener">View 17 reels</a></div>
+      </article>
+      <article class="card">
+        <img src="/creative/img/post-playbook.webp" width="700" height="1112" alt="Supply SA LinkedIn post: How do I meet prime contractors?" loading="lazy">
+        <div class="body"><h3>Supply SA</h3><p>LinkedIn post samples.</p><a class="btn arrow" href="https://drive.google.com/drive/folders/1WJ6_-TPrltFQ48mvCQmcPY0ojVpLaUPp" target="_blank" rel="noopener">View LinkedIn samples</a></div>
+      </article>
+    </div>
+    <div class="posts">
+      <h3>Supply SA post samples</h3>
+      <div class="post-row">
+        <img src="/creative/img/post-money.webp" width="700" height="1680" alt="Supply SA LinkedIn post: Follow the money, FY27 local agency budgets" loading="lazy">
+        <img src="/creative/img/post-playbook.webp" width="700" height="1112" alt="Supply SA LinkedIn post: How do I meet prime contractors?" loading="lazy">
+        <img src="/creative/img/post-capability.webp" width="700" height="1337" alt="Supply SA LinkedIn post: Is your capability statement ready?" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="email" id="email">
+  <div class="wrap">
+    <h2 class="section">Email marketing</h2>
+    <div class="grid">
+      <div class="nl"><img src="/creative/img/newsletter.webp" width="800" height="1020" alt="Supply SA Insights newsletter, October 2026" loading="lazy"></div>
+      <div>
+        <div class="report"><h3>August 2026</h3><p class="stats"><span><b>29.5%</b> opens</span><span><b>0%</b> clicks</span><span><b>764</b> delivered</span></p><small>Report: Aug 3 to Oct 7, 2026</small><a class="arrow" href="https://drive.google.com/drive/folders/1hFmrzpGdj3XvC_WrHQq75f-yvfULfYI8" target="_blank" rel="noopener">Open newsletter and report</a></div>
+        <div class="report"><h3>September 2026</h3><p class="stats"><span><b>46.1%</b> opens</span><span><b>2.8%</b> clicks</span><span><b>792</b> delivered</span></p><small>Report: Sep 1 to Oct 7, 2026</small><a class="arrow" href="https://drive.google.com/drive/folders/1Yq0ifc8eAQ8JqWPAWfVrA0_TPcc0nlQy" target="_blank" rel="noopener">Open newsletter and report</a></div>
+        <div class="report"><h3>October 2026</h3><p class="stats"><span><b>49.9%</b> opens</span><span><b>2.5%</b> clicks</span><span><b>793</b> delivered</span></p><small>Report: Oct 1 to Oct 7, 2026</small><a class="arrow" href="https://drive.google.com/drive/folders/1j4bQ7ObP_B1xBbgYpmsTihtyPLPDWXgA" target="_blank" rel="noopener">Open newsletter and report</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="connect" id="connect">
+  <img class="blob" src="/creative/img/blob-c.webp" alt="" style="right:-10%;top:-20%;width:80%">
+  <div class="wrap grid">
+    <div>
+      <p class="who">Ayanna McClintic</p>
+      <h2>Connect</h2>
+      <div class="contact">
+        <a href="mailto:hello@soulwirestudio.com">hello@soulwirestudio.com</a>
+        <a href="https://www.soulwirestudio.com" target="_blank" rel="noopener">www.soulwirestudio.com</a>
+        <p style="margin:12px 0 0"><a class="btn arrow" href="https://drive.google.com/drive/folders/15YGdn9fmAeDt5OVGiHNub_QLJyIByBoA" target="_blank" rel="noopener">View all samples</a></p>
+      </div>
+    </div>
+    <img class="cut" src="/creative/img/connect-cut.webp" width="1000" height="667" alt="Ayanna seated in a patterned armchair" loading="lazy">
+  </div>
+</section>
+</main>
+<footer>&copy; 2026 Ayanna McClintic</footer>
+</body>
+</html>

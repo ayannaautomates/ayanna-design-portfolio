@@ -13,6 +13,7 @@ export const siteConfig = {
     github: "https://github.com/ayannaautomates",
     linkedin: "https://www.linkedin.com/in/aemcclintic/",
     website: "https://www.soulwirestudio.com/",
+    creativePortfolio: "/creative",
     booking: "https://cal.com/soulwirestudio/30min",
   },
 } as const;
