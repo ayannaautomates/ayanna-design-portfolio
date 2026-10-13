@@ -6,7 +6,7 @@ import OpsMotion from "./OpsMotion";
 import OpsCursor from "./OpsCursor";
 import OpsBoard, { type Stop } from "./OpsBoard";
 
-const RESUME_HREF = "/resume.pdf";
+const RESUME_HREF = "/Ayanna_McClintic_Resume.pdf";
 const EMAIL = "ayanna.m89@gmail.com";
 
 const channels = [

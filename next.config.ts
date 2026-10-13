@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    // Keep old resume links (LinkedIn, past applications) working.
+    return [
+      {
+        source: "/resume.pdf",
+        destination: "/Ayanna_McClintic_Resume.pdf",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [{ source: "/creative", destination: "/creative/index.html" }];
   },
