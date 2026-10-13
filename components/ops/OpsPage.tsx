@@ -526,7 +526,7 @@ export default function OpsPage() {
                     />
                     <img
                       src="/work/weaverkeep.jpg"
-                      alt="The WeaverKeep Outcomes dashboard, showing retention, exam pass rate and survey returns against ARC/STSA thresholds"
+                      alt="The WeaverKeep Outcomes dashboard, showing retention, exam pass rate and survey returns against accreditation thresholds"
                       width={1600}
                       height={910}
                       loading="lazy"
@@ -539,7 +539,7 @@ export default function OpsPage() {
                 <div className="ops-feature__copy">
                   <p>
                     A product I built and run: the operating hub for surgical technology programs.
-                    It keeps outcomes reporting current per cohort, indexes the ARC/STSA
+                    It keeps outcomes reporting current per cohort, indexes the
                     accreditation material a director actually needs, tracks clinical capacity and
                     site asks, runs graduate and employer surveys end to end with signatures, and
                     turns inventory into a phone count sheet a work-study student can fill in.
@@ -552,6 +552,11 @@ export default function OpsPage() {
                   <p className="ops-built">
                     <span className="ops-label">Built with</span> React · TypeScript · Supabase ·
                     Cloudflare
+                  </p>
+                  <p className="ops-disclaimer">
+                    WeaverKeep is an independent product. It is not affiliated with, endorsed
+                    by, or sponsored by any accrediting body, and all third-party names and
+                    marks belong to their respective owners.
                   </p>
                   <a
                     href="https://weaverkeep.com"
