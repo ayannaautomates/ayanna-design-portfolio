@@ -1036,6 +1036,14 @@ html.ops-has-remote .ops summary {
   margin-top: 0.4rem;
 }
 
+.ops-disclaimer {
+  max-width: 60ch;
+  margin: 0 0 1.25rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
 /* 01 Case studies */
 .ops-metrics {
   display: grid;
