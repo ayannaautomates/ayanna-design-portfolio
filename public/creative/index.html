@@ -146,6 +146,16 @@
   .report small { opacity:.8; font-size:14px; margin-top:calc(var(--s2) * -1); }
   .report .btn { min-height:44px; }
 
+  /* Surveys */
+  .survey-grid { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:var(--s6); align-items:start; }
+  .survey-grid .frame { max-width:520px; }
+  .survey-grid .shot-link { display:block; transition:transform .25s; }
+  .survey-grid .shot-link:hover { transform:translateY(-4px); }
+  .survey-copy { display:flex; flex-direction:column; gap:var(--s4); }
+  .survey-copy .stats { flex-wrap:wrap; gap:var(--s4) var(--s5); }
+  .survey-copy .stat span { display:block; max-width:16ch; margin-top:var(--s1); line-height:1.35; }
+  .survey-actions { display:flex; flex-wrap:wrap; gap:var(--s2); }
+
   /* Connect */
   .connect { background:var(--orange); }
   .connect-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.9fr); gap:var(--s5); align-items:end; }
@@ -161,7 +171,7 @@
 
   @media (max-width:960px) {
     nav ul { display:none; }
-    .hero-grid, .about-grid, .skills-grid, .sub, .email-grid, .connect-grid { grid-template-columns:minmax(0,1fr); gap:var(--s5); }
+    .hero-grid, .about-grid, .skills-grid, .sub, .email-grid, .survey-grid, .connect-grid { grid-template-columns:minmax(0,1fr); gap:var(--s5); }
     /* Copy first, then the portrait standing on the section's bottom edge.
        Sections that end in a picture lose their bottom padding so the picture
        sits on the divider instead of floating above it. */
@@ -205,6 +215,7 @@
       <li><a href="#websites">Websites</a></li>
       <li><a href="#social">Social</a></li>
       <li><a href="#email">Email</a></li>
+      <li><a href="#surveys">Surveys</a></li>
     </ul>
     <a class="btn btn--solid" href="#connect">Contact</a>
   </div>
@@ -341,6 +352,32 @@
         <div class="report"><h3>August 2026</h3><div class="stats"><div class="stat"><b>29.5%</b><span>Opens</span></div><div class="stat"><b>0%</b><span>Clicks</span></div><div class="stat"><b>764</b><span>Delivered</span></div></div><small>Report: Aug 3 to Oct 7, 2026</small><a class="btn" href="https://drive.google.com/drive/folders/1hFmrzpGdj3XvC_WrHQq75f-yvfULfYI8" target="_blank" rel="noopener">Newsletter and report</a></div>
         <div class="report"><h3>September 2026</h3><div class="stats"><div class="stat"><b>46.1%</b><span>Opens</span></div><div class="stat"><b>2.8%</b><span>Clicks</span></div><div class="stat"><b>792</b><span>Delivered</span></div></div><small>Report: Sep 1 to Oct 7, 2026</small><a class="btn" href="https://drive.google.com/drive/folders/1Yq0ifc8eAQ8JqWPAWfVrA0_TPcc0nlQy" target="_blank" rel="noopener">Newsletter and report</a></div>
         <div class="report"><h3>October 2026</h3><div class="stats"><div class="stat"><b>49.9%</b><span>Opens</span></div><div class="stat"><b>2.5%</b><span>Clicks</span></div><div class="stat"><b>793</b><span>Delivered</span></div></div><small>Report: Oct 1 to Oct 7, 2026</small><a class="btn" href="https://drive.google.com/drive/folders/1j4bQ7ObP_B1xBbgYpmsTihtyPLPDWXgA" target="_blank" rel="noopener">Newsletter and report</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-deep" id="surveys">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Survey creation and metrics</p>
+      <h2>Vendor Needs Survey</h2>
+      <p class="lead">A survey I designed for a private client&rsquo;s vendor community, with the results turned into a KPI dashboard that shows what needs the most help.</p>
+    </div>
+    <div class="survey-grid">
+      <div class="frame"><a class="shot-link" href="/creative/img/survey-dashboard-full.webp" target="_blank" rel="noopener"><img src="/creative/img/survey-cover.webp" width="1200" height="1450" alt="KPI dashboard from a vendor needs survey: four headline numbers and a ranked bar chart of vendor challenges, led by finding opportunities and getting paid on time" loading="lazy"></a></div>
+      <div class="survey-copy">
+        <div class="stats">
+          <div class="stat"><b>12</b><span>Vendor responses</span></div>
+          <div class="stat"><b>82%</b><span>Struggle to find opportunities</span></div>
+          <div class="stat"><b>5</b><span>Call late payment a major challenge</span></div>
+        </div>
+        <p class="lead">Open-ended answers asked for shorter certification requirements, protection from slow payment by general contractors, and lower proposal costs for small firms.</p>
+        <p class="lead">The survey has 31 questions, including a construction-only section. Each challenge is scored on a four-point scale and ranked by the share of vendors who rated it major or moderate.</p>
+        <div class="survey-actions">
+          <a class="btn" href="/creative/img/survey-dashboard-full.webp" target="_blank" rel="noopener">View full dashboard</a>
+          <a class="btn" href="/creative/vendor-needs-survey-metrics.pdf" target="_blank" rel="noopener">Download PDF</a>
+        </div>
       </div>
     </div>
   </div>
