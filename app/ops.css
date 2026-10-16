@@ -379,19 +379,23 @@ html.ops-has-remote .ops summary {
   object-fit: cover;
 }
 
-/* The set's screen glass, measured off the plate */
+/* The set's screen glass. The box is the glass' bounding box in the photograph
+   (fractions of the 2200x1227 plate) and the mask is the glass' own outline,
+   traced from the photo, so the static fills the screen edge to edge and stops
+   at the bezel on every side. */
 .ops-glitch {
   position: absolute;
-  left: 61%;
-  top: 48%;
-  width: 12.4%;
-  height: 18%;
+  left: 60.909%;
+  top: 48.003%;
+  width: 13.227%;
+  height: 18.256%;
   overflow: hidden;
-  border-radius: 11% / 12%;
-  /* feather only the last few percent, so the static reaches the bezel on
-     every side instead of fading out short of it */
-  -webkit-mask-image: radial-gradient(ellipse 106% 106% at 50% 50%, #000 90%, transparent 100%);
-  mask-image: radial-gradient(ellipse 106% 106% at 50% 50%, #000 90%, transparent 100%);
+  -webkit-mask-image: url("/hero/tv-mask.png");
+  mask-image: url("/hero/tv-mask.png");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
   mix-blend-mode: screen;
   opacity: 0.85;
   animation: ops-glitch-flicker 5.5s steps(1) infinite;
@@ -411,6 +415,8 @@ html.ops-has-remote .ops summary {
 }
 
 .ops-glitch__roll {
+  /* taller than the glass, so sliding it never leaves a bare strip at the edge */
+  inset: -16% 0;
   background: repeating-linear-gradient(
     0deg,
     rgba(127, 216, 204, 0.26) 0 2px,
@@ -420,6 +426,8 @@ html.ops-has-remote .ops summary {
 }
 
 .ops-glitch__tear {
+  /* wider than the glass, so the sideways tear never exposes a gap at an end */
+  inset: 0 -8%;
   background: rgba(127, 216, 204, 0.45);
   clip-path: inset(42% 0 52% 0);
   opacity: 0;
