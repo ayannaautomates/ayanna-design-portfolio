@@ -20,9 +20,9 @@ export default function OpsMotion() {
       smoothWheel: true,
       wheelMultiplier: 0.9,
       lerp: 0.08,
-      syncTouch: true,
-      syncTouchLerp: 0.05,
-      touchMultiplier: 1.2,
+      // Touch scrolling stays native. With syncTouch on, Lenis cancels the
+      // browser's touch handling, which also killed pull-to-refresh on phones.
+      syncTouch: false,
     });
 
     lenis.on("scroll", ScrollTrigger.update);
