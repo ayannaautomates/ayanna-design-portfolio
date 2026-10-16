@@ -81,7 +81,11 @@
   .stage img.portrait { position:absolute; left:0; right:0; bottom:0; width:100%; height:auto; }
 
   /* About */
-  .about-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:var(--s6); align-items:center; }
+  /* the portrait stands on the section's bottom edge: the section has no bottom
+     padding, the copy column supplies its own */
+  .about { padding-bottom:0; }
+  .about-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:var(--s6); align-items:end; }
+  .about-copy { padding-bottom:var(--section); align-self:center; }
   .about h2 { font-size:clamp(88px,15vw,200px); line-height:.82; }
   .about h2 span { display:block; font-size:.34em; line-height:1; margin-top:.35em; letter-spacing:-.01em; }
   .about .lead { margin:var(--s5) 0 var(--s4); }
@@ -180,6 +184,7 @@
     .hero .stage .star { right:0; top:-4%; width:34%; }
     .about, .skills { padding-bottom:0; }
     .about-grid { gap:var(--s5); }
+    .about-copy { padding-bottom:0; }
     .skills-art { margin-bottom:0; }
     .stage--about { max-width:320px; }
     .hero .ghost { display:none; }
@@ -241,7 +246,7 @@
 
 <section class="about bg-deep" id="about">
   <div class="wrap about-grid">
-    <div>
+    <div class="about-copy">
       <p class="eyebrow">Introduction</p>
       <h2>Hi!<span>I&rsquo;m Ayanna</span></h2>
       <p class="lead">I plan and publish content for small business audiences. My work includes video editing, voice-over, newsletters, blog articles, social media content, and website design.</p>
