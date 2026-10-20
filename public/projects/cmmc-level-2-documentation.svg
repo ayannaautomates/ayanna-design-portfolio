@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="CMMC Level 2 documentation system: policies cite NIST SP 800-171 requirements, SOPs put each policy into practice, Excel workbooks track the controls, and everything is linked in one SharePoint library handed off to the client">
+  <defs>
+    <pattern id="cm-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#7DF9FF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <marker id="cm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7DF9FF" fill-opacity="0.65"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#0A0E14"/>
+  <rect width="1600" height="1000" fill="url(#cm-grid)"/>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace">
+
+    <text x="100" y="336" fill="#7DF9FF" font-size="19" letter-spacing="6">[ CMMC LEVEL 2 DOCUMENTATION ]</text>
+    <text x="100" y="392" fill="#EEF2F6" font-size="40" letter-spacing="2">ONE LINKED COMPLIANCE LIBRARY</text>
+    <text x="100" y="432" fill="#8B93A3" font-size="20">Every policy cites the requirement it answers. Every SOP points back to its policy.</text>
+    <line x1="100" y1="458" x2="1500" y2="458" stroke="#7DF9FF" stroke-opacity="0.28" stroke-width="1"/>
+
+    <g>
+      <rect x="100" y="496" width="230" height="140" fill="#111822" stroke="#9D4EFF" stroke-opacity="0.6"/>
+      <text x="118" y="526" fill="#9D4EFF" font-size="14" letter-spacing="3">01</text>
+      <text x="118" y="562" fill="#EEF2F6" font-size="19">POLICIES</text>
+      <text x="118" y="590" fill="#8B93A3" font-size="15">each cites its</text>
+      <text x="118" y="613" fill="#9D4EFF" font-size="15">NIST SP 800-171 IDs</text>
+
+      <rect x="390" y="496" width="230" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="408" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">02</text>
+      <text x="408" y="562" fill="#EEF2F6" font-size="19">SOPS</text>
+      <text x="408" y="590" fill="#8B93A3" font-size="15">how each policy</text>
+      <text x="408" y="613" fill="#8B93A3" font-size="15">gets carried out</text>
+
+      <rect x="680" y="496" width="230" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="698" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">03</text>
+      <text x="698" y="562" fill="#EEF2F6" font-size="19">WORKBOOKS</text>
+      <text x="698" y="590" fill="#8B93A3" font-size="15">Excel trackers</text>
+      <text x="698" y="613" fill="#8B93A3" font-size="15">for the controls</text>
+
+      <rect x="970" y="496" width="230" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.8"/>
+      <text x="988" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">04</text>
+      <text x="988" y="562" fill="#EEF2F6" font-size="19">SHAREPOINT</text>
+      <text x="988" y="590" fill="#7DF9FF" font-size="15">all of it linked</text>
+      <text x="988" y="613" fill="#7DF9FF" font-size="15">in one library</text>
+
+      <rect x="1260" y="496" width="240" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="1278" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">05</text>
+      <text x="1278" y="562" fill="#EEF2F6" font-size="19">HANDOFF</text>
+      <text x="1278" y="590" fill="#8B93A3" font-size="15">client team</text>
+      <text x="1278" y="613" fill="#8B93A3" font-size="15">owns and maintains</text>
+    </g>
+
+    <line x1="332" y1="566" x2="386" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cm-arrow)"/>
+    <line x1="622" y1="566" x2="676" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cm-arrow)"/>
+    <line x1="912" y1="566" x2="966" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cm-arrow)"/>
+    <line x1="1202" y1="566" x2="1256" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cm-arrow)"/>
+
+    <text x="100" y="686" fill="#7DF9FF" font-size="17">~60 hours of documentation work saved</text>
+    <text x="680" y="686" fill="#9D4EFF" font-size="17">Built from nothing to a full set</text>
+    <text x="1260" y="686" fill="#8B93A3" font-size="17">// CLIENT CONFIDENTIAL</text>
+
+  </g>
+</svg>

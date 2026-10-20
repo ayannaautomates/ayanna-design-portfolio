@@ -995,6 +995,111 @@ export const masterColorCaseStudy: CaseStudy = {
   ],
 };
 
+export const cmmcDocumentationCaseStudy: CaseStudy = {
+  slug: "cmmc-level-2-documentation",
+  title: "CMMC Level 2 Documentation System",
+  subtitle:
+    "How a defense contractor went from no compliance documentation to a linked library of policies, SOPs, and control trackers in SharePoint, saving roughly 60 hours of work.",
+  meta: [
+    { label: "Client", value: "Private defense contractor (confidential)" },
+    { label: "Sector", value: "Defense Industrial Base" },
+    { label: "Framework", value: "CMMC Level 2 / NIST SP 800-171" },
+    { label: "Delivered", value: "2026" },
+    { label: "Core Features", value: "Policies, SOPs, Control Workbooks, SharePoint" },
+    { label: "Status", value: "Complete, Handed Off" },
+  ],
+  stats: [
+    {
+      value: "~60 hrs",
+      label: "Documentation work saved",
+    },
+    {
+      value: "$10K to $50K",
+      label: "Typical consultant price for this scope",
+    },
+    {
+      value: "Every policy",
+      label: "Cites the NIST SP 800-171 requirements it covers",
+    },
+  ],
+  phases: [
+    {
+      id: "summary",
+      step: "01",
+      title: "Executive Summary",
+      paragraphs: [
+        "A private defense contractor needed CMMC Level 2 documentation and had none. Level 2 covers the 110 security requirements in NIST SP 800-171, and an assessor expects written policies, procedures, and evidence for them.",
+        "I built the full documentation set: policies, standard operating procedures, and Excel workbooks for tracking the controls, all linked inside the client's SharePoint. Every policy cites the specific NIST SP 800-171 requirements it addresses, so anyone can trace a requirement to the document that answers it. The work saved the client roughly 60 hours and the cost of hiring outside consultants.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "Level 2 applies to contractors who handle Controlled Unclassified Information (CUI). Without it, a contractor can lose access to the DoD contracts that require it. The paperwork is a big part of the lift, and this client was starting from zero.",
+      ],
+      bullets: [
+        "No written policies or procedures for the 110 NIST SP 800-171 requirements",
+        "No way to show an assessor which document covered which requirement",
+        "Consultant-built documentation packages for Level 2 commonly run $10,000 to $50,000",
+      ],
+    },
+    {
+      id: "constraint",
+      step: "03",
+      title: "The Constraint",
+      paragraphs: [
+        "This is a framework where the documentation gets audited. A policy that sounds right but can't be traced to a requirement is a finding waiting to happen. So the system had to make every policy traceable, not just well written.",
+        "It also had to live where the client already worked. A separate compliance tool would be one more login nobody opens. Keeping everything in SharePoint meant the documents sat inside the client's existing Microsoft environment and access controls, with no new vendor involved.",
+      ],
+    },
+    {
+      id: "approach",
+      step: "04",
+      title: "The Approach",
+      paragraphs: [
+        "Requirements first, documents second. Each policy was written against specific NIST SP 800-171 requirements and cites them by ID. That turns an assessor's question about a requirement into a lookup instead of a hunt.",
+        "Policies say what, SOPs say how. Each policy has procedures behind it that describe how the client actually carries it out, so the written rule and the day-to-day practice match.",
+        "Workbooks for tracking. Excel workbooks track the controls so the client can see what is covered and what still needs work.",
+        "One linked library. Policies, SOPs, and workbooks are cross-linked in SharePoint, so moving from a requirement to its policy to its procedure takes a click.",
+      ],
+    },
+    {
+      id: "delivered",
+      step: "05",
+      title: "What Was Delivered",
+      bullets: [
+        "Policy documents, each citing the NIST SP 800-171 requirements it covers",
+        "Standard operating procedures that put each policy into practice",
+        "Excel workbooks for tracking the controls",
+        "A SharePoint library with every document cross-linked",
+        "A full handoff so the client's team owns and maintains the system",
+      ],
+    },
+    {
+      id: "results",
+      step: "06",
+      title: "Results",
+      bullets: [
+        "About 60 hours of documentation work the client did not have to do",
+        "Thousands of dollars saved compared with hiring a consultant for the same scope",
+        "A traceable path from every cited requirement to the document that answers it",
+        "Complete and handed off, with the client's team running it",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "07",
+      title: "Why This Matters",
+      paragraphs: [
+        "Most small defense contractors don't fail at CMMC because they lack security. They struggle because they can't prove what they do on paper, in a way an assessor can follow. Documentation is the part of the job they can control, and it's usually where they lose the most time.",
+        "The pattern here works for any audited framework: start from the requirements, cite them in every document, and keep everything linked in the tools the team already uses. That's the difference between having documents and being able to prove what they cover.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
@@ -1005,6 +1110,7 @@ const caseStudies: Record<string, CaseStudy> = {
   [coldEmailPersonalizerCaseStudy.slug]: coldEmailPersonalizerCaseStudy,
   [proposalAutopilotCaseStudy.slug]: proposalAutopilotCaseStudy,
   [knowledgeAssistantCaseStudy.slug]: knowledgeAssistantCaseStudy,
+  [cmmcDocumentationCaseStudy.slug]: cmmcDocumentationCaseStudy,
 };
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {

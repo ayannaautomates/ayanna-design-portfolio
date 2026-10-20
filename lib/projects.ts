@@ -36,6 +36,27 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/ayannaautomates/supply-sa-bot",
   },
   {
+    slug: "cmmc-level-2-documentation",
+    title: "CMMC Level 2 Documentation System",
+    year: 2026,
+    category: "Compliance Operations",
+    description:
+      "Policies, SOPs, and control workbooks built from scratch for a defense contractor, linked in SharePoint. Saved roughly 60 hours of work.",
+    longDescription:
+      "A CMMC Level 2 documentation system for a private defense contractor. Every policy cites the NIST SP 800-171 requirements it covers, SOPs put each policy into practice, Excel workbooks track the controls, and everything is cross-linked in the client's SharePoint. Completed and handed off.",
+    image: "/projects/cmmc-level-2-documentation.svg",
+    tags: [
+      "CMMC Level 2",
+      "NIST SP 800-171",
+      "SharePoint",
+      "Excel",
+      "Policy Writing",
+      "SOPs",
+    ],
+    liveUrl: "",
+    githubUrl: "",
+  },
+  {
     slug: "cold-email-personalizer",
     title: "Cold Email Personalizer",
     year: 2026,
