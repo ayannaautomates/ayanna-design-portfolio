@@ -999,13 +999,13 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
   slug: "cmmc-level-2-documentation",
   title: "CMMC Level 2 Documentation System",
   subtitle:
-    "How a defense contractor went from no compliance documentation to a linked library of policies, SOPs, and control trackers in SharePoint, saving roughly 60 hours of work.",
+    "How a defense contractor went from no compliance documentation to a linked library of policies, SOPs, an SSP, a POA&M, and an evidence log in SharePoint, saving roughly 60 hours of work.",
   meta: [
     { label: "Client", value: "Private defense contractor (confidential)" },
     { label: "Sector", value: "Defense Industrial Base" },
     { label: "Framework", value: "CMMC Level 2 / NIST SP 800-171" },
     { label: "Delivered", value: "2026" },
-    { label: "Core Features", value: "Policies, SOPs, Control Workbooks, SharePoint" },
+    { label: "Core Features", value: "Policies, SOPs, SSP, POA&M, Evidence Log" },
     { label: "Status", value: "Complete, Handed Off" },
   ],
   stats: [
@@ -1018,8 +1018,8 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       label: "Typical consultant price for this scope",
     },
     {
-      value: "Every policy",
-      label: "Cites the NIST SP 800-171 requirements it covers",
+      value: "110 / 110",
+      label: "NIST SP 800-171 requirements covered by a cited policy",
     },
   ],
   phases: [
@@ -1029,7 +1029,7 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       title: "Executive Summary",
       paragraphs: [
         "A private defense contractor needed CMMC Level 2 documentation and had none. Level 2 covers the 110 security requirements in NIST SP 800-171, and an assessor expects written policies, procedures, and evidence for them.",
-        "I built the full documentation set: policies, standard operating procedures, and Excel workbooks for tracking the controls, all linked inside the client's SharePoint. Every policy cites the specific NIST SP 800-171 requirements it addresses, so anyone can trace a requirement to the document that answers it. The work saved the client roughly 60 hours and the cost of hiring outside consultants.",
+        "I built the full documentation set: policies covering all 110 requirements, standard operating procedures, and the Excel workbooks an assessment runs on (System Security Plan, Plan of Action and Milestones, and evidence log), all linked inside the client's SharePoint. Every policy cites the specific NIST SP 800-171 requirements it addresses, so anyone can trace a requirement to the document that answers it. The work saved the client roughly 60 hours and the cost of hiring outside consultants.",
       ],
     },
     {
@@ -1061,7 +1061,7 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       paragraphs: [
         "Requirements first, documents second. Each policy was written against specific NIST SP 800-171 requirements and cites them by ID. That turns an assessor's question about a requirement into a lookup instead of a hunt.",
         "Policies say what, SOPs say how. Each policy has procedures behind it that describe how the client actually carries it out, so the written rule and the day-to-day practice match.",
-        "Workbooks for tracking. Excel workbooks track the controls so the client can see what is covered and what still needs work.",
+        "Workbooks an assessor can follow. The System Security Plan describes how each requirement is met, the POA&M tracks anything still open with a plan to close it, and the evidence log points to the proof. Together they show what is covered and what still needs work.",
         "One linked library. Policies, SOPs, and workbooks are cross-linked in SharePoint, so moving from a requirement to its policy to its procedure takes a click.",
       ],
     },
@@ -1070,9 +1070,11 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       step: "05",
       title: "What Was Delivered",
       bullets: [
-        "Policy documents, each citing the NIST SP 800-171 requirements it covers",
+        "Policies covering all 110 NIST SP 800-171 requirements, each citing the requirements it answers",
         "Standard operating procedures that put each policy into practice",
-        "Excel workbooks for tracking the controls",
+        "A System Security Plan (SSP) workbook",
+        "A Plan of Action and Milestones (POA&M) workbook for open items",
+        "An evidence log tying each requirement to its proof",
         "A SharePoint library with every document cross-linked",
         "A full handoff so the client's team owns and maintains the system",
       ],
