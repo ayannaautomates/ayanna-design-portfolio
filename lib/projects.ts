@@ -41,9 +41,9 @@ export const projects: Project[] = [
     year: 2026,
     category: "Compliance Operations",
     description:
-      "Policies for all 110 NIST SP 800-171 requirements, SOPs, SSP, POA&M, and evidence log built from scratch for a defense contractor, linked in SharePoint. Saved roughly 60 hours of work.",
+      "110 control policies rebuilt against the official sources, 24 scoring errors fixed, plus the SSP, IRP, 13 SOPs, and 10 registers. Saved roughly 60 hours.",
     longDescription:
-      "A CMMC Level 2 documentation system for a private defense contractor. Every policy cites the NIST SP 800-171 requirements it covers, SOPs put each policy into practice, the SSP, POA&M, and evidence log workbooks show what is met, what is open, and where the proof lives, and everything is cross-linked in the client's SharePoint. Completed and handed off.",
+      "A CMMC Level 2 documentation system for a private defense contractor. All 110 control policies carry the official NIST SP 800-171 Rev. 2 requirement text and all 320 assessment objectives, checked against NIST SP 800-171A. The self-assessment crosswalk's SPRS values were corrected, and a System Security Plan, incident response plan, 13 SOPs, and 10 tested registers were added, all cross-linked in the client's SharePoint. Completed and handed off.",
     image: "/projects/cmmc-level-2-documentation.svg",
     tags: [
       "CMMC Level 2",
@@ -51,6 +51,7 @@ export const projects: Project[] = [
       "SharePoint",
       "SSP",
       "POA&M",
+      "DFARS 7012",
       "Policy Writing",
       "SOPs",
     ],

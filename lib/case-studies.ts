@@ -999,27 +999,27 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
   slug: "cmmc-level-2-documentation",
   title: "CMMC Level 2 Documentation System",
   subtitle:
-    "How a defense contractor went from no compliance documentation to a linked library of policies, SOPs, an SSP, a POA&M, and an evidence log in SharePoint, saving roughly 60 hours of work.",
+    "How I rebuilt a defense contractor's CMMC Level 2 documentation: 110 control policies checked against the official sources, 24 scoring errors corrected, and the SSP, incident response plan, 13 SOPs, and 10 registers an assessment runs on.",
   meta: [
     { label: "Client", value: "Private defense contractor (confidential)" },
     { label: "Sector", value: "Defense Industrial Base" },
-    { label: "Framework", value: "CMMC Level 2 / NIST SP 800-171" },
+    { label: "Framework", value: "CMMC Level 2 / NIST SP 800-171 Rev. 2" },
     { label: "Delivered", value: "2026" },
-    { label: "Core Features", value: "Policies, SOPs, SSP, POA&M, Evidence Log" },
+    { label: "Core Features", value: "Policies, SSP, IRP, SOPs, Registers" },
     { label: "Status", value: "Complete, Handed Off" },
   ],
   stats: [
     {
+      value: "110",
+      label: "Control policies with all 320 assessment objectives",
+    },
+    {
+      value: "24",
+      label: "SPRS point values corrected",
+    },
+    {
       value: "~60 hrs",
       label: "Documentation work saved",
-    },
-    {
-      value: "$10K to $50K",
-      label: "Typical consultant price for this scope",
-    },
-    {
-      value: "110 / 110",
-      label: "NIST SP 800-171 requirements covered by a cited policy",
     },
   ],
   phases: [
@@ -1028,8 +1028,8 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       step: "01",
       title: "Executive Summary",
       paragraphs: [
-        "A private defense contractor needed CMMC Level 2 documentation and had none. Level 2 covers the 110 security requirements in NIST SP 800-171, and an assessor expects written policies, procedures, and evidence for them.",
-        "I built the full documentation set: policies covering all 110 requirements, standard operating procedures, and the Excel workbooks an assessment runs on (System Security Plan, Plan of Action and Milestones, and evidence log), all linked inside the client's SharePoint. Every policy cites the specific NIST SP 800-171 requirements it addresses, so anyone can trace a requirement to the document that answers it. The work saved the client roughly 60 hours and the cost of hiring outside consultants.",
+        "A private defense contractor preparing for CMMC Level 2 had a set of policies and a self-assessment crosswalk that looked complete. Read against the official sources, they weren't. Most policies shared one generic statement per control family, about 30 of those statements didn't address the control they sat under, and 24 of the crosswalk's scoring values were wrong.",
+        "I rebuilt all 110 control policies from the official requirement text and assessment objectives, corrected the scoring, and wrote the plans, procedures, and registers that were missing. Everything is cross-linked in the client's SharePoint, so each policy points to the SOP that carries it out and the register that proves it. The work saved the client roughly 60 hours and the cost of an outside consultant.",
       ],
     },
     {
@@ -1037,12 +1037,14 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       step: "02",
       title: "The Problem",
       paragraphs: [
-        "Level 2 applies to contractors who handle Controlled Unclassified Information (CUI). Without it, a contractor can lose access to the DoD contracts that require it. The paperwork is a big part of the lift, and this client was starting from zero.",
+        "Level 2 covers the 110 security requirements in NIST SP 800-171, broken into 320 assessment objectives an assessor checks one by one. Documentation that is close enough doesn't pass. The client's existing set had problems an assessor would find quickly.",
       ],
       bullets: [
-        "No written policies or procedures for the 110 NIST SP 800-171 requirements",
-        "No way to show an assessor which document covered which requirement",
-        "Consultant-built documentation packages for Level 2 commonly run $10,000 to $50,000",
+        "Policy statements written once per control family instead of per control, with about 30 that didn't address their control at all",
+        "At least one requirement still quoted from the older Rev. 1 wording",
+        "24 SPRS point values in the self-assessment crosswalk that didn't match the official scoring table",
+        "No System Security Plan, incident response plan, SOPs, or registers in the set to show the policies were being followed",
+        "Consultant-built Level 2 documentation commonly runs $10,000 to $50,000",
       ],
     },
     {
@@ -1050,8 +1052,9 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       step: "03",
       title: "The Constraint",
       paragraphs: [
-        "This is a framework where the documentation gets audited. A policy that sounds right but can't be traced to a requirement is a finding waiting to happen. So the system had to make every policy traceable, not just well written.",
-        "It also had to live where the client already worked. A separate compliance tool would be one more login nobody opens. Keeping everything in SharePoint meant the documents sat inside the client's existing Microsoft environment and access controls, with no new vendor involved.",
+        "This is documentation that gets audited word by word. A policy that sounds right but can't be traced to a specific requirement and objective is a finding. So nothing could be paraphrased from memory or from a template. Every requirement and objective had to come from the official source and be checked against a second one.",
+        "The scoring errors carried a second risk. Under the CMMC rule, only lower-value requirements can be left open on a Plan of Action and Milestones. Two controls listed at 1 point were actually worth 5, which means gaps the client might have planned to defer on a POA&M could not be deferred at all.",
+        "It also had to live where the team already worked. Everything stayed in the client's SharePoint, with no new compliance tool and no new vendor.",
       ],
     },
     {
@@ -1059,10 +1062,11 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       step: "04",
       title: "The Approach",
       paragraphs: [
-        "Requirements first, documents second. Each policy was written against specific NIST SP 800-171 requirements and cites them by ID. That turns an assessor's question about a requirement into a lookup instead of a hunt.",
-        "Policies say what, SOPs say how. Each policy has procedures behind it that describe how the client actually carries it out, so the written rule and the day-to-day practice match.",
-        "Workbooks an assessor can follow. The System Security Plan describes how each requirement is met, the POA&M tracks anything still open with a plan to close it, and the evidence log points to the proof. Together they show what is covered and what still needs work.",
-        "One linked library. Policies, SOPs, and workbooks are cross-linked in SharePoint, so moving from a requirement to its policy to its procedure takes a click.",
+        "Official sources only, checked twice. Requirement text came from NIST SP 800-171 Rev. 2. The 320 assessment objectives came from the DoD CMMC Assessment Guide, Level 2 (v2.13). Both were checked against NIST SP 800-171A and matched word for word.",
+        "Policies written per control. Each policy statement was rewritten from that control's own requirement text, replacing the generic family statements.",
+        "Scoring fixed at the source. The crosswalk's point values were corrected against the CMMC scoring table in 32 CFR 170.24, which changes both the client's score and which gaps can go on a POA&M.",
+        "Every policy linked to its proof. Each policy links to the SOP that carries it out and the registers that record it. Each SOP includes a table mapping every assessment objective to the section that covers it.",
+        "Registers tested before handoff. Each spreadsheet was run with sample data before it was uploaded, so the client's team starts with tools that already work.",
       ],
     },
     {
@@ -1070,13 +1074,12 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       step: "05",
       title: "What Was Delivered",
       bullets: [
-        "Policies covering all 110 NIST SP 800-171 requirements, each citing the requirements it answers",
-        "Standard operating procedures that put each policy into practice",
-        "A System Security Plan (SSP) workbook",
-        "A Plan of Action and Milestones (POA&M) workbook for open items",
-        "An evidence log tying each requirement to its proof",
-        "A SharePoint library with every document cross-linked",
-        "A full handoff so the client's team owns and maintains the system",
+        "110 control policies with official requirement text, all 320 assessment objectives, owners, sign-offs, review dates, and an evidence register",
+        "A corrected self-assessment crosswalk with 24 SPRS values fixed",
+        "A System Security Plan built on the NIST SP 800-171 SSP template",
+        "An incident response plan covering DFARS 252.204-7012 reporting: the 72-hour DIBNet report, DC3 malware submission, and 90-day image preservation",
+        "13 SOPs, one per remaining control family, each mapping every assessment objective to the section that covers it",
+        "10 registers: POA&M tracker, asset and software inventory, incident tracker, account and access register, change log and baselines, audit log review record, training and personnel tracker, physical access and maintenance log, media and sanitization log, and risk register",
       ],
     },
     {
@@ -1084,10 +1087,11 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       step: "06",
       title: "Results",
       bullets: [
-        "About 60 hours of documentation work the client did not have to do",
-        "Thousands of dollars saved compared with hiring a consultant for the same scope",
-        "A traceable path from every cited requirement to the document that answers it",
-        "Complete and handed off, with the client's team running it",
+        "All 110 policies now quote the current requirement text and all 320 assessment objectives, verified against three official sources",
+        "About 30 policy statements that didn't address their control were rewritten",
+        "24 scoring errors fixed before they could skew the SPRS score or a POA&M decision",
+        "About 60 hours of documentation work the client did not have to do, and thousands of dollars saved compared with hiring a consultant",
+        "Complete and handed off, with the client's team owning the system",
       ],
     },
     {
@@ -1095,8 +1099,8 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       step: "07",
       title: "Why This Matters",
       paragraphs: [
-        "Most small defense contractors don't fail at CMMC because they lack security. They struggle because they can't prove what they do on paper, in a way an assessor can follow. Documentation is the part of the job they can control, and it's usually where they lose the most time.",
-        "The pattern here works for any audited framework: start from the requirements, cite them in every document, and keep everything linked in the tools the team already uses. That's the difference between having documents and being able to prove what they cover.",
+        "Most small defense contractors don't struggle with CMMC because they lack security. They struggle because their paperwork looks done and isn't. Generic policies, outdated wording, and a wrong point value all look fine until an assessor reads them line by line.",
+        "The fix is unglamorous: start from the official requirement text, check it against a second source, write one policy per control, and link every policy to the procedure and record that prove it. That's the difference between having documents and being able to defend them.",
       ],
     },
   ],
