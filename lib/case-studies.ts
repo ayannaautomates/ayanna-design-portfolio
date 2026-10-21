@@ -1134,6 +1134,118 @@ export const phillyPeaceCaseStudy: CaseStudy = {
   ],
 };
 
+export const cmmcDocumentationCaseStudy: CaseStudy = {
+  slug: "cmmc-level-2-documentation",
+  title: "CMMC Level 2 Documentation System",
+  subtitle:
+    "How I rebuilt a defense contractor's CMMC Level 2 documentation: 110 control policies checked against the official sources, 24 scoring errors corrected, and the SSP, incident response plan, 13 SOPs, and 10 registers an assessment runs on.",
+  meta: [
+    { label: "Client", value: "Private defense contractor (confidential)" },
+    { label: "Sector", value: "Defense Industrial Base" },
+    { label: "Framework", value: "CMMC Level 2 / NIST SP 800-171 Rev. 2" },
+    { label: "Delivered", value: "2026" },
+    { label: "Core Features", value: "Policies, SSP, IRP, SOPs, Registers" },
+    { label: "Status", value: "Complete, Handed Off" },
+  ],
+  stats: [
+    {
+      value: "110",
+      label: "Control policies with all 320 assessment objectives",
+    },
+    {
+      value: "24",
+      label: "SPRS point values corrected",
+    },
+    {
+      value: "13",
+      label: "SOPs mapping every assessment objective",
+    },
+  ],
+  phases: [
+    {
+      id: "summary",
+      step: "01",
+      title: "Executive Summary",
+      paragraphs: [
+        "A private defense contractor preparing for CMMC Level 2 had a set of policies and a self-assessment crosswalk that looked complete. Read against the official sources, they weren't. Most policies shared one generic statement per control family, about 30 of those statements didn't address the control they sat under, and 24 of the crosswalk's scoring values were wrong.",
+        "I rebuilt all 110 control policies from the official requirement text and assessment objectives, corrected the scoring, and wrote the plans, procedures, and registers that were missing. Everything is cross-linked in the client's SharePoint, so each policy points to the SOP that carries it out and the register that proves it. The client got a consultant-grade documentation set without paying consultant rates.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "Level 2 covers the 110 security requirements in NIST SP 800-171, broken into 320 assessment objectives an assessor checks one by one. Documentation that is close enough doesn't pass. The client's existing set had problems an assessor would find quickly.",
+      ],
+      bullets: [
+        "Policy statements written once per control family instead of per control, with about 30 that didn't address their control at all",
+        "At least one requirement still quoted from the older Rev. 1 wording",
+        "24 SPRS point values in the self-assessment crosswalk that didn't match the official scoring table",
+        "No System Security Plan, incident response plan, SOPs, or registers in the set to show the policies were being followed",
+        "Consultant-built Level 2 documentation commonly runs $10,000 to $50,000",
+      ],
+    },
+    {
+      id: "constraint",
+      step: "03",
+      title: "The Constraint",
+      paragraphs: [
+        "This is documentation that gets audited word by word. A policy that sounds right but can't be traced to a specific requirement and objective is a finding. So nothing could be paraphrased from memory or from a template. Every requirement and objective had to come from the official source and be checked against a second one.",
+        "The scoring errors carried a second risk. Under the CMMC rule, only lower-value requirements can be left open on a Plan of Action and Milestones. Two controls listed at 1 point were actually worth 5, which means gaps the client might have planned to defer on a POA&M could not be deferred at all.",
+        "It also had to live where the team already worked. Everything stayed in the client's SharePoint, with no new compliance tool and no new vendor.",
+      ],
+    },
+    {
+      id: "approach",
+      step: "04",
+      title: "The Approach",
+      paragraphs: [
+        "Built with Claude, verified against the sources. I used Claude to do the drafting, cross-referencing, and register building, which is how one person turned around a package this size. Nothing it produced was taken on its word. Every requirement, objective, and point value was checked against the official documents before it went into the client's library.",
+        "Official sources only, checked twice. Requirement text came from NIST SP 800-171 Rev. 2. The 320 assessment objectives came from the DoD CMMC Assessment Guide, Level 2 (v2.13). Both were checked against NIST SP 800-171A and matched word for word.",
+        "Policies written per control. Each policy statement was rewritten from that control's own requirement text, replacing the generic family statements.",
+        "Scoring fixed at the source. The crosswalk's point values were corrected against the CMMC scoring table in 32 CFR 170.24, which changes both the client's score and which gaps can go on a POA&M.",
+        "Every policy linked to its proof. Each policy links to the SOP that carries it out and the registers that record it. Each SOP includes a table mapping every assessment objective to the section that covers it.",
+        "Registers tested before handoff. Each spreadsheet was run with sample data before it was uploaded, so the client's team starts with tools that already work.",
+      ],
+    },
+    {
+      id: "delivered",
+      step: "05",
+      title: "What Was Delivered",
+      bullets: [
+        "110 control policies with official requirement text, all 320 assessment objectives, owners, sign-offs, review dates, and an evidence register",
+        "A corrected self-assessment crosswalk with 24 SPRS values fixed",
+        "A System Security Plan built on the NIST SP 800-171 SSP template",
+        "An incident response plan covering DFARS 252.204-7012 reporting: the 72-hour DIBNet report, DC3 malware submission, and 90-day image preservation",
+        "13 SOPs, each mapping every assessment objective to the section that covers it",
+        "10 registers: POA&M tracker, asset and software inventory, incident tracker, account and access register, change log and baselines, audit log review record, training and personnel tracker, physical access and maintenance log, media and sanitization log, and risk register",
+      ],
+    },
+    {
+      id: "results",
+      step: "06",
+      title: "Results",
+      bullets: [
+        "All 110 policies now quote the current requirement text and all 320 assessment objectives, verified against three official sources",
+        "About 30 policy statements that didn't address their control were rewritten",
+        "24 scoring errors fixed before they could skew the SPRS score or a POA&M decision",
+        "A documentation package consultants commonly price at $10,000 to $50,000, delivered without the consultant bill",
+        "Complete and handed off, with the client's team owning the system",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "07",
+      title: "Why This Matters",
+      paragraphs: [
+        "Most small defense contractors don't struggle with CMMC because they lack security. They struggle because their paperwork looks done and isn't. Generic policies, outdated wording, and a wrong point value all look fine until an assessor reads them line by line.",
+        "The fix is unglamorous: start from the official requirement text, check it against a second source, write one policy per control, and link every policy to the procedure and record that prove it. That's the difference between having documents and being able to defend them.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
@@ -1145,6 +1257,7 @@ const caseStudies: Record<string, CaseStudy> = {
   [coldEmailPersonalizerCaseStudy.slug]: coldEmailPersonalizerCaseStudy,
   [proposalAutopilotCaseStudy.slug]: proposalAutopilotCaseStudy,
   [knowledgeAssistantCaseStudy.slug]: knowledgeAssistantCaseStudy,
+  [cmmcDocumentationCaseStudy.slug]: cmmcDocumentationCaseStudy,
 };
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {

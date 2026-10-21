@@ -61,10 +61,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (pathname !== "/") {
-      setActiveSection(null);
-      return;
-    }
+    if (pathname !== "/") return;
 
     const updateActiveSection = () => {
       setActiveSection(resolveActiveSection());
@@ -116,7 +113,7 @@ export default function Header() {
         <MenuHoverEffects
           items={navLinks}
           pathname={pathname}
-          activeSection={activeSection}
+          activeSection={pathname === "/" ? activeSection : null}
           onMenuOpenChange={setMenuOpen}
         />
       </div>

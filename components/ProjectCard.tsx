@@ -52,7 +52,7 @@ export default function ProjectCard({
 
         <div className="p-4">
           <p className="hud-label text-violet mb-2">
-            {project.year} // {project.category}
+            {project.year} {"//"} {project.category}
           </p>
           <h3 className="font-display text-lg md:text-xl uppercase tracking-wide text-ghost group-hover:text-cyan transition-colors duration-200">
             {project.title}

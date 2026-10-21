@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="CMMC Level 2 documentation system: 110 control policies with 320 assessment objectives, an SSP and incident response plan, 13 SOPs, and 10 registers, all linked in one SharePoint library and handed off to the client">
+  <defs>
+    <pattern id="cm-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#7DF9FF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <marker id="cm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7DF9FF" fill-opacity="0.65"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#0A0E14"/>
+  <rect width="1600" height="1000" fill="url(#cm-grid)"/>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace">
+
+    <text x="100" y="336" fill="#7DF9FF" font-size="19" letter-spacing="6">[ CMMC LEVEL 2 DOCUMENTATION ]</text>
+    <text x="100" y="392" fill="#EEF2F6" font-size="40" letter-spacing="2">ONE LINKED COMPLIANCE LIBRARY</text>
+    <text x="100" y="432" fill="#8B93A3" font-size="20">Every policy links to the SOP that runs it and the register that proves it.</text>
+    <line x1="100" y1="458" x2="1500" y2="458" stroke="#7DF9FF" stroke-opacity="0.28" stroke-width="1"/>
+
+    <g>
+      <rect x="100" y="496" width="230" height="140" fill="#111822" stroke="#9D4EFF" stroke-opacity="0.6"/>
+      <text x="118" y="526" fill="#9D4EFF" font-size="14" letter-spacing="3">01</text>
+      <text x="118" y="562" fill="#EEF2F6" font-size="19">POLICIES</text>
+      <text x="118" y="590" fill="#8B93A3" font-size="15">110 controls,</text>
+      <text x="118" y="613" fill="#9D4EFF" font-size="15">320 objectives</text>
+
+      <rect x="390" y="496" width="230" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="408" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">02</text>
+      <text x="408" y="562" fill="#EEF2F6" font-size="19">PLANS + SOPS</text>
+      <text x="408" y="590" fill="#8B93A3" font-size="15">SSP, IRP,</text>
+      <text x="408" y="613" fill="#8B93A3" font-size="15">13 SOPs</text>
+
+      <rect x="680" y="496" width="230" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="698" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">03</text>
+      <text x="698" y="562" fill="#EEF2F6" font-size="19">REGISTERS</text>
+      <text x="698" y="590" fill="#8B93A3" font-size="15">10 trackers,</text>
+      <text x="698" y="613" fill="#8B93A3" font-size="15">tested pre-handoff</text>
+
+      <rect x="970" y="496" width="230" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.8"/>
+      <text x="988" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">04</text>
+      <text x="988" y="562" fill="#EEF2F6" font-size="19">SHAREPOINT</text>
+      <text x="988" y="590" fill="#7DF9FF" font-size="15">all of it linked</text>
+      <text x="988" y="613" fill="#7DF9FF" font-size="15">in one library</text>
+
+      <rect x="1260" y="496" width="240" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="1278" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">05</text>
+      <text x="1278" y="562" fill="#EEF2F6" font-size="19">HANDOFF</text>
+      <text x="1278" y="590" fill="#8B93A3" font-size="15">client team</text>
+      <text x="1278" y="613" fill="#8B93A3" font-size="15">owns and maintains</text>
+    </g>
+
+    <line x1="332" y1="566" x2="386" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cm-arrow)"/>
+    <line x1="622" y1="566" x2="676" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cm-arrow)"/>
+    <line x1="912" y1="566" x2="966" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cm-arrow)"/>
+    <line x1="1202" y1="566" x2="1256" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cm-arrow)"/>
+
+    <text x="100" y="686" fill="#7DF9FF" font-size="17">24 SPRS scoring errors corrected</text>
+    <text x="680" y="686" fill="#9D4EFF" font-size="17">13 SOPs, every objective mapped</text>
+    <text x="1260" y="686" fill="#8B93A3" font-size="17">// CLIENT CONFIDENTIAL</text>
+
+  </g>
+</svg>

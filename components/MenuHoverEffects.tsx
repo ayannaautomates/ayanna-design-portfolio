@@ -107,7 +107,6 @@ export default function MenuHoverEffects({
   onMenuOpenChange,
 }: MenuHoverEffectsProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   const setMenuOpen = (open: boolean) => {
     setIsMenuOpen(open);
@@ -116,10 +115,6 @@ export default function MenuHoverEffects({
 
   const closeMenu = () => setMenuOpen(false);
   const toggleMenu = () => setMenuOpen(!isMenuOpen);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -140,7 +135,7 @@ export default function MenuHoverEffects({
   }, [isMenuOpen]);
 
   const mobileMenu =
-    mounted && isMenuOpen
+    isMenuOpen
       ? createPortal(
           <div
             id="menu-hover-panel"
