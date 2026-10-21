@@ -1097,7 +1097,7 @@ export const phillyPeaceCaseStudy: CaseStudy = {
       ],
       bullets: [
         "Content pillars pulled straight from their mission: safety networks, conflict prevention, mental health, school support, job readiness, and local resources",
-        "AI used to brainstorm topics and draft captions, then edited by hand so the voice speaks to teens without talking down to them",
+        "ChatGPT used to brainstorm topics and draft captions, then edited by hand so the voice speaks to teens without talking down to them",
         "Canva templates built on their brand pink, navy, and logo so every post looks like it came from the same org",
         "Every post ends in a specific action (save this, write down three names, check your branch) because a post a teen saves keeps working after the scroll",
       ],
@@ -1107,7 +1107,7 @@ export const phillyPeaceCaseStudy: CaseStudy = {
       step: "04",
       title: "The System",
       paragraphs: [
-        "Four weeks of posts went into a scheduler, so the account publishes on its own while the team runs programs. Alongside it, a reusable content calendar template maps pillars to days, tracks what has been posted, and leaves slots open for events and announcements.",
+        "Four weeks of posts went into a scheduler, so the account publishes on its own while the team runs programs. Alongside it, a reusable content calendar built in Google Sheets maps pillars to days, tracks what has been posted, and leaves slots open for events and announcements.",
         "The goal was to make the next month cheaper than the first. With pillars defined, templates built, and a calendar to fill, a new post is an edit and a caption, not a design project.",
       ],
     },
