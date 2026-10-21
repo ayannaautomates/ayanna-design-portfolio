@@ -1,20 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 
 const CONSENT_KEY = "analytics-consent";
 
-export default function ConsentBanner() {
-  const [visible, setVisible] = useState(false);
+// Reads the stored choice on the client only; the server snapshot keeps the
+// banner hidden so the first client render matches the server HTML.
+const subscribe = (onChange: () => void) => {
+  window.addEventListener("storage", onChange);
+  return () => window.removeEventListener("storage", onChange);
+};
+const getStoredConsent = () => localStorage.getItem(CONSENT_KEY);
+const getServerConsent = () => "server";
 
-  useEffect(() => {
-    const stored = localStorage.getItem(CONSENT_KEY);
-    if (!stored) setVisible(true);
-  }, []);
+export default function ConsentBanner() {
+  const stored = useSyncExternalStore(subscribe, getStoredConsent, getServerConsent);
+  const [dismissed, setDismissed] = useState(false);
+  const visible = !stored && !dismissed;
 
   const save = (value: "accepted" | "declined") => {
     localStorage.setItem(CONSENT_KEY, value);
-    setVisible(false);
+    setDismissed(true);
     window.dispatchEvent(new CustomEvent("analytics-consent", { detail: value }));
   };
 

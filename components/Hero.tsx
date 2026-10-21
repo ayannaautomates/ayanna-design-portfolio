@@ -1,10 +1,20 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import ParticleField, { type ParticleFieldHandle } from "./ParticleField";
 import ShaderBackground, { type ShaderBackgroundHandle } from "./ShaderBackground";
 import type { MouseState } from "@/lib/hero-engine";
+
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
+const subscribeReducedMotion = (onChange: () => void) => {
+  const mq = window.matchMedia(REDUCED_MOTION_QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+};
+const getReducedMotion = () => window.matchMedia(REDUCED_MOTION_QUERY).matches;
+const getServerReducedMotion = () => false;
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -17,23 +27,22 @@ export default function Hero() {
   const isTouchRef = useRef(false);
   const reducedMotionRef = useRef(false);
 
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const reducedMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotion,
+    getServerReducedMotion,
+  );
   const [glitchActive, setGlitchActive] = useState(false);
 
   useEffect(() => {
     isTouchRef.current =
       "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    reducedMotionRef.current = mq.matches;
-    setReducedMotion(mq.matches);
-    const handler = (e: MediaQueryListEvent) => {
-      reducedMotionRef.current = e.matches;
-      setReducedMotion(e.matches);
-    };
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
   }, []);
+
+  useEffect(() => {
+    reducedMotionRef.current = reducedMotion;
+  }, [reducedMotion]);
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -54,26 +63,6 @@ export default function Hero() {
       if (clearGlitchTimer) clearTimeout(clearGlitchTimer);
     };
   }, [reducedMotion]);
-
-  const tick = useCallback((timestamp: number) => {
-    if (!lastTimeRef.current) lastTimeRef.current = timestamp;
-    const dt = Math.min((timestamp - lastTimeRef.current) / 1000, 0.05);
-    lastTimeRef.current = timestamp;
-
-    if (!pausedRef.current) {
-      const mouse = mouseRef.current;
-      const config = {
-        reducedMotion: reducedMotionRef.current,
-        isTouch: isTouchRef.current,
-        paused: false,
-      };
-
-      shaderRef.current?.render(timestamp, mouse);
-      particleRef.current?.update(dt, mouse, config);
-    }
-
-    rafRef.current = requestAnimationFrame(tick);
-  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -112,6 +101,26 @@ export default function Hero() {
     };
     document.addEventListener("visibilitychange", handleVisibility);
 
+    function tick(timestamp: number) {
+      if (!lastTimeRef.current) lastTimeRef.current = timestamp;
+      const dt = Math.min((timestamp - lastTimeRef.current) / 1000, 0.05);
+      lastTimeRef.current = timestamp;
+
+      if (!pausedRef.current) {
+        const mouse = mouseRef.current;
+        const config = {
+          reducedMotion: reducedMotionRef.current,
+          isTouch: isTouchRef.current,
+          paused: false,
+        };
+
+        shaderRef.current?.render(timestamp, mouse);
+        particleRef.current?.update(dt, mouse, config);
+      }
+
+      rafRef.current = requestAnimationFrame(tick);
+    }
+
     rafRef.current = requestAnimationFrame(tick);
 
     return () => {
@@ -121,7 +130,7 @@ export default function Hero() {
       observer.disconnect();
       document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, [tick]);
+  }, []);
 
   return (
     <section

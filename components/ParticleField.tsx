@@ -44,6 +44,42 @@ function getParticleCount(width: number): number {
   return 120;
 }
 
+// Advances one particle in place. Kept outside the component so the per-frame
+// mutation stays out of the React Compiler's hook-value tracking.
+function stepParticle(
+  p: Particle,
+  dt: number,
+  mouse: MouseState,
+  trackCursor: boolean,
+  w: number,
+  fieldH: number,
+) {
+  p.vx = p.baseVx + (Math.random() - 0.5) * 2;
+  p.vy = p.baseVy + (Math.random() - 0.5) * 1.5;
+
+  if (trackCursor) {
+    const dx = p.x - mouse.x;
+    const dy = p.y - mouse.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < REPEL_RADIUS && dist > 0.1) {
+      const falloff = 1 - smoothstep(0, REPEL_RADIUS, dist);
+      const force = falloff * 180;
+      p.vx += (dx / dist) * force * dt;
+      p.vy += (dy / dist) * force * dt;
+    }
+  }
+
+  p.vx *= 0.92;
+  p.vy *= 0.92;
+  p.x += p.vx * dt;
+  p.y += p.vy * dt;
+
+  if (p.x < 0) p.x = w;
+  if (p.x > w) p.x = 0;
+  if (p.y < 0) p.y = fieldH;
+  if (p.y > fieldH) p.y = 0;
+}
+
 const ParticleField = forwardRef<ParticleFieldHandle, ParticleFieldProps>(
   function ParticleField({ className = "", fullHeight = false }, ref) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -131,32 +167,9 @@ const ParticleField = forwardRef<ParticleFieldHandle, ParticleFieldProps>(
         const trackCursor =
           !reduced && !config.isTouch && mouse.active;
 
-        for (const p of particles) {
+        for (const p of particlesRef.current) {
           if (!reduced) {
-            p.vx = p.baseVx + (Math.random() - 0.5) * 2;
-            p.vy = p.baseVy + (Math.random() - 0.5) * 1.5;
-
-            if (trackCursor) {
-              const dx = p.x - mouse.x;
-              const dy = p.y - mouse.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < REPEL_RADIUS && dist > 0.1) {
-                const falloff = 1 - smoothstep(0, REPEL_RADIUS, dist);
-                const force = falloff * 180;
-                p.vx += (dx / dist) * force * dt;
-                p.vy += (dy / dist) * force * dt;
-              }
-            }
-
-            p.vx *= 0.92;
-            p.vy *= 0.92;
-            p.x += p.vx * dt;
-            p.y += p.vy * dt;
-
-            if (p.x < 0) p.x = w;
-            if (p.x > w) p.x = 0;
-            if (p.y < 0) p.y = fieldH;
-            if (p.y > fieldH) p.y = 0;
+            stepParticle(p, dt, mouse, trackCursor, w, fieldH);
           }
 
           const radius = (0.5 + p.depth * 1.5) * (1 - p.depth * 0.3);

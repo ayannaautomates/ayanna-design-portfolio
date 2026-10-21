@@ -97,7 +97,7 @@ export default async function ProjectPage({ params }: Props) {
           ) : (
             <>
               <p className="hud-label text-violet mb-3">
-                {project.year} // {project.category}
+                {project.year} {"//"} {project.category}
               </p>
 
               <h1 className="font-display text-3xl md:text-5xl uppercase tracking-wider text-ghost mb-6 leading-tight">
