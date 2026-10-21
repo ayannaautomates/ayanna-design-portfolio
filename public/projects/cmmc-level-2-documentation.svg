@@ -29,7 +29,7 @@
       <text x="408" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">02</text>
       <text x="408" y="562" fill="#EEF2F6" font-size="19">PLANS + SOPS</text>
       <text x="408" y="590" fill="#8B93A3" font-size="15">SSP, IRP,</text>
-      <text x="408" y="613" fill="#8B93A3" font-size="15">13 family SOPs</text>
+      <text x="408" y="613" fill="#8B93A3" font-size="15">13 SOPs</text>
 
       <rect x="680" y="496" width="230" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
       <text x="698" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">03</text>
@@ -56,7 +56,7 @@
     <line x1="1202" y1="566" x2="1256" y2="566" stroke="#7DF9FF" stroke-opacity="0.5" stroke-width="2" marker-end="url(#cm-arrow)"/>
 
     <text x="100" y="686" fill="#7DF9FF" font-size="17">24 SPRS scoring errors corrected</text>
-    <text x="680" y="686" fill="#9D4EFF" font-size="17">~60 hours of work saved</text>
+    <text x="680" y="686" fill="#9D4EFF" font-size="17">13 SOPs, every objective mapped</text>
     <text x="1260" y="686" fill="#8B93A3" font-size="17">// CLIENT CONFIDENTIAL</text>
 
   </g>

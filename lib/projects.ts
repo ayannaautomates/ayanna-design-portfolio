@@ -41,7 +41,7 @@ export const projects: Project[] = [
     year: 2026,
     category: "Compliance Operations",
     description:
-      "110 control policies rebuilt against the official sources, 24 scoring errors fixed, plus the SSP, IRP, 13 SOPs, and 10 registers. Saved roughly 60 hours.",
+      "110 control policies rebuilt against the official sources, 24 scoring errors fixed, plus the SSP, IRP, 13 SOPs, and 10 tested registers.",
     longDescription:
       "A CMMC Level 2 documentation system for a private defense contractor. All 110 control policies carry the official NIST SP 800-171 Rev. 2 requirement text and all 320 assessment objectives, checked against NIST SP 800-171A. The self-assessment crosswalk's SPRS values were corrected, and a System Security Plan, incident response plan, 13 SOPs, and 10 tested registers were added, all cross-linked in the client's SharePoint. Completed and handed off.",
     image: "/projects/cmmc-level-2-documentation.svg",

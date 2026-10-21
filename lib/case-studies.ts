@@ -1018,8 +1018,8 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       label: "SPRS point values corrected",
     },
     {
-      value: "~60 hrs",
-      label: "Documentation work saved",
+      value: "13",
+      label: "SOPs mapping every assessment objective",
     },
   ],
   phases: [
@@ -1029,7 +1029,7 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       title: "Executive Summary",
       paragraphs: [
         "A private defense contractor preparing for CMMC Level 2 had a set of policies and a self-assessment crosswalk that looked complete. Read against the official sources, they weren't. Most policies shared one generic statement per control family, about 30 of those statements didn't address the control they sat under, and 24 of the crosswalk's scoring values were wrong.",
-        "I rebuilt all 110 control policies from the official requirement text and assessment objectives, corrected the scoring, and wrote the plans, procedures, and registers that were missing. Everything is cross-linked in the client's SharePoint, so each policy points to the SOP that carries it out and the register that proves it. The work saved the client roughly 60 hours and the cost of an outside consultant.",
+        "I rebuilt all 110 control policies from the official requirement text and assessment objectives, corrected the scoring, and wrote the plans, procedures, and registers that were missing. Everything is cross-linked in the client's SharePoint, so each policy points to the SOP that carries it out and the register that proves it. The client got a consultant-grade documentation set without paying consultant rates.",
       ],
     },
     {
@@ -1078,7 +1078,7 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
         "A corrected self-assessment crosswalk with 24 SPRS values fixed",
         "A System Security Plan built on the NIST SP 800-171 SSP template",
         "An incident response plan covering DFARS 252.204-7012 reporting: the 72-hour DIBNet report, DC3 malware submission, and 90-day image preservation",
-        "13 SOPs, one per remaining control family, each mapping every assessment objective to the section that covers it",
+        "13 SOPs, each mapping every assessment objective to the section that covers it",
         "10 registers: POA&M tracker, asset and software inventory, incident tracker, account and access register, change log and baselines, audit log review record, training and personnel tracker, physical access and maintenance log, media and sanitization log, and risk register",
       ],
     },
@@ -1090,7 +1090,7 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
         "All 110 policies now quote the current requirement text and all 320 assessment objectives, verified against three official sources",
         "About 30 policy statements that didn't address their control were rewritten",
         "24 scoring errors fixed before they could skew the SPRS score or a POA&M decision",
-        "About 60 hours of documentation work the client did not have to do, and thousands of dollars saved compared with hiring a consultant",
+        "A documentation package consultants commonly price at $10,000 to $50,000, delivered without the consultant bill",
         "Complete and handed off, with the client's team owning the system",
       ],
     },
