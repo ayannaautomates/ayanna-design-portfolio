@@ -1062,6 +1062,7 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
       step: "04",
       title: "The Approach",
       paragraphs: [
+        "Built with Claude, verified against the sources. I used Claude to do the drafting, cross-referencing, and register building, which is how one person turned around a package this size. Nothing it produced was taken on its word. Every requirement, objective, and point value was checked against the official documents before it went into the client's library.",
         "Official sources only, checked twice. Requirement text came from NIST SP 800-171 Rev. 2. The 320 assessment objectives came from the DoD CMMC Assessment Guide, Level 2 (v2.13). Both were checked against NIST SP 800-171A and matched word for word.",
         "Policies written per control. Each policy statement was rewritten from that control's own requirement text, replacing the generic family statements.",
         "Scoring fixed at the source. The crosswalk's point values were corrected against the CMMC scoring table in 32 CFR 170.24, which changes both the client's score and which gaps can go on a POA&M.",

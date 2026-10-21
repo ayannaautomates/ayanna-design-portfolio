@@ -52,6 +52,7 @@ export const projects: Project[] = [
       "SSP",
       "POA&M",
       "DFARS 7012",
+      "Claude",
       "Policy Writing",
       "SOPs",
     ],
