@@ -161,14 +161,14 @@ export default function CaseStudyContent({
             <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {gallery.map((image) => (
                 <li key={image.src}>
-                  <figure className="neon-border bg-navy-light/30 overflow-hidden">
+                  <figure className="neon-border bg-navy-light/30 overflow-hidden h-full">
                     <div className="relative aspect-[4/5]">
                       <Image
                         src={image.src}
                         alt={image.alt}
                         fill
                         sizes="(min-width: 768px) 280px, 50vw"
-                        className="object-cover"
+                        className="object-contain"
                       />
                     </div>
                     {image.caption && (

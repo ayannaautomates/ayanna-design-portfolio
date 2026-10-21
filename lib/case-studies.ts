@@ -1055,6 +1055,11 @@ export const phillyPeaceCaseStudy: CaseStudy = {
       caption: "School support",
     },
     {
+      src: "/projects/philly-peace-in-progress/first-job-interview.png",
+      alt: "Philly Peace in Progress post titled Your First Job Interview, with tips to start with your interest, use a real example, and ask a question",
+      caption: "Job readiness",
+    },
+    {
       src: "/projects/philly-peace-in-progress/homework-help.png",
       alt: "Philly Peace in Progress post promoting free homework help through the Free Library of Philadelphia LEAP program",
       caption: "Local resources",
@@ -1091,7 +1096,7 @@ export const phillyPeaceCaseStudy: CaseStudy = {
         "I treated this as an operations problem, not a design one. Posts are the output. The real deliverable is a process the team can repeat without a volunteer in the loop.",
       ],
       bullets: [
-        "Content pillars pulled straight from their mission: safety networks, conflict prevention, mental health, school support, and local resources",
+        "Content pillars pulled straight from their mission: safety networks, conflict prevention, mental health, school support, job readiness, and local resources",
         "AI used to brainstorm topics and draft captions, then edited by hand so the voice speaks to teens without talking down to them",
         "Canva templates built on their brand pink, navy, and logo so every post looks like it came from the same org",
         "Every post ends in a specific action (save this, write down three names, check your branch) because a post a teen saves keeps working after the scroll",
