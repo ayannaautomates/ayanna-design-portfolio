@@ -1006,7 +1006,7 @@ export const phillyPeaceCaseStudy: CaseStudy = {
   slug: "philly-peace-in-progress",
   title: "Philly Peace in Progress",
   subtitle:
-    "How a West Philadelphia youth nonprofit went from no active social channel to four weeks of scheduled content and a calendar system their team can keep running on its own.",
+    "How a West Philadelphia youth nonprofit got 40 posts written, designed, and scheduled to carry its social channel through the holidays, plus a calendar system its team can keep running on its own.",
   meta: [
     { label: "Client", value: "Philly Peace in Progress" },
     { label: "Sector", value: "Youth Violence Prevention" },
@@ -1017,8 +1017,8 @@ export const phillyPeaceCaseStudy: CaseStudy = {
   ],
   stats: [
     {
-      value: "4 weeks",
-      label: "Of content written, designed, and scheduled",
+      value: "40 posts",
+      label: "Written, designed, and scheduled",
     },
     {
       value: "10 hrs",
@@ -1080,10 +1080,10 @@ export const phillyPeaceCaseStudy: CaseStudy = {
       step: "02",
       title: "The Problem",
       paragraphs: [
-        "They needed a social media account up and running and posting consistently, to bring more engagement and awareness to their programs. The message was strong. The capacity was not. Nobody on staff had hours to plan, write, design, and schedule posts every week, and without a system, a channel launched in a burst of effort goes quiet a month later.",
+        "Their social channel was already active. What they needed was content to keep it that way through the holidays, the stretch when a small team has the least time and the youth they serve can use the most support. The message was strong. The capacity was not. Nobody on staff had hours to plan, write, design, and schedule posts week after week, and a channel that goes quiet loses the engagement and awareness it took months to build.",
       ],
       bullets: [
-        "No active channel reaching the youth and families they serve",
+        "A holiday stretch with no content in the pipeline",
         "No content plan tying posts back to their programs",
         "No templates, so every future post would start from a blank page",
       ],
@@ -1107,7 +1107,7 @@ export const phillyPeaceCaseStudy: CaseStudy = {
       step: "04",
       title: "The System",
       paragraphs: [
-        "Four weeks of posts went into a scheduler, so the account publishes on its own while the team runs programs. Alongside it, a reusable content calendar built in Google Sheets maps pillars to days, tracks what has been posted, and leaves slots open for events and announcements.",
+        "All 40 posts went into a scheduler, so the account publishes on its own through the holidays while the team runs programs. Alongside it, a reusable content calendar built in Google Sheets maps pillars to days, tracks what has been posted, and leaves slots open for events and announcements.",
         "The goal was to make the next month cheaper than the first. With pillars defined, templates built, and a calendar to fill, a new post is an edit and a caption, not a design project.",
       ],
     },
@@ -1116,7 +1116,7 @@ export const phillyPeaceCaseStudy: CaseStudy = {
       step: "05",
       title: "Results",
       bullets: [
-        "Social account launched with four weeks of content scheduled and ready to post",
+        "40 posts written, designed, and scheduled to run through the holidays",
         "Reusable content calendar template handed off for months of future planning",
         "Delivered in 10 volunteer hours, an estimated $1,792 the org kept for programs",
         "Executive Director called the work exceptional and the delivery fast and professional",
