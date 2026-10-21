@@ -124,6 +124,26 @@ export const projects: Project[] = [
     githubUrl: "",
   },
   {
+    slug: "philly-peace-in-progress",
+    title: "Philly Peace in Progress",
+    year: 2026,
+    category: "Pro Bono",
+    description:
+      "A content system for a West Philly youth nonprofit: four weeks of posts scheduled and a reusable calendar the team can run without a volunteer.",
+    longDescription:
+      "Philly Peace in Progress teaches young people in West Philadelphia, ages 10 to 25, who have been impacted by trauma how to resolve conflict and build resilience. Their social channel needed to be up and running, and a small team had no hours to spare for it. Through Catchafire, the account was launched with four weeks of scheduled posts built around their programs, plus Canva templates, AI-assisted caption drafting, and a reusable content calendar so the team can keep publishing on their own.",
+    image: "/projects/philly-peace-in-progress.png",
+    tags: [
+      "Canva",
+      "AI Copywriting",
+      "Content Calendar",
+      "Social Scheduling",
+      "Catchafire",
+    ],
+    liveUrl: "https://phillypeaceinprogress.org",
+    githubUrl: "",
+  },
+  {
     slug: "master-color-salon",
     title: "Master Color Beauty Salon",
     year: 2026,

@@ -1,3 +1,6 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
+import Image from "next/image";
 import type { CaseStudy } from "@/lib/case-studies";
 import type { Project } from "@/lib/projects";
 
@@ -48,10 +51,19 @@ function PhaseBlock({ phase }: { phase: CaseStudy["phases"][number] }) {
   );
 }
 
+// Skip gallery images that haven't been added to public/ yet so the page never ships a broken image.
+function availableGallery(gallery: CaseStudy["gallery"]) {
+  return (gallery ?? []).filter((image) =>
+    existsSync(path.join(process.cwd(), "public", image.src)),
+  );
+}
+
 export default function CaseStudyContent({
   project,
   caseStudy,
 }: CaseStudyContentProps) {
+  const gallery = availableGallery(caseStudy.gallery);
+
   return (
     <div className="lg:grid lg:grid-cols-[12rem_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[14rem_minmax(0,1fr)] xl:gap-16">
       <aside className="hidden lg:block">
@@ -141,6 +153,34 @@ export default function CaseStudyContent({
               — {caseStudy.testimonial.attribution}
             </footer>
           </blockquote>
+        )}
+
+        {gallery.length > 0 && (
+          <section aria-label="Project visuals" className="mb-12">
+            <p className="hud-label text-cyan mb-4">[ THE WORK ]</p>
+            <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {gallery.map((image) => (
+                <li key={image.src}>
+                  <figure className="neon-border bg-navy-light/30 overflow-hidden">
+                    <div className="relative aspect-[4/5]">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes="(min-width: 768px) 280px, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    {image.caption && (
+                      <figcaption className="hud-label text-ghost-muted px-3 py-2">
+                        {image.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
 
         <div className="h-px bg-gradient-to-r from-cyan/50 via-violet/30 to-transparent mb-12" />
