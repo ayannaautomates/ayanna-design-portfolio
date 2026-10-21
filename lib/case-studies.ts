@@ -16,6 +16,12 @@ export type CaseStudyPhase = {
   bullets?: string[];
 };
 
+export type CaseStudyImage = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -24,6 +30,7 @@ export type CaseStudy = {
   stats: CaseStudyStat[];
   testimonial?: CaseStudyQuote;
   phases: CaseStudyPhase[];
+  gallery?: CaseStudyImage[];
   isConcept?: boolean;
   conceptNote?: string;
 };
@@ -995,6 +1002,138 @@ export const masterColorCaseStudy: CaseStudy = {
   ],
 };
 
+export const phillyPeaceCaseStudy: CaseStudy = {
+  slug: "philly-peace-in-progress",
+  title: "Philly Peace in Progress",
+  subtitle:
+    "How a West Philadelphia youth nonprofit went from no active social channel to four weeks of scheduled content and a calendar system their team can keep running on its own.",
+  meta: [
+    { label: "Client", value: "Philly Peace in Progress" },
+    { label: "Sector", value: "Youth Violence Prevention" },
+    { label: "Location", value: "Philadelphia, PA" },
+    { label: "Engagement", value: "Pro Bono via Catchafire" },
+    { label: "Timeline", value: "October 2026" },
+    { label: "Status", value: "Delivered and Handed Off" },
+  ],
+  stats: [
+    {
+      value: "4 weeks",
+      label: "Of content written, designed, and scheduled",
+    },
+    {
+      value: "10 hrs",
+      label: "Volunteered start to finish",
+    },
+    {
+      value: "$1,792",
+      label: "Estimated value to the org (Catchafire estimate)",
+    },
+  ],
+  testimonial: {
+    text: "I want to highlight the incredible work Ayanna brought to Philly Peace in Progress! At a moment when we needed strong support, she stepped in and produced several beautifully crafted social media posts with impressive speed and creativity. Her execution was exceptional — she truly went above and beyond and surprised me with how quickly and professionally she delivered. Volunteers like her make a powerful impact.",
+    attribution: "Crystal N., Executive Director, Philly Peace in Progress",
+  },
+  gallery: [
+    {
+      src: "/projects/philly-peace-in-progress/trusted-adult-list.png",
+      alt: "Philly Peace in Progress post titled Make a Trusted Adult List, asking youth to name three people who listen, help at school or home, and can be called if they feel unsafe",
+      caption: "Safety network",
+    },
+    {
+      src: "/projects/philly-peace-in-progress/handle-a-rumor.png",
+      alt: "Philly Peace in Progress post titled How to Handle a Rumor, with three steps: don't repost it, check facts, talk to a trusted adult",
+      caption: "Conflict prevention",
+    },
+    {
+      src: "/projects/philly-peace-in-progress/take-a-break.png",
+      alt: "Philly Peace in Progress post titled It's Okay to Take a Break from Social Media, with tips on notifications, time limits, and going offline",
+      caption: "Mental health",
+    },
+    {
+      src: "/projects/philly-peace-in-progress/help-at-school.png",
+      alt: "Philly Peace in Progress resource card titled Need Help at School, giving students exact phrases to ask a teacher for help",
+      caption: "School support",
+    },
+    {
+      src: "/projects/philly-peace-in-progress/first-job-interview.png",
+      alt: "Philly Peace in Progress post titled Your First Job Interview, with tips to start with your interest, use a real example, and ask a question",
+      caption: "Job readiness",
+    },
+    {
+      src: "/projects/philly-peace-in-progress/homework-help.png",
+      alt: "Philly Peace in Progress post promoting free homework help through the Free Library of Philadelphia LEAP program",
+      caption: "Local resources",
+    },
+  ],
+  phases: [
+    {
+      id: "org",
+      step: "01",
+      title: "The Organization",
+      paragraphs: [
+        "Philly Peace in Progress works with young people in West Philadelphia, ages 10 to 25, who have been impacted by trauma. They teach youth how to deal with the obstacles they run into, resolve conflict in healthier ways, and build resilience, through mentoring, educational and cultural enrichment, and life skills work that reaches their families too.",
+        "It is the kind of work that changes outcomes for kids, run by a small team that is already stretched.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "They needed a social media account up and running and posting consistently, to bring more engagement and awareness to their programs. The message was strong. The capacity was not. Nobody on staff had hours to plan, write, design, and schedule posts every week, and without a system, a channel launched in a burst of effort goes quiet a month later.",
+      ],
+      bullets: [
+        "No active channel reaching the youth and families they serve",
+        "No content plan tying posts back to their programs",
+        "No templates, so every future post would start from a blank page",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "I treated this as an operations problem, not a design one. Posts are the output. The real deliverable is a process the team can repeat without a volunteer in the loop.",
+      ],
+      bullets: [
+        "Content pillars pulled straight from their mission: safety networks, conflict prevention, mental health, school support, job readiness, and local resources",
+        "ChatGPT used to brainstorm topics and draft captions, then edited by hand so the voice speaks to teens without talking down to them",
+        "Canva templates built on their brand pink, navy, and logo so every post looks like it came from the same org",
+        "Every post ends in a specific action (save this, write down three names, check your branch) because a post a teen saves keeps working after the scroll",
+      ],
+    },
+    {
+      id: "system",
+      step: "04",
+      title: "The System",
+      paragraphs: [
+        "Four weeks of posts went into a scheduler, so the account publishes on its own while the team runs programs. Alongside it, a reusable content calendar built in Google Sheets maps pillars to days, tracks what has been posted, and leaves slots open for events and announcements.",
+        "The goal was to make the next month cheaper than the first. With pillars defined, templates built, and a calendar to fill, a new post is an edit and a caption, not a design project.",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "Results",
+      bullets: [
+        "Social account launched with four weeks of content scheduled and ready to post",
+        "Reusable content calendar template handed off for months of future planning",
+        "Delivered in 10 volunteer hours, an estimated $1,792 the org kept for programs",
+        "Executive Director called the work exceptional and the delivery fast and professional",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "Small nonprofits rarely lose reach because their message is weak. They lose it because nobody has the hours to say it consistently. A few templates, a defined set of topics, and a calendar turn social media from a recurring scramble into a routine a small team can actually keep.",
+        "If youth violence prevention matters to you, follow and support Philly Peace in Progress at phillypeaceinprogress.org. If you have a skill a nonprofit could use, Catchafire is a straightforward way to give it.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
@@ -1002,6 +1141,7 @@ const caseStudies: Record<string, CaseStudy> = {
   [letsAskSpiritCaseStudy.slug]: letsAskSpiritCaseStudy,
   [masterColorCaseStudy.slug]: masterColorCaseStudy,
   [supplySaWebsiteCaseStudy.slug]: supplySaWebsiteCaseStudy,
+  [phillyPeaceCaseStudy.slug]: phillyPeaceCaseStudy,
   [coldEmailPersonalizerCaseStudy.slug]: coldEmailPersonalizerCaseStudy,
   [proposalAutopilotCaseStudy.slug]: proposalAutopilotCaseStudy,
   [knowledgeAssistantCaseStudy.slug]: knowledgeAssistantCaseStudy,
