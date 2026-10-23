@@ -126,6 +126,30 @@ export const projects: Project[] = [
     isConcept: true,
   },
   {
+    slug: "candid-expressions",
+    title: "canDID Expressions",
+    year: 2026,
+    category: "Web Design",
+    description:
+      "A pro bono WordPress site for a peer-led creative community for adults living with dissociation, built calm on purpose and run by its founder from a nine-button dashboard.",
+    longDescription:
+      "canDID Expressions is a peer-led 501(c)(3) where adults living with dissociative identity disorder and other forms of trauma-based dissociation connect through writing and the expressive arts. The founder's brief was one line: for people with a history of trauma, predictability is safety. The new site is a fresh WordPress build on Divi 5 that reads calm and stays consistent from page to page, with the whole picture first and depth for those who want it. The founder runs it herself. Everything she updates, from groups to the monthly prompts, has its own simple form, and groups drop off the homepage the day after their last meeting. All 27 of her forms came across, with payment settings rebuilt on the 16 that take money, and all 60 addresses from the old site still land on the right page. All 51 pages passed an accessibility scan on desktop and on a phone before launch.",
+    image: "/projects/candid-expressions.png",
+    tags: [
+      "WordPress",
+      "Divi 5",
+      "ACF",
+      "Custom Post Types",
+      "Gravity Forms",
+      "Stripe",
+      "Mailchimp",
+      "Python",
+      "WCAG 2.1 AA",
+    ],
+    liveUrl: "https://candidexpressions.org/",
+    githubUrl: "",
+  },
+  {
     slug: "supply-sa-website",
     title: "Supply SA Website",
     year: 2026,
