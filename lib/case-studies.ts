@@ -1353,6 +1353,108 @@ export const cmmcDocumentationCaseStudy: CaseStudy = {
   ],
 };
 
+export const candidExpressionsCaseStudy: CaseStudy = {
+  slug: "candid-expressions",
+  title: "canDID Expressions",
+  subtitle:
+    "How a peer-led nonprofit for adults living with dissociation got a calm, predictable WordPress site its founder runs herself, with every form, payment, and old link carried over.",
+  meta: [
+    { label: "Client", value: "canDID Expressions" },
+    { label: "Sector", value: "Nonprofit / Peer Support" },
+    { label: "Platform", value: "WordPress + Divi 5" },
+    { label: "Engagement", value: "Pro Bono via Catchafire" },
+    { label: "Timeline", value: "October 2026" },
+    { label: "Status", value: "Delivered and Handed Off" },
+  ],
+  stats: [
+    {
+      value: "60",
+      label: "old addresses carried over, none broken",
+    },
+    {
+      value: "16",
+      label: "paid forms with payment settings rebuilt",
+    },
+    {
+      value: "51",
+      label: "pages passing an accessibility scan on desktop and phone",
+    },
+  ],
+  testimonial: {
+    text: "We worked with Ayanna to redesign our nonprofit's website, candidexpressions.org, and it was a wonderful experience! From our first conversation through launch, she answered emails and questions quickly, was responsive to requests for adjustment, and brought creativity and professionalism to each step. She was organized, detail-oriented, and communicated clearly, making the entire process smooth and pleasant. What really stands out is that she took the time to understand our mission and wove our philosophy into every aspect of the project. Our finished website reflects the calm, welcoming tone we envisioned. Ayanna had the perfect balance of collaborating with us, listening to our input, and independently moving the project forward. We're deeply grateful for her work and highly recommend Ayanna to anyone looking for a talented, thoughtful, and collaborative web designer!",
+    attribution: "Corrine L., Founder and Director, canDID Expressions",
+  },
+  phases: [
+    {
+      id: "org",
+      step: "01",
+      title: "The Organization",
+      paragraphs: [
+        "canDID Expressions is a peer-led 501(c)(3) where adults living with dissociative identity disorder (DID) and other forms of trauma-based dissociation connect and create. Members meet online for writing and expressive arts workshops, open mics, and one-on-one peer mentoring and writing coaching, led by people with lived experience.",
+        "It is a small, volunteer-powered team doing work very few organizations do: giving people who live with dissociation a community built by and for them.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "The old site was mostly long paragraphs, with the same information repeated in different places and no clear path from \"I just found you\" to \"I signed up.\" For this audience that is more than a usability issue. The founder's brief was one sentence: for people with a history of trauma, predictability is safety.",
+      ],
+      bullets: [
+        "Pages that read differently from one another, so visitors had to relearn the site each time",
+        "27 forms, 16 of them taking payments, that all had to keep working through the move",
+        "60 page addresses already shared in newsletters and posts",
+        "A founder who needed to run the site herself after handoff, without a web team",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "I treated calm as a requirement, not a style. Every page follows the same pattern, so visitors always know where they are. The whole picture comes first, with depth for anyone who wants it. Nothing moves unless the visitor asks it to.",
+      ],
+      bullets: [
+        "One consistent page structure across all 51 pages",
+        "Her own words kept wherever possible, reorganized so each page answers one question",
+        "Workshops, writing, prompts, and the team each managed from their own simple form",
+        "Accessibility checked page by page on desktop and on a phone",
+      ],
+    },
+    {
+      id: "system",
+      step: "04",
+      title: "The System",
+      paragraphs: [
+        "The site is a fresh WordPress build on Divi 5. A start screen with nine buttons covers the jobs the founder actually does, each with its own step-by-step guide. Workshops add themselves to the homepage and drop off the day after their last meeting, so the schedule never goes stale.",
+        "A forms export quietly leaves payment settings behind, so registrations would have said thank you without charging a card. Those settings were rebuilt on all 16 paid forms before launch, and every old address redirects to its new home.",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "Results",
+      bullets: [
+        "All 60 old addresses still land on the right page, including links in past newsletters",
+        "All 27 forms carried over, with payments rebuilt on the 16 that take money",
+        "10 how-to guides in the dashboard so the founder runs the site on her own",
+        "All 51 pages passed an accessibility scan on desktop and on a phone",
+        "The founder called the finished site the calm, welcoming tone they envisioned",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "Small nonprofits don't have a web team. A site only helps them if it keeps working after the designer leaves, and if the people it serves feel safe using it. For canDID Expressions, that meant designing for predictability first and handing over a system the founder can keep running.",
+        "If this work matters to you, learn more and support canDID Expressions at candidexpressions.org.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
@@ -1361,6 +1463,7 @@ const caseStudies: Record<string, CaseStudy> = {
   [masterColorCaseStudy.slug]: masterColorCaseStudy,
   [supplySaWebsiteCaseStudy.slug]: supplySaWebsiteCaseStudy,
   [phillyPeaceCaseStudy.slug]: phillyPeaceCaseStudy,
+  [candidExpressionsCaseStudy.slug]: candidExpressionsCaseStudy,
   [coldEmailPersonalizerCaseStudy.slug]: coldEmailPersonalizerCaseStudy,
   [proposalAutopilotCaseStudy.slug]: proposalAutopilotCaseStudy,
   [knowledgeAssistantCaseStudy.slug]: knowledgeAssistantCaseStudy,
