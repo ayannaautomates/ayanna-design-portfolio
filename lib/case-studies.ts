@@ -1134,6 +1134,113 @@ export const phillyPeaceCaseStudy: CaseStudy = {
   ],
 };
 
+export const hvaResourceCenterCaseStudy: CaseStudy = {
+  slug: "hva-resource-center",
+  title: "HVA State Representative Resource Center",
+  subtitle:
+    "How Handicapped Veterans Association got a private resource center for its three-state pilot, where five roles each see only their own documents and every file is checked before it opens.",
+  meta: [
+    { label: "Client", value: "Handicapped Veterans Association" },
+    { label: "Sector", value: "Nonprofit / Veterans" },
+    { label: "Pilot states", value: "Kentucky, North Carolina, Illinois" },
+    { label: "Engagement", value: "Pro Bono via Taproot Foundation" },
+    { label: "Timeline", value: "October 2026" },
+    { label: "Status", value: "Live in Production" },
+  ],
+  stats: [
+    {
+      value: "202",
+      label: "Automated access checks passing",
+    },
+    {
+      value: "~3 hrs",
+      label: "To build, from scratch",
+    },
+    {
+      value: "$660",
+      label: "Pro bono value (Taproot Foundation figure)",
+    },
+  ],
+  gallery: [
+    {
+      src: "/projects/hva-resource-center/state-rep-kentucky.png",
+      alt: "The HVA Resource Center signed in as a Kentucky State Representative, showing the Shared HVA Library and Kentucky tabs, state categories and Kentucky documents with Preview and Download buttons",
+      caption: "State Representative view, sample documents",
+    },
+    {
+      src: "/projects/hva-resource-center/account-manager-phone.png",
+      alt: "The HVA Resource Center on a phone, signed in as an HVA Account Manager at Lexington VA Medical Center",
+      caption: "HVA Account Manager on a phone",
+    },
+    {
+      src: "/projects/hva-resource-center/sign-in.png",
+      alt: "The HVA Resource Center sign-in page with the Veterans Crisis Line banner",
+      caption: "Private sign-in",
+    },
+  ],
+  phases: [
+    {
+      id: "org",
+      step: "01",
+      title: "The Organization",
+      paragraphs: [
+        "Handicapped Veterans Association is piloting a state program in Kentucky, North Carolina and Illinois. Each state has a State Representative and an HVA Account Manager at each VA regional hospital, and their crews table in their communities to teach people about VA suicide prevention training.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "Everyone in the pilot needs the same playbook: governance documents, outreach checklists, brand materials, event locations and state reports. There was no system for it yet, and the lines between people mattered as much as the shared material.",
+      ],
+      bullets: [
+        "People in one state must never see another state's working files",
+        "Volunteers should only see the outreach material they need",
+        "The national office has to stay in control of what is official",
+        "HVA needed a record of who opened what, for regular access reviews",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "I built it as one WordPress plugin instead of a site on HVA's server. Their team preferred not to share server or DNS access, so I developed and tested it on a local copy, recorded a walkthrough, and handed over a single file their CTO installed. The constraint turned into a cleaner handoff: nothing to migrate and no test data on their server.",
+        "Documents are stored outside the website folder and served through one route that checks the person's role, state and the document's status first. Anyone who isn't allowed gets a plain \"File not found,\" so a shared link does not even confirm the file exists.",
+      ],
+    },
+    {
+      id: "testing",
+      step: "04",
+      title: "Testing and Security",
+      paragraphs: [
+        "A test suite signs in as every role and tries to reach what it shouldn't: opening each document directly, editing the address bar to reach another state, searching for another state's files, and the usual WordPress side doors. It finished at 202 passing checks.",
+        "A security review before delivery caught a WordPress default that deletes everything a user wrote when their account is deleted. Removing a departed staff member the wrong way would have erased their documents. That is now blocked, with a test that proves it.",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "Results",
+      bullets: [
+        "202 automated checks confirm each of the five roles sees only what it should",
+        "Three pilot states, with new states added from an admin screen and no code changes",
+        "Shipped as one plugin file with a setup of about 30 minutes, with no server access needed during the build",
+        "Built from scratch in about 3 hours, valued by Taproot Foundation at $660",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "A pilot program depends on the people in the field having the right material at the right moment. The usual answer is a shared drive that fills with duplicates, where nobody can say which version is official or who has seen what. Role-based access and tests that prove it are what let a small team hand this to volunteers with confidence.",
+      ],
+    },
+  ],
+};
+
 export const cmmcDocumentationCaseStudy: CaseStudy = {
   slug: "cmmc-level-2-documentation",
   title: "CMMC Level 2 Documentation System",
@@ -1258,6 +1365,7 @@ const caseStudies: Record<string, CaseStudy> = {
   [proposalAutopilotCaseStudy.slug]: proposalAutopilotCaseStudy,
   [knowledgeAssistantCaseStudy.slug]: knowledgeAssistantCaseStudy,
   [cmmcDocumentationCaseStudy.slug]: cmmcDocumentationCaseStudy,
+  [hvaResourceCenterCaseStudy.slug]: hvaResourceCenterCaseStudy,
 };
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {

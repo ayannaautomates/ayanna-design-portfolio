@@ -126,6 +126,28 @@ export const projects: Project[] = [
     isConcept: true,
   },
   {
+    slug: "hva-resource-center",
+    title: "HVA State Representative Resource Center",
+    year: 2026,
+    category: "Web Design",
+    description:
+      "A private resource center for Handicapped Veterans Association's three-state pilot, where five roles each see only their own documents, verified by 202 automated access checks.",
+    longDescription:
+      "Handicapped Veterans Association is piloting a state program in Kentucky, North Carolina and Illinois, and everyone in it needs the same playbook without seeing another state's working files. Pro bono through Taproot Foundation, I built it from scratch in about 3 hours as a WordPress plugin: five roles, per-person state and category access, files stored outside the website and served only after a permission check, versioned documents that can be archived but never deleted, an approval flow for state submissions, and an activity log. HVA's team preferred not to share server access, so it shipped as one plugin file their CTO installed. Taproot Foundation values the work at $660.",
+    image: "/projects/hva-resource-center.png",
+    tags: [
+      "WordPress",
+      "PHP",
+      "MySQL",
+      "Custom Plugin",
+      "Role-Based Access",
+      "Python Test Suite",
+      "Taproot Foundation",
+    ],
+    liveUrl: "",
+    githubUrl: "",
+  },
+  {
     slug: "candid-expressions",
     title: "canDID Expressions",
     year: 2026,

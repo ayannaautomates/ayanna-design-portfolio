@@ -38,27 +38,6 @@ const stops: Stop[] = [
   { code: "TQO", destination: "TULUM", status: "DIVED", note: "MEXICO" },
 ];
 
-const metrics = [
-  { value: "7 to 11", label: "guided screens, down from a manual process of 30 to 40 steps" },
-  { value: "$11.5K", label: "to $12K a year of specialist capacity returned to the agency" },
-  { value: "Zero", label: "hallucinated compliance answers in production" },
-];
-
-const alsoShipped = [
-  {
-    title: "Monthly KPI dashboard",
-    body: "Tracks certification volume, officer turnaround time, and outcomes, with an automated data refresh and QA checks before it reaches leadership.",
-  },
-  {
-    title: "Monday.com CRM optimization",
-    body: "Cleaner client tracking, more accurate reporting, and clearer stakeholder communication across the agency's vendor base.",
-  },
-  {
-    title: "11-agency procurement analysis",
-    body: "Findings across 11 San Antonio public agencies, turned into a tiered action plan and five recommended training modules.",
-  },
-];
-
 const timeline = [
   {
     years: "2009 to 2019",
@@ -209,9 +188,13 @@ const certifications = [
   { name: "Claude Academy: Claude Code 101", issuer: "Anthropic", year: "2026" },
 ];
 
-const moreWork = projects.filter(
-  (p) => !p.isConcept && p.slug !== "supply-sa-vendor-assistant",
-);
+// Client work leads, with the two flagship builds first; everything else
+// keeps its order from lib/projects.ts.
+const leadSlugs = ["supply-sa-vendor-assistant", "hva-resource-center"];
+const clientWork = [
+  ...leadSlugs.flatMap((slug) => projects.filter((p) => p.slug === slug)),
+  ...projects.filter((p) => !p.isConcept && !leadSlugs.includes(p.slug)),
+];
 
 const conceptBuilds = projects.filter((p) => p.isConcept);
 
@@ -456,118 +439,43 @@ export default function OpsPage() {
               <p className="ops-eyebrow op">
                 <span className="ops-num">03</span> / Case Studies
               </p>
-              <div className="ops-beatbox">
-                <h2 className="ops-h2 ops-beatbox__head">
-                  Supply SA vendor certification assistant
-                </h2>
+              <h2 className="ops-h2 op">Work I&apos;ve shipped</h2>
 
-                <div className="ops-metrics ops-beatbox__metrics">
-                  {metrics.map((m) => (
-                    <div key={m.value} className="ops-card ops-metric">
-                      <p className="ops-metric__value">{m.value}</p>
-                      <p className="ops-metric__label">{m.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="ops-cols op">
-                <div>
-                  <h3 className="ops-label">The problem</h3>
-                  <p>
-                    Every new applicant needed a live 30 to 45 minute walkthrough with a specialist
-                    just to learn which of 40+ documents applied to them. At 10 to 15 vendors a
-                    week, that was about 34 specialist hours a month.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="ops-label">What I built</h3>
-                  <p>
-                    A production assistant on supply-sa.org. A deterministic rules engine decides
-                    which documents apply. The model only explains that result, grounded in the
-                    agency&apos;s own SOP, validation workbook, and FAQ.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="ops-label">What changed</h3>
-                  <p>
-                    Applicants get a 7 to 11 screen guided flow at any hour. Specialists get about
-                    34 hours a month back. No hallucinated compliance answers in production.
-                  </p>
-                </div>
-              </div>
-
-              <p className="ops-built op">
-                <span className="ops-label">Built with</span> Claude API · Node.js · Express ·
-                deterministic rules engine
-              </p>
-              <Link href="/projects/supply-sa-vendor-assistant" className="ops-btn ops-btn--line op">
-                Read the full case study
-              </Link>
-
-              <h3 className="ops-subhead">Also shipped at Supply SA</h3>
-              <div className="ops-grid3 ops-ragged">
-                {alsoShipped.map((a) => (
-                  <div key={a.title} className="ops-card ops-ragged__item op">
-                    <h4 className="ops-card__title">{a.title}</h4>
-                    <p className="ops-card__body">{a.body}</p>
-                  </div>
+              <h3 className="ops-subhead">Client work</h3>
+              <ul className="ops-more">
+                {clientWork.map((p) => (
+                  <li key={p.slug} className="op">
+                    <Link href={`/projects/${p.slug}`} className="ops-more__link">
+                      <span>{p.title}</span>
+                      <span className="ops-more__meta">
+                        {p.category} · {p.year}
+                      </span>
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              <h3 className="ops-subhead">WeaverKeep</h3>
-              <div className="ops-feature op">
-                <figure className="ops-shot">
-                  <picture>
-                    <source
-                      srcSet="/work/weaverkeep-sm.webp 800w, /work/weaverkeep.webp 1600w"
-                      sizes="(max-width: 860px) 92vw, 640px"
-                      type="image/webp"
-                    />
-                    <img
-                      src="/work/weaverkeep.jpg"
-                      alt="The WeaverKeep Outcomes dashboard, showing retention, exam pass rate and survey returns against accreditation thresholds"
-                      width={1600}
-                      height={910}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                  <figcaption>Outcomes view, demo data</figcaption>
-                </figure>
-
-                <div className="ops-feature__copy">
-                  <p>
-                    A product I built and run: the operating hub for surgical technology programs.
-                    It keeps outcomes reporting current per cohort, indexes the
-                    accreditation material a director actually needs, tracks clinical capacity and
-                    site asks, runs graduate and employer surveys end to end with signatures, and
-                    turns inventory into a phone count sheet a work-study student can fill in.
-                  </p>
-                  <p>
-                    I ran a surgical technology program before I built it, so the workflow is the
-                    one I used to do by hand. It is live, and it signs in with Google or
-                    Microsoft.
-                  </p>
-                  <p className="ops-built">
-                    <span className="ops-label">Built with</span> React · TypeScript · Supabase ·
-                    Cloudflare
-                  </p>
-                  <p className="ops-disclaimer">
-                    WeaverKeep is an independent product. It is not affiliated with, endorsed
-                    by, or sponsored by any accrediting body, and all third-party names and
-                    marks belong to their respective owners.
-                  </p>
+              <h3 className="ops-subhead">My product</h3>
+              <ul className="ops-more">
+                <li className="op">
                   <a
                     href="https://weaverkeep.com"
-                    className="ops-btn ops-btn--line"
+                    className="ops-more__link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Visit weaverkeep.com
+                    <span>WeaverKeep</span>
+                    <span className="ops-more__meta">
+                      Operating hub for surgical technology programs · Live
+                    </span>
                   </a>
-                </div>
-              </div>
+                </li>
+              </ul>
+              <p className="ops-disclaimer op">
+                WeaverKeep is an independent product. It is not affiliated with, endorsed by, or
+                sponsored by any accrediting body, and all third-party names and marks belong to
+                their respective owners.
+              </p>
 
               {conceptBuilds.length > 0 && (
                 <>
@@ -576,43 +484,31 @@ export default function OpsPage() {
                     Self-initiated systems, built end to end to test an approach. Not client
                     projects, and labelled that way wherever they appear.
                   </p>
-                  <div className="ops-grid2 ops-ragged">
-                    {conceptBuilds.map((c) => (
-                      <Link key={c.slug} href={`/projects/${c.slug}`} className="ops-card ops-card--link ops-ragged__item op">
-                        <h4 className="ops-card__title">{c.title}</h4>
-                        <p className="ops-card__body">{c.description}</p>
-                        <p className="ops-card__meta">{c.tags.slice(0, 4).join(" · ")}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </>
-              )}
-
-              {moreWork.length > 0 && (
-                <>
-                  <h3 className="ops-subhead">More case studies</h3>
                   <ul className="ops-more">
-                    {moreWork.map((p) => (
-                      <li key={p.slug} className="op">
-                        <Link href={`/projects/${p.slug}`} className="ops-more__link">
-                          <span>{p.title}</span>
+                    {conceptBuilds.map((c) => (
+                      <li key={c.slug} className="op">
+                        <Link href={`/projects/${c.slug}`} className="ops-more__link">
+                          <span>{c.title}</span>
                           <span className="ops-more__meta">
-                            {p.category} · {p.year}
+                            {c.tags.slice(0, 3).join(" · ")}
                           </span>
                         </Link>
                       </li>
                     ))}
-                    <li className="op">
-                      <a href={siteConfig.links.creativePortfolio} className="ops-more__link">
-                        <span>Creative Portfolio</span>
-                        <span className="ops-more__meta">
-                          Social media · Blog · Email · Web design
-                        </span>
-                      </a>
-                    </li>
                   </ul>
                 </>
               )}
+
+              <ul className="ops-more">
+                <li className="op">
+                  <a href={siteConfig.links.creativePortfolio} className="ops-more__link">
+                    <span>Creative Portfolio</span>
+                    <span className="ops-more__meta">
+                      Social media · Blog · Email · Web design
+                    </span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </section>
 
