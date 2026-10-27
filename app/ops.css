@@ -2369,3 +2369,58 @@ body:has(.ops) .consent-banner .btn-secondary {
     box-shadow: 0 0 10px rgba(127, 216, 204, 0.7);
   }
 }
+
+/* The creative portfolio sign-post ---------------------------------------- */
+
+.ops-creative {
+  display: grid;
+  gap: 0.35rem;
+  position: relative;
+  margin: 0 0 clamp(3rem, 6vw, 4.5rem);
+  padding: clamp(1.25rem, 2.4vw, 1.75rem) clamp(1.25rem, 2.4vw, 1.9rem);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--teal);
+  border-radius: 6px;
+  background: var(--panel-alt);
+  max-width: 62ch;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+}
+
+.ops-creative:hover {
+  border-color: var(--border-hi);
+  border-left-color: var(--teal-bright);
+  background: var(--panel);
+  transform: translateY(-2px);
+}
+
+.ops-creative__label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal-bright);
+}
+
+.ops-creative__body {
+  font-size: 15px;
+  color: var(--text-mid);
+}
+
+.ops-creative__cta {
+  margin-top: 0.4rem;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.ops-creative__cta::after {
+  content: " \2192";
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.ops-creative:hover .ops-creative__cta::after {
+  transform: translateX(5px);
+}

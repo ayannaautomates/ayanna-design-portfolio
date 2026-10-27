@@ -24,6 +24,12 @@ const orbit = [
   { ch: "03", label: "Case Studies", href: "#case-studies", angle: 26 },
   { ch: "04", label: "Off the Clock", href: "#off-clock", angle: 92 },
   { ch: "05", label: "LinkedIn", href: siteConfig.links.linkedin, angle: -166, external: true },
+  {
+    ch: "06",
+    label: "Creative Portfolio",
+    href: siteConfig.links.creativePortfolio,
+    angle: 136,
+  },
 ];
 
 const stops: Stop[] = [
@@ -225,6 +231,9 @@ export default function OpsPage() {
               {c.label === "Career Timeline" ? "Timeline" : c.label}
             </a>
           ))}
+          <a href={siteConfig.links.creativePortfolio} className="ops-nav__link">
+            Creative
+          </a>
           <a
             href={siteConfig.links.linkedin}
             className="ops-nav__link"
@@ -441,6 +450,14 @@ export default function OpsPage() {
               </p>
               <h2 className="ops-h2 op">Work I&apos;ve shipped</h2>
 
+              <a href={siteConfig.links.creativePortfolio} className="ops-creative op">
+                <span className="ops-creative__label">Looking for the creative portfolio?</span>
+                <span className="ops-creative__body">
+                  Social media, blog, email and web design work lives on its own page.
+                </span>
+                <span className="ops-creative__cta">Go here</span>
+              </a>
+
               <h3 className="ops-subhead">Client work</h3>
               <ul className="ops-more">
                 {clientWork.map((p) => (
@@ -499,16 +516,6 @@ export default function OpsPage() {
                 </>
               )}
 
-              <ul className="ops-more">
-                <li className="op">
-                  <a href={siteConfig.links.creativePortfolio} className="ops-more__link">
-                    <span>Creative Portfolio</span>
-                    <span className="ops-more__meta">
-                      Social media · Blog · Email · Web design
-                    </span>
-                  </a>
-                </li>
-              </ul>
             </div>
           </section>
 
