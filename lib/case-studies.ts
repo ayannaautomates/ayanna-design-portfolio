@@ -1455,6 +1455,103 @@ export const candidExpressionsCaseStudy: CaseStudy = {
   ],
 };
 
+export const casaChocolatesCaseStudy: CaseStudy = {
+  slug: "casa-chocolates",
+  title: "Casa Chocolates",
+  subtitle:
+    "How a one-person bean-to-bar chocolate shop got a website that runs on the Square account it already uses, with stock and shipping updated from a phone.",
+  meta: [
+    { label: "Client", value: "Casa Chocolates" },
+    { label: "Sector", value: "Food / Retail" },
+    { label: "Platform", value: "Custom build on Cloudflare + Square" },
+    { label: "Engagement", value: "Website and online store" },
+    { label: "Timeline", value: "October 2026" },
+    { label: "Status", value: "Live" },
+  ],
+  stats: [
+    {
+      value: "16",
+      label: "bars priced and stocked live from Square",
+    },
+    {
+      value: "20",
+      label: "old store addresses redirected, none broken",
+    },
+    {
+      value: "0",
+      label: "accessibility issues on desktop and phone",
+    },
+  ],
+  phases: [
+    {
+      id: "business",
+      step: "01",
+      title: "The Business",
+      paragraphs: [
+        "Casa Chocolates is a veteran-owned, bean-to-bar chocolate shop in San Antonio. Derik Swee started it in a home kitchen in 2014, and today he takes every bar from raw cacao to finished wrapper in his shop on West Bitters Road. Each bar uses cacao from one country, plus one Signature Blend of Vietnam and Ecuador.",
+        "Fewer than 300 shops in the U.S. make chocolate from the bean. Casa is the only one in San Antonio.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "Derik makes and sells everything himself. A new website could not add to his week.",
+      ],
+      bullets: [
+        "Chocolate melts, so online shipping has to stop in the summer and start again in the fall",
+        "He sells at the register all day, so online stock has to follow what happens in the shop",
+        "Wholesale requests needed to reach his inbox, and newsletter sign-ups his Square customer list",
+        "His domain also runs his Microsoft 365 email, which could not go down during the move",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "I built three design directions from his own photos and wrapper art, and Derik picked one. From there he sent changes by pinning comments right on the pages, and each comment became a ticket I worked through.",
+      ],
+      bullets: [
+        "His own logo lettering, with ink drawings in the style of his wrappers",
+        "A legend that separates tasting notes, which come from the bean, from real add-ins",
+        "A tasting flight builder for people who don't know where to start",
+        "Allergen notes on every nut bar",
+      ],
+    },
+    {
+      id: "system",
+      step: "04",
+      title: "The System",
+      paragraphs: [
+        "The site is a hand-coded static build on Cloudflare, connected to Square. Prices and stock load live from his catalog. Checkout hands the basket to Square, which adds sales tax and takes payment, so every order lands in the dashboard he already uses.",
+        "A private page on his phone, behind a PIN, lets him add a new batch or recount the shelf, and Square updates right away. The same page switches online shipping on or off and sets his flat rate. Wholesale requests go to his inbox, newsletter sign-ups go into Square, and his wholesale prices stay out of the public product feed.",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "Results",
+      bullets: [
+        "16 bars priced and stocked live from Square, with checkout tested end to end, sales tax included",
+        "A phone page for stock and shipping, so he never logs in to a website dashboard",
+        "0 accessibility issues across every page, on desktop and on a phone",
+        "All 20 old store addresses redirect to the new site",
+        "21 domain records moved to new hosting with his email running the whole time",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "A small maker's website should take work off his plate. Casa's runs on the tools Derik already uses and knows when a bar is gone, so he can keep making chocolate.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
@@ -1464,6 +1561,7 @@ const caseStudies: Record<string, CaseStudy> = {
   [supplySaWebsiteCaseStudy.slug]: supplySaWebsiteCaseStudy,
   [phillyPeaceCaseStudy.slug]: phillyPeaceCaseStudy,
   [candidExpressionsCaseStudy.slug]: candidExpressionsCaseStudy,
+  [casaChocolatesCaseStudy.slug]: casaChocolatesCaseStudy,
   [coldEmailPersonalizerCaseStudy.slug]: coldEmailPersonalizerCaseStudy,
   [proposalAutopilotCaseStudy.slug]: proposalAutopilotCaseStudy,
   [knowledgeAssistantCaseStudy.slug]: knowledgeAssistantCaseStudy,

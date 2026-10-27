@@ -126,6 +126,30 @@ export const projects: Project[] = [
     isConcept: true,
   },
   {
+    slug: "casa-chocolates",
+    title: "Casa Chocolates",
+    year: 2026,
+    category: "Web Design",
+    description:
+      "A bean-to-bar chocolate shop's website wired to Square: live prices and stock, Square checkout, and a phone page for stock and shipping.",
+    longDescription:
+      "Casa Chocolates is a veteran-owned bean-to-bar chocolate shop in San Antonio. Derik Swee makes and sells every bar himself, so the new site runs on the Square account he already uses. Prices and stock load live from his catalog, and checkout hands off to Square for payment and sales tax. A private phone page lets him add a new batch, recount the shelf, or switch shipping off for the summer heat. The domain moved to Cloudflare with his Microsoft 365 email untouched, every old store link redirects, and every page passed an accessibility scan on desktop and phone.",
+    image: "/projects/casa-chocolates.png",
+    tags: [
+      "HTML",
+      "CSS",
+      "Vanilla JS",
+      "Cloudflare Workers",
+      "Workers KV",
+      "Square API",
+      "FormSubmit",
+      "WCAG 2.1 AA",
+      "Schema.org",
+    ],
+    liveUrl: "https://casachocolates.com/",
+    githubUrl: "",
+  },
+  {
     slug: "hva-resource-center",
     title: "HVA State Representative Resource Center",
     year: 2026,
