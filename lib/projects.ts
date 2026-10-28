@@ -126,6 +126,29 @@ export const projects: Project[] = [
     isConcept: true,
   },
   {
+    slug: "reading-with-mrs-richardson",
+    title: "Reading With Mrs. Richardson",
+    year: 2026,
+    category: "Web Design",
+    description:
+      "A pro bono, custom-coded site for a Memphis literacy nonprofit, built on Wix Headless so the founder still edits the whole site from her Wix dashboard.",
+    longDescription:
+      "Reading With Mrs. Richardson is a Memphis literacy nonprofit that helps students in grades 5 to 8 become strong readers through small-group lessons, new books by diverse authors, and the history of their own city. The old Wix site packed tutoring, two programs, a workbook, and dozens of partner logos onto a few long pages. The new site is custom code in Astro on Wix Headless, so each program has its own page while the content stays in Wix. Every word and photo is a row the founder can edit, events and partners are lists she updates herself, and past events leave the homepage on their own. All 20 blog posts came across, old links forward to their new addresses, and ten pages passed a WCAG 2.1 AA scan on desktop and phone with no violations.",
+    image: "/projects/reading-with-mrs-richardson.png",
+    tags: [
+      "Astro",
+      "Wix Headless",
+      "Wix CMS",
+      "Wix Blog",
+      "Wix Forms",
+      "Wix Automations",
+      "WCAG 2.1 AA",
+      "Schema.org",
+    ],
+    liveUrl: "https://www.readingwithmrsrichardson.org/",
+    githubUrl: "",
+  },
+  {
     slug: "casa-chocolates",
     title: "Casa Chocolates",
     year: 2026,
