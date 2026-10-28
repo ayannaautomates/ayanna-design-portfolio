@@ -102,6 +102,15 @@
   .skills-art { position:relative; }
   .skills-art::before { content:""; position:absolute; inset:6% 8% 0; border-radius:50%; background:var(--orange); }
   .skills-art img { position:relative; width:100%; }
+  /* The photo is cropped flat on the left, right, and bottom (chairs, table, decor).
+     Fade those edges into the teal. The mask sits on the whole stack, circle and
+     photo together, so the orange fades with the people instead of showing
+     through them. Two masks, intersected: one for the sides, one for the bottom. */
+  .skills-art {
+    -webkit-mask-image:linear-gradient(to right, transparent, #000 10%, #000 90%, transparent), linear-gradient(to bottom, #000 84%, transparent);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right, transparent, #000 10%, #000 90%, transparent), linear-gradient(to bottom, #000 84%, transparent);
+    mask-composite:intersect; }
 
   /* Blog */
   .role { display:flex; flex-wrap:wrap; gap:var(--s1) var(--s3); align-items:baseline; margin-bottom:var(--s5); }
