@@ -1362,7 +1362,7 @@ export const candidExpressionsCaseStudy: CaseStudy = {
     { label: "Client", value: "canDID Expressions" },
     { label: "Sector", value: "Nonprofit / Peer Support" },
     { label: "Platform", value: "WordPress + Divi 5" },
-    { label: "Engagement", value: "Pro Bono via Catchafire" },
+    { label: "Engagement", value: "Pro Bono via Taproot Foundation" },
     { label: "Timeline", value: "October 2026" },
     { label: "Status", value: "Delivered and Handed Off" },
   ],
