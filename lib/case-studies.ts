@@ -1552,6 +1552,109 @@ export const casaChocolatesCaseStudy: CaseStudy = {
   ],
 };
 
+export const readingWithMrsRichardsonCaseStudy: CaseStudy = {
+  slug: "reading-with-mrs-richardson",
+  title: "Reading With Mrs. Richardson",
+  subtitle:
+    "How a Memphis literacy nonprofit got a custom-coded website that its founder still runs from the Wix dashboard she already knew.",
+  meta: [
+    { label: "Client", value: "Reading With Mrs. Richardson" },
+    { label: "Sector", value: "Nonprofit / Literacy" },
+    { label: "Platform", value: "Astro on Wix Headless" },
+    { label: "Engagement", value: "Pro Bono via Taproot Foundation" },
+    { label: "Timeline", value: "October 2026" },
+    { label: "Status", value: "Delivered and Handed Off" },
+  ],
+  stats: [
+    {
+      value: "0",
+      label: "accessibility violations on desktop and phone",
+    },
+    {
+      value: "20",
+      label: "blog posts carried over, old links forwarding",
+    },
+    {
+      value: "1",
+      label: "Wix dashboard where she edits the whole site",
+    },
+  ],
+  testimonial: {
+    text: "I cannot say enough wonderful things about Ayanna! She completely transformed the website for my nonprofit organization, Reading With Mrs. Richardson, and I was genuinely blown away by the final result! From the beginning, Ayanna understood exactly what I envisioned and brought it to life even better than I imagined. What truly set her apart was that she didn't simply complete the project. She went above and beyond by offering thoughtful recommendations, identifying opportunities for improvement, and sharing valuable insights on how to make our website more effective, engaging, and user-friendly. Her creativity, professionalism, attention to detail, and genuine investment in the success of our project were evident throughout the entire process. She listened, understood our mission, and created a website that beautifully represents who we are and the communities we serve. Ayanna didn't just build us a website. She helped elevate our organization's online presence!",
+    attribution:
+      "Carla Fields-Richardson, Founder, Reading With Mrs. Richardson",
+  },
+  phases: [
+    {
+      id: "org",
+      step: "01",
+      title: "The Organization",
+      paragraphs: [
+        "Reading With Mrs. Richardson is a Memphis literacy nonprofit founded by Carla Fields-Richardson, a journalist turned English teacher. It helps students in grades 5 to 8 become strong readers through small-group lessons, new books by diverse authors, and the history of their own city.",
+        "Knowledge Keepers brings literacy instruction into schools. Rooted Readers puts free, new books into kids' hands. Memphis Made is her own workbook, built on Memphis history, and the organization also runs tutoring and Little Free Libraries around the county.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "The old Wix site packed everything onto a few long pages. Her Impact page alone carried the schools, both programs, and dozens of partner logos in long blocks of small text, so a parent, a principal, and a sponsor all had to dig for their part.",
+      ],
+      bullets: [
+        "Each program needed its own page and its own way in",
+        "Her blog and forms lived in Wix, along with her domain and email, and had to stay there",
+        "Old page and blog links were already shared and could not break",
+        "A founder with no web team needed to keep everything current herself",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "Leaving Wix would have dragged her blog and forms along with it. Instead I kept Wix as the back end and built the front end in code, so the site could look custom while Carla kept the dashboard she already used.",
+      ],
+      bullets: [
+        "A homepage that says what she does and who it is for, with her numbers up front",
+        "Knowledge Keepers and Rooted Readers side by side, switchable without leaving the page",
+        "Her own words and photos kept, reorganized so each page answers one question",
+        "Accessibility checked page by page on desktop and on a phone",
+      ],
+    },
+    {
+      id: "system",
+      step: "04",
+      title: "The System",
+      paragraphs: [
+        "The site is built in Astro on Wix Headless and hosted by Wix. Every word and photo on the site is a row in the Wix CMS that Carla can edit. Events, partners, Little Free Libraries, board members, and impact numbers are each their own list, and one change to an impact number updates the homepage, Our Story, and the footer together. Past events leave the homepage on their own.",
+        "Blog posts are still written in the Wix blog editor and styled to match the rest of the site, with photos and YouTube videos carried over. The three Get Involved forms land in Wix with an email alert for each. She received a guidebook for the jobs she does most and a ready-to-post social launch package.",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "Results",
+      bullets: [
+        "0 WCAG 2.1 AA violations across ten pages, on desktop and on a phone",
+        "All 20 blog posts carried over, with old post links forwarding to their new addresses",
+        "Old page addresses like Tutoring and Merchandise forward to their new homes",
+        "Every word and photo editable from the Wix dashboard, with no code",
+        "In her review, the founder said the finished site came out even better than she imagined",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "Small nonprofits usually have to choose between a template they can run and a custom site they can't. Wix Headless let Reading With Mrs. Richardson have both, so Carla can spend her time on students instead of on her website.",
+        "Learn more and support the work at readingwithmrsrichardson.org.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
@@ -1562,6 +1665,7 @@ const caseStudies: Record<string, CaseStudy> = {
   [phillyPeaceCaseStudy.slug]: phillyPeaceCaseStudy,
   [candidExpressionsCaseStudy.slug]: candidExpressionsCaseStudy,
   [casaChocolatesCaseStudy.slug]: casaChocolatesCaseStudy,
+  [readingWithMrsRichardsonCaseStudy.slug]: readingWithMrsRichardsonCaseStudy,
   [coldEmailPersonalizerCaseStudy.slug]: coldEmailPersonalizerCaseStudy,
   [proposalAutopilotCaseStudy.slug]: proposalAutopilotCaseStudy,
   [knowledgeAssistantCaseStudy.slug]: knowledgeAssistantCaseStudy,
