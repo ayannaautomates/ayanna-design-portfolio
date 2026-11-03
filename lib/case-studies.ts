@@ -1664,7 +1664,6 @@ export const empowerNorthEndCaseStudy: CaseStudy = {
     { label: "Client", value: "Empower North End" },
     { label: "Sector", value: "Nonprofit, Community Programs" },
     { label: "Team Size", value: "5" },
-    { label: "Platform", value: "Monday.com" },
     { label: "Engagement", value: "Pro Bono via Catchafire" },
     { label: "Timeline", value: "October to November 2026" },
     { label: "Status", value: "Built in Sandbox, Awaiting Rollout" },
