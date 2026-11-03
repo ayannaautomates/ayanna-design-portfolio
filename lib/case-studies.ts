@@ -1655,6 +1655,103 @@ export const readingWithMrsRichardsonCaseStudy: CaseStudy = {
   ],
 };
 
+export const aiForGirlsEnterpriseCaseStudy: CaseStudy = {
+  slug: "ai-for-girls-enterprise",
+  title: "AI for Girls Enterprise",
+  subtitle:
+    "How a nonprofit that teaches girls AI and business got a custom-coded site its founder runs from her own Wix dashboard, without losing a single link.",
+  meta: [
+    { label: "Client", value: "AI for Girls Enterprise" },
+    { label: "Sector", value: "Nonprofit / Education" },
+    { label: "Platform", value: "Astro on Wix Headless" },
+    { label: "Engagement", value: "Pro Bono" },
+    { label: "Timeline", value: "October to November 2026" },
+    { label: "Status", value: "Delivered and Handed Off" },
+  ],
+  stats: [
+    {
+      value: "823",
+      label: "pieces of copy the founder edits herself",
+    },
+    {
+      value: "18",
+      label: "days from first design directions to launch",
+    },
+    {
+      value: "0",
+      label: "old links broken at launch",
+    },
+  ],
+  phases: [
+    {
+      id: "org",
+      step: "01",
+      title: "The Organization",
+      paragraphs: [
+        "AI for Girls Enterprise teaches girls AI and business, from kindergarten through college. Founder Mia Nixon runs workshops for high school and college students, a $1,000 annual scholarship for a graduating college woman in business or tech, and a Junior program for grades K-8 built around her children's book, The Balance of Brushes and Bytes.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "The old Wix site had fallen behind the work. Two pages in the main menu, About and Events, returned errors. The only events listed were from summer 2024, and the donate page named one payment platform while its button went to another.",
+      ],
+      bullets: [
+        "Community sign-up ran through a LinkedIn group, which requires members to be 16 or older, so the youngest girls could not join",
+        "High school and college women and parents of younger girls all landed on the same page",
+        "Mia had to keep running the site herself in Wix, with no developer on call",
+        "Her Premium plan, domain, contacts and form history had to stay exactly where they were",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "Three design directions went up as a live preview on day one. Mia picked a sponsor-first look for the main site and a storybook world for a separate Junior section. Every round of changes happened on that fast preview first, then the approved pages moved onto Wix and were checked against it at desktop and phone width.",
+      ],
+      bullets: [
+        "A homepage for high school and college women, and a Junior section for grades K-8 with its own look",
+        "Events split by grade, so a student picks high school or college and sees only her workshops",
+        "Sign-ups that go through a parent or teacher email, never to kids directly",
+        "Her forms left alone: her plan allowed four and she had four, so every new form files into her existing Contact Form with a subject naming where it came from",
+      ],
+    },
+    {
+      id: "system",
+      step: "04",
+      title: "The System",
+      paragraphs: [
+        "The site is built in Astro on Wix Headless and was moved onto Mia's own Wix site through Wix's Headless Migration, so the domain switched with no DNS work. Every headline, paragraph, button, link and photo is a row in the Wix CMS, 823 in all, menu and footer included. While her text matches the approved copy, the page keeps its formatting. Once she rewrites a line, her version wins. Workshops and a Featured On slideshow are lists she fills in, and each stays hidden until it has an entry.",
+        "A Junior printables shop reads her Wix Stores digital products and appears on its own when she adds the first one. Every form post is checked for same-site origin, size and rate. The launch had one surprise: a forgotten rule in her old Wix redirect manager sent the new Scholarship page to a 2024 page. I traced it, backed up all eight old rules, removed the one causing it, and pointed the others at real pages.",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "Results",
+      bullets: [
+        "823 editable rows across 11 pages, with her edits live in about a minute",
+        "18 days from first design directions to launch",
+        "Every old address from her sitemaps forwards to the right new page",
+        "0 WCAG 2.2 AA violations on desktop and phone",
+        "Same Premium plan, same domain, same forms and submission history",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "A nonprofit site has to keep working after the designer leaves. Building on Wix Headless gave AI for Girls Enterprise a custom site and kept every word of it in Mia's hands.",
+        "Learn more and support the work at aiforgirlsenterprise.org.",
+      ],
+    },
+  ],
+};
+
 export const empowerNorthEndCaseStudy: CaseStudy = {
   slug: "empower-north-end",
   title: "Empower North End CRM",
@@ -1768,6 +1865,7 @@ export const empowerNorthEndCaseStudy: CaseStudy = {
 
 const caseStudies: Record<string, CaseStudy> = {
   [empowerNorthEndCaseStudy.slug]: empowerNorthEndCaseStudy,
+  [aiForGirlsEnterpriseCaseStudy.slug]: aiForGirlsEnterpriseCaseStudy,
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
   [marigoldMediumCaseStudy.slug]: marigoldMediumCaseStudy,
