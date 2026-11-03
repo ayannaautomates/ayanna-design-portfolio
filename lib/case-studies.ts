@@ -1655,7 +1655,142 @@ export const readingWithMrsRichardsonCaseStudy: CaseStudy = {
   ],
 };
 
+export const empowerNorthEndCaseStudy: CaseStudy = {
+  slug: "empower-north-end",
+  title: "Empower North End CRM",
+  subtitle:
+    "How a multi-program nonprofit's Monday.com account went from a board for every program to one record per person, with 17 bilingual forms that file themselves and donor numbers that count only the people who showed up.",
+  meta: [
+    { label: "Client", value: "Empower North End" },
+    { label: "Sector", value: "Nonprofit, Community Programs" },
+    { label: "Platform", value: "Monday.com" },
+    { label: "Engagement", value: "Pro Bono via Catchafire" },
+    { label: "Timeline", value: "October to November 2026" },
+    { label: "Status", value: "Built in Sandbox, Awaiting Rollout" },
+  ],
+  stats: [
+    {
+      value: "~80 → 17",
+      label: "Forms consolidated into bilingual versions",
+    },
+    {
+      value: "10 forms",
+      label: "Link each submission to its contact by email",
+    },
+    {
+      value: "28 slides",
+      label: "Staff walkthrough, built from the sandbox",
+    },
+  ],
+  gallery: [
+    {
+      src: "/projects/empower-north-end/person-timeline.png",
+      alt: "Person Timeline view on the Interactions board showing one sample participant's nine touchpoints across Kitchens, Small Business and financial education from 2025 to 2026",
+      caption: "One person's full history",
+    },
+    {
+      src: "/projects/empower-north-end/forms-directory.png",
+      alt: "Forms Directory board listing 17 forms with their link, status, language, who fills them out, where answers land and owner",
+      caption: "Forms Directory",
+    },
+    {
+      src: "/projects/empower-north-end/bilingual-form.png",
+      alt: "Save, Match, Grow application form with the title, description and first question in English and Spanish",
+      caption: "Bilingual forms",
+    },
+    {
+      src: "/projects/empower-north-end/contact-autolink.png",
+      alt: "Monday.com automation that connects each new form submission to the Contacts row with the same email",
+      caption: "Auto-link to Contacts",
+    },
+    {
+      src: "/projects/empower-north-end/kitchen-tracker.png",
+      alt: "Kitchen Tracker board with Leads, Active Members and Inactive Members groups and status columns for license, LLC, EIN and insurance",
+      caption: "Kitchen Tracker",
+    },
+    {
+      src: "/projects/empower-north-end/impact-dashboard.png",
+      alt: "Impact Dashboard with sample totals for people, touchpoints and hours and a chart of touchpoints by program",
+      caption: "Impact Dashboard",
+    },
+  ],
+  phases: [
+    {
+      id: "org",
+      step: "01",
+      title: "The Organization",
+      paragraphs: [
+        "Empower North End runs a lot of programs under one roof: a savings and financial education program, commercial kitchens for food entrepreneurs, small business coaching, workforce readiness, education, and volunteer events. Their forms run in English and Spanish, and people often come through more than one program.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "Every program had grown its own boards and forms in Monday.com, so the account mirrored the org chart instead of the people. Someone who took a financial class, rented kitchen time and later formed an LLC showed up on separate boards with no shared history, and answering a funder's question meant pulling from several boards.",
+      ],
+      bullets: [
+        "About 80 forms, many duplicated as separate English and Spanish versions",
+        "The same person copied across program boards, with no single history",
+        "No clean way to count attendees separately from sign-ups for donor reports",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "I set it up like a doctor's office. Every person gets one chart, and every visit, class, call or milestone adds a dated line to it. Programs stop owning people and start adding to their history.",
+        "All of it was built in a separate sandbox workspace with made-up people, so staff could click through and break things without touching the live account. Nothing on the real boards changes until the director signs off.",
+      ],
+    },
+    {
+      id: "system",
+      step: "04",
+      title: "What I Built",
+      bullets: [
+        "A shared core: Contacts with one row per person, an Interactions log of every touchpoint, Organizations, and a Donors & Funders board with gift history and next steps",
+        "17 forms with every question in English and Spanish, filed in their own folder under a Forms Directory that lists each link, owner and where its answers land",
+        "An automation on 10 of those forms that links each submission to the right contact by email",
+        "Event boards where only rows marked Attended create a touchpoint, so no-shows never count as people served",
+        "Kitchen and small business trackers that log an LLC, EIN or license as a milestone the moment it changes to Yes",
+        "A Person Timeline view, an Impact Dashboard, four duplicate-me templates, and a 28-slide walkthrough for staff",
+        "No form asks for bank details, Social Security or tax ID numbers, door codes or photo IDs",
+      ],
+    },
+    {
+      id: "testing",
+      step: "05",
+      title: "Testing",
+      paragraphs: [
+        "Every automation was tested with throwaway rows before handoff. That caught one that logged EIN milestones with a blank outcome, which would have kept them out of the donor counts. It was fixed, tested again, and the test rows were deleted.",
+      ],
+    },
+    {
+      id: "results",
+      step: "06",
+      title: "Results",
+      bullets: [
+        "About 80 forms down to 17, each in both languages",
+        "Any person's full history in one search instead of five boards",
+        "Attendance and milestones log themselves, so staff enter something once",
+        "A sandbox and walkthrough ready for staff review and a phased move-in, starting with Contacts",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "07",
+      title: "Why This Matters",
+      paragraphs: [
+        "Nonprofits usually have the data funders ask for. It's scattered across boards built one program at a time. Organizing around people instead of programs means the count of who was served, and what changed for them, comes from the work staff already do.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
+  [empowerNorthEndCaseStudy.slug]: empowerNorthEndCaseStudy,
   [supplySaCaseStudy.slug]: supplySaCaseStudy,
   [rentalOpsCaseStudy.slug]: rentalOpsCaseStudy,
   [marigoldMediumCaseStudy.slug]: marigoldMediumCaseStudy,

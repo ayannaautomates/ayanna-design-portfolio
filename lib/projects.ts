@@ -261,6 +261,28 @@ export const projects: Project[] = [
     githubUrl: "",
   },
   {
+    slug: "empower-north-end",
+    title: "Empower North End CRM",
+    year: 2026,
+    category: "Pro Bono",
+    description:
+      "A pro bono Monday.com CRM rebuilt around one record per person, with about 80 forms cut to 17 bilingual ones that link each submission to the right contact.",
+    longDescription:
+      "Empower North End runs financial education, commercial kitchens, small business coaching, workforce readiness and volunteer programs, and each one had grown its own boards and forms in Monday.com. The same person could live on five boards with no shared history. Through Catchafire, the CRM was rebuilt in a sandbox around one Contacts record per person and one Interactions log of every touchpoint. About 80 forms became 17 bilingual English and Spanish forms that link each submission to the right contact by email, and automations log attendance and business milestones so donor numbers count only people who actually showed up.",
+    image: "/projects/empower-north-end.png",
+    tags: [
+      "Monday.com",
+      "monday WorkForms",
+      "monday Automations",
+      "Dashboards",
+      "CRM Design",
+      "Bilingual EN/ES",
+      "Catchafire",
+    ],
+    liveUrl: "",
+    githubUrl: "",
+  },
+  {
     slug: "master-color-salon",
     title: "Master Color Beauty Salon",
     year: 2026,
