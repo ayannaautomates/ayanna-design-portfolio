@@ -1663,6 +1663,7 @@ export const empowerNorthEndCaseStudy: CaseStudy = {
   meta: [
     { label: "Client", value: "Empower North End" },
     { label: "Sector", value: "Nonprofit, Community Programs" },
+    { label: "Team Size", value: "5" },
     { label: "Platform", value: "Monday.com" },
     { label: "Engagement", value: "Pro Bono via Catchafire" },
     { label: "Timeline", value: "October to November 2026" },
@@ -1674,44 +1675,19 @@ export const empowerNorthEndCaseStudy: CaseStudy = {
       label: "Forms consolidated into bilingual versions",
     },
     {
-      value: "10 forms",
-      label: "Link each submission to its contact by email",
+      value: "5 hrs",
+      label: "Volunteered start to finish",
     },
     {
-      value: "28 slides",
-      label: "Staff walkthrough, built from the sandbox",
+      value: "$1,747",
+      label: "Estimated value to the org (Catchafire estimate)",
     },
   ],
   gallery: [
     {
-      src: "/projects/empower-north-end/person-timeline.png",
-      alt: "Person Timeline view on the Interactions board showing one sample participant's nine touchpoints across Kitchens, Small Business and financial education from 2025 to 2026",
-      caption: "One person's full history",
-    },
-    {
-      src: "/projects/empower-north-end/forms-directory.png",
-      alt: "Forms Directory board listing 17 forms with their link, status, language, who fills them out, where answers land and owner",
-      caption: "Forms Directory",
-    },
-    {
       src: "/projects/empower-north-end/bilingual-form.png",
       alt: "Save, Match, Grow application form with the title, description and first question in English and Spanish",
       caption: "Bilingual forms",
-    },
-    {
-      src: "/projects/empower-north-end/contact-autolink.png",
-      alt: "Monday.com automation that connects each new form submission to the Contacts row with the same email",
-      caption: "Auto-link to Contacts",
-    },
-    {
-      src: "/projects/empower-north-end/kitchen-tracker.png",
-      alt: "Kitchen Tracker board with Leads, Active Members and Inactive Members groups and status columns for license, LLC, EIN and insurance",
-      caption: "Kitchen Tracker",
-    },
-    {
-      src: "/projects/empower-north-end/impact-dashboard.png",
-      alt: "Impact Dashboard with sample totals for people, touchpoints and hours and a chart of touchpoints by program",
-      caption: "Impact Dashboard",
     },
   ],
   phases: [
@@ -1776,6 +1752,7 @@ export const empowerNorthEndCaseStudy: CaseStudy = {
         "Any person's full history in one search instead of five boards",
         "Attendance and milestones log themselves, so staff enter something once",
         "A sandbox and walkthrough ready for staff review and a phased move-in, starting with Contacts",
+        "Delivered in 5 volunteer hours, an estimated $1,747 the org keeps for programs",
       ],
     },
     {
@@ -1783,6 +1760,7 @@ export const empowerNorthEndCaseStudy: CaseStudy = {
       step: "07",
       title: "Why This Matters",
       paragraphs: [
+        "In their own words on Catchafire, Empower said the project matters because it helps them tell the story of impact to their donors, and that the time saved goes back into planning programs, growing their numbers, and raising enough to hire beyond a team of five.",
         "Nonprofits usually have the data funders ask for. It's scattered across boards built one program at a time. Organizing around people instead of programs means the count of who was served, and what changed for them, comes from the work staff already do.",
       ],
     },

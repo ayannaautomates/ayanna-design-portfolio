@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Empower North End CRM: 17 bilingual forms feed one Contacts record per person, every touchpoint is logged on Interactions, and donor reports count only the people who attended">
+  <defs>
+    <pattern id="en-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#7DF9FF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <marker id="en-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7DF9FF" fill-opacity="0.65"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#0A0E14"/>
+  <rect width="1600" height="1000" fill="url(#en-grid)"/>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace">
+
+    <text x="100" y="336" fill="#7DF9FF" font-size="19" letter-spacing="6">[ EMPOWER NORTH END CRM ]</text>
+    <text x="100" y="392" fill="#EEF2F6" font-size="40" letter-spacing="2">ONE RECORD PER PERSON</text>
+    <text x="100" y="432" fill="#8B93A3" font-size="20">Every form, class and milestone adds to the same person's history.</text>
+    <line x1="100" y1="458" x2="1500" y2="458" stroke="#7DF9FF" stroke-opacity="0.28" stroke-width="1"/>
+
+    <g>
+      <rect x="100" y="496" width="290" height="140" fill="#111822" stroke="#9D4EFF" stroke-opacity="0.6"/>
+      <text x="118" y="526" fill="#9D4EFF" font-size="14" letter-spacing="3">01</text>
+      <text x="118" y="562" fill="#EEF2F6" font-size="19">FORMS</text>
+      <text x="118" y="590" fill="#8B93A3" font-size="15">17 bilingual,</text>
+      <text x="118" y="613" fill="#9D4EFF" font-size="15">down from ~80</text>
+
+      <rect x="470" y="496" width="290" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="488" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">02</text>
+      <text x="488" y="562" fill="#EEF2F6" font-size="19">CONTACTS</text>
+      <text x="488" y="590" fill="#8B93A3" font-size="15">one row per person,</text>
+      <text x="488" y="613" fill="#8B93A3" font-size="15">linked by email</text>
+
+      <rect x="840" y="496" width="290" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.45"/>
+      <text x="858" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">03</text>
+      <text x="858" y="562" fill="#EEF2F6" font-size="19">INTERACTIONS</text>
+      <text x="858" y="590" fill="#8B93A3" font-size="15">every visit, class</text>
+      <text x="858" y="613" fill="#8B93A3" font-size="15">and milestone</text>
+
+      <rect x="1210" y="496" width="290" height="140" fill="#111822" stroke="#7DF9FF" stroke-opacity="0.8"/>
+      <text x="1228" y="526" fill="#7DF9FF" font-size="14" letter-spacing="3">04</text>
+      <text x="1228" y="562" fill="#EEF2F6" font-size="19">DONOR REPORTS</text>
+      <text x="1228" y="590" fill="#8B93A3" font-size="15">counts attendees,</text>
+      <text x="1228" y="613" fill="#7DF9FF" font-size="15">never no-shows</text>
+
+      <line x1="394" y1="566" x2="464" y2="566" stroke="#7DF9FF" stroke-opacity="0.65" stroke-width="2" marker-end="url(#en-arrow)"/>
+      <line x1="764" y1="566" x2="834" y2="566" stroke="#7DF9FF" stroke-opacity="0.65" stroke-width="2" marker-end="url(#en-arrow)"/>
+      <line x1="1134" y1="566" x2="1204" y2="566" stroke="#7DF9FF" stroke-opacity="0.65" stroke-width="2" marker-end="url(#en-arrow)"/>
+    </g>
+
+    <text x="100" y="700" fill="#8B93A3" font-size="15" letter-spacing="3">MONDAY.COM  //  ENGLISH + ESPAÑOL  //  PRO BONO VIA CATCHAFIRE</text>
+  </g>
+</svg>
