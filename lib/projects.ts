@@ -126,6 +126,28 @@ export const projects: Project[] = [
     isConcept: true,
   },
   {
+    slug: "ai-for-girls-enterprise",
+    title: "AI for Girls Enterprise",
+    year: 2026,
+    category: "Web Design",
+    description:
+      "A pro bono Wix Headless rebuild for a nonprofit that teaches girls AI and business, with 823 pieces of copy the founder edits herself.",
+    longDescription:
+      "AI for Girls Enterprise teaches girls AI and business, from kindergarten through college, and runs a $1,000 annual scholarship. Its old Wix site had two menu links that went nowhere and a community sign-up younger girls could not join. The new site is custom code in Astro on Wix Headless, migrated onto the founder's own Wix site so her plan, domain, contacts and form history stayed put. Every headline, paragraph, button, link and photo is a row she edits in the Wix CMS, workshops and press mentions are lists she updates herself, and a printables shop turns itself on when she adds her first product. Every old address forwards to the right new page, and the pages passed WCAG 2.2 AA scans on desktop and phone with no violations. First design directions to launch took 18 days.",
+    image: "/projects/ai-for-girls-enterprise.png",
+    tags: [
+      "Astro",
+      "Wix Headless",
+      "Wix CMS",
+      "Wix Forms",
+      "Wix Stores",
+      "WCAG 2.2 AA",
+      "Schema.org",
+    ],
+    liveUrl: "https://www.aiforgirlsenterprise.org/",
+    githubUrl: "",
+  },
+  {
     slug: "reading-with-mrs-richardson",
     title: "Reading With Mrs. Richardson",
     year: 2026,
