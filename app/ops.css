@@ -91,58 +91,129 @@ html.ops-has-remote .ops summary {
 
 .ops-remote__body {
   position: absolute;
-  top: -6px;
-  left: -5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  width: 20px;
-  height: 34px;
-  padding-top: 5px;
-  border-radius: 6px;
-  border: 1px solid rgba(178, 191, 189, 0.55);
-  background: linear-gradient(180deg, #23292a 0%, #14191a 100%);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55);
-  transform: rotate(-16deg);
-  transform-origin: 6px 6px;
-  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  /* the IR tip sits on the pointer */
+  top: -1px;
+  left: -12px;
+  display: block;
+  width: 24px;
+  height: 64px;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.6));
+  transform: rotate(-22deg);
+  transform-origin: 12px 1px;
+  transition: transform 0.22s ease, filter 0.22s ease;
+}
+
+.ops-remote__svg {
+  display: block;
+  overflow: visible;
+}
+
+.ops-remote__shell {
+  stroke: rgba(178, 191, 189, 0.45);
+  stroke-width: 0.8;
+  transition: stroke 0.22s ease;
+}
+
+.ops-remote__ir {
+  fill: #3a1418;
+  transition: fill 0.12s ease;
+}
+
+.ops-remote__led {
+  fill: #2c3433;
+  transition: fill 0.22s ease, filter 0.22s ease;
 }
 
 .ops-remote__power {
-  width: 6px;
-  height: 6px;
+  fill: #c2453b;
+  stroke: #7a2620;
+  stroke-width: 0.6;
+}
+
+.ops-remote__dpad {
+  fill: #2a3132;
+  stroke: #3c4747;
+  stroke-width: 0.8;
+}
+
+.ops-remote__arrows {
+  fill: #8e9a98;
+}
+
+.ops-remote__ok {
+  fill: #3a4545;
+  stroke: #556362;
+  stroke-width: 0.6;
+  transition: fill 0.22s ease;
+}
+
+.ops-remote__rocker,
+.ops-remote__mute {
+  fill: #2a3132;
+  stroke: #3c4747;
+  stroke-width: 0.6;
+}
+
+.ops-remote__marks {
+  fill: none;
+  stroke: #8e9a98;
+  stroke-width: 0.6;
+  stroke-linecap: round;
+}
+
+.ops-remote__keys rect {
+  fill: #323b3b;
+}
+
+/* the IR flash that fires out of the tip on click */
+.ops-remote__beam {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
   border-radius: 50%;
-  background: #3c4544;
-  transition: background 0.22s ease, box-shadow 0.22s ease;
+  background: radial-gradient(circle, rgba(234, 255, 251, 0.95) 0%, rgba(127, 216, 204, 0.55) 40%, rgba(127, 216, 204, 0) 70%);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
-.ops-remote__pad {
-  width: 9px;
-  height: 2px;
-  border-radius: 1px;
-  background: #2e3635;
-}
-
-/* over anything clickable the remote squares up and the button lights */
+/* over anything clickable the remote aims up and the LED lights */
 .ops-remote.is-live .ops-remote__body {
-  transform: rotate(-6deg) scale(1.08);
-  border-color: rgba(127, 216, 204, 0.75);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6), 0 0 14px rgba(85, 175, 166, 0.35);
+  transform: rotate(-10deg) scale(1.06);
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 8px rgba(85, 175, 166, 0.35));
 }
 
-.ops-remote.is-live .ops-remote__power {
-  background: var(--teal-bright, #7fd8cc);
-  box-shadow: 0 0 10px rgba(127, 216, 204, 0.9);
+.ops-remote.is-live .ops-remote__shell {
+  stroke: rgba(127, 216, 204, 0.75);
+}
+
+.ops-remote.is-live .ops-remote__led {
+  fill: var(--teal-bright, #7fd8cc);
+  filter: drop-shadow(0 0 2px rgba(127, 216, 204, 0.9));
+}
+
+.ops-remote.is-live .ops-remote__ok {
+  fill: #4e7c77;
 }
 
 .ops-remote.is-pressed .ops-remote__body {
-  transform: rotate(-6deg) scale(0.94);
+  transform: rotate(-10deg) scale(0.95);
 }
 
-.ops-remote.is-pressed .ops-remote__power {
-  background: #eafffb;
-  box-shadow: 0 0 16px rgba(234, 255, 251, 0.95);
+.ops-remote.is-pressed .ops-remote__ir {
+  fill: #ff6b5e;
+}
+
+.ops-remote.is-pressed .ops-remote__ok {
+  fill: var(--teal-bright, #7fd8cc);
+}
+
+.ops-remote.is-pressed .ops-remote__beam {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Labels ---------------------------------------------------------------- */
