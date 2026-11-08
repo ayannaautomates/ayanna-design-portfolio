@@ -1863,7 +1863,107 @@ export const empowerNorthEndCaseStudy: CaseStudy = {
   ],
 };
 
+export const weHaulItAllCaseStudy: CaseStudy = {
+  slug: "we-haul-it-all",
+  title: "We Haul It All",
+  subtitle:
+    "How a veteran-owned hauling company with 57 five-star Google reviews and no working website got a brand new, delivery-first site that sends every quote request to the owner's inbox.",
+  meta: [
+    { label: "Client", value: "We Haul It All LLC" },
+    { label: "Sector", value: "Transportation / Hauling" },
+    { label: "Location", value: "Tampa Bay, FL" },
+    { label: "Platform", value: "Hand-coded on Cloudflare Workers" },
+    { label: "Timeline", value: "October to November 2026" },
+    { label: "Status", value: "Live in Production" },
+  ],
+  stats: [
+    {
+      value: "13 days",
+      label: "from intake to launch",
+    },
+    {
+      value: "0",
+      label: "accessibility violations on every page",
+    },
+    {
+      value: "0",
+      label: "tracking scripts or cookies",
+    },
+  ],
+  phases: [
+    {
+      id: "business",
+      step: "01",
+      title: "The Business",
+      paragraphs: [
+        "We Haul It All is a veteran-owned company in Tampa Bay, run by Cameron Hall. It moves equipment, materials and deliveries for homes and businesses, local and long distance, and also handles relocation and junk removal.",
+        "Customers had already given it 5.0 stars across 57 Google reviews. What it did not have was a website.",
+      ],
+    },
+    {
+      id: "problem",
+      step: "02",
+      title: "The Problem",
+      paragraphs: [
+        "There was nothing to redesign. The reviews were doing the selling, but someone who read them and went looking for the business hit a dead end.",
+      ],
+      bullets: [
+        "The old domain pointed at nothing, so there was no site at all",
+        "The phone number on his Google profile was out of service",
+        "People found him for junk removal, while he wanted to grow delivery and hauling",
+        "One owner running jobs all day, with no time to manage a website",
+      ],
+    },
+    {
+      id: "approach",
+      step: "03",
+      title: "The Approach",
+      paragraphs: [
+        "Cameron got three real homepages he could click through on his own phone, with an honest trade-off under each. He picked one, and the full site grew from that choice.",
+      ],
+      bullets: [
+        "A homepage that opens on a truck crossing a bridge at night, moving only when the visitor scrolls",
+        "Services laid out as six lanes, including courier and medical supply runs, with relocation and junk removal on their own pages",
+        "Five customer reviews quoted word for word, and claims he had not confirmed kept off the site",
+        "Veteran-owned shown as a single dog tag hanging on a chain",
+        "His own logo cleaned up and packaged with dark-background versions, a favicon set and usage rules",
+      ],
+    },
+    {
+      id: "system",
+      step: "04",
+      title: "The System",
+      paragraphs: [
+        "The site is hand-coded HTML, CSS and plain JavaScript, with no framework and no page builder. It runs on a Cloudflare Worker on the owner's own account, next to his domain.",
+        "Quote requests are emailed to him through Resend from a business address on his domain, and mail sent to that address forwards to his inbox, so his personal email never appears on the site. Every response carries a strict content security policy and five more security headers. There were no job photos to work from, so the imagery is art-directed AI photography.",
+      ],
+    },
+    {
+      id: "results",
+      step: "05",
+      title: "Results",
+      bullets: [
+        "Live 13 days after the intake brief, on November 5, 2026",
+        "Zero violations in an automated WCAG 2.1 A and AA scan of every page",
+        "Quote requests reach the owner's inbox, confirmed with a delivered test lead",
+        "Domain verified in Google Search Console, with all three main pages in the sitemap",
+        "No trackers and no cookies",
+      ],
+    },
+    {
+      id: "why-it-matters",
+      step: "06",
+      title: "Why This Matters",
+      paragraphs: [
+        "A small service business earns its reputation on the job. Reviews do the selling, but only if the person reading them can find the business, see what it does and ask for a quote without hunting for it.",
+        "Everything here lives in the owner's own accounts, from the domain and hosting to the email, so the site keeps working whether or not anyone logs in.",
+      ],
+    },
+  ],
+};
+
 const caseStudies: Record<string, CaseStudy> = {
+  [weHaulItAllCaseStudy.slug]: weHaulItAllCaseStudy,
   [empowerNorthEndCaseStudy.slug]: empowerNorthEndCaseStudy,
   [aiForGirlsEnterpriseCaseStudy.slug]: aiForGirlsEnterpriseCaseStudy,
   [supplySaCaseStudy.slug]: supplySaCaseStudy,

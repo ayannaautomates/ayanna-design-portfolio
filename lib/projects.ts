@@ -126,6 +126,29 @@ export const projects: Project[] = [
     isConcept: true,
   },
   {
+    slug: "we-haul-it-all",
+    title: "We Haul It All",
+    year: 2026,
+    category: "Web Design",
+    description:
+      "A brand new site for a veteran-owned delivery and hauling company in Tampa Bay that had 57 five-star Google reviews and no working website.",
+    longDescription:
+      "We Haul It All is a veteran-owned company in Tampa Bay, run by Cameron Hall, that moves equipment, materials and deliveries for homes and businesses and also handles relocation and junk removal. Its old domain pointed at nothing, so the reviews led nowhere. The new site was built from scratch in 13 days, starting from three clickable homepage directions Cameron chose between on his own phone. It leads with delivery: a truck crosses a bridge as you scroll, and services are laid out as six lanes, including courier and medical supply runs. Five customer reviews are quoted word for word, and veteran-owned shows up as a single dog tag on a chain. The site is hand-coded and runs on a Cloudflare Worker on the owner's own account. Quote requests are emailed to him through Resend from a business address on his domain, and every page passed an automated WCAG 2.1 A and AA scan with zero violations.",
+    image: "/projects/we-haul-it-all.png",
+    tags: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Cloudflare Workers",
+      "Resend",
+      "Email Routing",
+      "Search Console",
+      "WCAG 2.1 AA",
+    ],
+    liveUrl: "https://wehaulitall-usa.com/",
+    githubUrl: "",
+  },
+  {
     slug: "ai-for-girls-enterprise",
     title: "AI for Girls Enterprise",
     year: 2026,
